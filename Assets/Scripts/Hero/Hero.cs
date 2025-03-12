@@ -2,35 +2,30 @@
 public class Hero : MonoBehaviour
 {
     [SerializeField] private float speed;
-    private float _direction;
+    private Vector2 _vDirection;
     
-    public void SetDirection(float dir)
+    public void SetDirection(Vector2 dir)
     {
-        _direction = dir;
+        _vDirection = dir.sqrMagnitude > 1 ? dir.normalized : dir;
     }
     
     public void Update()
     {
-        if (_direction != 0)
+        if (_vDirection != Vector2.zero)
         {
-            HorizontalMovement();
+            MovementInAllDirections();
         }
     }
-    
-    private void HorizontalMovement() // для горизонтального перемещения 
+
+    private void MovementInAllDirections()
     {
-        // Time.deltaTime - возвращает нам время последнего кадра, 
-        // Time.deltaTime добавлен в расчет delta для расчёта плавного передвижения игрока,
-        // Фрейм может быть не ровным, в зависимости от загрузки процессора рассчитывается время кадра,
-        // время кадра может быть всегда разным
-        
-        float delta = _direction * speed * Time.deltaTime; // смещение объекта - delta
-        float newXpos = transform.position.x + delta;
-        transform.position = new Vector3(newXpos, transform.position.y, transform.position.z);
+        Vector2 delta = _vDirection.normalized * (speed * Time.deltaTime);
+        Vector2 newPos = new Vector2(transform.position.x + delta.x, transform.position.y + delta.y);
+        transform.position = new Vector3(newPos.x, newPos.y, transform.position.z);
     }
     
-    public void Fire()
+    public void Hit()
     {
-        Debug.Log("Fire");
+        Debug.Log("Hit");
     }
 }
