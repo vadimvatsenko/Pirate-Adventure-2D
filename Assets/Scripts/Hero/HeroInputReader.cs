@@ -9,12 +9,12 @@ public class HeroInputReader : MonoBehaviour
     // Название должно совпадать с тем, что настроено в системе с приставкой On
     private void OnMovement(InputValue context) 
     {
-        Vector2 direction = context.Get<Vector2>();
+        float direction = context.Get<float>();
         hero.SetDirection(direction);
     }
 
     private void OnJump(InputValue context)
     {
-        hero.Jump();
+        hero.HandleJump();
     }
 }
