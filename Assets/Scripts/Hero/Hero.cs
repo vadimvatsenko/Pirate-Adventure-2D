@@ -21,7 +21,7 @@ public class Hero : MonoBehaviour
     private int _facingDirection = 1;
     #endregion
     
-    private float _vDirection;
+    private float _xInput;
     private Rigidbody2D _rb;
 
     private void Awake()
@@ -30,7 +30,7 @@ public class Hero : MonoBehaviour
     }
     public void SetDirection(float dir)
     {
-        _vDirection = dir;
+        _xInput = dir;
     }
     
     private void FixedUpdate()
@@ -42,15 +42,25 @@ public class Hero : MonoBehaviour
 
     private void HandleMovement()
     {
-        _rb.velocity = new Vector2(_vDirection * speed, _rb.velocity.y);
+        _rb.velocity = new Vector2(_xInput * speed, _rb.velocity.y);
     }
 
-    public void HandleJump()
+    public void HandleJump(bool isPressed)
     {
-      if(_isGrounded) 
-          _rb.AddForce(new Vector2(_rb.velocity.x, jumpForce), ForceMode2D.Impulse);
+        if (isPressed)
+        {
+            if (_isGrounded)
+            {
+                _rb.AddForce(new Vector2(_rb.velocity.x, jumpForce), ForceMode2D.Impulse);
+            }
+        }
+        
+        else if (!isPressed && _rb.velocity.y > 0) // уменьшаем прыжок, если кнопка не нажата.
+        {
+            _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0.5f);
+        }
     }
-    
+
     private void HandleFlip()
     {
         if (_rb.velocity.x < 0 && _isFacingRight || _rb.velocity.x > 0 && !_isFacingRight)

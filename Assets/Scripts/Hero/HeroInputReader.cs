@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Vector2 = System.Numerics.Vector2;
 
 public class HeroInputReader : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class HeroInputReader : MonoBehaviour
 
     private void OnJump(InputValue context)
     {
-        hero.HandleJump();
+        // Передаем значение нажата ли кнопка, вызов происходит много раз. Так как значение у кнопки Value Axis
+        hero.HandleJump(context.isPressed); 
     }
 }

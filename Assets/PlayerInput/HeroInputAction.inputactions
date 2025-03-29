@@ -15,9 +15,9 @@
                 },
                 {
                     "name": "Jump",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "a07d756b-1777-4556-a49b-7ba4f7ba7a77",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": ""
                 }
@@ -93,7 +93,7 @@
                     "name": "",
                     "id": "656b1f95-63a4-458f-a33f-2d162ef716f3",
                     "path": "<Keyboard>/space",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
