@@ -86,6 +86,11 @@ public class Hero : MonoBehaviour
             whatIsGround );
     }
 
+    public void Die()
+    {
+        Destroy(gameObject);
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = _isGrounded ? Color.green : Color.red;
