@@ -2,30 +2,27 @@
 public class Hero : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private float jumpForce;
     private Vector2 _vDirection;
-    
+    private Rigidbody2D _rb;
+
+    private void Awake()
+    {
+        _rb = GetComponent<Rigidbody2D>();
+    }
     public void SetDirection(Vector2 dir)
     {
-        _vDirection = dir.sqrMagnitude > 1 ? dir.normalized : dir;
+        _vDirection = dir;
     }
     
-    public void Update()
+    private void FixedUpdate()
     {
-        if (_vDirection != Vector2.zero)
-        {
-            MovementInAllDirections();
-        }
-    }
-
-    private void MovementInAllDirections()
-    {
-        Vector2 delta = _vDirection.normalized * (speed * Time.deltaTime);
-        Vector2 newPos = new Vector2(transform.position.x + delta.x, transform.position.y + delta.y);
-        transform.position = new Vector3(newPos.x, newPos.y, transform.position.z);
+        _rb.velocity = new Vector2(_vDirection.x * speed, _vDirection.y);
     }
     
-    public void Hit()
+    public void Jump()
     {
-        Debug.Log("Hit");
+        Debug.Log("Jump");
+        _rb.AddForce(new Vector2(_rb.velocity.x, jumpForce), ForceMode2D.Impulse);
     }
 }

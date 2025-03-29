@@ -13,8 +13,8 @@ public class HeroInputReader : MonoBehaviour
         hero.SetDirection(direction);
     }
 
-    private void OnHit(InputValue context)
+    private void OnJump(InputValue context)
     {
-        hero.Hit();
+        hero.Jump();
     }
 }
