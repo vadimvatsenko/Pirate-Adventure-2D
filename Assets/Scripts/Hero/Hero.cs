@@ -55,7 +55,7 @@ public class Hero : MonoBehaviour
             }
         }
         
-        else if (!isPressed && _rb.velocity.y > 0) // уменьшаем прыжок, если кнопка не нажата.
+        else if (_rb.velocity.y > 0) // уменьшаем прыжок, если кнопка не нажата.
         {
             _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0.5f);
         }
@@ -85,12 +85,7 @@ public class Hero : MonoBehaviour
             0, 
             whatIsGround );
     }
-
-    public void Die()
-    {
-        Destroy(gameObject);
-    }
-
+    
     private void OnDrawGizmos()
     {
         Gizmos.color = _isGrounded ? Color.green : Color.red;

@@ -1,12 +1,18 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Barrel : MonoBehaviour
 {
-    public void Destroy()
+    // Start is called before the first frame update
+    void Start()
     {
-        Destroy(gameObject);
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }
