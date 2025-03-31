@@ -6,11 +6,12 @@ namespace Items.Coins
     {
         [SerializeField] private CoinType coinType;
         [SerializeField] private int coinCost;
+        [SerializeField] private GameObject coinDestroyVfx;
         private CoinsController _coinsController;
 
         private void Awake()
         {
-            _coinsController = FindObjectOfType<CoinsController>();
+            _coinsController = FindObjectOfType<EnterPoint>().CoinsController;
         }
         
         private void Collect()
@@ -26,6 +27,8 @@ namespace Items.Coins
             if (hero != null)
             {
                 Collect();
+                
+                GameObject vfx = Instantiate(coinDestroyVfx, transform.position, Quaternion.identity);
             }
         }
     }

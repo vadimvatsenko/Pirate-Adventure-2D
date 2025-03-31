@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1740054481
-  m_SortingLayer: 5
+  m_SortingLayerID: -569109427
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 6582046967323461550, guid: 134a6caeb5fb82b49b316942b36b5110,
     type: 3}
@@ -99,6 +99,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinType: 1
   coinCost: 10
+  coinDestroyVfx: {fileID: 2696711230962389321, guid: e58c08906f7ffe14aa7710386e28533e,
+    type: 3}
 --- !u!58 &1580832653289815921
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -125,7 +127,7 @@ Animator:
   m_GameObject: {fileID: 1580832653289815925}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: e8a0aa0daf305e748a3e326c70f76fcf, type: 2}
+  m_Controller: {fileID: 9100000, guid: b847e2fcacd0d4e4087a0d0627b54ceb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

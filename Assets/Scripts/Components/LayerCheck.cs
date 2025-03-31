@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 // далее в Hero получаем скрипт, и на основе IsTouchingLayer можем прыгать или нет
+// старый, не используется сейчас, компонент Ground отключен в Hero на сцене в иерархии
 public class LayerCheck : MonoBehaviour
 {
     [SerializeField] private LayerMask groundLayer;

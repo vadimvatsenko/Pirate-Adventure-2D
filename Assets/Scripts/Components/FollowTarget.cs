@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+// старый скрипт слежения за игроком
 public class FollowTarget : MonoBehaviour
 {
     [SerializeField] private Transform target;

@@ -14,7 +14,7 @@ public class DeadZone : MonoBehaviour
 
         if (hero || barrel)
         {
-            enterPoint.ReloadLevelComponent.ReloadLevel();
+            enterPoint.ReloadLevelController.ReloadLevel();
             
             // onDead?.Invoke(); вызов события
         }

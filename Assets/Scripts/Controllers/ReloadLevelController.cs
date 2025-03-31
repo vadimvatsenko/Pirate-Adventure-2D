@@ -1,6 +1,6 @@
 ﻿using UnityEngine.SceneManagement;
 
-public class ReloadLevelComponent
+public class ReloadLevelController
 {
     public void ReloadLevel()
     {
