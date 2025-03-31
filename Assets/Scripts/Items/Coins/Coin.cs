@@ -6,7 +6,18 @@ namespace Items.Coins
     {
         [SerializeField] private CoinType coinType;
         [SerializeField] private int coinCost;
-        [SerializeField] private CoinsController coinsController;
+        private CoinsController _coinsController;
+
+        private void Awake()
+        {
+            _coinsController = FindObjectOfType<CoinsController>();
+        }
+        
+        private void Collect()
+        {
+            _coinsController.AddCoins(coinCost);
+            Destroy(gameObject);
+        }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -14,8 +25,7 @@ namespace Items.Coins
             
             if (hero != null)
             {
-                coinsController.AddCoins(coinCost);
-                Destroy(gameObject);
+                Collect();
             }
         }
     }

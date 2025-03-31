@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 4836922892684076294}
   - component: {fileID: 5090249901678711956}
   - component: {fileID: 1404361314}
-  m_Layer: 0
+  - component: {fileID: 1233274420870271600}
+  m_Layer: 10
   m_Name: Silver_Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,4 +115,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinType: 0
   coinCost: 1
-  coinsController: {fileID: 0}
+--- !u!95 &1233274420870271600
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592184955047880234}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9629c6622c5992940acc2ca96a044b40, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

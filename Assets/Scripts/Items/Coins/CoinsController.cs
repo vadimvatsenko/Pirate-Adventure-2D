@@ -6,12 +6,12 @@ public class CoinsController : MonoBehaviour
 {
     [SerializeField] private EnterPoint enterPoint;
     private int _coinsScore = 0;
-
+    
     private void Start()
     {
         DisplayCoins();
     }
-
+    
     public void AddCoins(int cost)
     {
         _coinsScore += cost;

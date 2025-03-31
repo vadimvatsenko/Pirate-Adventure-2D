@@ -23,10 +23,12 @@ public class Hero : MonoBehaviour
     
     private float _xInput;
     private Rigidbody2D _rb;
+    private Animator _animator;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponentInChildren<Animator>();
     }
     public void SetDirection(float dir)
     {
@@ -38,6 +40,7 @@ public class Hero : MonoBehaviour
         HandleMovement();
         HandleCollisions();
         HandleFlip();
+        HandleAnimation();
     }
 
     private void HandleMovement()
@@ -61,6 +64,15 @@ public class Hero : MonoBehaviour
         }
     }
 
+    public void HandleAnimation()
+    {
+        Vector3 velocityNormalized = _rb.velocity.normalized;
+        _animator.SetFloat("xVelocity", velocityNormalized.x);
+        _animator.SetFloat("yVelocity", velocityNormalized.y);
+        _animator.SetBool("isGrounded", _isGrounded);
+    }
+
+    #region Flip
     private void HandleFlip()
     {
         if (_rb.velocity.x < 0 && _isFacingRight || _rb.velocity.x > 0 && !_isFacingRight)
@@ -74,7 +86,7 @@ public class Hero : MonoBehaviour
         _facingDirection *= -1;
         transform.Rotate(0f, 180f, 0f);
     }
-
+    #endregion
     
     private void HandleCollisions()
     {

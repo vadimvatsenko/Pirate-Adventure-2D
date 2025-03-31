@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 1580832653289815927}
   - component: {fileID: 1580832653289815926}
   - component: {fileID: 1580832653289815921}
-  m_Layer: 0
+  - component: {fileID: 3163781}
+  m_Layer: 10
   m_Name: Golden_Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +99,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinType: 1
   coinCost: 10
-  coinsController: {fileID: 0}
 --- !u!58 &1580832653289815921
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -115,3 +115,22 @@ CircleCollider2D:
   m_Offset: {x: 0.018234968, y: 0.011604071}
   serializedVersion: 2
   m_Radius: 0.15716743
+--- !u!95 &3163781
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580832653289815925}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: e8a0aa0daf305e748a3e326c70f76fcf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
