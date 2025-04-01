@@ -39,6 +39,7 @@ namespace Components
                 {
                     _isPlaying = false;
                     onComplete?.Invoke();
+                    return;
                 }
             }
 
