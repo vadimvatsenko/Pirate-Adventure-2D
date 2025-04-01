@@ -2,6 +2,13 @@
 using UnityEngine;
 public class Hero : MonoBehaviour
 {
+    #region Static Fields
+    // что тут происходит, перевод string в hash
+    private static readonly int XVelocityKey = Animator.StringToHash("xVelocity");
+    private static readonly int YVelocityKey = Animator.StringToHash("yVelocity");
+    private static readonly int IsGroundedKey = Animator.StringToHash("isGrounded");
+    #endregion
+    
     [Header("Movement")]
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
@@ -67,9 +74,9 @@ public class Hero : MonoBehaviour
     public void HandleAnimation()
     {
         Vector3 velocityNormalized = _rb.velocity.normalized;
-        _animator.SetFloat("xVelocity", velocityNormalized.x);
-        _animator.SetFloat("yVelocity", velocityNormalized.y);
-        _animator.SetBool("isGrounded", _isGrounded);
+        _animator.SetFloat(XVelocityKey, velocityNormalized.x);
+        _animator.SetFloat(YVelocityKey, velocityNormalized.y);
+        _animator.SetBool(IsGroundedKey, _isGrounded);
     }
 
     #region Flip
