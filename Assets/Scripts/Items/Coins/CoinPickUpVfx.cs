@@ -4,7 +4,11 @@ namespace Items.Coins
 {
     public class CoinPickUpVfx : MonoBehaviour
     {
-        public void DestroyVfx() => Destroy(this.gameObject);
+        public void DestroyVfx()
+        {
+            Debug.Log("Destroying VFX");
+            Destroy(gameObject);
+        }
     }
 }
 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4836922892684076294}
   - component: {fileID: 5090249901678711956}
   - component: {fileID: 1404361314}
-  - component: {fileID: 1233274420870271600}
+  - component: {fileID: 1780041691}
   m_Layer: 10
   m_Name: Silver_Coin
   m_TagString: Untagged
@@ -117,22 +117,25 @@ MonoBehaviour:
   coinCost: 1
   coinDestroyVfx: {fileID: 2696711230962389321, guid: e58c08906f7ffe14aa7710386e28533e,
     type: 3}
---- !u!95 &1233274420870271600
-Animator:
-  serializedVersion: 3
+--- !u!114 &1780041691
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1592184955047880234}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9629c6622c5992940acc2ca96a044b40, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7870f375d98f7824aaa59c1b0ab12164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frameRate: 10
+  loop: 1
+  sprites:
+  - {fileID: -2322180950842035098, guid: 134a6caeb5fb82b49b316942b36b5110, type: 3}
+  - {fileID: -4893972260818282012, guid: 134a6caeb5fb82b49b316942b36b5110, type: 3}
+  - {fileID: -6323751108524238166, guid: 134a6caeb5fb82b49b316942b36b5110, type: 3}
+  - {fileID: 2722280177590742205, guid: 134a6caeb5fb82b49b316942b36b5110, type: 3}
+  onComplete:
+    m_PersistentCalls:
+      m_Calls: []

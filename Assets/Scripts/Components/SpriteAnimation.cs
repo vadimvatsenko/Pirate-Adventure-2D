@@ -10,13 +10,13 @@ namespace Components
         [SerializeField] private bool loop;
         [SerializeField] private Sprite[] sprites;
         [SerializeField] private UnityEvent onComplete;
-    
+
         private SpriteRenderer _spriteRenderer;
         private float _secondPerFrame;
         private int _currentSpriteIndex;
         private float _nextFrameTime;
-    
-        private bool _isPlaying;
+
+        private bool _isPlaying = true;
 
         private void Start()
         {
@@ -27,11 +27,8 @@ namespace Components
 
         private void Update()
         {
-        
-            if(!_isPlaying || _nextFrameTime > Time.time) return;
+            if (!_isPlaying || _nextFrameTime > Time.time) return;
 
-            Debug.Log("Update");
-        
             if (_currentSpriteIndex >= sprites.Length)
             {
                 if (loop)
@@ -44,10 +41,11 @@ namespace Components
                     onComplete?.Invoke();
                 }
             }
+
             _spriteRenderer.sprite = sprites[_currentSpriteIndex];
             _nextFrameTime += _secondPerFrame;
             _currentSpriteIndex++;
+
         }
     }
 }
-

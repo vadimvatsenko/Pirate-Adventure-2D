@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2696711230962389333}
   - component: {fileID: 2696711230962389332}
-  - component: {fileID: 2696711230962389323}
   - component: {fileID: 2696711230962389322}
+  - component: {fileID: 1777234297}
   m_Layer: 10
   m_Name: CoinPickUpVfx
   m_TagString: Untagged
@@ -84,25 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &2696711230962389323
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2696711230962389321}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9aef3219bec654543a2ae99721c48a9b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &2696711230962389322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,3 +96,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd291faff761f2347b7c3a8433e67438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1777234297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2696711230962389321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7870f375d98f7824aaa59c1b0ab12164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frameRate: 10
+  loop: 0
+  sprites:
+  - {fileID: -4986890610287934012, guid: 134a6caeb5fb82b49b316942b36b5110, type: 3}
+  - {fileID: 6143208460787649835, guid: 134a6caeb5fb82b49b316942b36b5110, type: 3}
+  - {fileID: 7609282858266732271, guid: 134a6caeb5fb82b49b316942b36b5110, type: 3}
+  - {fileID: -6288512792030432889, guid: 134a6caeb5fb82b49b316942b36b5110, type: 3}
+  onComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2696711230962389322}
+        m_MethodName: DestroyVfx
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
