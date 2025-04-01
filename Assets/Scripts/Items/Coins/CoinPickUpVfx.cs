@@ -6,7 +6,6 @@ namespace Items.Coins
     {
         public void DestroyVfx()
         {
-            Debug.Log("Destroying VFX");
             Destroy(gameObject);
         }
     }

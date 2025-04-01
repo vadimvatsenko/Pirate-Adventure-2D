@@ -15,11 +15,16 @@ namespace Items
             Hero hero = collision.GetComponent<Hero>();
             Barrel barrel = collision.GetComponent<Barrel>();
 
-            if (hero || barrel)
+            if (hero)
             {
                 enterPoint.ReloadLevelController.ReloadLevel();
             
                 // onDead?.Invoke(); вызов события
+            }
+
+            if (barrel)
+            {
+                barrel.GetComponent<Barrel>().Destroy();
             }
         }
     }
