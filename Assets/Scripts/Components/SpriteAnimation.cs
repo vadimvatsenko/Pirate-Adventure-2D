@@ -27,6 +27,7 @@ namespace Components
 
         private void Update()
         {
+            // Если ещё не пришло время смены кадра (_nextFrameTime > Time.time), тоже выходим.
             if (!_isPlaying || _nextFrameTime > Time.time) return;
 
             if (_currentSpriteIndex >= sprites.Length)

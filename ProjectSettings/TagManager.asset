@@ -53,12 +53,12 @@ TagManager:
   - name: Enemy
     uniqueID: 1144281321
     locked: 0
-  - name: Item
-    uniqueID: 2554912815
-    locked: 0
   - name: Coins
     uniqueID: 3725857869
     locked: 0
   - name: Player
     uniqueID: 3253025957
+    locked: 0
+  - name: Item
+    uniqueID: 2554912815
     locked: 0
