@@ -31,6 +31,5 @@ namespace Components
             IsTouchingLayer = _collider2D.IsTouchingLayers(groundLayer);
         }
     }
-
 }
 
