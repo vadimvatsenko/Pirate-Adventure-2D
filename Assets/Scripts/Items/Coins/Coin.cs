@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Controllers;
+using Player;
+using UnityEngine;
 
 namespace Items.Coins
 {

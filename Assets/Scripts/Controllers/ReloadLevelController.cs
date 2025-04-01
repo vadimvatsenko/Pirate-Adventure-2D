@@ -1,9 +1,13 @@
 ﻿using UnityEngine.SceneManagement;
 
-public class ReloadLevelController
+namespace Controllers
 {
-    public void ReloadLevel()
+    public class ReloadLevelController
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        public void ReloadLevel()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }
+

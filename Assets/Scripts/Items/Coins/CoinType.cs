@@ -1,7 +1,9 @@
-﻿
-using UnityEngine;
-public enum CoinType 
+﻿namespace Items.Coins
 {
-   Silver,
-   Golden,
+    public enum CoinType 
+    {
+        Silver,
+        Golden,
+    }
 }
+

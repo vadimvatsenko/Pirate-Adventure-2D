@@ -1,6 +1,8 @@
-﻿using System;
-using UnityEngine;
-public class Hero : MonoBehaviour
+﻿using UnityEngine;
+
+namespace Player
+{
+    public class Hero : MonoBehaviour
 {
     #region Static Fields
     // что тут происходит, перевод string в hash
@@ -110,4 +112,6 @@ public class Hero : MonoBehaviour
         Gizmos.color = _isGrounded ? Color.green : Color.red;
         Gizmos.DrawSphere(transform.position + groundCheckDistance, groundCheckRadius);
     }
+}
+
 }

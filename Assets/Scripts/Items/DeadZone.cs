@@ -1,22 +1,27 @@
-﻿using UnityEngine;
-using UnityEngine.Events;
+﻿using Controllers;
+using Player;
+using UnityEngine;
 
-public class DeadZone : MonoBehaviour
+namespace Items
 {
-    // можно также создать событие и вызвать его в триггере
-    // [SerializeField] private UnityEvent onDead;
-
-    [SerializeField] private EnterPoint enterPoint;
-    private void OnTriggerEnter2D(Collider2D collision)
+    public class DeadZone : MonoBehaviour
     {
-        Hero hero = collision.GetComponent<Hero>();
-        Barrel barrel = collision.GetComponent<Barrel>();
+        // можно также создать событие и вызвать его в триггере
+        // [SerializeField] private UnityEvent onDead;
 
-        if (hero || barrel)
+        [SerializeField] private EnterPoint enterPoint;
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            enterPoint.ReloadLevelController.ReloadLevel();
+            Hero hero = collision.GetComponent<Hero>();
+            Barrel barrel = collision.GetComponent<Barrel>();
+
+            if (hero || barrel)
+            {
+                enterPoint.ReloadLevelController.ReloadLevel();
             
-            // onDead?.Invoke(); вызов события
+                // onDead?.Invoke(); вызов события
+            }
         }
     }
 }
+

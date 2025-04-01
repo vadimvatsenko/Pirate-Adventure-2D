@@ -1,23 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using View;
 
-public class EnterPoint : MonoBehaviour
+namespace Controllers
 {
-    private ReloadLevelController _reloadLevelController;
-    private CoinsController _coinsController;
-    private ConsoleView _consoleView;
-    public ReloadLevelController ReloadLevelController => _reloadLevelController;
-    public CoinsController CoinsController => _coinsController;
-    public ConsoleView ConsoleView => _consoleView;
-    private void Awake()
+    public class EnterPoint : MonoBehaviour
     {
-        // контроллеры
-        _reloadLevelController = new ReloadLevelController();
-        _consoleView = new ConsoleView();
-        _coinsController = new CoinsController(_reloadLevelController, _consoleView);
+        private ReloadLevelController _reloadLevelController;
+        private CoinsController _coinsController;
+        private ConsoleView _consoleView;
+        public ReloadLevelController ReloadLevelController => _reloadLevelController;
+        public CoinsController CoinsController => _coinsController;
+        public ConsoleView ConsoleView => _consoleView;
+        private void Awake()
+        {
+            // контроллеры
+            _reloadLevelController = new ReloadLevelController();
+            _consoleView = new ConsoleView();
+            _coinsController = new CoinsController(_reloadLevelController, _consoleView);
         
-        //вид
+            //вид
+        }
     }
 }
+

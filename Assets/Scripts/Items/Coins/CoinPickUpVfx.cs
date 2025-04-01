@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinPickUpVfx : MonoBehaviour
+namespace Items.Coins
 {
-    public void DestroyVfx() => Destroy(this.gameObject);
+    public class CoinPickUpVfx : MonoBehaviour
+    {
+        public void DestroyVfx() => Destroy(this.gameObject);
+    }
 }
+
