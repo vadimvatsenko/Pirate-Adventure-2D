@@ -1,5 +1,5 @@
 ﻿using Controllers;
-using Player;
+using PlayerFolder;
 using UnityEngine;
 
 namespace Items.Coins
@@ -24,7 +24,7 @@ namespace Items.Coins
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            Hero hero = collision.GetComponent<Hero>();
+            Player hero = collision.GetComponent<Player>();
             
             if (hero != null)
             {

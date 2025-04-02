@@ -1,5 +1,5 @@
 ﻿using Controllers;
-using Player;
+using PlayerFolder;
 using UnityEngine;
 
 namespace Items
@@ -12,10 +12,10 @@ namespace Items
         [SerializeField] private EnterPoint enterPoint;
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            Hero hero = collision.GetComponent<Hero>();
+            Player player = collision.GetComponent<Player>();
             Barrel barrel = collision.GetComponent<Barrel>();
 
-            if (hero)
+            if (player)
             {
                 enterPoint.ReloadLevelController.ReloadLevel();
             
