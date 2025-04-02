@@ -18,7 +18,6 @@ namespace Items
             if (player)
             {
                 enterPoint.ReloadLevelController.ReloadLevel();
-            
                 // onDead?.Invoke(); вызов события
             }
 

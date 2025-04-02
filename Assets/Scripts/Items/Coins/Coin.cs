@@ -29,7 +29,6 @@ namespace Items.Coins
             if (hero != null)
             {
                 Collect();
-                
                 GameObject vfx = Instantiate(coinDestroyVfx, transform.position, Quaternion.identity);
             }
         }

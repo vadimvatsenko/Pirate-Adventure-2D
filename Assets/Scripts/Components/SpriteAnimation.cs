@@ -43,11 +43,9 @@ namespace Components
                     return;
                 }
             }
-
             _spriteRenderer.sprite = sprites[_currentSpriteIndex];
             _nextFrameTime += _secondPerFrame;
             _currentSpriteIndex++;
-
         }
     }
 }

@@ -21,7 +21,6 @@ namespace Components
         {
             float direction = context.Get<float>();
             if (player != null) player.SetDirection(direction); 
-
         }
 
         private void OnJump(InputValue context)

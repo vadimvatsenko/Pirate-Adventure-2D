@@ -4,8 +4,8 @@ namespace PlayerFolder
 {
     public class PlayerS : Player
     {
-
-        [Header("Movement")] [SerializeField] private float speed;
+        [Header("Movement")] 
+        [SerializeField] private float speed;
         [SerializeField] private float jumpForce;
 
         [Header("Collision Info")] private bool _isGrounded;
@@ -15,16 +15,13 @@ namespace PlayerFolder
 
         [Header("Buffer Jump")] [SerializeField]
         private float jumpBufferWindow;
-
         private float _bufferJumpActivated = -1;
 
         #region Direction
-
         private bool _isFacingRight = true;
         private int _facingDirection = 1;
         private float _xInput;
         public float XInput => _xInput;
-
         #endregion
 
         private Rigidbody2D _rb;
