@@ -16,7 +16,7 @@ namespace Controllers
             // контроллеры
             _reloadLevelController = new ReloadLevelController();
             _consoleView = new ConsoleView();
-            _coinsController = new CoinsController(_reloadLevelController, _consoleView);
+            _coinsController = new CoinsController(_reloadLevelController, ConsoleView);
         
             //вид
         }

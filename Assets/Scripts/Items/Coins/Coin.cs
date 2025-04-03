@@ -11,7 +11,7 @@ namespace Items.Coins
         [SerializeField] private GameObject coinDestroyVfx;
         private CoinsController _coinsController;
 
-        private void Awake()
+        private void Start()
         {
             _coinsController = FindObjectOfType<EnterPoint>().CoinsController;
         }
