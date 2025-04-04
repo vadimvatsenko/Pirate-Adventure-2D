@@ -6,7 +6,7 @@ namespace View
     {
         public void Show(string title, string message)
         {
-            Debug.Log($"{title}: {message}");
+            //Debug.Log($"{title}: {message}");
         }
     }
 }

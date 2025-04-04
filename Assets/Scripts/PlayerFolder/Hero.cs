@@ -11,7 +11,7 @@ namespace PlayerFolder
         private static readonly int IsGroundedKey = Animator.StringToHash("isGrounded");
         #endregion
 
-        [Header("Movement")] [SerializeField] private float speed;
+        [Header("Movement Info")] [SerializeField] private float speed;
         [SerializeField] private float jumpForce;
 
         [Header("Collision Info")] 
@@ -20,9 +20,10 @@ namespace PlayerFolder
         [SerializeField] private Vector3 groundCheckDistance;
         [SerializeField] private float groundCheckRadius;
 
-        [Header("Buffer Jump")] [SerializeField]
-        private float jumpBufferWindow;
-        private float _bufferJumpActivated = -1;
+        [Header("DoubleJump Info")]
+        [SerializeField] private float doubleJumpForce;
+        private bool _canDoubleJump;
+        private bool _isAirborne;
 
         #region Direction
         private bool _isFacingRight = true;
@@ -47,11 +48,29 @@ namespace PlayerFolder
 
         private void FixedUpdate()
         {
+            UpdateAirBornStatus();
+            
             HandleMovement();
             HandleCollisions();
             HandleFlip();
             HandleAnimation();
         }
+        
+        private void UpdateAirBornStatus() 
+        {  
+            if (_isGrounded && _isAirborne) HandleLanding();   
+            if (!_isGrounded && !_isAirborne) BecomeAirborn();  
+        } 
+        
+        private void BecomeAirborn() 
+        {  
+            _isAirborne = true;  
+        }  
+        private void HandleLanding()
+        {  
+            _isAirborne = false;  
+            _canDoubleJump = true;  
+        }  
 
         private void HandleMovement()
         {
@@ -66,12 +85,24 @@ namespace PlayerFolder
                 {
                     _rb.AddForce(new Vector2(_rb.velocity.x, jumpForce), ForceMode2D.Impulse);
                 }
+
+                if (_isAirborne && _canDoubleJump)
+                {
+                    Debug.Log("Double Jump");
+                    HandleDoubleJump();
+                }
             }
 
             else if (_rb.velocity.y > 0) // уменьшаем прыжок, если кнопка не нажата.
             {
                 _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0.5f);
             }
+        }
+
+        private void HandleDoubleJump()
+        {
+            _canDoubleJump = false;
+            _rb.velocity = new Vector2(_rb.velocity.x, doubleJumpForce);
         }
 
         public void HandleAnimation()

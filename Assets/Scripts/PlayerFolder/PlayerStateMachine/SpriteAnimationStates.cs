@@ -22,6 +22,18 @@ namespace PlayerFolder
             _secondPerFrame = 1.0f / _frameTime;
             _nextFrameTime = Time.time + _secondPerFrame;
         }
+        
+        // добавили два метода, OnBecameVisible и OnBecameInvisible
+        // чтобы анимация включалась только тогда, когда видно компонент
+        private void OnBecameVisible()
+        {
+            enabled = _isPlaying;
+        }
+
+        private void OnBecameInvisible()
+        {
+            enabled = false;
+        }
 
         private void Update()
         {

@@ -25,6 +25,18 @@ namespace Components
             _nextFrameTime = Time.time + _secondPerFrame;
         }
 
+        // добавили два метода, OnBecameVisible и OnBecameInvisible
+        // чтобы анимация включалась только тогда, когда видно компонент
+        private void OnBecameVisible()
+        {
+            enabled = _isPlaying;
+        }
+
+        private void OnBecameInvisible()
+        {
+            enabled = false;
+        }
+
         private void Update()
         {
             // Если ещё не пришло время смены кадра (_nextFrameTime > Time.time), тоже выходим.

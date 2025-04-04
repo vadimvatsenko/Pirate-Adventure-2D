@@ -6490,7 +6490,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1707004628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6981,7 +6981,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2110800266
 Transform:
   m_ObjectHideFlags: 0
@@ -7029,7 +7029,7 @@ MonoBehaviour:
     m_Bits: 256
   groundCheckDistance: {x: 0, y: -0.3, z: 0}
   groundCheckRadius: 0.3
-  jumpBufferWindow: 0
+  doubleJumpForce: 11
 --- !u!114 &2110800269
 MonoBehaviour:
   m_ObjectHideFlags: 0
