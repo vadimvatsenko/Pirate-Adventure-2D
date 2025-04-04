@@ -12,11 +12,7 @@ namespace PlayerFolder
         [SerializeField] private LayerMask whatIsGround;
         [SerializeField] private Vector3 groundCheckDistance;
         [SerializeField] private float groundCheckRadius;
-
-        [Header("Buffer Jump")] [SerializeField]
-        private float jumpBufferWindow;
-        private float _bufferJumpActivated = -1;
-
+        
         #region Direction
         private bool _isFacingRight = true;
         private int _facingDirection = 1;
