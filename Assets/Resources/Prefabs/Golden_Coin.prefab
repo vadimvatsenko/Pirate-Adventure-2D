@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 1580832653289815927}
   - component: {fileID: 1580832653289815921}
   - component: {fileID: 1580832653289815926}
-  - component: {fileID: 2102909612}
+  - component: {fileID: 1317431110760720542}
+  - component: {fileID: 7743390290995584508}
   m_Layer: 10
   m_Name: Golden_Coin
   m_TagString: Untagged
@@ -117,7 +118,7 @@ MonoBehaviour:
   coinCost: 10
   coinDestroyVfx: {fileID: 2696711230962389321, guid: e58c08906f7ffe14aa7710386e28533e,
     type: 3}
---- !u!114 &2102909612
+--- !u!114 &1317431110760720542
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,16 +127,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1580832653289815925}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7870f375d98f7824aaa59c1b0ab12164, type: 3}
+  m_Script: {fileID: 11500000, guid: a46b6026432a471d8abbe103432748b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frameRate: 10
-  loop: 1
-  sprites:
-  - {fileID: 6582046967323461550, guid: 134a6caeb5fb82b49b316942b36b5110, type: 3}
-  - {fileID: 1942777921290549423, guid: 134a6caeb5fb82b49b316942b36b5110, type: 3}
-  - {fileID: 8793606821965667882, guid: 134a6caeb5fb82b49b316942b36b5110, type: 3}
-  - {fileID: 3444832735345940322, guid: 134a6caeb5fb82b49b316942b36b5110, type: 3}
-  onComplete:
-    m_PersistentCalls:
-      m_Calls: []
+--- !u!114 &7743390290995584508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580832653289815925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 104b4fa7ed764291b992116549f3f2ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handleAnimationClip: {fileID: 11400000, guid: 5f73ce9f1f1adae48b03e7da322261c2,
+    type: 2}

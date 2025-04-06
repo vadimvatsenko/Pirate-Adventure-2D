@@ -2,7 +2,6 @@
 
 namespace Components.EnterCollisionComponent
 {
-    //
     public class EnterCollisionComponent : MonoBehaviour
     {
         [SerializeField] private string gameobjectTag; // тег с которым будем взаимодействиять
@@ -12,6 +11,7 @@ namespace Components.EnterCollisionComponent
         {
             if (collision.gameObject.CompareTag(gameobjectTag))
             {
+                Debug.Log(gameobjectTag + " entered");
                 onAction?.Invoke(collision.gameObject); // тут будем вызывать событие
             }
         }

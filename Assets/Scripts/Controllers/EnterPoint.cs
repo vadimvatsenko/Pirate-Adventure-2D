@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using View;
 
 namespace Controllers
@@ -8,9 +9,14 @@ namespace Controllers
         private ReloadLevelController _reloadLevelController;
         private CoinsController _coinsController;
         private ConsoleView _consoleView;
+        private TextMeshProUGUI _coinsText;
         public ReloadLevelController ReloadLevelController => _reloadLevelController;
         public CoinsController CoinsController => _coinsController;
         public ConsoleView ConsoleView => _consoleView;
+        public TextMeshProUGUI CoinsText => _coinsText;
+        
+        
+        
         private void Awake()
         {
             // контроллеры

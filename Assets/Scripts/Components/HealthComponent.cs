@@ -16,7 +16,7 @@ namespace Components
             
             if (health <= 0)
             {
-                onDie.Invoke();
+                onDie?.Invoke();
             }
         }
     }
