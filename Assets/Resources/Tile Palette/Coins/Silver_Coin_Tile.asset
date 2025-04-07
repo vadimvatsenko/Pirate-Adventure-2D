@@ -10,11 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
-  m_Name: SilverCoinRule
+  m_Name: Silver_Coin_Tile
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: -2322180950842035098, guid: 134a6caeb5fb82b49b316942b36b5110,
-    type: 3}
-  m_DefaultGameObject: {fileID: 1592184955047880234, guid: d3223f2e834736940b0cf84045a9c6b6,
-    type: 3}
-  m_DefaultColliderType: 0
+  m_DefaultSprite: {fileID: 0}
+  m_DefaultGameObject: {fileID: 0}
+  m_DefaultColliderType: 1
   m_TilingRules: []
