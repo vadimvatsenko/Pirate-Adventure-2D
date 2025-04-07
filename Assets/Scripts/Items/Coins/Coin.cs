@@ -18,7 +18,7 @@ namespace Items.Coins
         
         private void Collect()
         {
-            _coinsController.AddCoins(coinCost);
+            //_coinsController.AddCoins(coinCost);
             Destroy(gameObject);
         }
 

@@ -1,4 +1,5 @@
-﻿using Components.SpriteAnimator;
+﻿using System;
+using Components.SpriteAnimator;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,7 +8,7 @@ namespace PlayerFolder
     [RequireComponent(typeof(SpriteRenderer))] 
     public class HandleSpriteAnimator : MonoBehaviour
     {
-        [SerializeField] private event UnityAction OnAnimationFinished;
+        [SerializeField] private UnityEvent onComplete;
         
         private HandleAnimationClip _animationClip;
         private SpriteRenderer _spriteRenderer;
@@ -55,7 +56,7 @@ namespace PlayerFolder
                 else
                 {
                     _isPlaying = false;
-                    OnAnimationFinished?.Invoke();
+                    onComplete?.Invoke();
                     return;
                 }
             }
