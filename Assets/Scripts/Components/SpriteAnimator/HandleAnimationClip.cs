@@ -12,13 +12,11 @@ namespace Components.SpriteAnimator
         [SerializeField] private int frameRate;
         [SerializeField] private bool loop;
         [SerializeField] private bool allowNextClip;
-        [SerializeField] private UnityEvent onComplete;
-
+        
         public string AnimationName => animationName;
         public List<Sprite> Sprites => sprites;
         public bool Loop => loop;
         public int FrameRate => frameRate;
         public bool AllowNextClip => allowNextClip;
-        public UnityEvent OnComplete => onComplete;
     }
 }

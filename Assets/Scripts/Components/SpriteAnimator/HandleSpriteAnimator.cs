@@ -1,11 +1,14 @@
 ﻿using Components.SpriteAnimator;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace PlayerFolder
 {
     [RequireComponent(typeof(SpriteRenderer))] 
     public class HandleSpriteAnimator : MonoBehaviour
     {
+        [SerializeField] private event UnityAction OnAnimationFinished;
+        
         private HandleAnimationClip _animationClip;
         private SpriteRenderer _spriteRenderer;
 
@@ -15,7 +18,7 @@ namespace PlayerFolder
         private float _nextFrameTime;
 
         private bool _isPlaying = true;
-
+        
         private void Start()
         {
             _frameTime = _animationClip.FrameRate;
@@ -52,7 +55,7 @@ namespace PlayerFolder
                 else
                 {
                     _isPlaying = false;
-                    _animationClip.OnComplete?.Invoke();
+                    OnAnimationFinished?.Invoke();
                     return;
                 }
             }
