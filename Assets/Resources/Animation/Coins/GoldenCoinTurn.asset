@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2495d7a4bbee44b7bda79613901a1d29, type: 3}
-  m_Name: SilverCoinTurn
+  m_Name: GoldenCoinTurn
   m_EditorClassIdentifier: 
-  animationName: SilverCoin_TURN
+  animationName: GoldenCoin_TURN
   sprites:
-  - {fileID: 21300000, guid: 0c6f34c54b7719544be46d326c3883e6, type: 3}
-  - {fileID: 21300000, guid: 5b90bc6bf2b2ab64a9a29d973e248d82, type: 3}
-  - {fileID: 21300000, guid: 2c8778071ec1e1c43a92f3d199787a6e, type: 3}
-  - {fileID: 21300000, guid: a796b0b8dd259904e957a1f1ae88930b, type: 3}
+  - {fileID: 21300000, guid: 174a9d67df81e1a479b6f542f30c37c3, type: 3}
+  - {fileID: 21300000, guid: 528658ba8d6d7d24b8d32c8fcde349af, type: 3}
+  - {fileID: 21300000, guid: 375f4ee9724265c4daba689019e1fae8, type: 3}
+  - {fileID: 21300000, guid: c412110ea41a06842a61eeb71527e018, type: 3}
   frameRate: 10
   loop: 1
   allowNextClip: 0
