@@ -16,10 +16,11 @@ namespace PlayerFolder
 
         private bool _isPlaying = true;
 
-        private void Awake()
+        private void Start()
         {
             _frameTime = _animationClip.FrameRate;
             _spriteRenderer = GetComponent<SpriteRenderer>();
+            
             _secondPerFrame = 1.0f / _frameTime;
             _nextFrameTime = Time.time + _secondPerFrame;
         }
@@ -38,7 +39,7 @@ namespace PlayerFolder
 
         private void Update()
         {
-            Debug.Log(_animationClip.AnimationName);
+            
             // Если ещё не пришло время смены кадра (_nextFrameTime > Time.time), тоже выходим.
             if (!_isPlaying || _nextFrameTime > Time.time) return;
 
@@ -55,7 +56,7 @@ namespace PlayerFolder
                     return;
                 }
             }
-
+            
             _spriteRenderer.sprite = _animationClip.Sprites[_currentSpriteIndex];
             _nextFrameTime += _secondPerFrame;
             _currentSpriteIndex++;

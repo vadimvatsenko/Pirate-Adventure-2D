@@ -8,7 +8,7 @@ namespace Components.SpriteAnimator.AnimationControllers
         [SerializeField] private HandleAnimationClip handleAnimationClip;
         private HandleSpriteAnimator _spriteAnimator;
 
-        private void Start()
+        private void Awake()
         {
             _spriteAnimator = GetComponent<HandleSpriteAnimator>();
             _spriteAnimator.SetAnimationClip(handleAnimationClip);
