@@ -7,11 +7,46 @@ namespace Components.EnterCollisionComponent
         [SerializeField] private string gameobjectTag; // тег с которым будем взаимодействиять
         [SerializeField] private EnterEvent onAction; // класс который мы создали в серилизации
 
+        [SerializeField] private bool isDot; // проверяем ли столкновение в определённой точке коллайдера?
+        [SerializeField] private Directions direction; // направление проверки
+
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.CompareTag(gameobjectTag))
             {
-                onAction?.Invoke(collision.gameObject); // тут будем вызывать событие
+                if (isDot)
+                {
+                    switch (direction)
+                    {
+                        case Directions.Right:
+                            DotTest(collision, Vector2.right);
+                            break;
+                        case Directions.Left:
+                            DotTest(collision, Vector2.left);
+                            break;
+                        case Directions.Bottom:
+                            DotTest(collision, Vector2.down);
+                            break;
+                        case Directions.Top:
+                            DotTest(collision, Vector2.up);
+                            break;
+                    }
+                }
+                else
+                {
+                    onAction?.Invoke(collision.gameObject);
+                }
+            }
+        }
+
+        private void DotTest(Collision2D collision, Vector2 direction)
+        {
+            foreach (var contact in collision.contacts)
+            {
+                if (Vector2.Dot(contact.normal, direction) > 0.5f)
+                {
+                    onAction?.Invoke(collision.gameObject);
+                }
             }
         }
     }

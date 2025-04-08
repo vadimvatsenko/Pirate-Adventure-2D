@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2495d7a4bbee44b7bda79613901a1d29, type: 3}
+  m_Name: Ship_IDLE
+  m_EditorClassIdentifier: 
+  animationName: Idle
+  sprites:
+  - {fileID: 21300000, guid: 2086a52c1551fa04593af4ca369aa2f1, type: 3}
+  - {fileID: 21300000, guid: c63e1d216a0eb2f4f83542080c1390b0, type: 3}
+  - {fileID: 21300000, guid: 761f03608974e8441bbf31cca84ed7d1, type: 3}
+  - {fileID: 21300000, guid: 931fd33aa5dd60344b5e787939869b21, type: 3}
+  - {fileID: 21300000, guid: 4778c6f40e6a88c458477e904ec6b70b, type: 3}
+  - {fileID: 21300000, guid: a4e84ca29f80e424b86b4dfd2bf79db3, type: 3}
+  frameRate: 10
+  loop: 1
+  allowNextClip: 0

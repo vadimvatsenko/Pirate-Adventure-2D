@@ -62,7 +62,7 @@ namespace PlayerFolder
             if(_isKnocked) return; // ++ 
             
             HandleMovement();
-            HandleCollisions();
+            //HandleCollisions();
             HandleFlip();
             HandleAnimation();
         }
@@ -142,7 +142,7 @@ namespace PlayerFolder
 
         #endregion
 
-        private void HandleCollisions()
+        /*private void HandleCollisions()
         {
             _isGrounded = Physics2D.CircleCast(
                 transform.position + groundCheckDistance,
@@ -150,7 +150,7 @@ namespace PlayerFolder
                 Vector2.down,
                 0,
                 whatIsGround);
-        }
+        }*/
 
         public void TakeDamage() // ++
         {
@@ -168,6 +168,19 @@ namespace PlayerFolder
             yield return new WaitForSeconds(knockbackDuration); // ++
             _isKnocked = false; // ++
             
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+            {
+                _isGrounded = Vector2.Dot(collision.contacts[0].normal, Vector2.up) > 0.5f;
+            }
+        }
+
+        private void OnCollisionExit2D(Collision2D collision)
+        {
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Ground")) _isGrounded = false;
         }
 
         private void OnDrawGizmos()

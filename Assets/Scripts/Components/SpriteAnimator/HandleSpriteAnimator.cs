@@ -9,6 +9,8 @@ namespace PlayerFolder
     public class HandleSpriteAnimator : MonoBehaviour
     {
         [SerializeField] private UnityEvent onComplete;
+        [SerializeField] private bool isStartWithRandomSprite;
+        [SerializeField] private bool isReversed = false;
         
         private HandleAnimationClip _animationClip;
         private SpriteRenderer _spriteRenderer;
@@ -27,6 +29,24 @@ namespace PlayerFolder
             
             _secondPerFrame = 1.0f / _frameTime;
             _nextFrameTime = Time.time + _secondPerFrame;
+            
+            int randomSpriteIndex = UnityEngine.Random.Range(0, _animationClip.Sprites.Count);
+
+            if (isStartWithRandomSprite)
+            {
+                _currentSpriteIndex = randomSpriteIndex;
+            }
+            else
+            {
+                if (isReversed)
+                {
+                    _currentSpriteIndex = _animationClip.Sprites.Count - 1;
+                }
+                else
+                {
+                    _currentSpriteIndex = 0;
+                }
+            }
         }
         
         // добавили два метода, OnBecameVisible и OnBecameInvisible
@@ -51,7 +71,14 @@ namespace PlayerFolder
             {
                 if (_animationClip.Loop)
                 {
-                    _currentSpriteIndex = 0;
+                    if (isReversed)
+                    {
+                        _currentSpriteIndex = _animationClip.Sprites.Count - 1;
+                    }
+                    else
+                    {
+                        _currentSpriteIndex = 0;
+                    }
                 }
                 else
                 {
@@ -63,7 +90,15 @@ namespace PlayerFolder
             
             _spriteRenderer.sprite = _animationClip.Sprites[_currentSpriteIndex];
             _nextFrameTime += _secondPerFrame;
-            _currentSpriteIndex++;
+            
+            if (isReversed)
+            {
+                _currentSpriteIndex--;
+            }
+            else
+            {
+                _currentSpriteIndex++;
+            }
         }
 
         public void SetAnimationClip(HandleAnimationClip animationClip)
