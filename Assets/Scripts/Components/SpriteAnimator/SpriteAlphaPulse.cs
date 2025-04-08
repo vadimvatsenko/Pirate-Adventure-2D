@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Components
+namespace Components.SpriteAnimator
 {
     public class SpriteAlphaPulse : MonoBehaviour
     {

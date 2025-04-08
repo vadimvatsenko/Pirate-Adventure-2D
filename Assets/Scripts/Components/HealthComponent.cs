@@ -5,7 +5,8 @@ namespace Components
 {
     public class HealthComponent : MonoBehaviour
     {
-        [SerializeField] private int health;
+        [SerializeField] private int health = 100;
+        [SerializeField] private int maxHealth = 100;
         [SerializeField] private UnityEvent onAddHealth;
         [SerializeField] private UnityEvent onDamage;
         [SerializeField] private UnityEvent onDie;
@@ -27,6 +28,9 @@ namespace Components
         public void ApplyHeal(int heal)
         {
             health += heal;
+            if (health > maxHealth)
+                health = maxHealth;
+            
             onAddHealth?.Invoke();
         }
     }

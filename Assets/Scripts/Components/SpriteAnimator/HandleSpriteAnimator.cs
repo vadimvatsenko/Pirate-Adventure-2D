@@ -9,7 +9,7 @@ namespace PlayerFolder
     public class HandleSpriteAnimator : MonoBehaviour
     {
         [SerializeField] private UnityEvent onComplete;
-        [SerializeField] private bool isStartWithRandomSprite;
+        [SerializeField] private bool isStartWithRandomSprite = false;
         [SerializeField] private bool isReversed = false;
         
         private HandleAnimationClip _animationClip;
@@ -51,16 +51,9 @@ namespace PlayerFolder
         
         // добавили два метода, OnBecameVisible и OnBecameInvisible
         // чтобы анимация включалась только тогда, когда видно компонент
-        private void OnBecameVisible()
-        {
-            enabled = _isPlaying;
-        }
-
-        private void OnBecameInvisible()
-        {
-            enabled = false;
-        }
-
+        private void OnBecameVisible() => enabled = _isPlaying;
+        private void OnBecameInvisible() => enabled = false;
+        
         private void Update()
         {
             
