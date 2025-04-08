@@ -142,7 +142,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1480576907992372272}
-        m_MethodName: ApplyDamage
+        m_MethodName: ApplyHealth
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -166,7 +166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 859502f5e9344b9e8cb6ca6b784e65a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  healthModifier: 10
+  isDamager: 1
 --- !u!251 &665680136
 PlatformEffector2D:
   m_ObjectHideFlags: 0

@@ -67,18 +67,14 @@ namespace PlayerFolder
             // Если ещё не пришло время смены кадра (_nextFrameTime > Time.time), тоже выходим.
             if (!_isPlaying || _nextFrameTime > Time.time) return;
 
-            if (_currentSpriteIndex >= _animationClip.Sprites.Count)
+            bool isOutOfForwardBounds = _currentSpriteIndex >= _animationClip.Sprites.Count;
+            bool isOutOfReverseBounds = _currentSpriteIndex < 0;
+            
+            if (isOutOfForwardBounds || isOutOfReverseBounds)
             {
                 if (_animationClip.Loop)
                 {
-                    if (isReversed)
-                    {
-                        _currentSpriteIndex = _animationClip.Sprites.Count - 1;
-                    }
-                    else
-                    {
-                        _currentSpriteIndex = 0;
-                    }
+                    _currentSpriteIndex = isReversed ? _animationClip.Sprites.Count - 1 : 0;
                 }
                 else
                 {
@@ -91,14 +87,7 @@ namespace PlayerFolder
             _spriteRenderer.sprite = _animationClip.Sprites[_currentSpriteIndex];
             _nextFrameTime += _secondPerFrame;
             
-            if (isReversed)
-            {
-                _currentSpriteIndex--;
-            }
-            else
-            {
-                _currentSpriteIndex++;
-            }
+            _currentSpriteIndex = isReversed ? _currentSpriteIndex - 1 : _currentSpriteIndex + 1;
         }
 
         public void SetAnimationClip(HandleAnimationClip animationClip)

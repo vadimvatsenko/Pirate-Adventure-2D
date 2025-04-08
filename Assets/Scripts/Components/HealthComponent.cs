@@ -6,6 +6,7 @@ namespace Components
     public class HealthComponent : MonoBehaviour
     {
         [SerializeField] private int health;
+        [SerializeField] private UnityEvent onAddHealth;
         [SerializeField] private UnityEvent onDamage;
         [SerializeField] private UnityEvent onDie;
 
@@ -21,6 +22,12 @@ namespace Components
                 Debug.Log($"Player Die");
                 onDie?.Invoke();
             }
+        }
+
+        public void ApplyHeal(int heal)
+        {
+            health += heal;
+            onAddHealth?.Invoke();
         }
     }
 }
