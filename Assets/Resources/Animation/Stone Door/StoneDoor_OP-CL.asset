@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2495d7a4bbee44b7bda79613901a1d29, type: 3}
   m_Name: StoneDoor_OP-CL
   m_EditorClassIdentifier: 
-  animationName: 
-  sprites: []
-  frameRate: 0
+  animationName: OpenOrClose
+  sprites:
+  - {fileID: 5213229242370633579, guid: dc0c284b661eaea4bbe69cea6c651168, type: 3}
+  - {fileID: 436563815456543028, guid: dc0c284b661eaea4bbe69cea6c651168, type: 3}
+  - {fileID: -8689009931745917929, guid: dc0c284b661eaea4bbe69cea6c651168, type: 3}
+  - {fileID: 289144848352645085, guid: dc0c284b661eaea4bbe69cea6c651168, type: 3}
+  - {fileID: 6936692723106717497, guid: dc0c284b661eaea4bbe69cea6c651168, type: 3}
+  - {fileID: 8808929173557640368, guid: dc0c284b661eaea4bbe69cea6c651168, type: 3}
+  frameRate: 10
   loop: 0
   allowNextClip: 0
