@@ -4,19 +4,21 @@ namespace Components.EnterCollisionComponent
 {
     public class EnterCollisionComponent : MonoBehaviour
     {
-        [SerializeField] private string gameobjectTag; // тег с которым будем взаимодействиять
+        [SerializeField] private string gameObjectTag; // тег с которым будем взаимодействиять
         [SerializeField] private EnterEvent onAction; // класс который мы создали в серилизации
 
         [SerializeField] private bool isDot; // проверяем ли столкновение в определённой точке коллайдера?
-        [SerializeField] private Directions direction; // направление проверки
+        [SerializeField] private Directions dotDirection; // направление проверки
 
+        
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.CompareTag(gameobjectTag))
+            if (collision.gameObject.CompareTag(gameObjectTag))
             {
+                
                 if (isDot)
                 {
-                    switch (direction)
+                    switch (dotDirection)
                     {
                         case Directions.Right:
                             DotTest(collision, Vector2.right);
@@ -34,6 +36,7 @@ namespace Components.EnterCollisionComponent
                 }
                 else
                 {
+                    
                     onAction?.Invoke(collision.gameObject);
                 }
             }

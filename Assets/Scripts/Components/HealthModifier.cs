@@ -8,13 +8,16 @@ namespace Components
         [SerializeField] private bool isDamager = false;
         public void ApplyHealth(GameObject target)
         {
+            Debug.Log(target.name);
+            Debug.Log("Health Modify 1");
             var healthComponent = target.GetComponent<HealthComponent>();
 
             if (healthComponent != null)
             {
+                Debug.Log("Health Modify 2");
                 if (isDamager)
                     healthComponent.ApplyDamage(healthModifier);
-                else
+                else 
                     healthComponent.ApplyHeal(healthModifier);
             }
         }

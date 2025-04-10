@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8351313543167126523}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Teleport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,9 @@ GameObject:
   - component: {fileID: 8351313544063101888}
   - component: {fileID: 8351313544063101889}
   - component: {fileID: 8351313544063101902}
-  m_Layer: 0
+  - component: {fileID: 1544380855}
+  - component: {fileID: 1544380856}
+  m_Layer: 18
   m_Name: StartPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,8 +107,9 @@ SpriteRenderer:
   m_SortingLayerID: -1740054481
   m_SortingLayer: 8
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 6ae62023478c9ff44aa427c035bf2f4f, type: 3}
-  m_Color: {r: 0.59537303, g: 0.9528302, b: 0.5348434, a: 1}
+  m_Sprite: {fileID: 6040734443530017722, guid: e5f1a2aa1db5dae4db9c460f265c5acb,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -144,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7a090af7534407a94c4b25e8256d7c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameobjectTag: Player
+  gameObjectTag: Player
   onAction:
     m_PersistentCalls:
       m_Calls:
@@ -160,7 +163,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   isDot: 0
-  direction: 0
+  dotDirection: 0
 --- !u!114 &8351313544063101902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,6 +177,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destTransform: {fileID: 8351313544728461623}
+--- !u!114 &1544380855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8351313544063101900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a46b6026432a471d8abbe103432748b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  isStartWithRandomSprite: 0
+  isReversed: 0
+--- !u!114 &1544380856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8351313544063101900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 104b4fa7ed764291b992116549f3f2ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handleAnimationClip: {fileID: 11400000, guid: 5434a1cd6fd589243bfed11fdb9f78ce,
+    type: 2}
 --- !u!1 &8351313544728461620
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,7 +217,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8351313544728461623}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Destination
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}

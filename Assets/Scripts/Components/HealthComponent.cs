@@ -31,6 +31,8 @@ namespace Components
             if (health > maxHealth)
                 health = maxHealth;
             
+            Debug.Log($"Player Health: {health}");
+            
             onAddHealth?.Invoke();
         }
     }

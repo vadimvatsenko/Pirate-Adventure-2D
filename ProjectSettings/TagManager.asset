@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Coin
   - Window
+  - Poison
   layers:
   - Default
   - TransparentFX
@@ -24,8 +25,8 @@ TagManager:
   - Spikes
   - PlatformWithEffector
   - Barrel
-  - 
-  - 
+  - Poisons
+  - Items
   - 
   - 
   - 
@@ -72,4 +73,7 @@ TagManager:
     locked: 0
   - name: Water
     uniqueID: 2323763713
+    locked: 0
+  - name: Poisons
+    uniqueID: 831459567
     locked: 0

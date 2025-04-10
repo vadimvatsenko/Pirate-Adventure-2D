@@ -88,6 +88,9 @@ namespace PlayerFolder
             _isPlaying = true;
             _animationClip = animationClip;
             _frameTime = animationClip.FrameRate;
+            
+            _secondPerFrame = 1f / _frameTime;
+            _nextFrameTime = Time.time + _secondPerFrame;
         }
     }
 }
