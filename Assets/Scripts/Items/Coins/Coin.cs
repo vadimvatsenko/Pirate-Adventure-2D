@@ -1,6 +1,7 @@
 ﻿using Controllers;
 using PlayerFolder;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Items.Coins
 {
@@ -9,6 +10,7 @@ namespace Items.Coins
         [SerializeField] private CoinType coinType;
         [SerializeField] private int coinCost;
         [SerializeField] private GameObject coinDestroyVfx;
+        [SerializeField] private UnityEvent oncoinDestroyCoin;
         private CoinsController _coinsController;
 
         private void Awake()
@@ -19,7 +21,9 @@ namespace Items.Coins
         private void Collect()
         {
             //_coinsController.AddCoins(coinCost);
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            
+            oncoinDestroyCoin?.Invoke();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

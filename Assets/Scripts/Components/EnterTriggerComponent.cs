@@ -13,7 +13,6 @@ namespace Components
             
             if (other.CompareTag(gameObjectTag))
             {
-                Debug.Log(other.name + " entered");
                 onAction.Invoke(other.gameObject);
             }
         }

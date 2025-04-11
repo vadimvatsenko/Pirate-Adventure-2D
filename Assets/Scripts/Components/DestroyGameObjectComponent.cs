@@ -4,6 +4,10 @@ namespace Components
 {
     public class DestroyGameObjectComponent : MonoBehaviour
     {
-        public void DestroyGameObject() => Destroy(this.gameObject);
+        public void DestroyGameObject()
+        {
+            Debug.Log("DestroyGameObject");
+            Destroy(gameObject);
+        }
     }
 }

@@ -64,12 +64,7 @@ namespace PlayerFolder
             _rb = GetComponent<Rigidbody2D>();
             _animator = GetComponentInChildren<Animator>();
         }
-
-        public void SetDirection(float dir)
-        {
-            _xInput = dir;
-        }
-
+        
         private void FixedUpdate()
         {
             UpdateAirBornStatus();
@@ -81,6 +76,11 @@ namespace PlayerFolder
             HandleWallCheck();
             HandleFlip();
             HandleAnimation();
+        }
+        
+        public void SetDirection(float dir)
+        {
+            _xInput = dir;
         }
 
         private void UpdateAirBornStatus()
@@ -181,7 +181,6 @@ namespace PlayerFolder
             {
                 _isGrounded = false;
             }
-
         }
 
         public void TakeDamage() // ++
@@ -202,6 +201,29 @@ namespace PlayerFolder
 
         }
 
+        #region Teleport
+        public void Teleport(Vector3 targetPosition) => StartCoroutine(SmoothLift(targetPosition));
+        
+        private IEnumerator SmoothLift(Vector3 targetPosition)
+        {
+            float duration = 1f; // длительность подъема
+            float targetHeight = 1.5f; // на сколько поднять
+            float startY = transform.position.y;
+            float endY = startY + targetHeight;
+            float elapsed = 0f;
+
+            while (elapsed < duration)
+            {
+                float newY = Mathf.Lerp(startY, endY, elapsed / duration);
+                transform.position = new Vector3(transform.position.x, newY, transform.position.z);
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+
+            transform.position = new Vector3(targetPosition.x, targetPosition.y, transform.position.z);
+        }
+
+        #endregion
         private void OnDrawGizmos()
         {
 

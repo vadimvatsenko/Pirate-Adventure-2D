@@ -43,10 +43,10 @@ GameObject:
   - component: {fileID: 8351313544063101903}
   - component: {fileID: 8351313544063101891}
   - component: {fileID: 8351313544063101888}
-  - component: {fileID: 8351313544063101889}
   - component: {fileID: 8351313544063101902}
   - component: {fileID: 1544380855}
   - component: {fileID: 1544380856}
+  - component: {fileID: 1949887608}
   m_Layer: 18
   m_Name: StartPoint
   m_TagString: Untagged
@@ -129,41 +129,12 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.65}
   serializedVersion: 2
-  m_Radius: 0.1
---- !u!114 &8351313544063101889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8351313544063101900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7a090af7534407a94c4b25e8256d7c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameObjectTag: Player
-  onAction:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8351313544063101902}
-        m_MethodName: Teleport
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  isDot: 0
-  dotDirection: 0
+  m_Radius: 0.2416783
 --- !u!114 &8351313544063101902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,6 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destTransform: {fileID: 8351313544728461623}
+  flashCanvas: {fileID: 0}
+  flashDuration: 0.25
 --- !u!114 &1544380855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,6 +181,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handleAnimationClip: {fileID: 11400000, guid: 5434a1cd6fd589243bfed11fdb9f78ce,
     type: 2}
+--- !u!114 &1949887608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8351313544063101900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b98bf37e3ea4d80b147693b40c75dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectTag: Player
+  onAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8351313544063101902}
+        m_MethodName: Teleport
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8351313544728461620
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +232,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8351313544728461620}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.74, y: 3.72, z: 0}
+  m_LocalPosition: {x: 7.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8351313543167126523}
