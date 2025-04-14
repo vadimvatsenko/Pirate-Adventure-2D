@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationName: Idle
   sprites:
-  - {fileID: 6040734443530017722, guid: e5f1a2aa1db5dae4db9c460f265c5acb, type: 3}
-  - {fileID: 8167133005111728920, guid: e5f1a2aa1db5dae4db9c460f265c5acb, type: 3}
-  - {fileID: 2014349484240403859, guid: e5f1a2aa1db5dae4db9c460f265c5acb, type: 3}
-  - {fileID: 6326803469982491369, guid: e5f1a2aa1db5dae4db9c460f265c5acb, type: 3}
+  - {fileID: 21300000, guid: f28db3ccad2586349af15e7395af014e, type: 3}
+  - {fileID: 21300000, guid: 39a61df81f8aa5645bedad61a5be8737, type: 3}
+  - {fileID: 21300000, guid: 7f803978bcc17f9458d6fbf2a071db1a, type: 3}
+  - {fileID: 21300000, guid: acb7a6dd538ee8043b054f281b823f45, type: 3}
   frameRate: 10
   loop: 1
   allowNextClip: 0
