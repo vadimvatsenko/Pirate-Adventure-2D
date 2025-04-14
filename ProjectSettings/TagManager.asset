@@ -18,15 +18,15 @@ TagManager:
   - 
   - Ground
   - Background
-  - Coins
+  - Items
   - Traps
   - Player
   - 
-  - Spikes
-  - PlatformWithEffector
-  - Barrel
-  - Poisons
-  - Items
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -47,6 +47,9 @@ TagManager:
   - name: Background
     uniqueID: 2259081233
     locked: 0
+  - name: Traps
+    uniqueID: 2778839079
+    locked: 0
   - name: Ground
     uniqueID: 2994583185
     locked: 0
@@ -55,9 +58,6 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3253025957
-    locked: 0
-  - name: Traps
-    uniqueID: 2778839079
     locked: 0
   - name: Items
     uniqueID: 2554912815

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: HealthPoison
   m_EditorClassIdentifier: 
   m_DefaultSprite: {fileID: 0}
-  m_DefaultGameObject: {fileID: 0}
+  m_DefaultGameObject: {fileID: 6137727544062377294, guid: e892b9941e6cf8247bca5e0c315d33dc,
+    type: 3}
   m_DefaultColliderType: 1
   m_TilingRules: []

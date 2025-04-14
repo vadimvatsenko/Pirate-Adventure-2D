@@ -20,7 +20,8 @@ namespace Items.Coins
         
         private void Collect()
         {
-            oncoinDestroyCoin?.Invoke();
+            Destroy(gameObject);
+            //oncoinDestroyCoin?.Invoke();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
