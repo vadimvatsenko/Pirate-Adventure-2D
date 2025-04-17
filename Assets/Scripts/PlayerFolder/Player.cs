@@ -1,20 +1,20 @@
 ﻿using System.Collections;
+using System.Drawing;
 using Components;
 using UnityEngine;
 using static HandlerExtensions.DrawGizmo;
+using Color = UnityEngine.Color;
 
 namespace PlayerFolder
 {
     public class Player : MonoBehaviour
     {
         #region Static Fields
-
         // что тут происходит, перевод string в hash
         private static readonly int XVelocityKey = Animator.StringToHash("xVelocity");
         private static readonly int YVelocityKey = Animator.StringToHash("yVelocity");
         private static readonly int IsGroundedKey = Animator.StringToHash("isGrounded");
         private static readonly int Knockback = Animator.StringToHash("knockback"); // ++
-
         #endregion
 
         [Header("Movement Info")] [SerializeField]
@@ -27,8 +27,8 @@ namespace PlayerFolder
         [SerializeField] private float groundCheckDistance;
         [SerializeField] private Vector2 groundBoxSize = new Vector2(0.5f, 0.1f);
         private bool _isGrounded;
+        
         [Header("Wall Collision Info")] 
-        //[SerializeField] private float wallCheckDistance;
         [SerializeField] private Vector3 wallCheckOffset;
         [SerializeField] private Vector2 wallBoxSize = new Vector2(0.1f, 0.5f);
         public bool IsWallDetected { get; private set; }
@@ -36,11 +36,11 @@ namespace PlayerFolder
         [Header("Interaction Collision Info")] 
         [SerializeField] private LayerMask whatIsInteraction;
         [SerializeField] private float interactionRadius;
+        private bool _isInteraction;
+        private Collider2D[] _interactionCollides;
         
-
         [Header("DoubleJump Info")] [SerializeField]
         private float doubleJumpForce;
-
         private bool _canDoubleJump;
         private bool _isAirborne;
 
@@ -166,14 +166,9 @@ namespace PlayerFolder
 
         #endregion
 
+        #region Detection
         private void HandleWallCheck()
         {
-            /*IsWallDetected = Physics2D.Raycast
-            (new Vector2(transform.position.x, transform.position.y - yWallCheckOffset),
-                Vector2.right * _facingDirection, wallCheckDistance, whatIsGround);*/
-            
-            //Vector3 startPos = new Vector3(transform.position.x, transform.position.y * _facingDirection + wallCheckDistance, transform.position.z);
-            
             IsWallDetected = 
                 Physics2D.BoxCast(
                     transform.position + (wallCheckOffset * _facingDirection), 
@@ -187,7 +182,11 @@ namespace PlayerFolder
         private void HandleGroundCheck()
         {
             RaycastHit2D hit = Physics2D.BoxCast(
-                transform.position + groundCheckOffset, groundBoxSize, 0f, Vector2.down, groundCheckDistance,
+                transform.position + groundCheckOffset, 
+                groundBoxSize, 
+                0f, 
+                Vector2.down, 
+                groundCheckDistance,
                 whatIsGround);
 
             if (hit.collider != null)
@@ -200,7 +199,32 @@ namespace PlayerFolder
                 _isGrounded = false;
             }
         }
+        
+        public void Interact()
+        {
+            Debug.Log("size");
+            var size =
+                Physics2D.OverlapCircleNonAlloc
+                (transform.position,
+                    interactionRadius,
+                    _interactionCollides,
+                    whatIsInteraction);
 
+            
+            
+            for (int i = 0; i < size; i++)
+            {
+                
+                var interactable = _interactionCollides[i].GetComponent<InteractableComponent>();
+                if (interactable != null)
+                {
+                    interactable.Interact();
+                }
+            }
+
+        }
+        #endregion
+        
         public void TakeDamage() 
         {
             if (_isKnocked) return; 
@@ -210,7 +234,7 @@ namespace PlayerFolder
             _rb.velocity = new Vector2(knockbackPower.x * -_facingDirection, knockbackPower.y); 
             StartCoroutine(KnockbackRoutione()); 
         }
-
+        
         private IEnumerator KnockbackRoutione() 
         {
             _isKnocked = true; 
@@ -242,29 +266,21 @@ namespace PlayerFolder
 
         #endregion
         
-        public void Interact()
-        {
-            
-        }
-        
         private void OnDrawGizmos()
         {
 
-            Vector3 groundCheckPos = transform.position + groundCheckOffset;
-            
-            /*Vector2 wallCheckStart = new Vector2(transform.position.x, transform.position.y - yWallCheckOffset);
-            Vector2 wallCheckEnd = new Vector2(transform.position.x + _facingDirection * wallCheckDistance,
-                transform.position.y - yWallCheckOffset);*/
-                
             // Ground check box
+            Vector3 groundCheckPos = transform.position + groundCheckOffset;
             Gizmos.color = _isGrounded ? Color.green : Color.red;
             Gizmos.DrawWireCube(groundCheckPos, groundBoxSize);
 
-            // Wall check line
+            // Wall check box
             Gizmos.color = IsWallDetected ? Color.green : Color.red;
-            //Gizmos.DrawLine(wallCheckStart, wallCheckEnd);
-            
             Gizmos.DrawWireCube(transform.position + (wallCheckOffset * _facingDirection), wallBoxSize);
+            
+            // Interaction check circle
+            Gizmos.color = _isInteraction ? Color.green : Color.red;
+            Gizmos.DrawWireSphere(transform.position, interactionRadius);
             
         }
     }
