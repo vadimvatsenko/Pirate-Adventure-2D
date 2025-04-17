@@ -37,7 +37,7 @@ namespace PlayerFolder
         [SerializeField] private LayerMask whatIsInteraction;
         [SerializeField] private float interactionRadius;
         private bool _isInteraction;
-        private Collider2D[] _interactionCollides;
+        private Collider2D[] _interactionCollides = new Collider2D[1];
         
         [Header("DoubleJump Info")] [SerializeField]
         private float doubleJumpForce;
@@ -202,15 +202,12 @@ namespace PlayerFolder
         
         public void Interact()
         {
-            Debug.Log("size");
             var size =
                 Physics2D.OverlapCircleNonAlloc
                 (transform.position,
                     interactionRadius,
                     _interactionCollides,
                     whatIsInteraction);
-
-            
             
             for (int i = 0; i < size; i++)
             {
@@ -218,8 +215,10 @@ namespace PlayerFolder
                 var interactable = _interactionCollides[i].GetComponent<InteractableComponent>();
                 if (interactable != null)
                 {
+                    
                     interactable.Interact();
-                }
+                } 
+                
             }
 
         }

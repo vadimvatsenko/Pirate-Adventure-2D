@@ -8,6 +8,7 @@ namespace PlayerFolder
     [RequireComponent(typeof(SpriteRenderer))] 
     public class HandleSpriteAnimator : MonoBehaviour
     {
+        
         [SerializeField] private UnityEvent onComplete;
         [SerializeField] private bool isStartWithRandomSprite = false;
         [SerializeField] private bool isReversed = false;

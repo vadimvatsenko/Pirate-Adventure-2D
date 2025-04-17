@@ -5,48 +5,63 @@ namespace Components
 {
     public class HiddenDoor : MonoBehaviour
     {
-        [SerializeField] private bool isOpen = false;
+        [SerializeField] private float durationTime = 0.05f;
+        [SerializeField] private Transform[] waypoints;
         
-        [SerializeField] private float step = 2f;
-        [SerializeField] private float durationTime = 0.5f;
+        private Vector3[] _waypointPositions;
+        
         private float _elapsedTime;
-        
-        private Vector3 _startPosition;
-        private Vector3 _endPosition;
-        private bool _isMoving = true;
+        private bool _isMoving = false;
+        private bool _isOpen = false;
 
         private void Start()
         {
-            _startPosition = transform.position;
+            UpdateWayPointsInfo();
+            transform.position = _waypointPositions[0];
         }
 
-        public void ToogleDoor()
+        private void UpdateWayPointsInfo()
+        {
+            _waypointPositions = new Vector3[waypoints.Length];
+            for (int i = 0; i < waypoints.Length; i++)
+            {
+                _waypointPositions[i] = waypoints[i].position;
+            }
+        }
+        
+        public void ToggleDoor()
+        {
+            if(_isMoving) return;
+            
+            StartCoroutine(ToggleDoorCoroutine());
+        }
+
+        private IEnumerator ToggleDoorCoroutine()
         {
             _isMoving = true;
-            _elapsedTime = 0;
-            _endPosition = isOpen
-                ? _startPosition
-                : new Vector3(transform.position.x, transform.position.y - step, transform.position.z);
-
-            if (_isMoving)
-            {
-                StartCoroutine(ToogleDoorCoroutine());
-            }
-            isOpen = !isOpen;
-        }
-
-        private IEnumerator ToogleDoorCoroutine()
-        {
-            Debug.Log("Interact Door");
+            _elapsedTime = 0f;
+            
             while (durationTime > _elapsedTime)
             {
                 float t = _elapsedTime / durationTime;
-                transform.position = Vector3.Lerp(_startPosition, _endPosition, t);
+                
+                transform.position = Vector3.Lerp(_waypointPositions[0], _waypointPositions[1], t);
                 _elapsedTime += Time.deltaTime;
                 yield return null;
             }
-            
-            transform.position = _endPosition;
+
+            transform.position = _waypointPositions[1];
+            _isOpen = !_isOpen;
+            _isMoving = false;
+
+            SwapWayPoints();
+        }
+
+        private void SwapWayPoints()
+        {
+            var temp = _waypointPositions[1];
+            _waypointPositions[1] = _waypointPositions[0];
+            _waypointPositions[0] = temp;
         }
     }
 }
