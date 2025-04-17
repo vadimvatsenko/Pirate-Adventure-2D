@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Components;
 using UnityEngine;
 using static HandlerExtensions.DrawGizmo;
 
@@ -27,8 +28,9 @@ namespace PlayerFolder
         [SerializeField] private Vector2 groundBoxSize = new Vector2(0.5f, 0.1f);
         private bool _isGrounded;
         [Header("Wall Collision Info")] 
-        [SerializeField] private float wallCheckDistance;
-        [SerializeField] private float yWallCheckOffset = 0.25f;
+        //[SerializeField] private float wallCheckDistance;
+        [SerializeField] private Vector3 wallCheckOffset;
+        [SerializeField] private Vector2 wallBoxSize = new Vector2(0.1f, 0.5f);
         public bool IsWallDetected { get; private set; }
 
         [Header("Interaction Collision Info")] 
@@ -166,9 +168,20 @@ namespace PlayerFolder
 
         private void HandleWallCheck()
         {
-            IsWallDetected = Physics2D.Raycast
+            /*IsWallDetected = Physics2D.Raycast
             (new Vector2(transform.position.x, transform.position.y - yWallCheckOffset),
-                Vector2.right * _facingDirection, wallCheckDistance, whatIsGround);
+                Vector2.right * _facingDirection, wallCheckDistance, whatIsGround);*/
+            
+            //Vector3 startPos = new Vector3(transform.position.x, transform.position.y * _facingDirection + wallCheckDistance, transform.position.z);
+            
+            IsWallDetected = 
+                Physics2D.BoxCast(
+                    transform.position + (wallCheckOffset * _facingDirection), 
+                    wallBoxSize, 
+                    0, 
+                    Vector2.right * _facingDirection, 
+                    0, 
+                    whatIsGround);
         }
 
         private void HandleGroundCheck()
@@ -231,7 +244,7 @@ namespace PlayerFolder
         
         public void Interact()
         {
-            throw new System.NotImplementedException();
+            
         }
         
         private void OnDrawGizmos()
@@ -239,9 +252,9 @@ namespace PlayerFolder
 
             Vector3 groundCheckPos = transform.position + groundCheckOffset;
             
-            Vector2 wallCheckStart = new Vector2(transform.position.x, transform.position.y - yWallCheckOffset);
+            /*Vector2 wallCheckStart = new Vector2(transform.position.x, transform.position.y - yWallCheckOffset);
             Vector2 wallCheckEnd = new Vector2(transform.position.x + _facingDirection * wallCheckDistance,
-                transform.position.y - yWallCheckOffset);
+                transform.position.y - yWallCheckOffset);*/
                 
             // Ground check box
             Gizmos.color = _isGrounded ? Color.green : Color.red;
@@ -249,7 +262,9 @@ namespace PlayerFolder
 
             // Wall check line
             Gizmos.color = IsWallDetected ? Color.green : Color.red;
-            Gizmos.DrawLine(wallCheckStart, wallCheckEnd);
+            //Gizmos.DrawLine(wallCheckStart, wallCheckEnd);
+            
+            Gizmos.DrawWireCube(transform.position + (wallCheckOffset * _facingDirection), wallBoxSize);
             
         }
     }
