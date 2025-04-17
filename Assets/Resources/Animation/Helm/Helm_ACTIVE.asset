@@ -12,8 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2495d7a4bbee44b7bda79613901a1d29, type: 3}
   m_Name: Helm_ACTIVE
   m_EditorClassIdentifier: 
-  animationName: 
-  sprites: []
-  frameRate: 0
+  animationName: Idle
+  sprites:
+  - {fileID: 21300000, guid: c3100b34deb68564d93bdac99e96aa4f, type: 3}
+  - {fileID: 21300000, guid: 099e374cca3a2aa4386f8ea3b54b820a, type: 3}
+  - {fileID: 21300000, guid: 58d4bf02a8a912041910a4dca0e912c2, type: 3}
+  - {fileID: 21300000, guid: 8887318bd7ecc1c4987a267c3fce19f7, type: 3}
+  - {fileID: 21300000, guid: 7dfca50862d06754d9948b06fa6a3fbb, type: 3}
+  - {fileID: 21300000, guid: 4173546401939b84c939d0645a59327e, type: 3}
+  - {fileID: 21300000, guid: d20e5a40b4ecdd64ea763734414a834d, type: 3}
+  - {fileID: 21300000, guid: f24167a750db3464badc56e402418a26, type: 3}
+  - {fileID: 21300000, guid: 7e270a16635ab3547b75deb2d8e3bdb5, type: 3}
+  - {fileID: 21300000, guid: 15fe89cc2a00bbc47afb116ac8d9b3d7, type: 3}
+  frameRate: 10
   loop: 0
   allowNextClip: 0
