@@ -29,6 +29,11 @@ namespace Components
             _player.HandleJump(context.isPressed); 
         }
 
+        private void OnInteract(InputValue context)
+        {
+            _player.Interact();
+        }
+
         private void OnHit(InputValue context) // временно
         {
             _player.TakeDamage();

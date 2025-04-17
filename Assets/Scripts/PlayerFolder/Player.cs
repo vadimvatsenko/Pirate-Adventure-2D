@@ -31,18 +31,23 @@ namespace PlayerFolder
         [SerializeField] private float yWallCheckOffset = 0.25f;
         public bool IsWallDetected { get; private set; }
 
-        [Space] [Header("DoubleJump Info")] [SerializeField]
+        [Header("Interaction Collision Info")] 
+        [SerializeField] private LayerMask whatIsInteraction;
+        [SerializeField] private float interactionRadius;
+        
+
+        [Header("DoubleJump Info")] [SerializeField]
         private float doubleJumpForce;
 
         private bool _canDoubleJump;
         private bool _isAirborne;
 
-        [Header("Knockback Info")] // ++
+        [Header("Knockback Info")] 
         [SerializeField]
-        private float knockbackDuration; // ++
+        private float knockbackDuration; 
 
-        [SerializeField] private Vector2 knockbackPower; // ++
-        private bool _isKnocked; // ++
+        [SerializeField] private Vector2 knockbackPower; 
+        private bool _isKnocked; 
 
         #region Direction
 
@@ -69,7 +74,7 @@ namespace PlayerFolder
         {
             UpdateAirBornStatus();
 
-            if (_isKnocked) return; // ++ 
+            if (_isKnocked) return; 
 
             HandleMovement();
             HandleGroundCheck();
@@ -183,22 +188,21 @@ namespace PlayerFolder
             }
         }
 
-        public void TakeDamage() // ++
+        public void TakeDamage() 
         {
-            if (_isKnocked) return; // ++
+            if (_isKnocked) return; 
 
-            _animator.SetTrigger(Knockback); // ++
+            _animator.SetTrigger(Knockback); 
 
-            _rb.velocity = new Vector2(knockbackPower.x * -_facingDirection, knockbackPower.y); // ++
-            StartCoroutine(KnockbackRoutione()); // ++
+            _rb.velocity = new Vector2(knockbackPower.x * -_facingDirection, knockbackPower.y); 
+            StartCoroutine(KnockbackRoutione()); 
         }
 
-        private IEnumerator KnockbackRoutione() // ++
+        private IEnumerator KnockbackRoutione() 
         {
-            _isKnocked = true; // ++
-            yield return new WaitForSeconds(knockbackDuration); // ++
-            _isKnocked = false; // ++
-
+            _isKnocked = true; 
+            yield return new WaitForSeconds(knockbackDuration); 
+            _isKnocked = false; 
         }
 
         #region Teleport
@@ -224,6 +228,12 @@ namespace PlayerFolder
         }
 
         #endregion
+        
+        public void Interact()
+        {
+            throw new System.NotImplementedException();
+        }
+        
         private void OnDrawGizmos()
         {
 
