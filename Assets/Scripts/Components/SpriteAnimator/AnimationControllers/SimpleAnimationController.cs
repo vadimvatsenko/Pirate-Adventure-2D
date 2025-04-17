@@ -5,6 +5,7 @@ namespace Components.SpriteAnimator.AnimationControllers
 {
     public class SimpleAnimationController : MonoBehaviour
     {
+        
         [SerializeField] private HandleAnimationClip handleAnimationClip;
         private HandleSpriteAnimator _spriteAnimator;
 

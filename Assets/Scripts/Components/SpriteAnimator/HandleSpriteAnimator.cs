@@ -8,7 +8,7 @@ namespace PlayerFolder
     [RequireComponent(typeof(SpriteRenderer))] 
     public class HandleSpriteAnimator : MonoBehaviour
     {
-        
+        [SerializeField] private bool isPlayingOnStart = true;
         [SerializeField] private UnityEvent onComplete;
         [SerializeField] private bool isStartWithRandomSprite = false;
         [SerializeField] private bool isReversed = false;
@@ -22,6 +22,12 @@ namespace PlayerFolder
         private float _nextFrameTime;
 
         private bool _isPlaying = true;
+
+        public bool IsPlaying
+        {
+            get { return _isPlaying; }
+            private set { _isPlaying = value; }
+        }
         
         private void Start()
         {
@@ -57,7 +63,7 @@ namespace PlayerFolder
         
         private void Update()
         {
-            
+            if(!IsPlaying) return;    
             // Если ещё не пришло время смены кадра (_nextFrameTime > Time.time), тоже выходим.
             if (!_isPlaying || _nextFrameTime > Time.time) return;
 
@@ -92,6 +98,11 @@ namespace PlayerFolder
             
             _secondPerFrame = 1f / _frameTime;
             _nextFrameTime = Time.time + _secondPerFrame;
+        }
+
+        public void PlayAnimation()
+        {
+            IsPlaying = true;
         }
     }
 }
