@@ -1,5 +1,4 @@
-﻿using System;
-using Components.SpriteAnimator;
+﻿using Components.SpriteAnimator;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -20,7 +19,7 @@ namespace PlayerFolder
         private int _currentSpriteIndex;
         private float _nextFrameTime;
 
-        private bool _isPlaying = true;
+        private bool _isPlaying = false;
         
         private void Start()
         {
@@ -84,8 +83,6 @@ namespace PlayerFolder
 
         public void SetAnimationClip(HandleAnimationClip animationClip)
         {
-            _isPlaying = true;
-            
             _animationClip = animationClip;
             _frameTime = animationClip.FrameRate;
             
@@ -95,8 +92,8 @@ namespace PlayerFolder
 
         public void PlayAnimation()
         {
-            Debug.Log("Is play");
             _isPlaying = true;
+            enabled = true; // активация скрипта
         }
     }
 }

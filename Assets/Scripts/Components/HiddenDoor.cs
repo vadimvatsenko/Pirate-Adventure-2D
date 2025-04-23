@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Components
 {
@@ -13,7 +14,9 @@ namespace Components
         private float _elapsedTime;
         private bool _isMoving = false;
         private bool _isOpen = false;
-
+        
+        public UnityEvent OnEnableDoor;
+            
         private void Start()
         {
             UpdateWayPointsInfo();
@@ -32,6 +35,8 @@ namespace Components
         public void ToggleDoor()
         {
             if(_isMoving) return;
+            
+            OnEnableDoor?.Invoke();
             
             StartCoroutine(ToggleDoorCoroutine());
         }
@@ -53,7 +58,8 @@ namespace Components
             transform.position = _waypointPositions[1];
             _isOpen = !_isOpen;
             _isMoving = false;
-
+            
+            
             SwapWayPoints();
         }
 
@@ -62,6 +68,7 @@ namespace Components
             var temp = _waypointPositions[1];
             _waypointPositions[1] = _waypointPositions[0];
             _waypointPositions[0] = temp;
+            
         }
     }
 }

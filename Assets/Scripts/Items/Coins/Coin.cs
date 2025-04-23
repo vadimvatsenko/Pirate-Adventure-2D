@@ -10,7 +10,7 @@ namespace Items.Coins
         [SerializeField] private CoinType coinType;
         [SerializeField] private int coinCost;
         [SerializeField] private GameObject coinDestroyVfx;
-        [SerializeField] private UnityEvent oncoinDestroyCoin;
+        [SerializeField] private UnityEvent onCoinDestroyCoin;
         private CoinsController _coinsController;
 
         private void Awake()
@@ -21,7 +21,6 @@ namespace Items.Coins
         private void Collect()
         {
             Destroy(gameObject);
-            //oncoinDestroyCoin?.Invoke();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

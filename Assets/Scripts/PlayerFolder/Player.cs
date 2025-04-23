@@ -1,8 +1,6 @@
 ﻿using System.Collections;
-using System.Drawing;
 using Components;
 using UnityEngine;
-using static HandlerExtensions.DrawGizmo;
 using Color = UnityEngine.Color;
 
 namespace PlayerFolder

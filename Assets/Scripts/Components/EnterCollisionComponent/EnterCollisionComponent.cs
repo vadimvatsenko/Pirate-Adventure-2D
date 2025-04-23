@@ -9,7 +9,6 @@ namespace Components.EnterCollisionComponent
 
         [SerializeField] private bool isDot; // проверяем ли столкновение в определённой точке коллайдера?
         [SerializeField] private Directions dotDirection; // направление проверки
-
         
         private void OnCollisionEnter2D(Collision2D collision)
         {
