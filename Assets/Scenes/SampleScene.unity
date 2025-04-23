@@ -15366,7 +15366,7 @@ GameObject:
   - component: {fileID: 1428243138}
   - component: {fileID: 1428243139}
   - component: {fileID: 1428243137}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HidenDoor
   m_TagString: Finish
   m_Icon: {fileID: 0}
