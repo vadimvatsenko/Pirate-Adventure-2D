@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using Components;
+using Interfaces;
 using UnityEngine;
 using Color = UnityEngine.Color;
 
 namespace PlayerFolder
 {
-    public class Player : MonoBehaviour
+    public class Player : MonoBehaviour, IFacingDirection
     {
         #region Static Fields
         // что тут происходит, перевод string в hash

@@ -6,8 +6,9 @@ namespace Components.SpriteAnimator.AnimationControllers
     public class SimpleAnimationController : MonoBehaviour
     {
         
-        [SerializeField] private HandleAnimationClip handleAnimationClip;
         [SerializeField] private bool playOnAwake = true;
+        [SerializeField] private HandleAnimationClip handleAnimationClip;
+        
         private HandleSpriteAnimator _spriteAnimator;
 
         private void Awake()
