@@ -1,6 +1,6 @@
 ﻿namespace Interfaces
 {
-    public interface IFacingDirection
+    public interface IMovable
     {
         int FacingDirection { get; }
     }

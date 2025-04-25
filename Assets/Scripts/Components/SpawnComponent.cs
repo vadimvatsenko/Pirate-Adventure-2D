@@ -13,7 +13,7 @@ namespace Components
         [ContextMenu("Spawn")]
         public void Spawn()
         {
-            var faced = target.GetComponent<IFacingDirection>();
+            var faced = target.GetComponent<IMovable>();
             Vector3 spawnPos = target.position;
 
             if (faced != null)
@@ -22,6 +22,7 @@ namespace Components
             }
 
             GameObject spawnObj = Instantiate(prefab, spawnPos, target.rotation);
+            //spawnObj.transform.parent = this.transform;
         }
     }
 }

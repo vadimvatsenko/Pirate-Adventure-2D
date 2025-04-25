@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Components;
 using Interfaces;
 using UnityEngine;
@@ -6,7 +7,7 @@ using Color = UnityEngine.Color;
 
 namespace PlayerFolder
 {
-    public class Player : MonoBehaviour, IFacingDirection
+    public class Player : MonoBehaviour, IMovable
     {
         #region Static Fields
         // что тут происходит, перевод string в hash
@@ -51,20 +52,24 @@ namespace PlayerFolder
         private bool _isKnocked; 
 
         #region Direction
-
         private bool _isFacingRight = true;
         private int _facingDirection = 1;
         private float _xInput;
-
+        private bool _isPressedJumpButton;
         #endregion
 
         private Rigidbody2D _rb;
         private Animator _animator;
-
+        public event Action OnPlayerJump;
+        
         public Rigidbody2D Rb => _rb;
         public float XInput => _xInput;
         public int FacingDirection => _facingDirection;
-
+        public bool IsGrounded => _isGrounded;
+        public bool IsAirborne => _isAirborne;
+        public bool CanDoubleJump => _canDoubleJump;
+        public bool IsPressedJumpButton => _isPressedJumpButton;
+        
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
@@ -83,12 +88,9 @@ namespace PlayerFolder
             HandleFlip();
             HandleAnimation();
         }
-        
-        public void SetDirection(float dir)
-        {
-            _xInput = dir;
-        }
 
+        public void SetDirection(float dir) => _xInput = dir;
+        
         private void UpdateAirBornStatus()
         {
             if (_isGrounded && _isAirborne) HandleLanding();
@@ -110,18 +112,22 @@ namespace PlayerFolder
         {
             _rb.velocity = new Vector2(_xInput * speed, _rb.velocity.y);
         }
-
-        public void HandleJump(bool isPressed)
+        
+        public void HandleJump(bool isPressedSpace)
         {
-            if (isPressed)
+            _isPressedJumpButton = isPressedSpace;
+            if (_isPressedJumpButton)
             {
+                
                 if (_isGrounded)
                 {
+                    OnPlayerJump?.Invoke();
                     _rb.AddForce(new Vector2(_rb.velocity.x, jumpForce), ForceMode2D.Impulse);
                 }
 
                 if (_isAirborne && _canDoubleJump)
                 {
+                    OnPlayerJump?.Invoke();
                     HandleDoubleJump();
                 }
             }
@@ -162,7 +168,6 @@ namespace PlayerFolder
             _facingDirection *= -1;
             transform.Rotate(0f, 180f, 0f);
         }
-
         #endregion
 
         #region Detection
@@ -266,7 +271,6 @@ namespace PlayerFolder
         
         private void OnDrawGizmos()
         {
-
             // Ground check box
             Vector3 groundCheckPos = transform.position + groundCheckOffset;
             Gizmos.color = _isGrounded ? Color.green : Color.red;
@@ -279,7 +283,6 @@ namespace PlayerFolder
             // Interaction check circle
             Gizmos.color = _isInteraction ? Color.green : Color.red;
             Gizmos.DrawWireSphere(transform.position, interactionRadius);
-            
         }
     }
 }
