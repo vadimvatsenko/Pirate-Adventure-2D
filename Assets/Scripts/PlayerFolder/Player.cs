@@ -3,6 +3,7 @@ using System.Collections;
 using Components;
 using Interfaces;
 using UnityEngine;
+using UnityEngine.Events;
 using Color = UnityEngine.Color;
 
 namespace PlayerFolder
@@ -61,6 +62,7 @@ namespace PlayerFolder
         private Rigidbody2D _rb;
         private Animator _animator;
         public event Action OnPlayerJump;
+        public UnityEvent OnPlayerTakeDamage;
         
         public Rigidbody2D Rb => _rb;
         public float XInput => _xInput;
@@ -232,6 +234,7 @@ namespace PlayerFolder
         {
             if (_isKnocked) return; 
 
+            OnPlayerTakeDamage?.Invoke();
             _animator.SetTrigger(Knockback); 
 
             _rb.velocity = new Vector2(knockbackPower.x * -_facingDirection, knockbackPower.y); 

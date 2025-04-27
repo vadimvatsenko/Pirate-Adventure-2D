@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2495d7a4bbee44b7bda79613901a1d29, type: 3}
   m_Name: HeroFallParticle
   m_EditorClassIdentifier: 
-  animationName: 
-  sprites: []
-  frameRate: 0
+  animationName: Idle
+  sprites:
+  - {fileID: 21300000, guid: 8aefe8ed90e427f4996c93f8c7af8b9f, type: 3}
+  - {fileID: 21300000, guid: 11c92200342a06344a66d48caeffe7ff, type: 3}
+  - {fileID: 21300000, guid: 17ccf40ed999b5e49bfd9c6e37b8ccb5, type: 3}
+  - {fileID: 21300000, guid: 9b598986b84557b48b9ccb9470288f26, type: 3}
+  frameRate: 10
   loop: 0
   allowNextClip: 0

@@ -24,6 +24,7 @@ namespace PlayerFolder.PlayerParticles
             _player = GetComponentInParent<Player>();
             _particleMap = new Dictionary<ParticleType, SpawnComponent>();
 
+            // заполняем словарь партиклами, где ключ это перечисление 
             foreach (var part in particles)
             {
                 _particleMap[part.type] = part.component;
