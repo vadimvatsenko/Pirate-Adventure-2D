@@ -13,7 +13,7 @@ namespace PlayerFolder.PlayerParticles
         
         private Player _player;
         
-        // Hero Fall Particle
+        // Партикал приземления
         private const float MinJumpHeight = 11.1f;
         private float _currentJumpHeight;
 
@@ -81,7 +81,6 @@ namespace PlayerFolder.PlayerParticles
                 particle.Spawn();
             }
         }
-        
         private void HandleSpawnJumpParticle() => HandleSpawn(ParticleType.Jump);
     }
 }

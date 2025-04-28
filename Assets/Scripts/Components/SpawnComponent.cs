@@ -22,7 +22,6 @@ namespace Components
             }
 
             GameObject spawnObj = Instantiate(prefab, spawnPos, target.rotation);
-            //spawnObj.transform.parent = this.transform;
         }
     }
 }

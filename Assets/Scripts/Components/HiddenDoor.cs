@@ -68,7 +68,6 @@ namespace Components
             var temp = _waypointPositions[1];
             _waypointPositions[1] = _waypointPositions[0];
             _waypointPositions[0] = temp;
-            
         }
     }
 }

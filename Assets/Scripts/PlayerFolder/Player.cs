@@ -40,14 +40,24 @@ namespace PlayerFolder
         private bool _isInteraction;
         private Collider2D[] _interactionCollides = new Collider2D[1];
         
-        [Header("DoubleJump Info")] [SerializeField]
-        private float doubleJumpForce;
+        [Header("DoubleJump Info")] 
+        [SerializeField] private float doubleJumpForce;
         private bool _canDoubleJump;
         private bool _isAirborne;
 
         [Header("Knockback Info")] 
-        [SerializeField]
-        private float knockbackDuration; 
+        [SerializeField] private float knockbackDuration; 
+        
+        [Header("Teleport Info")]
+        [SerializeField] private float durationInTeleport = 1f; // длительность подъема
+        [SerializeField] float targetInTeleportHeight = 1f; // на сколько поднять
+        [SerializeField] private float elapsedInTeleport = 0f;
+        private float _startInTeleportY;
+        private float _endInTeleportY;
+        [Space] 
+        [SerializeField] float rotationAmountInTeleport = 360f;
+        private float _startRotationInTeleportZ;
+        private float _endRotationInTeleportZ;
 
         [SerializeField] private Vector2 knockbackPower; 
         private bool _isKnocked; 
@@ -66,7 +76,12 @@ namespace PlayerFolder
         
         public Rigidbody2D Rb => _rb;
         public float XInput => _xInput;
-        public int FacingDirection => _facingDirection;
+
+        public int FacingDirection
+        {
+            get => _facingDirection;
+            private set => _facingDirection = value;
+        }
         public bool IsGrounded => _isGrounded;
         public bool IsAirborne => _isAirborne;
         public bool CanDoubleJump => _canDoubleJump;
@@ -253,21 +268,27 @@ namespace PlayerFolder
         
         private IEnumerator SmoothLift(Vector3 targetPosition)
         {
-            float duration = 1f; // длительность подъема
-            float targetHeight = 1.5f; // на сколько поднять
-            float startY = transform.position.y;
-            float endY = startY + targetHeight;
-            float elapsed = 0f;
+            _startInTeleportY = transform.position.y;
+            _endInTeleportY = _startInTeleportY + targetInTeleportHeight;
+            
+            float startRotationInTeleportY = transform.rotation.eulerAngles.y;
+            _startRotationInTeleportZ = transform.rotation.eulerAngles.z;
+            _endRotationInTeleportZ = _startRotationInTeleportZ + rotationAmountInTeleport;
 
-            while (elapsed < duration)
+            while (elapsedInTeleport < durationInTeleport)
             {
-                float newY = Mathf.Lerp(startY, endY, elapsed / duration);
+                float newY = Mathf.Lerp(_startInTeleportY, _endInTeleportY, elapsedInTeleport / durationInTeleport);
+                float newRotationZ = 
+                    Mathf.Lerp(_startRotationInTeleportZ, _endRotationInTeleportZ, elapsedInTeleport / durationInTeleport);
+                
                 transform.position = new Vector3(transform.position.x, newY, transform.position.z);
-                elapsed += Time.deltaTime;
+                transform.rotation = Quaternion.Euler(0f, 0f, newRotationZ);
+                elapsedInTeleport += Time.deltaTime;
                 yield return null;
             }
 
             transform.position = new Vector3(targetPosition.x, targetPosition.y, transform.position.z);
+            transform.rotation = Quaternion.Euler(0f, startRotationInTeleportY, _startRotationInTeleportZ);
         }
 
         #endregion

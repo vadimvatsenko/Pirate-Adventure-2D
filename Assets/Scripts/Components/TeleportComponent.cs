@@ -9,8 +9,6 @@ namespace Components
     public class TeleportComponent : MonoBehaviour
     {
         [SerializeField] private Transform destTransform;
-        [SerializeField] private CanvasGroup flashCanvas; // Белый Canvas поверх камеры
-        [SerializeField] private float flashDuration = 0.25f;
 
         [SerializeField] private TeleportEvent onStartTeleport;
         [SerializeField] private TeleportEvent onEndTeleport;
@@ -20,16 +18,13 @@ namespace Components
         {
             if (target != null && target.GetComponent<Player>() != null)
             {
-
                 onStartTeleport?.Invoke(target.transform.position);
 
-                target.GetComponent<Player>().Teleport(destTransform.position);
-
-                // Задержка перед перемещением
+                Player player = target.GetComponent<Player>();
+                player.Teleport(destTransform.position);
+                
                 yield return new WaitForSeconds(0.5f);
-
-                // Повторная вспышка (появление)
-
+                
                 onEndTeleport?.Invoke(destTransform.position);
             }
         }

@@ -35,7 +35,6 @@ namespace Components.EnterCollisionComponent
                 }
                 else
                 {
-                    
                     onAction?.Invoke(collision.gameObject);
                 }
             }

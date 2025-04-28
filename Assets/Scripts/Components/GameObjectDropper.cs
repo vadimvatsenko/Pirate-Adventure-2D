@@ -6,6 +6,7 @@ namespace Components
 {
     public class GameObjectDropper : MonoBehaviour
     {
+        // используется для выброса монет
         [SerializeField] private GameObject prefab;
         [SerializeField] private int gameObjectCountToDrop = 10;
         [SerializeField] private float spreadForce = 1.5f;
@@ -26,7 +27,6 @@ namespace Components
                 
                 if (rb2d != null)
                 {
-                    
                     Vector2 direction = (Vector2.up + Random.insideUnitCircle * 0.5f).normalized;
                     rb2d.AddForce(direction * spreadForce, ForceMode2D.Impulse);
                 }
