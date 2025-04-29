@@ -28003,6 +28003,8 @@ MonoBehaviour:
   targetInTeleportHeight: 1
   elapsedInTeleport: 0
   rotationAmountInTeleport: 360
+  startScaleInTeleport: 1
+  endScaleInTeleport: 0.1
   knockbackPower: {x: 1, y: 3}
   OnPlayerTakeDamage:
     m_PersistentCalls:

@@ -22,10 +22,10 @@ namespace Components
 
                 Player player = target.GetComponent<Player>();
                 
-                Debug.Log($"Teleporting player {player.name}");
                 player.Teleport(destTransform.position);
                 
                 yield return new WaitForSeconds(0.5f);
+                
                 
                 onEndTeleport?.Invoke(destTransform.position);
             }
