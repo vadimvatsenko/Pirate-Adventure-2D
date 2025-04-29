@@ -58,6 +58,9 @@ namespace PlayerFolder
         [SerializeField] float rotationAmountInTeleport = 360f;
         private float _startRotationInTeleportZ;
         private float _endRotationInTeleportZ;
+        [Space] 
+        [SerializeField] private float startScaleInTeleport = 1f;
+        [SerializeField] private float endScaleInTeleport = 0.1f;
 
         [SerializeField] private Vector2 knockbackPower; 
         private bool _isKnocked; 
@@ -268,6 +271,7 @@ namespace PlayerFolder
         
         private IEnumerator SmoothLift(Vector3 targetPosition)
         {
+            elapsedInTeleport = 0f; // сброс таймера
             _startInTeleportY = transform.position.y;
             _endInTeleportY = _startInTeleportY + targetInTeleportHeight;
             
@@ -280,15 +284,19 @@ namespace PlayerFolder
                 float newY = Mathf.Lerp(_startInTeleportY, _endInTeleportY, elapsedInTeleport / durationInTeleport);
                 float newRotationZ = 
                     Mathf.Lerp(_startRotationInTeleportZ, _endRotationInTeleportZ, elapsedInTeleport / durationInTeleport);
+                float newScale = Mathf.Lerp(startScaleInTeleport, endScaleInTeleport, elapsedInTeleport / durationInTeleport);
                 
                 transform.position = new Vector3(transform.position.x, newY, transform.position.z);
                 transform.rotation = Quaternion.Euler(0f, 0f, newRotationZ);
+                transform.localScale = new Vector3(newScale, newScale, newScale);
+                
                 elapsedInTeleport += Time.deltaTime;
                 yield return null;
             }
 
             transform.position = new Vector3(targetPosition.x, targetPosition.y, transform.position.z);
             transform.rotation = Quaternion.Euler(0f, startRotationInTeleportY, _startRotationInTeleportZ);
+            transform.localScale = new Vector3(startScaleInTeleport, startScaleInTeleport, startScaleInTeleport);
         }
 
         #endregion
