@@ -17,7 +17,7 @@ namespace PlayerFolder
         private static readonly int IsGroundedKey = Animator.StringToHash("isGrounded");
         private static readonly int Knockback = Animator.StringToHash("knockback"); // ++
         #endregion
-
+        
         [Header("Movement Info")] [SerializeField]
         private float speed;
         [SerializeField] private float jumpForce;
@@ -267,9 +267,9 @@ namespace PlayerFolder
         }
 
         #region Teleport
-        public void Teleport(Vector3 targetPosition) => StartCoroutine(SmoothLift(targetPosition));
+        public void Teleport(Vector3 targetPosition, Action OnDestination) => StartCoroutine(SmoothLift(targetPosition, OnDestination));
         
-        private IEnumerator SmoothLift(Vector3 targetPosition)
+        private IEnumerator SmoothLift(Vector3 targetPosition, Action OnDestination)
         {
             elapsedInTeleport = 0f; // сброс таймера
             _startInTeleportY = transform.position.y;
@@ -293,10 +293,13 @@ namespace PlayerFolder
                 elapsedInTeleport += Time.deltaTime;
                 yield return null;
             }
-
+            
+            OnDestination?.Invoke();
+            
             transform.position = new Vector3(targetPosition.x, targetPosition.y, transform.position.z);
             transform.rotation = Quaternion.Euler(0f, startRotationInTeleportY, _startRotationInTeleportZ);
             transform.localScale = new Vector3(startScaleInTeleport, startScaleInTeleport, startScaleInTeleport);
+            
         }
 
         #endregion
