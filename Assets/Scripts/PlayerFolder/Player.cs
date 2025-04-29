@@ -61,6 +61,7 @@ namespace PlayerFolder
         [Space] 
         [SerializeField] private float startScaleInTeleport = 1f;
         [SerializeField] private float endScaleInTeleport = 0.1f;
+        private bool _isTeleporting;
 
         [SerializeField] private Vector2 knockbackPower; 
         private bool _isKnocked; 
@@ -100,7 +101,7 @@ namespace PlayerFolder
         {
             UpdateAirBornStatus();
 
-            if (_isKnocked) return; 
+            if (_isKnocked || _isTeleporting) return; 
 
             HandleMovement();
             HandleGroundCheck();
@@ -271,6 +272,7 @@ namespace PlayerFolder
         
         private IEnumerator SmoothLift(Vector3 targetPosition, Action OnDestination)
         {
+            _isTeleporting = true;
             elapsedInTeleport = 0f; // сброс таймера
             _startInTeleportY = transform.position.y;
             _endInTeleportY = _startInTeleportY + targetInTeleportHeight;
@@ -297,8 +299,9 @@ namespace PlayerFolder
             OnDestination?.Invoke();
             
             transform.position = new Vector3(targetPosition.x, targetPosition.y, transform.position.z);
-            transform.rotation = Quaternion.Euler(0f, startRotationInTeleportY, _startRotationInTeleportZ);
+            transform.rotation = Quaternion.Euler(0f, startRotationInTeleportY, 0f);
             transform.localScale = new Vector3(startScaleInTeleport, startScaleInTeleport, startScaleInTeleport);
+            _isTeleporting = false;
             
         }
 

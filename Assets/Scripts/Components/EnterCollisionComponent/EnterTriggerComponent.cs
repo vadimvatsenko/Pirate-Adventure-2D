@@ -13,7 +13,6 @@ namespace Components
         
         private void OnTriggerEnter2D(Collider2D other)
         {
-            
             if (other.CompareTag(gameObjectTag))
             {
                 onAction?.Invoke(other.gameObject);
