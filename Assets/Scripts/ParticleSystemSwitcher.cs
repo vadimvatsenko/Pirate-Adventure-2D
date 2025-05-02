@@ -20,7 +20,6 @@ namespace DefaultNamespace
             if (other.GetComponent<Player>() != null)
             {
                 _playerInside = true;
-                Debug.Log("Entered");
                 _particleSystem?.Play();
             }
         }
@@ -30,7 +29,6 @@ namespace DefaultNamespace
             if (other.GetComponent<Player>() != null)
             {
                 _playerInside = false;
-                Debug.Log("Exited");
                 _particleSystem?.Stop();
             }
         }

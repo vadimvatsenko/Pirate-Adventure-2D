@@ -50,9 +50,6 @@ TagManager:
   - name: Traps
     uniqueID: 2778839079
     locked: 0
-  - name: Ground
-    uniqueID: 2994583185
-    locked: 0
   - name: Enemy
     uniqueID: 1144281321
     locked: 0
@@ -61,4 +58,10 @@ TagManager:
     locked: 0
   - name: Items
     uniqueID: 2554912815
+    locked: 0
+  - name: Ground
+    uniqueID: 2994583185
+    locked: 0
+  - name: SuperLayer
+    uniqueID: 4195657477
     locked: 0

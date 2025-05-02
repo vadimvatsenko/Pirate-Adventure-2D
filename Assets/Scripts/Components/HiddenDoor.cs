@@ -7,6 +7,7 @@ namespace Components
     public class HiddenDoor : MonoBehaviour
     {
         [SerializeField] private float durationTime = 0.05f;
+        [SerializeField] private float delayTime = 0.5f;
         [SerializeField] private Transform[] waypoints;
         
         private Vector3[] _waypointPositions;
@@ -43,6 +44,7 @@ namespace Components
 
         private IEnumerator ToggleDoorCoroutine()
         {
+            yield return new WaitForSeconds(delayTime);
             _isMoving = true;
             _elapsedTime = 0f;
             
