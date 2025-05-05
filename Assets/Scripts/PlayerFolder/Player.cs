@@ -302,7 +302,6 @@ namespace PlayerFolder
             transform.rotation = Quaternion.Euler(0f, startRotationInTeleportY, 0f);
             transform.localScale = new Vector3(startScaleInTeleport, startScaleInTeleport, startScaleInTeleport);
             _isTeleporting = false;
-            
         }
 
         #endregion

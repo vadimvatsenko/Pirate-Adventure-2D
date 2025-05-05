@@ -14,6 +14,7 @@ namespace Components
         
         [SerializeField] private TeleportEvent onStartTeleport;
         [SerializeField] private TeleportEvent onEndTeleport;
+        
         public void Teleport(GameObject target) => StartCoroutine(TeleportPlayerRoutine(target));
 
         private IEnumerator TeleportPlayerRoutine(GameObject target)
