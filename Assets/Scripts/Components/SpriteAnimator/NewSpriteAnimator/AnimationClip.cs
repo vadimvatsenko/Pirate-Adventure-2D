@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Components.SpriteAnimator
+namespace Components.SpriteAnimator.NewSpriteAnimator
 {
     [Serializable]
     public class AnimationClip

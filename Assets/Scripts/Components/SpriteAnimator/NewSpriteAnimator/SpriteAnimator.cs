@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 // Анимационная система с уроков
-namespace Components.SpriteAnimator
+namespace Components.SpriteAnimator.NewSpriteAnimator
 {
     [RequireComponent(typeof(SpriteRenderer))]
     public class SpriteAnimator : MonoBehaviour

@@ -13,7 +13,6 @@ namespace Components.EnterCollisionComponent
             if (other.CompareTag(gameObjectTag))
             {
                 onAction?.Invoke();
-                
             }
         }
     }

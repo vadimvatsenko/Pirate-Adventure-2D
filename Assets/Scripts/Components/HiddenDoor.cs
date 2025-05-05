@@ -61,7 +61,6 @@ namespace Components
             _isOpen = !_isOpen;
             _isMoving = false;
             
-            
             SwapWayPoints();
         }
 

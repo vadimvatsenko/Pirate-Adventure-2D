@@ -18,7 +18,6 @@ namespace Components
             
             if (health <= 0)
             {
-                Debug.Log($"Player Die");
                 onDie?.Invoke();
             }
         }
