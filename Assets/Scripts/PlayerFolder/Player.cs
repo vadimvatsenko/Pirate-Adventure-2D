@@ -2,6 +2,7 @@
 using System.Collections;
 using Components;
 using Interfaces;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Events;
 using Color = UnityEngine.Color;
@@ -62,9 +63,14 @@ namespace PlayerFolder
         [SerializeField] private float startScaleInTeleport = 1f;
         [SerializeField] private float endScaleInTeleport = 0.1f;
         private bool _isTeleporting;
-
+        
+        [Header("Hit Info")]
         [SerializeField] private Vector2 knockbackPower; 
         private bool _isKnocked; 
+        
+        [SerializeField] private AnimatorController withoutArmor;
+        [SerializeField] private AnimatorController withArmor;
+        private bool _isArmed = false;
 
         #region Direction
         private bool _isFacingRight = true;
@@ -111,6 +117,12 @@ namespace PlayerFolder
         }
 
         public void SetDirection(float dir) => _xInput = dir;
+
+        public void ChangeArmedState()
+        {
+            _isArmed = !_isArmed;
+            _animator.runtimeAnimatorController = _isArmed ? withArmor : withoutArmor;
+        }
         
         private void UpdateAirBornStatus()
         {
