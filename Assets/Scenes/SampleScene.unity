@@ -13860,7 +13860,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.276411, y: 6.7271976, z: -10}
+  m_LocalPosition: {x: 15.944834, y: 0.6099986, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -30642,10 +30642,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 11, y: 17}
-      - {x: 1, y: 17}
-      - {x: 1, y: -14}
-      - {x: 11, y: -14}
+    - - {x: 10.75, y: 17}
+      - {x: 1.25, y: 17}
+      - {x: 1.25, y: -14}
+      - {x: 10.75, y: -14}
 --- !u!114 &1815399717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32325,16 +32325,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 0
-  groundCheckOffset: {x: 0, y: 0, z: 0}
+    m_Bits: 256
+  groundCheckOffset: {x: 0, y: -0.33, z: 0}
   groundCheckDistance: 0
   groundBoxSize: {x: 0.5, y: 0.1}
-  wallCheckOffset: {x: 0, y: 0, z: 0}
+  wallCheckOffset: {x: 0.33, y: 0, z: 0}
   wallBoxSize: {x: 0.1, y: 0.5}
   whatIsInteraction:
     serializedVersion: 2
     m_Bits: 8192
-  interactionRadius: 0
+  interactionRadius: 0.5
+  radius: 1
+  offset: {x: 0.5, y: 0, z: 0}
 --- !u!1001 &1480576906298147762
 PrefabInstance:
   m_ObjectHideFlags: 0
