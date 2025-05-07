@@ -19,13 +19,19 @@ namespace Components
         private void OnCollisionStay2D(Collision2D other)
         {
             Player player = other.gameObject.GetComponent<Player>();
-            
-            if (player == null) return;
-            
-            if (player.IsWallDetected && player.XInput != 0)
+
+
+            if (player != null)
             {
-                // Двигаем в противоположную сторону от взгляда игрока
-                _rb.velocity = new Vector2(-player.FacingDirection * pushMultiplier, _rb.velocity.y);
+                PlayerCollisionInfo collisionInfo = player.GetComponent<PlayerCollisionInfo>();
+                if (collisionInfo != null)
+                {
+                    if (collisionInfo.IsWallDetected && player.XInput != 0)
+                    {
+                        // Двигаем в противоположную сторону от взгляда игрока
+                        _rb.velocity = new Vector2(-player.FacingDirection * pushMultiplier, _rb.velocity.y);
+                    }
+                }
             }
         }
     }

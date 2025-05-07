@@ -10,12 +10,14 @@ namespace Components
         
         // временно, потом удалю
         private Player _player; 
+        private PlayerCollisionInfo _playerCollisionInfo;
     
         // Название должно совпадать с тем, что настроено в системе с приставкой On
 
         private void Start()
         {
             _player = FindObjectOfType<Player>();
+            _playerCollisionInfo = _player.GetComponent<PlayerCollisionInfo>();
         }
         private void OnMovement(InputValue context) 
         {
@@ -31,12 +33,17 @@ namespace Components
 
         private void OnInteract(InputValue context)
         {
-            _player.Interact();
+            _playerCollisionInfo.Interact();
         }
 
         private void OnHit(InputValue context) // временно
         {
             _player.TakeDamage();
+        }
+
+        private void OnAttack(InputValue context)
+        {
+            _player.Attack();
         }
     }
 }

@@ -19,27 +19,11 @@ namespace PlayerFolder
         private static readonly int Knockback = Animator.StringToHash("knockback"); // ++
         #endregion
         
+        private PlayerCollisionInfo _collisionInfo;
+        
         [Header("Movement Info")] [SerializeField]
         private float speed;
         [SerializeField] private float jumpForce;
-
-        [Header("Ground Collision Info")] 
-        [SerializeField] private LayerMask whatIsGround;
-        [SerializeField] private Vector3 groundCheckOffset;
-        [SerializeField] private float groundCheckDistance;
-        [SerializeField] private Vector2 groundBoxSize = new Vector2(0.5f, 0.1f);
-        private bool _isGrounded;
-        
-        [Header("Wall Collision Info")] 
-        [SerializeField] private Vector3 wallCheckOffset;
-        [SerializeField] private Vector2 wallBoxSize = new Vector2(0.1f, 0.5f);
-        public bool IsWallDetected { get; private set; }
-
-        [Header("Interaction Collision Info")] 
-        [SerializeField] private LayerMask whatIsInteraction;
-        [SerializeField] private float interactionRadius;
-        private bool _isInteraction;
-        private Collider2D[] _interactionCollides = new Collider2D[1];
         
         [Header("DoubleJump Info")] 
         [SerializeField] private float doubleJumpForce;
@@ -66,6 +50,7 @@ namespace PlayerFolder
         [SerializeField] private float endScaleInTeleport = 0.1f;
         private bool _isTeleporting;
         
+        // ++
         [Header("Animator Controllers")]
         [SerializeField] private AnimatorController withoutArmor;
         [SerializeField] private AnimatorController withArmor;
@@ -91,13 +76,14 @@ namespace PlayerFolder
             get => _facingDirection;
             private set => _facingDirection = value;
         }
-        public bool IsGrounded => _isGrounded;
+        
         public bool IsAirborne => _isAirborne;
         public bool CanDoubleJump => _canDoubleJump;
         public bool IsPressedJumpButton => _isPressedJumpButton;
         
         private void Awake()
         {
+            _collisionInfo = GetComponent<PlayerCollisionInfo>();
             _rb = GetComponent<Rigidbody2D>();
             _animator = GetComponentInChildren<Animator>();
         }
@@ -109,14 +95,15 @@ namespace PlayerFolder
             if (_isKnocked || _isTeleporting) return; 
 
             HandleMovement();
-            HandleGroundCheck();
-            HandleWallCheck();
+            _collisionInfo.HandleGroundCheck();
+            _collisionInfo.HandleWallCheck();
             HandleFlip();
             HandleAnimation();
         }
 
         public void SetDirection(float dir) => _xInput = dir;
 
+        // ++
         public void ChangeArmedState()
         {
             _isArmed = !_isArmed;
@@ -125,8 +112,8 @@ namespace PlayerFolder
         
         private void UpdateAirBornStatus()
         {
-            if (_isGrounded && _isAirborne) HandleLanding();
-            if (!_isGrounded && !_isAirborne) BecomeAirborn();
+            if (_collisionInfo.IsGrounded && _isAirborne) HandleLanding();
+            if (!_collisionInfo.IsGrounded && !_isAirborne) BecomeAirborn();
         }
 
         private void BecomeAirborn()
@@ -151,7 +138,7 @@ namespace PlayerFolder
             if (_isPressedJumpButton)
             {
                 
-                if (_isGrounded)
+                if (_collisionInfo.IsGrounded)
                 {
                     OnPlayerJump?.Invoke();
                     _rb.AddForce(new Vector2(_rb.velocity.x, jumpForce), ForceMode2D.Impulse);
@@ -181,7 +168,7 @@ namespace PlayerFolder
             Vector3 velocityNormalized = _rb.velocity.normalized;
             _animator.SetFloat(XVelocityKey, velocityNormalized.x);
             _animator.SetFloat(YVelocityKey, velocityNormalized.y);
-            _animator.SetBool(IsGroundedKey, _isGrounded);
+            _animator.SetBool(IsGroundedKey, _collisionInfo.IsGrounded);
         }
 
         #region Flip
@@ -202,62 +189,7 @@ namespace PlayerFolder
         }
         #endregion
 
-        #region Detection
-        private void HandleWallCheck()
-        {
-            IsWallDetected = 
-                Physics2D.BoxCast(
-                    transform.position + (wallCheckOffset * _facingDirection), 
-                    wallBoxSize, 
-                    0, 
-                    Vector2.right * _facingDirection, 
-                    0, 
-                    whatIsGround);
-        }
-
-        private void HandleGroundCheck()
-        {
-            RaycastHit2D hit = Physics2D.BoxCast(
-                transform.position + groundCheckOffset, 
-                groundBoxSize, 
-                0f, 
-                Vector2.down, 
-                groundCheckDistance,
-                whatIsGround);
-
-            if (hit.collider != null)
-            {
-                float dot = Vector2.Dot(hit.normal, Vector2.up);
-                _isGrounded = dot >= 0.7f;
-            }
-            else
-            {
-                _isGrounded = false;
-            }
-        }
         
-        public void Interact()
-        {
-            var size =
-                Physics2D.OverlapCircleNonAlloc
-                (transform.position,
-                    interactionRadius,
-                    _interactionCollides,
-                    whatIsInteraction);
-            
-            for (int i = 0; i < size; i++)
-            {
-                
-                var interactable = _interactionCollides[i].GetComponent<InteractableComponent>();
-                if (interactable != null)
-                {
-                    interactable.Interact();
-                } 
-                
-            }
-
-        }
-        #endregion
         
         public void TakeDamage() 
         {
@@ -313,23 +245,12 @@ namespace PlayerFolder
             transform.localScale = new Vector3(startScaleInTeleport, startScaleInTeleport, startScaleInTeleport);
             _isTeleporting = false;
         }
-
+        
         #endregion
         
-        private void OnDrawGizmos()
+        public void Attack()
         {
-            // Ground check box
-            Vector3 groundCheckPos = transform.position + groundCheckOffset;
-            Gizmos.color = _isGrounded ? Color.green : Color.red;
-            Gizmos.DrawWireCube(groundCheckPos, groundBoxSize);
-
-            // Wall check box
-            Gizmos.color = IsWallDetected ? Color.green : Color.red;
-            Gizmos.DrawWireCube(transform.position + (wallCheckOffset * _facingDirection), wallBoxSize);
-            
-            // Interaction check circle
-            Gizmos.color = _isInteraction ? Color.green : Color.red;
-            Gizmos.DrawWireSphere(transform.position, interactionRadius);
+            Debug.Log("Attack");
         }
     }
 }

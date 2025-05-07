@@ -12,6 +12,7 @@ namespace PlayerFolder.PlayerParticles
         private Dictionary<ParticleType, SpawnComponent> _particleMap;
         
         private Player _player;
+        private PlayerCollisionInfo _collisionInfo;
         
         // Партикал приземления
         private const float MinJumpHeight = 11.1f;
@@ -22,6 +23,10 @@ namespace PlayerFolder.PlayerParticles
         private void Awake()
         { 
             _player = GetComponentInParent<Player>();
+            if (_player == null)
+            {
+                _collisionInfo = _player.GetComponent<PlayerCollisionInfo>();
+            }
             _particleMap = new Dictionary<ParticleType, SpawnComponent>();
 
             // заполняем словарь партиклами, где ключ это перечисление 
@@ -50,7 +55,7 @@ namespace PlayerFolder.PlayerParticles
         {
             _moveSpawnTimer -= Time.deltaTime;
             
-            if (_player.XInput != 0 && _moveSpawnTimer <= 0 && _player.IsGrounded)
+            if (_player.XInput != 0 && _moveSpawnTimer <= 0 && _collisionInfo.IsGrounded)
             {
                 HandleSpawn(ParticleType.Move);
                 _moveSpawnTimer = 0.25f;
@@ -67,7 +72,7 @@ namespace PlayerFolder.PlayerParticles
                 _currentJumpHeight = vel;
             }
             
-            if (_currentJumpHeight > MinJumpHeight && _player.IsGrounded)
+            if (_currentJumpHeight > MinJumpHeight && _collisionInfo.IsGrounded)
             {
                 HandleSpawn(ParticleType.Fall);
                 _currentJumpHeight = 0;
