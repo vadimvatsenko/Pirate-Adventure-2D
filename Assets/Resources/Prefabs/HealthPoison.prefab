@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 6137727544062377286}
   - component: {fileID: 6137727544062377287}
   - component: {fileID: 6137727544062377288}
-  - component: {fileID: 6137727544062377289}
-  - component: {fileID: 6137727544062377290}
-  - component: {fileID: 6137727544062377291}
+  - component: {fileID: -3234445241341232417}
+  - component: {fileID: 871638526993962299}
   - component: {fileID: 6137727544062377292}
+  - component: {fileID: 1516509926}
+  - component: {fileID: -4338516656222309382}
   m_Layer: 10
   m_Name: HealthPoison
   m_TagString: Untagged
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1740054481
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c58951a5a1d999f4fa1c0fa64c081314, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -102,7 +103,7 @@ CircleCollider2D:
   m_Offset: {x: 0.0058451593, y: 0}
   serializedVersion: 2
   m_Radius: 0.19020686
---- !u!114 &6137727544062377289
+--- !u!114 &-3234445241341232417
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,30 +112,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 6137727544062377294}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 104b4fa7ed764291b992116549f3f2ea, type: 3}
+  m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handleAnimationClip: {fileID: 11400000, guid: 55de5e75d18434046b172199d0640cbd,
-    type: 2}
-  playOnAwake: 1
---- !u!114 &6137727544062377290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6137727544062377294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a46b6026432a471d8abbe103432748b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onComplete:
-    m_PersistentCalls:
-      m_Calls: []
-  isStartWithRandomSprite: 1
-  isReversed: 0
---- !u!114 &6137727544062377291
+  _frameRate: 10
+  _clips:
+  - _name: Idle
+    _sprites:
+    - {fileID: 21300000, guid: 5e6b4f4b43544484f8a02fc89fde59cb, type: 3}
+    - {fileID: 21300000, guid: 955cbef99642c4f4fa8d51fa2c5e0238, type: 3}
+    - {fileID: 21300000, guid: c58951a5a1d999f4fa1c0fa64c081314, type: 3}
+    - {fileID: 21300000, guid: db0104e7ed2aae646ae248c95451421f, type: 3}
+    - {fileID: 21300000, guid: 4fe834e6aea22544ba6c09a751b1a691, type: 3}
+    - {fileID: 21300000, guid: 01acd9add36a69047b1056b99dd773bf, type: 3}
+    - {fileID: 21300000, guid: 3107b0d8a9da0d64fb7a593ddc8fe9ec, type: 3}
+    _loop: 1
+    _allowNextClip: 0
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!114 &871638526993962299
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,13 +144,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectTag: Player
-  destroyThisGameObjectAfterTrigger: 1
+  destroyThisGameObjectAfterTrigger: 0
   onAction:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6137727544062377292}
         m_MethodName: ApplyHealth
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1516509926}
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: -4338516656222309382}
+        m_MethodName: DestroyGameObject
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -179,3 +198,30 @@ MonoBehaviour:
   onDamaged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1516509926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6137727544062377294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f11c1936a26d47c9b5a428508b5d1a2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 6137727544062377286}
+  prefab: {fileID: 3198517219790484413, guid: 01fce068c05a58043a097c4ea95e3fcd, type: 3}
+  offset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &-4338516656222309382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6137727544062377294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 007e3171b9d94eddac2c6fc1d51d5422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

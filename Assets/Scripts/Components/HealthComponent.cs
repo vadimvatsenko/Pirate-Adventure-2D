@@ -7,6 +7,7 @@ namespace Components
     {
         [SerializeField] private int health = 100;
         [SerializeField] private int maxHealth = 100;
+        
         [SerializeField] private UnityEvent onAddHealth;
         [SerializeField] private UnityEvent onDamage;
         [SerializeField] private UnityEvent onDie;

@@ -47,7 +47,9 @@ namespace PlayerFolder
         private bool _isAirborne;
 
         [Header("Knockback Info")] 
-        [SerializeField] private float knockbackDuration; 
+        [SerializeField] private float knockbackDuration;
+        [SerializeField] private Vector2 knockbackPower; 
+        private bool _isKnocked; 
         
         [Header("Teleport Info")]
         [SerializeField] private float durationInTeleport = 1f; // длительность подъема
@@ -64,10 +66,7 @@ namespace PlayerFolder
         [SerializeField] private float endScaleInTeleport = 0.1f;
         private bool _isTeleporting;
         
-        [Header("Hit Info")]
-        [SerializeField] private Vector2 knockbackPower; 
-        private bool _isKnocked; 
-        
+        [Header("Animator Controllers")]
         [SerializeField] private AnimatorController withoutArmor;
         [SerializeField] private AnimatorController withArmor;
         private bool _isArmed = false;
@@ -82,7 +81,7 @@ namespace PlayerFolder
         private Rigidbody2D _rb;
         private Animator _animator;
         public event Action OnPlayerJump;
-        public UnityEvent OnPlayerTakeDamage;
+        public UnityEvent onPlayerTakeDamage;
         
         public Rigidbody2D Rb => _rb;
         public float XInput => _xInput;
@@ -252,7 +251,6 @@ namespace PlayerFolder
                 var interactable = _interactionCollides[i].GetComponent<InteractableComponent>();
                 if (interactable != null)
                 {
-                    
                     interactable.Interact();
                 } 
                 
@@ -265,7 +263,7 @@ namespace PlayerFolder
         {
             if (_isKnocked) return; 
 
-            OnPlayerTakeDamage?.Invoke();
+            onPlayerTakeDamage?.Invoke();
             _animator.SetTrigger(Knockback); 
 
             _rb.velocity = new Vector2(knockbackPower.x * -_facingDirection, knockbackPower.y); 

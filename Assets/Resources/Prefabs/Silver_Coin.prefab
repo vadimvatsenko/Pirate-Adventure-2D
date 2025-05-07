@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8934468942787321888}
   - component: {fileID: 4665637239212677127}
   - component: {fileID: 8934468942787321895}
-  - component: {fileID: 8934468942787321894}
-  - component: {fileID: 8934468942787321892}
-  - component: {fileID: 8934468942787321893}
+  - component: {fileID: 4467085876879106831}
+  - component: {fileID: 5862650276317742852}
+  - component: {fileID: 7579368543413426268}
   - component: {fileID: 995335301847517047}
   m_Layer: 10
   m_Name: Silver_Coin
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1740054481
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0c6f34c54b7719544be46d326c3883e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -104,9 +104,9 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &8934468942787321895
 CircleCollider2D:
@@ -124,7 +124,7 @@ CircleCollider2D:
   m_Offset: {x: 0.011604086, y: -0.02}
   serializedVersion: 2
   m_Radius: 0.16877146
---- !u!114 &8934468942787321894
+--- !u!114 &4467085876879106831
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,17 +133,62 @@ MonoBehaviour:
   m_GameObject: {fileID: 8934468942787321899}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6587c9d1f3e73f74fa73834fe0eefbfe, type: 3}
+  m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinType: 0
-  coinCost: 1
-  coinDestroyVfx: {fileID: 8988252005245749755, guid: 058c9f735ad4b2941ad7c7d1a79f77f6,
-    type: 3}
-  onCoinDestroyCoin:
+  _frameRate: 10
+  _clips:
+  - _name: Idle
+    _sprites:
+    - {fileID: 21300000, guid: de5e771a142ab164e9bcccb9b536364e, type: 3}
+    - {fileID: 21300000, guid: 31fbe8525f9c23546a33c705586d8f5b, type: 3}
+    - {fileID: 21300000, guid: 245370cb2c444eb4d800398a7340afe5, type: 3}
+    - {fileID: 21300000, guid: 4eb96d8633c378a4fbe8f853456fac93, type: 3}
+    _loop: 1
+    _allowNextClip: 0
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!114 &5862650276317742852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8934468942787321899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b98bf37e3ea4d80b147693b40c75dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectTag: Player
+  destroyThisGameObjectAfterTrigger: 0
+  onAction:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &8934468942787321892
+      m_Calls:
+      - m_Target: {fileID: 995335301847517047}
+        m_MethodName: DestroyGameObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7579368543413426268}
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7579368543413426268
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,29 +197,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8934468942787321899}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 104b4fa7ed764291b992116549f3f2ea, type: 3}
+  m_Script: {fileID: 11500000, guid: f11c1936a26d47c9b5a428508b5d1a2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playOnAwake: 1
-  handleAnimationClip: {fileID: 11400000, guid: b07e9145584143149bb39f7caedb5b71,
-    type: 2}
---- !u!114 &8934468942787321893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8934468942787321899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a46b6026432a471d8abbe103432748b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isStartWithRandomSprite: 0
-  isReversed: 0
-  onComplete:
-    m_PersistentCalls:
-      m_Calls: []
+  target: {fileID: 8934468942787321889}
+  prefab: {fileID: 8988252005245749755, guid: 058c9f735ad4b2941ad7c7d1a79f77f6, type: 3}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &995335301847517047
 MonoBehaviour:
   m_ObjectHideFlags: 0

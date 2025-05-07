@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5778901546894182691}
   - component: {fileID: 5778901546894182688}
   - component: {fileID: 5778901546894182689}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: HeroMovePartical
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1740054481
-  m_SortingLayer: 6
+  m_SortingLayerID: -1041941339
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ada3d1766ae8bfe40a0fdfb7ffb81a15, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
