@@ -10,7 +10,7 @@ namespace Components
         [SerializeField] private GameObject[] prefabs;
         
         // using NaughtyAttributes - теперь можно прятать поля по условию
-        // в данном случае если только один префаб, то єто поле будет видно
+        // в данном случае если только один префаб, то это поле будет видно
         [ShowIf("HasOnePrefab")] 
         [Range(1, 10)]
         [SerializeField] private int gameObjectCountToDrop = 10;
@@ -61,13 +61,14 @@ namespace Components
         {
             
             yield return new WaitForSeconds(0.5f);
-            rb2d.gravityScale = 1f;
             
+            if (rb2d != null)
+                rb2d.gravityScale = 1f;
             
             if (c2d != null)
             {
-                c2d.enabled = true;
                 c2d.isTrigger = true;
+                c2d.enabled = true;
             }
             
             yield return new WaitForSeconds(3f);

@@ -20,8 +20,6 @@ namespace Components
             //Vector3 spawnPos = target.position;
             Vector3 spawnPos = transform.position;
             
-            Debug.Log(faced.FacingDirection);
-
             if (faced != null)
             {
                 spawnPos += offset * -faced.FacingDirection;
