@@ -1,4 +1,6 @@
 ﻿using Components;
+using DefaultNamespace.Utils;
+using UnityEditor;
 using UnityEngine;
 
 namespace PlayerFolder
@@ -24,6 +26,12 @@ namespace PlayerFolder
         [SerializeField] private float interactionRadius;
         private bool _isInteraction;
         private Collider2D[] _interactionCollides = new Collider2D[1];
+
+        [Header("GameObjects Collision Info")] 
+        [SerializeField] private float radius = 1f;
+
+        [SerializeField] private Vector3 offset;
+        private readonly Collider2D[] _itemCollider2Ds = new Collider2D[5];
         
         public bool IsGrounded => _isGrounded;
 
@@ -84,6 +92,19 @@ namespace PlayerFolder
                 } 
             }
         }
+
+        public GameObject[] GetObjectsInRange()
+        {
+            var size = Physics2D.OverlapCircleNonAlloc(transform.position + offset * _player.FacingDirection, radius, _itemCollider2Ds);
+            
+            var objects = new GameObject[size];
+            for (int i = 0; i < size; i++)
+            {
+                objects[i] = _itemCollider2Ds[i].gameObject;
+            }
+            
+            return objects;
+        }
         
         private void OnDrawGizmos()
         {
@@ -93,12 +114,27 @@ namespace PlayerFolder
             Gizmos.DrawWireCube(groundCheckPos, groundBoxSize);
 
             // Wall check box
-            Gizmos.color = IsWallDetected ? Color.green : Color.red;
-            Gizmos.DrawWireCube(transform.position + (wallCheckOffset * _player.FacingDirection), wallBoxSize);
+            if (_player != null)
+            {
+                Gizmos.color = IsWallDetected ? Color.green : Color.red;
+                Gizmos.DrawWireCube(transform.position + (wallCheckOffset * _player.FacingDirection), wallBoxSize);
+            }
             
             // Interaction check circle
             Gizmos.color = _isInteraction ? Color.green : Color.red;
             Gizmos.DrawWireSphere(transform.position, interactionRadius);
         }
+
+        #if UNITY_EDITOR // код вырежется при компиляции, это для того, чтобы прошла компиляция
+        private void OnDrawGizmosSelected()
+        {
+            if (_player != null)
+            {
+                Handles.color = HandlesUtils.TransparendRed;
+                Handles.DrawSolidDisc(transform.position + offset * _player.FacingDirection, Vector3.forward, radius);
+            }
+            
+        }
+        #endif
     }
 }

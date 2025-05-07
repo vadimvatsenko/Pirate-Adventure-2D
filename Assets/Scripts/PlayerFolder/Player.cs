@@ -6,6 +6,7 @@ using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Events;
 using Color = UnityEngine.Color;
+using Random = System.Random;
 
 namespace PlayerFolder
 {
@@ -16,7 +17,8 @@ namespace PlayerFolder
         private static readonly int XVelocityKey = Animator.StringToHash("xVelocity");
         private static readonly int YVelocityKey = Animator.StringToHash("yVelocity");
         private static readonly int IsGroundedKey = Animator.StringToHash("isGrounded");
-        private static readonly int Knockback = Animator.StringToHash("knockback"); // ++
+        private static readonly int Knockback = Animator.StringToHash("knockback");
+        private static readonly int AttackKey = Animator.StringToHash("attack");
         #endregion
         
         private PlayerCollisionInfo _collisionInfo;
@@ -250,7 +252,18 @@ namespace PlayerFolder
         
         public void Attack()
         {
-            Debug.Log("Attack");
+            if (!_isArmed) return;
+            _animator.SetTrigger(AttackKey);
+            var gos = _collisionInfo.GetObjectsInRange();
+            foreach (var go in gos)
+            {
+                var hp = go.GetComponent<HealthComponent>();
+                if (hp != null)
+                {
+                    //var tempDamage = Random.Range(0f, 2f);
+                    hp.ApplyDamage(1);
+                }
+            }
         }
     }
 }
