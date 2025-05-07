@@ -18,21 +18,20 @@ namespace Components
             // почему так? Это интерфейс контракт которого говорит, что у объекта будет направление движения
             var faced = target.GetComponent<IMovable>();
             //Vector3 spawnPos = target.position;
-            Vector3 spawnPos = Vector3.zero;
+            Vector3 spawnPos = transform.position;
             
             Debug.Log(faced.FacingDirection);
 
             if (faced != null)
             {
-                spawnPos = transform.position + offset * -faced.FacingDirection;
+                spawnPos += offset * -faced.FacingDirection;
             }
-            /*else
+            else
             {
-                Debug.LogWarning("No facing direction provided");
                 spawnPos += offset;
-            }*/
+            }
 
-            GameObject spawnObj = Instantiate(prefab, spawnPos, Quaternion.identity);
+            GameObject spawnObj = Instantiate(prefab, spawnPos, target.rotation);
         }
     }
 }
