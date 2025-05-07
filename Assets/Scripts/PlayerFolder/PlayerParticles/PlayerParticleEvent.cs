@@ -23,7 +23,7 @@ namespace PlayerFolder.PlayerParticles
         private void Awake()
         { 
             _player = GetComponentInParent<Player>();
-            if (_player == null)
+            if (_player != null)
             {
                 _collisionInfo = _player.GetComponent<PlayerCollisionInfo>();
             }
