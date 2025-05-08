@@ -637,6 +637,6 @@ PlayerSettings:
   projectName: Pirate-Adventure-2D
   organizationId: unity_7d158bfef68de8894e42
   cloudEnabled: 0
-  enableNativePlatformBackendsForNewInputSystem: 0
-  disableOldInputManagerSupport: 0
+  enableNativePlatformBackendsForNewInputSystem: 1
+  disableOldInputManagerSupport: 1
   legacyClampBlendShapeWeights: 0

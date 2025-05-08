@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2495d7a4bbee44b7bda79613901a1d29, type: 3}
+  m_Name: Teleport_IDLE
+  m_EditorClassIdentifier: 
+  animationName: Idle
+  sprites:
+  - {fileID: 21300000, guid: f28db3ccad2586349af15e7395af014e, type: 3}
+  - {fileID: 21300000, guid: 39a61df81f8aa5645bedad61a5be8737, type: 3}
+  - {fileID: 21300000, guid: 7f803978bcc17f9458d6fbf2a071db1a, type: 3}
+  - {fileID: 21300000, guid: acb7a6dd538ee8043b054f281b823f45, type: 3}
+  frameRate: 10
+  loop: 1
+  allowNextClip: 0

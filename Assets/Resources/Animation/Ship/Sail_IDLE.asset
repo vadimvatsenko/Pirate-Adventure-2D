@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2495d7a4bbee44b7bda79613901a1d29, type: 3}
+  m_Name: Sail_IDLE
+  m_EditorClassIdentifier: 
+  animationName: Idle
+  sprites:
+  - {fileID: 21300000, guid: 121f86fba158fcf4c82b5edd3ddf4959, type: 3}
+  - {fileID: 21300000, guid: 6beeb62c81d34a145ae2e6523a891859, type: 3}
+  - {fileID: 21300000, guid: 41e6c527388363a4f99d070253f97581, type: 3}
+  - {fileID: 21300000, guid: bf952f0ce85304d409ce25a9aac7e8de, type: 3}
+  - {fileID: 21300000, guid: bfaf8f5ccf45b5842b69644a99bb82ad, type: 3}
+  - {fileID: 21300000, guid: b5b39324342fc124bb63c1fb3f94f3ca, type: 3}
+  - {fileID: 21300000, guid: 4c15d87bc8446fc4ea1e0de70b399713, type: 3}
+  - {fileID: 21300000, guid: b6ae3aac4423f7542b67c98f6d1dd630, type: 3}
+  frameRate: 10
+  loop: 1
+  allowNextClip: 0

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2495d7a4bbee44b7bda79613901a1d29, type: 3}
+  m_Name: HealthPoisonIdle
+  m_EditorClassIdentifier: 
+  animationName: Idle
+  sprites:
+  - {fileID: 21300000, guid: 5e6b4f4b43544484f8a02fc89fde59cb, type: 3}
+  - {fileID: 21300000, guid: 955cbef99642c4f4fa8d51fa2c5e0238, type: 3}
+  - {fileID: 21300000, guid: c58951a5a1d999f4fa1c0fa64c081314, type: 3}
+  - {fileID: 21300000, guid: db0104e7ed2aae646ae248c95451421f, type: 3}
+  - {fileID: 21300000, guid: 4fe834e6aea22544ba6c09a751b1a691, type: 3}
+  - {fileID: 21300000, guid: 01acd9add36a69047b1056b99dd773bf, type: 3}
+  - {fileID: 21300000, guid: 3107b0d8a9da0d64fb7a593ddc8fe9ec, type: 3}
+  frameRate: 10
+  loop: 1
+  allowNextClip: 0

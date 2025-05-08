@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2495d7a4bbee44b7bda79613901a1d29, type: 3}
+  m_Name: Reflexes_IDLE
+  m_EditorClassIdentifier: 
+  animationName: 
+  sprites:
+  - {fileID: 21300000, guid: fcd32459292001c43b24a6c01e1dd789, type: 3}
+  - {fileID: 21300000, guid: 8fce30f3ef920454cb6e44433d5d7d86, type: 3}
+  - {fileID: 21300000, guid: bd22235485e7e3a43a6e06819fc78b94, type: 3}
+  - {fileID: 21300000, guid: b9ce5263ebde9bd4aa31168a130aaf79, type: 3}
+  - {fileID: 21300000, guid: a4df5fa2d472e7f4e97f0488321d9c0c, type: 3}
+  - {fileID: 21300000, guid: b678564650f813c468b7ef3ffc5eb305, type: 3}
+  frameRate: 10
+  loop: 1
+  allowNextClip: 0
