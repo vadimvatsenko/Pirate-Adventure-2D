@@ -12,8 +12,13 @@ namespace Components
         
         [Range(0.1f, 10f)]
         [SerializeField] private float spreadForce = 1.5f;
+        
         [Range(0.1f, 10f)]
         [SerializeField] private float spreadRadius = 1.5f;
+        
+        [Range(0.1f, 1f)] 
+        [SerializeField] private float gravity = 0.25f;
+        
         [SerializeField] private DropperDirection dropperDirection = DropperDirection.Top;
         [SerializeField] private bool destroyOnFinish = true;
         
@@ -44,42 +49,19 @@ namespace Components
                 
                 if (c2d != null)
                 {
-                    c2d.isTrigger = false;
-                    c2d.enabled = false;
+                    StartCoroutine(SwitchTrigers(c2d));
                 }
                 
                 if (rb2d != null)
                 {
                     Vector2 direction = (_currentDirection + Random.insideUnitCircle * spreadRadius).normalized;
+                    rb2d.gravityScale = gravity;
                     rb2d.AddForce(direction * spreadForce, ForceMode2D.Impulse);
                 }
                 
-                StartCoroutine(EnableColliderAfterDelay(go, c2d, rb2d));
             }
         }
         
-        private IEnumerator EnableColliderAfterDelay(GameObject go, Collider2D c2d, Rigidbody2D rb2d)
-        {
-            
-            yield return new WaitForSeconds(0.5f);
-            
-            if (rb2d != null)
-                rb2d.gravityScale = 1f;
-            
-            if (c2d != null)
-            {
-                c2d.isTrigger = true;
-                c2d.enabled = true;
-            }
-            
-            yield return new WaitForSeconds(3f);
-            
-            if (destroyOnFinish)
-            {
-                Destroy(go);
-            }
-        }
-
         private Vector3 GetDirection(DropperDirection dir)
         {
             switch (dir)
@@ -94,6 +76,17 @@ namespace Components
                     return Vector3.down;
             }
             return Vector3.zero;
+        }
+
+        private IEnumerator SwitchTrigers(Collider2D c2d)
+        {
+            //c2d.isTrigger = false;
+            c2d.enabled = false;
+            yield return new WaitForSeconds(1f);
+            Debug.Log(c2d.isTrigger);
+            //c2d.isTrigger = true;
+            Debug.Log(c2d);
+            c2d.enabled = true;
         }
     }
 }
