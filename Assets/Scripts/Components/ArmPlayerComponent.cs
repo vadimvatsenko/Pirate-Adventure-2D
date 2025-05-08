@@ -7,8 +7,8 @@ namespace Components
     {
         public void ArmPlayer(GameObject go)
         {
-            var player = go.GetComponent<Player>();
-            player.ChangeArmedState();
+            var playerAnim = go.GetComponent<PlayerAnimController>();
+            playerAnim.ChangeArmedState();
         }
     }
 }

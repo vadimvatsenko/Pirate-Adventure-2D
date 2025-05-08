@@ -12,16 +12,11 @@ namespace PlayerFolder
 {
     public class Player : MonoBehaviour, IMovable
     {
-        #region Static Fields
-        // что тут происходит, перевод string в hash
-        private static readonly int XVelocityKey = Animator.StringToHash("xVelocity");
-        private static readonly int YVelocityKey = Animator.StringToHash("yVelocity");
-        private static readonly int IsGroundedKey = Animator.StringToHash("isGrounded");
-        private static readonly int Knockback = Animator.StringToHash("knockback");
-        private static readonly int AttackKey = Animator.StringToHash("attack");
-        #endregion
-        
         private PlayerCollisionInfo _collisionInfo;
+        private PlayerAnimController _playerAnimController;
+
+        [Header("Attack Power Info")] 
+        [SerializeField] private int attackPower = 1;
         
         [Header("Movement Info")] [SerializeField]
         private float speed;
@@ -52,12 +47,6 @@ namespace PlayerFolder
         [SerializeField] private float endScaleInTeleport = 0.1f;
         private bool _isTeleporting;
         
-        // ++
-        [Header("Animator Controllers")]
-        [SerializeField] private AnimatorController withoutArmor;
-        [SerializeField] private AnimatorController withArmor;
-        private bool _isArmed = false;
-
         #region Direction
         private bool _isFacingRight = true;
         private int _facingDirection = 1;
@@ -83,11 +72,16 @@ namespace PlayerFolder
         public bool CanDoubleJump => _canDoubleJump;
         public bool IsPressedJumpButton => _isPressedJumpButton;
         
-        private void Awake()
+        private void Start()
         {
             _collisionInfo = GetComponent<PlayerCollisionInfo>();
+            _playerAnimController = GetComponent<PlayerAnimController>();
             _rb = GetComponent<Rigidbody2D>();
-            _animator = GetComponentInChildren<Animator>();
+            
+            if (_playerAnimController != null)
+            {
+                _animator = _playerAnimController.PlayerAnimator;
+            }
         }
         
         private void FixedUpdate()
@@ -100,17 +94,10 @@ namespace PlayerFolder
             _collisionInfo.HandleGroundCheck();
             _collisionInfo.HandleWallCheck();
             HandleFlip();
-            HandleAnimation();
+            _playerAnimController.HandleAnimation();
         }
 
         public void SetDirection(float dir) => _xInput = dir;
-
-        // ++
-        public void ChangeArmedState()
-        {
-            _isArmed = !_isArmed;
-            _animator.runtimeAnimatorController = _isArmed ? withArmor : withoutArmor;
-        }
         
         private void UpdateAirBornStatus()
         {
@@ -164,17 +151,7 @@ namespace PlayerFolder
             _canDoubleJump = false;
             _rb.velocity = new Vector2(_rb.velocity.x, doubleJumpForce);
         }
-
-        public void HandleAnimation()
-        {
-            Vector3 velocityNormalized = _rb.velocity.normalized;
-            _animator.SetFloat(XVelocityKey, velocityNormalized.x);
-            _animator.SetFloat(YVelocityKey, velocityNormalized.y);
-            _animator.SetBool(IsGroundedKey, _collisionInfo.IsGrounded);
-        }
-
-        #region Flip
-
+        
         private void HandleFlip()
         {
             if (_rb.velocity.x < 0 && _isFacingRight || _rb.velocity.x > 0 && !_isFacingRight)
@@ -189,16 +166,13 @@ namespace PlayerFolder
             _facingDirection *= -1;
             transform.Rotate(0f, 180f, 0f);
         }
-        #endregion
-
-        
-        
+ 
         public void TakeDamage() 
         {
             if (_isKnocked) return; 
 
             onPlayerTakeDamage?.Invoke();
-            _animator.SetTrigger(Knockback); 
+            _animator.SetTrigger("knockback"); 
 
             _rb.velocity = new Vector2(knockbackPower.x * -_facingDirection, knockbackPower.y); 
             StartCoroutine(KnockbackRoutione()); 
@@ -218,10 +192,13 @@ namespace PlayerFolder
         {
             _isTeleporting = true;
             elapsedInTeleport = 0f; // сброс таймера
+            
             _startInTeleportY = transform.position.y;
             _endInTeleportY = _startInTeleportY + targetInTeleportHeight;
             
-            float startRotationInTeleportY = transform.rotation.eulerAngles.y;
+            float startRotationInTeleportY = transform.eulerAngles.y;
+            float endRotationInTeleportY = startRotationInTeleportY;
+            
             _startRotationInTeleportZ = transform.rotation.eulerAngles.z;
             _endRotationInTeleportZ = _startRotationInTeleportZ + rotationAmountInTeleport;
 
@@ -243,7 +220,7 @@ namespace PlayerFolder
             OnDestination?.Invoke();
             
             transform.position = new Vector3(targetPosition.x, targetPosition.y, transform.position.z);
-            transform.rotation = Quaternion.Euler(0f, startRotationInTeleportY, 0f);
+            transform.rotation = Quaternion.Euler(0f, endRotationInTeleportY, 0f);
             transform.localScale = new Vector3(startScaleInTeleport, startScaleInTeleport, startScaleInTeleport);
             _isTeleporting = false;
         }
@@ -252,16 +229,15 @@ namespace PlayerFolder
         
         public void Attack()
         {
-            if (!_isArmed) return;
-            _animator.SetTrigger(AttackKey);
+            if (!_playerAnimController.IsArmed) return;
+            _animator.SetTrigger("attack");
             var gos = _collisionInfo.GetObjectsInRange();
             foreach (var go in gos)
             {
                 var hp = go.GetComponent<HealthComponent>();
                 if (hp != null)
                 {
-                    //var tempDamage = Random.Range(0f, 2f);
-                    hp.ApplyDamage(1);
+                    hp.ApplyDamage(attackPower);
                 }
             }
         }

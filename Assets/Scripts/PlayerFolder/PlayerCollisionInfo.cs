@@ -28,9 +28,8 @@ namespace PlayerFolder
         private Collider2D[] _interactionCollides = new Collider2D[1];
 
         [Header("GameObjects Collision Info")] 
-        [SerializeField] private float radius = 1f;
-
-        [SerializeField] private Vector3 offset;
+        [SerializeField] private float radius = 0.25f;
+        [SerializeField] private Vector3 offset = new Vector3(0.65f, 0, 0);
         private readonly Collider2D[] _itemCollider2Ds = new Collider2D[5];
         
         public bool IsGrounded => _isGrounded;
@@ -123,10 +122,17 @@ namespace PlayerFolder
             // Interaction check circle
             Gizmos.color = _isInteraction ? Color.green : Color.red;
             Gizmos.DrawWireSphere(transform.position, interactionRadius);
+
+            if (_player != null)
+            {
+                Gizmos.color = GetObjectsInRange().Length > 0 ? HandlesUtils.TransparendGreen : HandlesUtils.TransparendRed;
+                Gizmos.DrawSphere(transform.position + offset * _player.FacingDirection, radius);
+            }
+            
         }
 
-        #if UNITY_EDITOR // код вырежется при компиляции, это для того, чтобы прошла компиляция
-        private void OnDrawGizmosSelected()
+        /*#if UNITY_EDITOR // код вырежется при компиляции, это для того, чтобы прошла компиляция
+        private void OnDrawGizmosSelected() // рисует Gizmos когда выделен объект
         {
             if (_player != null)
             {
@@ -135,6 +141,6 @@ namespace PlayerFolder
             }
             
         }
-        #endif
+        #endif*/
     }
 }
