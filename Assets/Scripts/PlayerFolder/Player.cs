@@ -172,7 +172,7 @@ namespace PlayerFolder
             if (_isKnocked) return; 
 
             onPlayerTakeDamage?.Invoke();
-            _animator.SetTrigger("knockback"); 
+            _playerAnimController.SetKnockbackAnimation();
 
             _rb.velocity = new Vector2(knockbackPower.x * -_facingDirection, knockbackPower.y); 
             StartCoroutine(KnockbackRoutione()); 
@@ -230,7 +230,7 @@ namespace PlayerFolder
         public void Attack()
         {
             if (!_playerAnimController.IsArmed) return;
-            _animator.SetTrigger("attack");
+            _playerAnimController.SetAttackAnimation();
             var gos = _collisionInfo.GetObjectsInRange();
             foreach (var go in gos)
             {

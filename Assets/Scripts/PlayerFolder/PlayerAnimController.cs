@@ -43,5 +43,15 @@ namespace PlayerFolder
             _isArmed = !_isArmed;
             PlayerAnimator.runtimeAnimatorController = _isArmed ? withArmor : withoutArmor;
         }
+
+        public void SetAttackAnimation()
+        {
+            PlayerAnimator.SetTrigger(AttackKey);
+        }
+
+        public void SetKnockbackAnimation()
+        {
+            PlayerAnimator.SetTrigger(Knockback);
+        }
     }
 }
