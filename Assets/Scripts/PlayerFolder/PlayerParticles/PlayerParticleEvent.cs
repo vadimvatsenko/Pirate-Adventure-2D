@@ -39,10 +39,12 @@ namespace PlayerFolder.PlayerParticles
         private void OnEnable()
         {
             _player.OnPlayerJump += HandleSpawnJumpParticle;
+            _player.OnPlayerAttack += HandleSpawnAttack1Particle;
         }
         private void OnDisable()
         {
             _player.OnPlayerJump -= HandleSpawnJumpParticle;
+            _player.OnPlayerAttack -= HandleSpawnAttack1Particle;
         }
 
         private void Update()
@@ -87,5 +89,6 @@ namespace PlayerFolder.PlayerParticles
             }
         }
         private void HandleSpawnJumpParticle() => HandleSpawn(ParticleType.Jump);
+        private void HandleSpawnAttack1Particle() => HandleSpawn(ParticleType.Attack1);
     }
 }

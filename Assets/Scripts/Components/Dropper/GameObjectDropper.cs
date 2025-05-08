@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -7,37 +8,37 @@ namespace Components
     public class GameObjectDropper : MonoBehaviour
     {
         // используется для выброса объектов
-        [SerializeField] private GameObject[] prefabs;
-        
-        // using NaughtyAttributes - теперь можно прятать поля по условию
-        // в данном случае если только один префаб, то это поле будет видно
-        [ShowIf("HasOnePrefab")] 
-        [Range(1, 10)]
-        [SerializeField] private int gameObjectCountToDrop = 10;
+        [SerializeField] private DroppedObjectEntry[] droppedObjects;
         
         [Range(0.1f, 10f)]
         [SerializeField] private float spreadForce = 1.5f;
         [Range(0.1f, 10f)]
         [SerializeField] private float spreadRadius = 1.5f;
-        [SerializeField] private DropperDirection dropperDirection = DropperDirection.Right;
+        [SerializeField] private DropperDirection dropperDirection = DropperDirection.Top;
         [SerializeField] private bool destroyOnFinish = true;
         
+        private List<GameObject> objectsToSpawn = new List<GameObject>();
         private Vector2 _currentDirection;
 
         private void Awake()
         {
             _currentDirection = GetDirection(dropperDirection);
+            
+            foreach (var obj in droppedObjects)
+            {
+                for (int i = 0; i < obj.amount; i++)
+                {
+                    objectsToSpawn.Add(obj.prefab);
+                }
+            }
+            
         }
 
         public void DropObject()
         {
-            int count = prefabs.Length == 1 ? gameObjectCountToDrop : prefabs.Length; 
-            
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i < objectsToSpawn.Count; i++)
             {
-                GameObject prefab = prefabs.Length == 1 ? prefabs[0] : prefabs[i];
-                
-                GameObject go = Instantiate(prefab, transform.position, Quaternion.identity);
+                GameObject go = Instantiate(objectsToSpawn[i], transform.position, Quaternion.identity);
                 Collider2D c2d = go.GetComponent<Collider2D>();
                 Rigidbody2D rb2d = go.GetComponent<Rigidbody2D>();
                 
@@ -94,8 +95,5 @@ namespace Components
             }
             return Vector3.zero;
         }
-        
-        // метод срабатывает автоматически, его не нужно помещать в awake
-        private bool HasOnePrefab() => prefabs != null && prefabs.Length == 1;
     }
 }

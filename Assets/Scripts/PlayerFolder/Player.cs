@@ -57,6 +57,7 @@ namespace PlayerFolder
         private Rigidbody2D _rb;
         private Animator _animator;
         public event Action OnPlayerJump;
+        public event Action OnPlayerAttack;
         public UnityEvent onPlayerTakeDamage;
         
         public Rigidbody2D Rb => _rb;
@@ -229,7 +230,9 @@ namespace PlayerFolder
         
         public void Attack()
         {
-            if (!_playerAnimController.IsArmed) return;
+            if (!_playerAnimController.IsArmed || !_collisionInfo.IsGrounded) return;
+            
+            OnPlayerAttack?.Invoke();
             _playerAnimController.SetAttackAnimation();
             var gos = _collisionInfo.GetObjectsInRange();
             foreach (var go in gos)
