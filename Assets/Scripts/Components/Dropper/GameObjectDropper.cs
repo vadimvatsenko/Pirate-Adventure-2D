@@ -27,40 +27,32 @@ namespace Components
 
         private void Awake()
         {
+            Debug.Log(droppedObjects.Length);
             _currentDirection = GetDirection(dropperDirection);
             
-            foreach (var obj in droppedObjects)
+            /*foreach (var obj in droppedObjects)
             {
-                for (int i = 0; i < obj.amount; i++)
-                {
-                    objectsToSpawn.Add(obj.prefab);
-                }
-            }
-            
+                Debug.Log(obj);
+            }*/
         }
 
         public void DropObject()
         {
             for (int i = 0; i < objectsToSpawn.Count; i++)
             {
-                GameObject go = Instantiate(objectsToSpawn[i], transform.position, Quaternion.identity);
-                Collider2D c2d = go.GetComponent<Collider2D>();
-                Rigidbody2D rb2d = go.GetComponent<Rigidbody2D>();
-                
-                if (c2d != null)
+                Collider2D collider = objectsToSpawn[i].GetComponent<Collider2D>();
+                Rigidbody2D rb = objectsToSpawn[i].GetComponent<Rigidbody2D>();
+
+                if (collider != null  && rb != null)
                 {
-                    StartCoroutine(SwitchTrigers(c2d));
-                }
-                
-                if (rb2d != null)
-                {
+                    GameObject go = Instantiate(objectsToSpawn[i], transform.position, Quaternion.identity);
+                    rb.gravityScale = gravity;
                     Vector2 direction = (_currentDirection + Random.insideUnitCircle * spreadRadius).normalized;
-                    rb2d.gravityScale = gravity;
-                    rb2d.AddForce(direction * spreadForce, ForceMode2D.Impulse);
+                    rb.AddForce(_currentDirection * spreadForce, ForceMode2D.Impulse);
                 }
-                
             }
         }
+        
         
         private Vector3 GetDirection(DropperDirection dir)
         {
@@ -76,17 +68,6 @@ namespace Components
                     return Vector3.down;
             }
             return Vector3.zero;
-        }
-
-        private IEnumerator SwitchTrigers(Collider2D c2d)
-        {
-            //c2d.isTrigger = false;
-            c2d.enabled = false;
-            yield return new WaitForSeconds(1f);
-            Debug.Log(c2d.isTrigger);
-            //c2d.isTrigger = true;
-            Debug.Log(c2d);
-            c2d.enabled = true;
         }
     }
 }

@@ -11,6 +11,7 @@ namespace Components
         // временно, потом удалю
         private Player _player; 
         private PlayerCollisionInfo _playerCollisionInfo;
+        private PlayerAnimController _playerAnimController;
     
         // Название должно совпадать с тем, что настроено в системе с приставкой On
 
@@ -18,6 +19,7 @@ namespace Components
         {
             _player = FindObjectOfType<Player>();
             _playerCollisionInfo = _player.GetComponent<PlayerCollisionInfo>();
+            _playerAnimController = _player.GetComponent<PlayerAnimController>();
         }
         private void OnMovement(InputValue context) 
         {
@@ -44,6 +46,11 @@ namespace Components
         private void OnAttack(InputValue context)
         {
             _player.Attack();
+        }
+
+        private void OnLookDown(InputValue context)
+        {
+            _player.SitDown();
         }
     }
 }

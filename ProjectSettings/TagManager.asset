@@ -23,7 +23,7 @@ TagManager:
   - Player
   - Interactions
   - Destructible
-  - 
+  - Coins
   - 
   - 
   - 
@@ -61,6 +61,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 2994583185
+    locked: 0
+  - name: UI
+    uniqueID: 156929725
     locked: 0
   - name: SuperLayer
     uniqueID: 4195657477

@@ -6,25 +6,22 @@ namespace Controllers
 {
     public class EnterPoint : MonoBehaviour
     {
-        private ReloadLevelController _reloadLevelController;
+        [SerializeField] private TextMeshProUGUI coinsText;
         private CoinsController _coinsController;
+        private ReloadLevelController _reloadLevelController;
         private ConsoleView _consoleView;
-        private TextMeshProUGUI _coinsText;
-        public ReloadLevelController ReloadLevelController => _reloadLevelController;
         public CoinsController CoinsController => _coinsController;
-        public ConsoleView ConsoleView => _consoleView;
-        public TextMeshProUGUI CoinsText => _coinsText;
-        
-        
-        
+        public ReloadLevelController ReloadLevelController => _reloadLevelController;
         private void Awake()
         {
-            // контроллеры
+            _coinsController = new CoinsController(coinsText);
             _reloadLevelController = new ReloadLevelController();
-            _consoleView = new ConsoleView();
-            _coinsController = new CoinsController(_reloadLevelController, _consoleView);
-        
-            //вид
+        }
+
+        public void ChangeCoinsText(int score)
+        {
+            Debug.Log(score);
+            _coinsController.AddCoins(score);
         }
     }
 }

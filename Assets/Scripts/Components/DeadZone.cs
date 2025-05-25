@@ -13,18 +13,17 @@ namespace Items
         private void OnTriggerEnter2D(Collider2D collision)
         {
             Player player = collision.GetComponent<Player>();
-            Barrel barrel = collision.GetComponent<Barrel>();
-
+            
             if (player)
             {
                 enterPoint.ReloadLevelController.ReloadLevel();
                 // onDead?.Invoke(); вызов события
             }
-
-            if (barrel)
+            else
             {
-                barrel.GetComponent<Barrel>().Destroy();
+                Destroy(collision.gameObject);
             }
+            
         }
     }
 }

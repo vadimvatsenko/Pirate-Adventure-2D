@@ -1,33 +1,23 @@
-﻿using View;
+﻿using TMPro;
+using View;
 
 namespace Controllers
 {
     public class CoinsController
     {
-        private ReloadLevelController _reloadLevelController;
-        private ConsoleView _consoleView;
-        private int _coinsScore = 0;
-
-        public CoinsController(ReloadLevelController reloadLevelController, ConsoleView consoleView)
+        private TextMeshProUGUI _coinsText;
+        private int _startCoins;
+        public CoinsController(TextMeshProUGUI coinsText)
         {
-            _reloadLevelController = reloadLevelController;
-            _consoleView = consoleView;
+            _startCoins = 0;
+            _coinsText = coinsText;
+            _coinsText.text = "Coins: " + _startCoins;
         }
     
         public void AddCoins(int cost)
         {
-            _coinsScore += cost;
-            DisplayCoins();
-        
-            if (_coinsScore >= 100)
-            {
-                _reloadLevelController.ReloadLevel();
-            }
-        }
-
-        private void DisplayCoins()
-        {
-            _consoleView.Show("Score", _coinsScore.ToString());
+            _startCoins += cost;
+            _coinsText.text = "Coins: " + _startCoins;
         }
     }
 }

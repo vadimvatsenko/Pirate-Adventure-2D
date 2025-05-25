@@ -244,5 +244,10 @@ namespace PlayerFolder
                 }
             }
         }
+
+        public void SitDown()
+        {
+            _playerAnimController.SetSitAnimation();
+        }
     }
 }
