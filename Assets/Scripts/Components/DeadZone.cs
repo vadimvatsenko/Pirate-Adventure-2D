@@ -23,7 +23,6 @@ namespace Items
             {
                 Destroy(collision.gameObject);
             }
-            
         }
     }
 }

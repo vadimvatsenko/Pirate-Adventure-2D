@@ -11,10 +11,11 @@ namespace Components
         [SerializeField] private UnityEvent onAddHealth;
         [SerializeField] private UnityEvent onDamage;
         [SerializeField] private UnityEvent onDie;
-
+        
         public void ApplyDamage(int damage)
         {
             health -= damage;
+            
             onDamage?.Invoke();
             
             if (health <= 0)

@@ -215,30 +215,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4719053304844263020}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &59777203 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7866003224025244496, guid: b47d0ccccb4654b4f9361db1a2ee09ac,
-    type: 3}
-  m_PrefabInstance: {fileID: 893472619}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bf6c8a465ac4bf6ba7fe96e9f91f302, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &76395344 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1096860162, guid: b47d0ccccb4654b4f9361db1a2ee09ac,
-    type: 3}
-  m_PrefabInstance: {fileID: 7866003225145919137}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bf6c8a465ac4bf6ba7fe96e9f91f302, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &84438062
 GameObject:
   m_ObjectHideFlags: 3
@@ -20111,12 +20087,12 @@ PrefabInstance:
         type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 59777203}
+      objectReference: {fileID: 0}
     - target: {fileID: 7866003225299448293, guid: b47d0ccccb4654b4f9361db1a2ee09ac,
         type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1006241338}
+      objectReference: {fileID: 0}
     - target: {fileID: 7866003225299448293, guid: b47d0ccccb4654b4f9361db1a2ee09ac,
         type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[2].m_Target
@@ -21088,18 +21064,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &1006241338 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1096860162, guid: b47d0ccccb4654b4f9361db1a2ee09ac,
-    type: 3}
-  m_PrefabInstance: {fileID: 893472619}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bf6c8a465ac4bf6ba7fe96e9f91f302, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1014559300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21768,18 +21732,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1190946289 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7866003224025244496, guid: b47d0ccccb4654b4f9361db1a2ee09ac,
-    type: 3}
-  m_PrefabInstance: {fileID: 7866003225145919137}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bf6c8a465ac4bf6ba7fe96e9f91f302, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1205290024
 GameObject:
   m_ObjectHideFlags: 0
@@ -30408,7 +30360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e81fbc0b7f4e71b3f2311b2fd966aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathToRuleTile: Tile Palette/Items
+  pathToRuleTiles: []
 --- !u!1 &1803714262
 GameObject:
   m_ObjectHideFlags: 0
@@ -33059,12 +33011,12 @@ PrefabInstance:
         type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1190946289}
+      objectReference: {fileID: 0}
     - target: {fileID: 7866003225299448293, guid: b47d0ccccb4654b4f9361db1a2ee09ac,
         type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 76395344}
+      objectReference: {fileID: 0}
     - target: {fileID: 7866003225299448293, guid: b47d0ccccb4654b4f9361db1a2ee09ac,
         type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[2].m_Target

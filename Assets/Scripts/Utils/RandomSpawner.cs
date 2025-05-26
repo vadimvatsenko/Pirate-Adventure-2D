@@ -3,6 +3,7 @@ using System.Collections;
 using Items;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 namespace DefaultNamespace.Utils
@@ -20,6 +21,8 @@ namespace DefaultNamespace.Utils
         
         private Coroutine _routine;
         
+        [SerializeField] private UnityEvent OnFinishedSpawning;
+        
         public void StartDrop(GameObject[] items)
         {
             TryStopRoutine();
@@ -33,6 +36,7 @@ namespace DefaultNamespace.Utils
                 Spawn(particles[i]);
                 yield return new WaitForSeconds(waitTime);
             }
+            OnFinishedSpawning?.Invoke();
         }
 
         private void Spawn(GameObject particle)

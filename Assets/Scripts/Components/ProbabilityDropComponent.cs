@@ -3,6 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
+// вероятность выпадения объектов
 namespace Components
 {
     [Serializable]
@@ -17,14 +18,22 @@ namespace Components
     {
         
     }
-    // вероятность выпадения объектов
+    
     public class ProbabilityDropComponent :MonoBehaviour
     {
         [SerializeField] private int count;
         [SerializeField] private DropData[] dropData;
         [SerializeField] private DropEvent onDropCalculated;
+        [SerializeField] private bool spawnOnEnable;
 
-        [ContextMenu("CalculateDrop")]
+
+        private void OnEnable()
+        {
+            if (spawnOnEnable)
+            {
+                CalculateDrop();
+            }
+        }
         public void CalculateDrop()
         {
             var itemsToDrop = new GameObject[count];
@@ -45,7 +54,6 @@ namespace Components
                     }
                 }
             }
-            
             onDropCalculated?.Invoke(itemsToDrop);
         }
     }

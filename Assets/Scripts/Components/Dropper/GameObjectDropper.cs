@@ -27,32 +27,31 @@ namespace Components
 
         private void Awake()
         {
-            Debug.Log(droppedObjects.Length);
             _currentDirection = GetDirection(dropperDirection);
             
-            /*foreach (var obj in droppedObjects)
+            foreach (var obj in droppedObjects)
             {
-                Debug.Log(obj);
-            }*/
+                objectsToSpawn.Add(obj.prefab);
+            }
         }
 
         public void DropObject()
         {
             for (int i = 0; i < objectsToSpawn.Count; i++)
             {
-                Collider2D collider = objectsToSpawn[i].GetComponent<Collider2D>();
-                Rigidbody2D rb = objectsToSpawn[i].GetComponent<Rigidbody2D>();
+                GameObject go = Instantiate(objectsToSpawn[i], transform.position, Quaternion.identity);
+                Collider2D collider = go.GetComponent<Collider2D>();
+                Rigidbody2D rb = go.GetComponent<Rigidbody2D>();
 
                 if (collider != null  && rb != null)
                 {
-                    GameObject go = Instantiate(objectsToSpawn[i], transform.position, Quaternion.identity);
+                    
                     rb.gravityScale = gravity;
                     Vector2 direction = (_currentDirection + Random.insideUnitCircle * spreadRadius).normalized;
-                    rb.AddForce(_currentDirection * spreadForce, ForceMode2D.Impulse);
+                    rb.AddForce(direction * spreadForce, ForceMode2D.Impulse);
                 }
             }
         }
-        
         
         private Vector3 GetDirection(DropperDirection dir)
         {
