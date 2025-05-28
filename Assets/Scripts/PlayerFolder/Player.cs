@@ -30,7 +30,13 @@ namespace PlayerFolder
         [Header("Knockback Info")] 
         [SerializeField] private float knockbackDuration;
         [SerializeField] private Vector2 knockbackPower; 
-        private bool _isKnocked; 
+        private bool _isKnocked;
+
+        [Header("Die Info")] 
+        [SerializeField] private float fallThreshold = -1.5f;
+        private float _fallStartY;
+        private bool _isFalling;
+        
         
         [Header("Teleport Info")]
         [SerializeField] private float durationInTeleport = 1f; // длительность подъема
@@ -96,6 +102,7 @@ namespace PlayerFolder
             _collisionInfo.HandleWallCheck();
             HandleFlip();
             _playerAnimController.HandleAnimation();
+            CheckDeathFalling();
         }
 
         public void SetDirection(float dir) => _xInput = dir;
@@ -248,6 +255,36 @@ namespace PlayerFolder
         public void SitDown()
         {
             _playerAnimController.SetSitAnimation();
+        }
+
+        private void CheckDeathFalling()
+        {
+            if (!_collisionInfo.IsGrounded)
+            {
+                if (!_isFalling)
+                {
+                    _isFalling = true;
+                    _fallStartY = _rb.velocity.y;
+                    Debug.Log(_fallStartY);
+                }
+            }
+            else
+            {
+                if (_isFalling)
+                {
+                    _isFalling = false;
+                    float fallDistance = _fallStartY - _rb.velocity.y;
+
+                    if (fallDistance < fallThreshold)
+                    {
+                        Die();
+                    }
+                }
+            }
+        }
+        private void Die()
+        {
+            _playerAnimController.SetDieAnimation();
         }
     }
 }

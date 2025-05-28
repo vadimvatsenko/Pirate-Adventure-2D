@@ -85,7 +85,7 @@ namespace Components
             transform.position =
                 Vector2.MoveTowards(
                     transform.position,
-                    transform.position + (Vector3.down * 10),
+                    transform.position + (Vector3.down * 3),
                     impactSpeed * Time.fixedDeltaTime);
         }
 

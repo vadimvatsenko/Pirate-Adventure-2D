@@ -33,6 +33,7 @@ namespace Components
             }
         }
         
+        [ContextMenu("ToggleDoor")]
         public void ToggleDoor()
         {
             if(_isMoving) return;

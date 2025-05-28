@@ -12,6 +12,7 @@ namespace PlayerFolder
         private static readonly int Knockback = Animator.StringToHash("knockback");
         private static readonly int AttackKey = Animator.StringToHash("attack");
         private static readonly int SitKey = Animator.StringToHash("sit");
+        private static readonly int Die = Animator.StringToHash("die");
         
         [Header("Animator Controllers")]
         [SerializeField] private AnimatorController withoutArmor;
@@ -58,6 +59,11 @@ namespace PlayerFolder
         public void SetSitAnimation()
         {
             PlayerAnimator.SetTrigger(SitKey);
+        }
+
+        public void SetDieAnimation()
+        {
+            PlayerAnimator.SetTrigger(Die);
         }
     }
 }
