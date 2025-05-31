@@ -30,7 +30,10 @@ namespace Components
         private void OnJump(InputValue context)
         {
             // Передаем значение нажата ли кнопка, вызов происходит много раз. Так как значение у кнопки Value Axis
-            _player.HandleJump(context.isPressed);
+            if (!_player.IsDead)
+            {
+                _player.HandleJump(context.isPressed);
+            }
         }
 
         private void OnInteract(InputValue context)

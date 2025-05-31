@@ -5,9 +5,9 @@ namespace Components
 {
     public class ArmPlayerComponent : MonoBehaviour
     {
-        public void ArmPlayer(GameObject go)
+        public void ArmPlayer()
         {
-            var playerAnim = go.GetComponent<PlayerAnimController>();
+            var playerAnim = FindObjectOfType<PlayerAnimController>();
             playerAnim.ChangeArmedState();
         }
     }

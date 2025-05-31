@@ -1,5 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &48166739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 48166740}
+  - component: {fileID: 48166741}
+  m_Layer: 12
+  m_Name: SpawnSword
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &48166740
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48166739}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 325832446322467389}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &48166741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48166739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f11c1936a26d47c9b5a428508b5d1a2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 325832446343129425}
+  prefab: {fileID: 6041009698050444949, guid: c877958eaeedf2a47affc2093c2a4b77, type: 3}
+  offset: {x: -1, y: 0, z: 0}
 --- !u!1 &325832445572190916
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,6 +280,7 @@ Transform:
   - {fileID: 325832445572190971}
   - {fileID: 325832447409840796}
   - {fileID: 325832445596629050}
+  - {fileID: 48166740}
   m_Father: {fileID: 325832446343129425}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -354,6 +401,7 @@ MonoBehaviour:
   doubleJumpForce: 11
   knockbackDuration: 0.5
   knockbackPower: {x: 1, y: 3}
+  maxSaveHieght: 20
   durationInTeleport: 1
   targetInTeleportHeight: 1
   elapsedInTeleport: 0
@@ -365,6 +413,34 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 325832447409840787}
         m_MethodName: DropObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPlayerDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: ReloadLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnSpawnObject:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 48166741}
+        m_MethodName: Spawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -388,6 +464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   withoutArmor: {fileID: 9100000, guid: 6273da241f681c4419c0c62be0502ca2, type: 2}
   withArmor: {fileID: 9100000, guid: 3da19f9dff325d4439ad4635b933d14a, type: 2}
+  playerSpriteRenderer: {fileID: 325832447158808915}
 --- !u!114 &325832446343129419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,6 +578,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_MethodName: ReloadLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 325832446343129431}
+        m_MethodName: Die
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -701,11 +789,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   droppedObjects:
-  - prefab: {fileID: 5246316371057831152, guid: 9c966fd3c0c4a224ba8ff58c64bee967,
+  - prefab: {fileID: 1011413954198681897, guid: 255be0e1982da5c4bb1610fffea7e4bf,
       type: 3}
     amount: 2
-  - prefab: {fileID: 8934468942787321899, guid: d3223f2e834736940b0cf84045a9c6b6,
-      type: 3}
+  - prefab: {fileID: 407504932837964547, guid: e17345ea837e67f49b2a9cc8e767cd69, type: 3}
     amount: 4
   spreadForce: 4
   spreadRadius: 1.5

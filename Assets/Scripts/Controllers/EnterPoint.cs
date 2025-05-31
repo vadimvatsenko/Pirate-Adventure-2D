@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 using View;
 
@@ -6,7 +7,10 @@ namespace Controllers
 {
     public class EnterPoint : MonoBehaviour
     {
+        [SerializeField] private TextMeshProUGUI healthText;
         [SerializeField] private TextMeshProUGUI coinsText;
+        [SerializeField] private TextMeshProUGUI deathText;
+        
         private CoinsController _coinsController;
         private ReloadLevelController _reloadLevelController;
         private ConsoleView _consoleView;
@@ -22,6 +26,15 @@ namespace Controllers
         {
             Debug.Log(score);
             _coinsController.AddCoins(score);
+        }
+
+        public void ReloadLevel() => StartCoroutine(ReloadLevelWhithDelay(1f));
+        
+        private IEnumerator ReloadLevelWhithDelay(float delay)
+        {
+            deathText.gameObject.SetActive(true);
+            yield return new WaitForSeconds(delay);
+            _reloadLevelController.ReloadLevel();
         }
     }
 }

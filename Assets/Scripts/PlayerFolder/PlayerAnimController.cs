@@ -1,5 +1,8 @@
-﻿using UnityEditor.Animations;
+﻿using System;
+using System.Collections;
+using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace PlayerFolder
 {
@@ -17,11 +20,16 @@ namespace PlayerFolder
         [Header("Animator Controllers")]
         [SerializeField] private AnimatorController withoutArmor;
         [SerializeField] private AnimatorController withArmor;
+        [SerializeField] private SpriteRenderer playerSpriteRenderer;
         
         public Animator PlayerAnimator { get; private set; }
         private Player _player;
         private PlayerCollisionInfo _playerCollisionInfo;
         private bool _isArmed = false;
+        
+        // Colors
+        private Color startColor = new Color(1f, 1f, 1f, 0f);
+        private Color endColor = new Color(1f, 1f, 1f, 1f);
         
         public bool IsArmed => _isArmed;
 
@@ -31,6 +39,30 @@ namespace PlayerFolder
             PlayerAnimator = GetComponentInChildren<Animator>();
             _playerCollisionInfo = GetComponent<PlayerCollisionInfo>();
         }
+
+        private void Start()
+        {
+            playerSpriteRenderer.color = startColor;
+            ShowPlayer();
+        }
+
+        private void ShowPlayer() => StartCoroutine(ShowPlayerCoroutine(startColor, endColor));
+        public void HidePlayer(float duration) => StartCoroutine(ShowPlayerCoroutine(endColor, startColor, duration));
+
+        private IEnumerator ShowPlayerCoroutine(Color col1, Color col2, float duration = 1)
+        {
+            float elapsed = 0f;
+
+            while (elapsed < duration)
+            {
+                elapsed += Time.deltaTime;
+                
+                playerSpriteRenderer.color = 
+                    Color.Lerp(col1, col2, elapsed / duration);
+                yield return null;
+            }
+        }
+        
         
         public void HandleAnimation()
         {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Components;
+using DefaultNamespace.Model;
 using Interfaces;
 using UnityEditor.Animations;
 using UnityEngine;
@@ -14,6 +15,7 @@ namespace PlayerFolder
     {
         private PlayerCollisionInfo _collisionInfo;
         private PlayerAnimController _playerAnimController;
+        private GameSession _gameSession;
 
         [Header("Attack Power Info")] 
         [SerializeField] private int attackPower = 1;
@@ -33,10 +35,9 @@ namespace PlayerFolder
         private bool _isKnocked;
 
         [Header("Die Info")] 
-        [SerializeField] private float fallThreshold = -1.5f;
-        private float _fallStartY;
-        private bool _isFalling;
-        
+        [SerializeField] private float maxSaveHieght = 20f;
+        private bool _isDead;
+        private bool _isAllreadyDead;
         
         [Header("Teleport Info")]
         [SerializeField] private float durationInTeleport = 1f; // длительность подъема
@@ -62,9 +63,12 @@ namespace PlayerFolder
 
         private Rigidbody2D _rb;
         private Animator _animator;
+        private Collider2D _collider;
         public event Action OnPlayerJump;
         public event Action OnPlayerAttack;
         public UnityEvent onPlayerTakeDamage;
+        public UnityEvent onPlayerDeath;
+        public UnityEvent OnSpawnObject;
         
         public Rigidbody2D Rb => _rb;
         public float XInput => _xInput;
@@ -78,12 +82,14 @@ namespace PlayerFolder
         public bool IsAirborne => _isAirborne;
         public bool CanDoubleJump => _canDoubleJump;
         public bool IsPressedJumpButton => _isPressedJumpButton;
-        
-        private void Start()
+        public bool IsDead => _isDead;
+
+        private void Awake()
         {
             _collisionInfo = GetComponent<PlayerCollisionInfo>();
             _playerAnimController = GetComponent<PlayerAnimController>();
             _rb = GetComponent<Rigidbody2D>();
+            _collider = GetComponent<Collider2D>();
             
             if (_playerAnimController != null)
             {
@@ -91,19 +97,27 @@ namespace PlayerFolder
             }
         }
         
+        private void Start()
+        {
+            _gameSession = FindObjectOfType<GameSession>();
+        }
+        
         private void FixedUpdate()
         {
             UpdateAirBornStatus();
-
-            if (_isKnocked || _isTeleporting) return; 
-
-            HandleMovement();
             _collisionInfo.HandleGroundCheck();
             _collisionInfo.HandleWallCheck();
-            HandleFlip();
-            _playerAnimController.HandleAnimation();
+            
+            if (_isDead && _collisionInfo.IsGrounded) Die();
+            
+            if (_isKnocked || _isTeleporting || _isDead) return; 
+            
             CheckDeathFalling();
+            _playerAnimController.HandleAnimation();
+            HandleMovement();
+            HandleFlip();
         }
+        
 
         public void SetDirection(float dir) => _xInput = dir;
         
@@ -259,32 +273,30 @@ namespace PlayerFolder
 
         private void CheckDeathFalling()
         {
-            if (!_collisionInfo.IsGrounded)
+            if (!_collisionInfo.IsGrounded && !_isDead)
             {
-                if (!_isFalling)
-                {
-                    _isFalling = true;
-                    _fallStartY = _rb.velocity.y;
-                    Debug.Log(_fallStartY);
-                }
-            }
-            else
-            {
-                if (_isFalling)
-                {
-                    _isFalling = false;
-                    float fallDistance = _fallStartY - _rb.velocity.y;
-
-                    if (fallDistance < fallThreshold)
-                    {
-                        Die();
-                    }
-                }
+                _isDead = Mathf.Abs(_rb.velocity.y) > maxSaveHieght;
             }
         }
-        private void Die()
+        
+        
+
+        public void Die()
         {
-            _playerAnimController.SetDieAnimation();
+            if (!_isAllreadyDead)
+            {
+                _playerAnimController.SetDieAnimation();
+                _rb.velocity = new Vector2(knockbackPower.x / 2 * -_facingDirection, 0);
+                _rb.isKinematic = true;
+                
+                if (_playerAnimController.IsArmed)
+                {
+                    OnSpawnObject?.Invoke();
+                }
+                onPlayerDeath?.Invoke();
+            
+                _isAllreadyDead = true;
+            }
         }
     }
 }

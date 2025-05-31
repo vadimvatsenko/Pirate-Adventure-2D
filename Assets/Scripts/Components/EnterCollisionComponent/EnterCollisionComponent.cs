@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 namespace Components.EnterCollisionComponent
 {
@@ -6,6 +7,8 @@ namespace Components.EnterCollisionComponent
     {
         [SerializeField] private string gameObjectTag; // тег с которым будем взаимодействиять
         [SerializeField] private EnterEvent onAction; // класс который мы создали в серилизации
+        [SerializeField] private UnityEvent onExit;
+        [SerializeField] private UnityEvent onEnter;
 
         [SerializeField] private bool isDot; // проверяем ли столкновение в определённой точке коллайдера?
         [SerializeField] private Directions dotDirection; // направление проверки
@@ -35,10 +38,20 @@ namespace Components.EnterCollisionComponent
                 }
                 else
                 {
+                    onEnter?.Invoke();
                     onAction?.Invoke(collision.gameObject);
                 }
             }
         }
+
+        private void OnCollisionExit2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag(gameObjectTag))
+            {
+                onExit?.Invoke();
+            }
+        }
+        
 
         private void DotTest(Collision2D collision, Vector2 direction)
         {
