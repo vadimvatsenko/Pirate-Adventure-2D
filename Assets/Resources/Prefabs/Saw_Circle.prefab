@@ -313,8 +313,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onEnter:
+    m_PersistentCalls:
+      m_Calls: []
   isDot: 0
   dotDirection: 0
+  delayOnEnter: 0.1
 --- !u!114 &8422246904148142184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,8 +334,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 859502f5e9344b9e8cb6ca6b784e65a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthModifier: 20
-  isDamager: 1
+  healthModifier: 3
+  whatIsHealth: 1
   onDamaged:
     m_PersistentCalls:
       m_Calls: []

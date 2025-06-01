@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Components.EnterCollisionComponent
@@ -12,10 +13,14 @@ namespace Components.EnterCollisionComponent
 
         [SerializeField] private bool isDot; // проверяем ли столкновение в определённой точке коллайдера?
         [SerializeField] private Directions dotDirection; // направление проверки
+        [SerializeField] private float delayOnEnter = 0.1f;
+        
+        private bool _objectStillOnPlatform = false;
         
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.CompareTag(gameObjectTag))
+            
+            if (collision.gameObject.CompareTag(gameObjectTag) && !_objectStillOnPlatform)
             {
                 
                 if (isDot)
@@ -38,10 +43,18 @@ namespace Components.EnterCollisionComponent
                 }
                 else
                 {
+                    _objectStillOnPlatform = true;
                     onEnter?.Invoke();
                     onAction?.Invoke(collision.gameObject);
                 }
             }
+        }
+
+        private IEnumerator HandleEnterDelayed()
+        {
+            yield return new WaitForSeconds(delayOnEnter);
+            _objectStillOnPlatform = false;
+            onEnter?.Invoke();
         }
 
         private void OnCollisionExit2D(Collision2D collision)
@@ -49,6 +62,7 @@ namespace Components.EnterCollisionComponent
             if (collision.gameObject.CompareTag(gameObjectTag))
             {
                 onExit?.Invoke();
+                StartCoroutine(HandleEnterDelayed());
             }
         }
         

@@ -1,23 +1,25 @@
 ﻿using TMPro;
+using UnityEngine;
+using UnityEngine.Serialization;
 using View;
 
 namespace Controllers
 {
-    public class CoinsController
+    public class CoinsController : MonoBehaviour
     {
-        private TextMeshProUGUI _coinsText;
-        private int _startCoins;
-        public CoinsController(TextMeshProUGUI coinsText)
-        {
-            _startCoins = 0;
-            _coinsText = coinsText;
-            _coinsText.text = "Coins: " + _startCoins;
-        }
-    
+        [FormerlySerializedAs("_coinsText")] [SerializeField] private TextMeshProUGUI coinsText;
+        private int _coins;
+        
         public void AddCoins(int cost)
         {
-            _startCoins += cost;
-            _coinsText.text = "Coins: " + _startCoins;
+            _coins += cost;
+            coinsText.text = "Coins: " + _coins;
+        }
+
+        public void RemoveCoins(int cost)
+        {
+            _coins -= cost;
+            coinsText.text = "Coins: " + _coins;
         }
     }
 }

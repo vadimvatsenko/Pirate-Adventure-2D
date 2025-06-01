@@ -10,7 +10,8 @@ namespace Components
         [SerializeField] private float delayTime = 0.5f;
         [SerializeField] private Transform[] waypoints;
 
-        [Header("Events")] public UnityEvent onEnableDoor;
+        [Header("Events")] 
+        public UnityEvent onEnableDoor;
         public UnityEvent onDoorOpened;
         public UnityEvent onDoorClosed;
 

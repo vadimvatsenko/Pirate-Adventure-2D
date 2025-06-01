@@ -11,21 +11,21 @@ namespace Controllers
         [SerializeField] private TextMeshProUGUI coinsText;
         [SerializeField] private TextMeshProUGUI deathText;
         
-        private CoinsController _coinsController;
+        //private CoinsController _coinsController;
         private ReloadLevelController _reloadLevelController;
         private ConsoleView _consoleView;
-        public CoinsController CoinsController => _coinsController;
+        //public CoinsController CoinsController => _coinsController;
         public ReloadLevelController ReloadLevelController => _reloadLevelController;
         private void Awake()
         {
-            _coinsController = new CoinsController(coinsText);
+            //_coinsController = new CoinsController(coinsText);
             _reloadLevelController = new ReloadLevelController();
         }
 
         public void ChangeCoinsText(int score)
         {
             Debug.Log(score);
-            _coinsController.AddCoins(score);
+            //_coinsController.AddCoins(score);
         }
 
         public void ReloadLevel() => StartCoroutine(ReloadLevelWhithDelay(1f));
