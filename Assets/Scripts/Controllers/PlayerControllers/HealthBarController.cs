@@ -51,7 +51,6 @@ namespace Controllers
             {
                 if (i < _gameSession.PlayerData.maxHealth)
                 {
-                    Debug.Log("UpdateHeartsHUD");
                     _heartContainers[i].SetActive(true);
                 }
                 else
@@ -65,10 +64,11 @@ namespace Controllers
         {
             if(_gameSession == null) return;
             
-            for (int i = 0; i < _gameSession.PlayerData.health; i++)
+            for (int i = 0; i < _gameSession.PlayerData.maxHealth; i++)
             {
                 if (i < _gameSession.PlayerData.health)
                 {
+                    Debug.Log("UpdateHeartsHUD");
                     _heartFills[i].fillAmount = 1;
                 }
                 else

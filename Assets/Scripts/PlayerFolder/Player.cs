@@ -108,7 +108,7 @@ namespace PlayerFolder
             
             if (_isDead && _collisionInfo.IsGrounded) Die();
             
-            if (_isKnocked || _isTeleporting || _isDead) return; 
+            if (_isKnocked || _isTeleporting || _isDead || _isAllreadyDead) return; 
             
             CheckDeathFalling();
             _playerAnimController.HandleAnimation();
