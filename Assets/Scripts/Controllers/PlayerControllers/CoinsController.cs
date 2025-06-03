@@ -42,7 +42,6 @@ namespace Controllers.PlayerControllers
 
         public void RemoveCoin()
         {
-            Debug.Log(_gameSession.PlayerData.coins == 0);
             if (_gameSession.PlayerData.coins == 0) return;
             _gameSession.PlayerData.coins = 0;
             UpdateUI();

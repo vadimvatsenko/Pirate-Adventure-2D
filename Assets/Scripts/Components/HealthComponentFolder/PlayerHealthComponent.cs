@@ -14,8 +14,8 @@ namespace Components.HealthComponentFolder
         
         public UnityAction OnHealthChange;
         private GameSession _gameSession;
-        
-        private void Start()
+
+        private void Awake()
         {
             _gameSession = FindObjectOfType<GameSession>();
             _gameSession.PlayerData.health = _gameSession.PlayerData.maxHealth;

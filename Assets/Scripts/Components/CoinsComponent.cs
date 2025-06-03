@@ -24,7 +24,6 @@ namespace Components
             {
                 if (healthModifier.WhatIsHealth == HealthModifierType.Damage)
                 {
-                    Debug.Log(collision.name);
                     OnCoinsRemove?.Invoke();
                 }
             }

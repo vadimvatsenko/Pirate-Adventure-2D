@@ -19,6 +19,7 @@ namespace Controllers
         private void Start()
         {
             _gameSession = FindObjectOfType<GameSession>();
+            
             if (_gameSession == null) return;
             
             _heartContainers = new GameObject[_gameSession.PlayerData.maxTotalHearts];
@@ -68,7 +69,6 @@ namespace Controllers
             {
                 if (i < _gameSession.PlayerData.health)
                 {
-                    Debug.Log("UpdateHeartsHUD");
                     _heartFills[i].fillAmount = 1;
                 }
                 else
