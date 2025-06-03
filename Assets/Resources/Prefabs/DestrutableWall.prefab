@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4590025880967043902}
   - component: {fileID: 4590025880967043872}
   - component: {fileID: 4590025880967043877}
-  - component: {fileID: 4590025880967043879}
+  - component: {fileID: 4167909326671080942}
   - component: {fileID: 4590025880967043876}
   - component: {fileID: 4590025880967043873}
   m_Layer: 8
@@ -175,7 +175,7 @@ MonoBehaviour:
             m_StringArgument: Idle
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &4590025880967043879
+--- !u!114 &4167909326671080942
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4590025880967043878}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72fe54d299194dfdba082dda8688f42e, type: 3}
+  m_Script: {fileID: 11500000, guid: 9602026209ad4ee6adf9f2486daa54f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
@@ -206,22 +206,11 @@ MonoBehaviour:
           m_StringArgument: Hit
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: CalculateDrop
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   onDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4590025880967043873}
-        m_MethodName: DestroyGameObject
+      - m_Target: {fileID: 4590025880967043876}
+        m_MethodName: DropObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -231,8 +220,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4590025880967043876}
-        m_MethodName: DropObject
+      - m_Target: {fileID: 4590025880967043873}
+        m_MethodName: DestroyGameObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

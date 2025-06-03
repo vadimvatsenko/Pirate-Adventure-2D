@@ -660,6 +660,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sword_UI
       objectReference: {fileID: 0}
+    - target: {fileID: 4628167342373341066, guid: b79da34d6dae29744b816d21298705bc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4628167342373341078, guid: b79da34d6dae29744b816d21298705bc,
         type: 3}
       propertyPath: m_RootOrder

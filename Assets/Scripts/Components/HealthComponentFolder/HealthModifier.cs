@@ -1,22 +1,20 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace Components
+namespace Components.HealthComponentFolder
 {
-    enum HealthModifierType
-    {
-        Health,
-        Damage,
-        AddHeart
-    }
     public class HealthModifier :MonoBehaviour
     {
         [SerializeField] private int healthModifier;
         [SerializeField] private HealthModifierType whatIsHealth;
+        
+        [Header("Damager Settings")]
+        [SerializeField] private bool isModifierDedly = false;
         [SerializeField] private UnityEvent onDamaged;
+        public HealthModifierType WhatIsHealth => whatIsHealth;
         public void ApplyHealth(GameObject target)
         {
-            var healthComponent = target.GetComponent<HealthComponent>();
+            var healthComponent = target.GetComponent<IHealthComponent>();
 
             if (healthComponent != null)
             {
@@ -26,7 +24,14 @@ namespace Components
                         healthComponent.ApplyHeal(healthModifier);
                         break;
                     case HealthModifierType.Damage:
-                        healthComponent.ApplyDamage(healthModifier);
+                        if (isModifierDedly)
+                        {
+                            healthComponent.ApplyDamage(100);
+                        }
+                        else
+                        {
+                            healthComponent.ApplyDamage(healthModifier);
+                        }
                         break;
                     case HealthModifierType.AddHeart:
                         healthComponent.AddHeart();

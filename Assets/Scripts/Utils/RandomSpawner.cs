@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections;
-using Items;
+﻿using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
-namespace DefaultNamespace.Utils
+namespace Utils
 {
     public class RandomSpawner : MonoBehaviour
     {

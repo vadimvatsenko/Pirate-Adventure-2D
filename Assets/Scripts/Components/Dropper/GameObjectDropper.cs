@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace.Model;
 using NaughtyAttributes;
 using UnityEngine;
 
-namespace Components
+namespace Components.Dropper
 {
     public class GameObjectDropper : MonoBehaviour
     {
@@ -22,8 +23,9 @@ namespace Components
         [SerializeField] private DropperDirection dropperDirection = DropperDirection.Top;
         [SerializeField] private bool destroyOnFinish = true;
         
-        private List<GameObject> objectsToSpawn = new List<GameObject>();
+        private List<GameObject> _objectsToSpawn = new List<GameObject>();
         private Vector2 _currentDirection;
+        private GameSession _gameSession;
 
         private void Awake()
         {
@@ -31,24 +33,31 @@ namespace Components
             
             foreach (var obj in droppedObjects)
             {
-                objectsToSpawn.Add(obj.prefab);
+                _objectsToSpawn.Add(obj.prefab);
             }
+        }
+
+        private void Start()
+        {
+            _gameSession = FindObjectOfType<GameSession>();
         }
 
         public void DropObject()
         {
-            for (int i = 0; i < objectsToSpawn.Count; i++)
+            if (_gameSession.PlayerData.coins != 0)
             {
-                GameObject go = Instantiate(objectsToSpawn[i], transform.position, Quaternion.identity);
-                Collider2D collider = go.GetComponent<Collider2D>();
-                Rigidbody2D rb = go.GetComponent<Rigidbody2D>();
-
-                if (collider != null  && rb != null)
+                for (int i = 0; i < _objectsToSpawn.Count; i++)
                 {
-                    
-                    rb.gravityScale = gravity;
-                    Vector2 direction = (_currentDirection + Random.insideUnitCircle * spreadRadius).normalized;
-                    rb.AddForce(direction * spreadForce, ForceMode2D.Impulse);
+                    GameObject go = Instantiate(_objectsToSpawn[i], transform.position, Quaternion.identity);
+                    Collider2D collider = go.GetComponent<Collider2D>();
+                    Rigidbody2D rb = go.GetComponent<Rigidbody2D>();
+
+                    if (collider != null  && rb != null)
+                    {
+                        rb.gravityScale = gravity;
+                        Vector2 direction = (_currentDirection + Random.insideUnitCircle * spreadRadius).normalized;
+                        rb.AddForce(direction * spreadForce, ForceMode2D.Impulse);
+                    }
                 }
             }
         }

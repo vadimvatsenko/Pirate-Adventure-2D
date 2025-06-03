@@ -170,6 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthModifier: 3
   whatIsHealth: 1
+  isModifierDedly: 0
   onDamaged:
     m_PersistentCalls:
       m_Calls: []

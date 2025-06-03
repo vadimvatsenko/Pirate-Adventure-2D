@@ -1,6 +1,7 @@
-﻿using UnityEditor;
+﻿using Components.Dropper;
+using UnityEditor;
 
-namespace Components
+namespace Components.EnterCollisionComponent
 {
     public class GameObjectDropperEditor : Editor
     {

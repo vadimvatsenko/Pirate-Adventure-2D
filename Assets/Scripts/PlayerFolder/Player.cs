@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections;
 using Components;
+using Components.HealthComponentFolder;
 using DefaultNamespace.Model;
 using Interfaces;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Events;
-using Color = UnityEngine.Color;
-using Random = System.Random;
 
 namespace PlayerFolder
 {
@@ -251,14 +249,14 @@ namespace PlayerFolder
         
         public void Attack()
         {
-            if (!_playerAnimController.IsArmed || !_collisionInfo.IsGrounded) return;
+            if (!_gameSession.PlayerData.isArmed || !_collisionInfo.IsGrounded) return;
             
             OnPlayerAttack?.Invoke();
             _playerAnimController.SetAttackAnimation();
             var gos = _collisionInfo.GetObjectsInRange();
             foreach (var go in gos)
             {
-                var hp = go.GetComponent<HealthComponent>();
+                var hp = go.GetComponent<OtherHealthComponent>();
                 if (hp != null)
                 {
                     hp.ApplyDamage(attackPower);
@@ -289,8 +287,9 @@ namespace PlayerFolder
                 _rb.velocity = new Vector2(knockbackPower.x / 2 * -_facingDirection, 0);
                 _rb.isKinematic = true;
                 
-                if (_playerAnimController.IsArmed)
+                if (_gameSession.PlayerData.isArmed)
                 {
+                    _gameSession.PlayerData.isArmed = false;
                     OnSpawnObject?.Invoke();
                 }
                 onPlayerDeath?.Invoke();

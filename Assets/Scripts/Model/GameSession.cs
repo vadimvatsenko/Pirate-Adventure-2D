@@ -6,9 +6,7 @@ namespace DefaultNamespace.Model
     public class GameSession : MonoBehaviour
     {
         [SerializeField] private PlayerData playerData;
-        
         public PlayerData PlayerData => playerData;
-
         private void Awake()
         {
             // Если уже существует другой объект GameSession, текущий уничтожается.

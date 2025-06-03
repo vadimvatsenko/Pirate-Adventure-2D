@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections;
-using UnityEditor.Animations;
+using DefaultNamespace.Model;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace PlayerFolder
 {
@@ -18,26 +17,31 @@ namespace PlayerFolder
         private static readonly int Die = Animator.StringToHash("die");
         
         [Header("Animator Controllers")]
-        [SerializeField] private AnimatorController withoutArmor;
-        [SerializeField] private AnimatorController withArmor;
+        [SerializeField] private RuntimeAnimatorController withoutArmor;
+        [SerializeField] private RuntimeAnimatorController withArmor;
         [SerializeField] private SpriteRenderer playerSpriteRenderer;
         
         public Animator PlayerAnimator { get; private set; }
         private Player _player;
         private PlayerCollisionInfo _playerCollisionInfo;
-        private bool _isArmed = false;
+        private GameSession _gameSession; // ++
+        public event Action OnIsArmed;
         
         // Colors
         private Color startColor = new Color(1f, 1f, 1f, 0f);
         private Color endColor = new Color(1f, 1f, 1f, 1f);
         
-        public bool IsArmed => _isArmed;
-
         private void Awake()
         {
             _player = GetComponent<Player>();
             PlayerAnimator = GetComponentInChildren<Animator>();
             _playerCollisionInfo = GetComponent<PlayerCollisionInfo>();
+            _gameSession = FindObjectOfType<GameSession>();
+
+            if (_gameSession != null) // ++
+            {
+                UpdateArmedState();
+            }
         }
 
         private void Start()
@@ -74,8 +78,15 @@ namespace PlayerFolder
         
         public void ChangeArmedState()
         {
-            _isArmed = !_isArmed;
-            PlayerAnimator.runtimeAnimatorController = _isArmed ? withArmor : withoutArmor;
+            _gameSession.PlayerData.isArmed = !_gameSession.PlayerData.isArmed;
+            UpdateArmedState();
+            OnIsArmed?.Invoke();
+        }
+
+        private void UpdateArmedState()
+        {
+            PlayerAnimator.runtimeAnimatorController 
+                = _gameSession.PlayerData.isArmed ? withArmor : withoutArmor;
         }
 
         public void SetAttackAnimation()
