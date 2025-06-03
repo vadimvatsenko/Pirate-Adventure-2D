@@ -64,6 +64,8 @@ namespace PlayerFolder
         private Collider2D _collider;
         public event Action OnPlayerJump;
         public event Action OnPlayerAttack;
+        public event Action OnPlayerDeath;
+        
         public UnityEvent onPlayerTakeDamage;
         public UnityEvent onPlayerDeath;
         public UnityEvent OnSpawnObject;
@@ -295,6 +297,7 @@ namespace PlayerFolder
                 onPlayerDeath?.Invoke();
             
                 _isAllreadyDead = true;
+                OnPlayerDeath?.Invoke();
             }
         }
     }

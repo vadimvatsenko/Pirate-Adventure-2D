@@ -43,8 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a38a37829474f65b4dd2d4dc02a42ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAnimController: {fileID: 0}
   armorObjectForUI: {fileID: 0}
+  playerAnimController: {fileID: 0}
 --- !u!1 &1744313400178037921
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,6 @@
-﻿using DefaultNamespace.Model;
+﻿using System;
+using DefaultNamespace.Model;
+using PlayerFolder;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,15 +14,22 @@ namespace Components.HealthComponentFolder
         [SerializeField] private UnityEvent onDamage;
         [SerializeField] private UnityEvent onDie;
         
+        private Player _player;
         public UnityAction OnHealthChange;
         private GameSession _gameSession;
 
         private void Awake()
         {
+            _player = GetComponent<Player>();
+            _player.OnPlayerDeath += SetHealthIfPlayerDeath;
             _gameSession = FindObjectOfType<GameSession>();
-            _gameSession.PlayerData.health = _gameSession.PlayerData.maxHealth;
         }
-        
+
+        private void OnDisable()
+        {
+            _player.OnPlayerDeath += SetHealthIfPlayerDeath;
+        }
+
         public void ApplyDamage(int damage)
         {
             _gameSession.PlayerData.health -= damage;
@@ -59,6 +68,10 @@ namespace Components.HealthComponentFolder
             }
             
             OnHealthChange?.Invoke();
+        }
+        private void SetHealthIfPlayerDeath()
+        {
+            _gameSession.PlayerData.health = _gameSession.PlayerData.maxHealth;
         }
     }
 }

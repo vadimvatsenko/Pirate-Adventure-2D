@@ -412,8 +412,7 @@ MonoBehaviour:
   onPlayerTakeDamage:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 325832447409840787, guid: 35e007c1a25de2842848108f9b8d6d41,
-          type: 3}
+      - m_Target: {fileID: 0}
         m_MethodName: DropObject
         m_Mode: 1
         m_Arguments:
@@ -556,9 +555,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72fe54d299194dfdba082dda8688f42e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
-  maxHealth: 3
-  maxTotalHearts: 10
   onAddHealth:
     m_PersistentCalls:
       m_Calls: []
@@ -567,6 +563,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 325832446343129431}
         m_MethodName: TakeDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1039644409}
+        m_MethodName: Spawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -769,6 +776,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 325832447409840796}
+  - component: {fileID: 1039644409}
   m_Layer: 12
   m_Name: CoinDroper
   m_TagString: Untagged
@@ -791,6 +799,21 @@ Transform:
   m_Father: {fileID: 325832446322467389}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1039644409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325832447409840797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f11c1936a26d47c9b5a428508b5d1a2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 325832446343129425}
+  prefab: {fileID: 7934305708160192325}
+  offset: {x: 0, y: 0.75, z: 0}
 --- !u!1001 &325832447494746142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -798,10 +821,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 325832447409840796}
     m_Modifications:
+    - target: {fileID: 7681390415131869012, guid: 6a3789ebcaf023a4cac4777e7000f61a,
+        type: 3}
+      propertyPath: count
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7681390415131869012, guid: 6a3789ebcaf023a4cac4777e7000f61a,
+        type: 3}
+      propertyPath: dropData.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7681390415131869012, guid: 6a3789ebcaf023a4cac4777e7000f61a,
+        type: 3}
+      propertyPath: dropData.Array.data[0].Probability
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7681390415131869012, guid: 6a3789ebcaf023a4cac4777e7000f61a,
+        type: 3}
+      propertyPath: dropData.Array.data[0].DroppedObject
+      value: 
+      objectReference: {fileID: 407504932837964547, guid: e17345ea837e67f49b2a9cc8e767cd69,
+        type: 3}
     - target: {fileID: 7681390415131869013, guid: 6a3789ebcaf023a4cac4777e7000f61a,
         type: 3}
       propertyPath: sectorAngle
-      value: 20
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7681390415131869014, guid: 6a3789ebcaf023a4cac4777e7000f61a,
         type: 3}
@@ -870,6 +914,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a3789ebcaf023a4cac4777e7000f61a, type: 3}
+--- !u!1 &7934305708160192325 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7681390415131869019, guid: 6a3789ebcaf023a4cac4777e7000f61a,
+    type: 3}
+  m_PrefabInstance: {fileID: 325832447494746142}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7934305708160192328 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7681390415131869014, guid: 6a3789ebcaf023a4cac4777e7000f61a,
