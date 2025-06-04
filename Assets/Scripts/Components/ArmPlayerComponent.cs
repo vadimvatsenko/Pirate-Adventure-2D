@@ -1,5 +1,5 @@
-﻿using Model;
-using PlayerFolder;
+﻿using Creatures;
+using Model;
 using UnityEngine;
 
 namespace Components

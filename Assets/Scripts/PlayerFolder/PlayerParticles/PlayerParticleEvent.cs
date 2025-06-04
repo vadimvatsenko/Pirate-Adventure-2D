@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Components;
+using Creatures;
 using UnityEngine;
 
 namespace PlayerFolder.PlayerParticles
@@ -11,7 +12,7 @@ namespace PlayerFolder.PlayerParticles
         
         private Dictionary<ParticleType, SpawnComponent> _particleMap;
         
-        private Player _player;
+        private Creature _creature;
         private CreatureCollisionInfo _collisionInfo;
         
         // Партикал приземления
@@ -22,10 +23,10 @@ namespace PlayerFolder.PlayerParticles
         
         private void Awake()
         { 
-            _player = GetComponentInParent<Player>();
-            if (_player != null)
+            _creature = GetComponentInParent<Hero>();
+            if (_creature != null)
             {
-                _collisionInfo = _player.GetComponent<CreatureCollisionInfo>();
+                _collisionInfo = _creature.GetComponent<CreatureCollisionInfo>();
             }
             _particleMap = new Dictionary<ParticleType, SpawnComponent>();
 
@@ -38,13 +39,13 @@ namespace PlayerFolder.PlayerParticles
 
         private void OnEnable()
         {
-            _player.OnPlayerJump += HandleSpawnJumpParticle;
-            _player.OnPlayerAttack += HandleSpawnAttack1Particle;
+            _creature.OnCreatureJump += HandleSpawnJumpParticle;
+            _creature.OnCreatureAttack += HandleSpawnAttack1Particle;
         }
         private void OnDisable()
         {
-            _player.OnPlayerJump -= HandleSpawnJumpParticle;
-            _player.OnPlayerAttack -= HandleSpawnAttack1Particle;
+            _creature.OnCreatureJump -= HandleSpawnJumpParticle;
+            _creature.OnCreatureAttack -= HandleSpawnAttack1Particle;
         }
 
         private void Update()
@@ -57,7 +58,7 @@ namespace PlayerFolder.PlayerParticles
         {
             _moveSpawnTimer -= Time.deltaTime;
             
-            if (_player.XInput != 0 && _moveSpawnTimer <= 0 && _collisionInfo.IsGrounded)
+            if (_creature.XInput != 0 && _moveSpawnTimer <= 0 && _collisionInfo.IsGrounded)
             {
                 HandleSpawn(ParticleType.Move);
                 _moveSpawnTimer = 0.25f;
@@ -67,7 +68,7 @@ namespace PlayerFolder.PlayerParticles
         
         public void HandleSpawnFallPartical()
         {
-            float vel = Mathf.Abs(_player.Rb.velocity.y);
+            float vel = Mathf.Abs(_creature.Rb.velocity.y);
             
             if (vel > MinJumpHeight)
             {

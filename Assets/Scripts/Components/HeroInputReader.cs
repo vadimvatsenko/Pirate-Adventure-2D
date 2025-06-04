@@ -2,14 +2,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Components
+namespace Creatures
 {
     public class HeroInputReader : MonoBehaviour
     {
-        //[SerializeField] private Hero hero; // если мы захотим связать через редактор
         
-        // временно, потом удалю
-        private Player _player; 
+        private Hero _hero; 
         private CreatureCollisionInfo _creatureCollisionInfo;
         private CratureAnimController _cratureAnimController;
     
@@ -17,22 +15,22 @@ namespace Components
 
         private void Start()
         {
-            _player = FindObjectOfType<Player>();
-            _creatureCollisionInfo = _player.GetComponent<CreatureCollisionInfo>();
-            _cratureAnimController = _player.GetComponent<CratureAnimController>();
+            _hero = FindObjectOfType<Hero>();
+            _creatureCollisionInfo = _hero.GetComponent<CreatureCollisionInfo>();
+            _cratureAnimController = _hero.GetComponent<CratureAnimController>();
         }
         private void OnMovement(InputValue context) 
         {
             float direction = context.Get<float>();
-            if (_player != null) _player.SetDirection(direction); 
+            if (_hero != null) _hero.SetDirection(direction); 
         }
 
         private void OnJump(InputValue context)
         {
             // Передаем значение нажата ли кнопка, вызов происходит много раз. Так как значение у кнопки Value Axis
-            if (!_player.IsDead)
+            if (!_hero.IsDead)
             {
-                _player.HandleJump(context.isPressed);
+                _hero.HandleJump(context.isPressed);
             }
         }
 
@@ -43,12 +41,12 @@ namespace Components
 
         private void OnHit(InputValue context) // временно
         {
-            _player.TakeDamage();
+            _hero.TakeDamage();
         }
 
         private void OnAttack(InputValue context)
         {
-            _player.Attack();
+            _hero.Attack();
         }
 
         private void OnLookDown(InputValue context)

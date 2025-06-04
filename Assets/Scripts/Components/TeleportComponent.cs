@@ -19,13 +19,13 @@ namespace Components
 
         private IEnumerator TeleportPlayerRoutine(GameObject target)
         {
-            if (target != null && target.GetComponent<Player>() != null)
+            if (target != null && target.GetComponent<Hero>() != null)
             {
                 onStartTeleport?.Invoke(target.transform.position);
 
-                Player player = target.GetComponent<Player>();
+                Hero hero = target.GetComponent<Hero>();
                 
-                player.Teleport(destTransform.position, () => CreateTeleport());
+                hero.Teleport(destTransform.position, () => CreateTeleport());
                 
                 onEndTeleport?.Invoke(destTransform.position);
                 

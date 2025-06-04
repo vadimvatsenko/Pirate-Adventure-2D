@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Creatures;
 using PlayerFolder;
 using UnityEngine;
 
@@ -18,18 +18,18 @@ namespace Components
         
         private void OnCollisionStay2D(Collision2D other)
         {
-            Player player = other.gameObject.GetComponent<Player>();
+            Creature creature = other.gameObject.GetComponent<Creature>();
 
 
-            if (player != null)
+            if (creature != null)
             {
-                CreatureCollisionInfo collisionInfo = player.GetComponent<CreatureCollisionInfo>();
+                CreatureCollisionInfo collisionInfo = creature.GetComponent<CreatureCollisionInfo>();
                 if (collisionInfo != null)
                 {
-                    if (collisionInfo.IsWallDetected && player.XInput != 0)
+                    if (collisionInfo.IsWallDetected && creature.XInput != 0)
                     {
                         // Двигаем в противоположную сторону от взгляда игрока
-                        _rb.velocity = new Vector2(-player.FacingDirection * pushMultiplier, _rb.velocity.y);
+                        _rb.velocity = new Vector2(-creature.FacingDirection * pushMultiplier, _rb.velocity.y);
                     }
                 }
             }

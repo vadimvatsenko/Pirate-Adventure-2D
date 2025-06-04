@@ -10,7 +10,7 @@ namespace Components.VirtualCamera
         void Start()
         {
             _cam = GetComponent<CinemachineVirtualCamera>();
-            var player = FindObjectOfType<Player>().transform; // временно
+            var player = FindObjectOfType<Hero>().transform; // временно
             if(player != null) _cam.Follow = player; // временно
         }
     }

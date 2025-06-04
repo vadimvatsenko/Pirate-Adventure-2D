@@ -1,14 +1,13 @@
-﻿using Model;
-using PlayerFolder;
+﻿using Creatures;
+using Model;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Controllers.PlayerControllers
 {
     public class IsPlayerWithArmor : MonoBehaviour
     {
         [SerializeField] private GameObject armorObjectForUI;
-        [FormerlySerializedAs("playerAnimController")] [SerializeField] private CratureAnimController cratureAnimController;
+        [SerializeField] private CratureAnimController cratureAnimController;
         private GameSession _gameSession;
 
         private void Awake()

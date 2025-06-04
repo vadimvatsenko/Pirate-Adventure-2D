@@ -92,8 +92,8 @@ namespace Components
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (_impactHappend) return;
-            Player player = other.GetComponent<Player>();
-            if (player)
+            Hero hero = other.GetComponent<Hero>();
+            if (hero)
             {
                 Invoke(nameof(SwitchOffPlatform), fallDelay); // вызывает метод с задержкой
                 _impactTimer = impactDuration;
