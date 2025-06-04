@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DefaultNamespace.Model
+namespace Model
 {
     // Этот класс GameSession реализует паттерн Singleton per scene для хранения данных о сессии игрока
     public class GameSession : MonoBehaviour

@@ -23,7 +23,7 @@ namespace Components
 
             if (player != null)
             {
-                PlayerCollisionInfo collisionInfo = player.GetComponent<PlayerCollisionInfo>();
+                CreatureCollisionInfo collisionInfo = player.GetComponent<CreatureCollisionInfo>();
                 if (collisionInfo != null)
                 {
                     if (collisionInfo.IsWallDetected && player.XInput != 0)

@@ -1,41 +1,24 @@
 ﻿using System;
 using System.Collections;
-using Components;
 using Components.HealthComponentFolder;
-using DefaultNamespace.Model;
+using Creatures;
+using Model;
 using Interfaces;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace PlayerFolder
 {
-    public class Player : MonoBehaviour, IMovable
+    public class Player : Creature, IMovable
     {
-        private PlayerCollisionInfo _collisionInfo;
-        private PlayerAnimController _playerAnimController;
+        private CreatureCollisionInfo _collisionInfo;
+        private CratureAnimController _cratureAnimController;
         private GameSession _gameSession;
-
-        [Header("Attack Power Info")] 
-        [SerializeField] private int attackPower = 1;
-        
-        [Header("Movement Info")] [SerializeField]
-        private float speed;
-        [SerializeField] private float jumpForce;
         
         [Header("DoubleJump Info")] 
         [SerializeField] private float doubleJumpForce;
         private bool _canDoubleJump;
         private bool _isAirborne;
-
-        [Header("Knockback Info")] 
-        [SerializeField] private float knockbackDuration;
-        [SerializeField] private Vector2 knockbackPower; 
-        private bool _isKnocked;
-
-        [Header("Die Info")] 
-        [SerializeField] private float maxSaveHieght = 20f;
-        private bool _isDead;
-        private bool _isAllreadyDead;
         
         [Header("Teleport Info")]
         [SerializeField] private float durationInTeleport = 1f; // длительность подъема
@@ -52,16 +35,9 @@ namespace PlayerFolder
         [SerializeField] private float endScaleInTeleport = 0.1f;
         private bool _isTeleporting;
         
-        #region Direction
-        private bool _isFacingRight = true;
-        private int _facingDirection = 1;
         private float _xInput;
         private bool _isPressedJumpButton;
-        #endregion
-
-        private Rigidbody2D _rb;
-        private Animator _animator;
-        private Collider2D _collider;
+        
         public event Action OnPlayerJump;
         public event Action OnPlayerAttack;
         public event Action OnPlayerDeath;
@@ -70,30 +46,23 @@ namespace PlayerFolder
         public UnityEvent onPlayerDeath;
         public UnityEvent OnSpawnObject;
         
-        public Rigidbody2D Rb => _rb;
         public float XInput => _xInput;
-
-        public int FacingDirection
-        {
-            get => _facingDirection;
-            private set => _facingDirection = value;
-        }
         
         public bool IsAirborne => _isAirborne;
         public bool CanDoubleJump => _canDoubleJump;
         public bool IsPressedJumpButton => _isPressedJumpButton;
-        public bool IsDead => _isDead;
+        
 
         private void Awake()
         {
-            _collisionInfo = GetComponent<PlayerCollisionInfo>();
-            _playerAnimController = GetComponent<PlayerAnimController>();
-            _rb = GetComponent<Rigidbody2D>();
-            _collider = GetComponent<Collider2D>();
+            _collisionInfo = GetComponent<CreatureCollisionInfo>();
+            _cratureAnimController = GetComponent<CratureAnimController>();
+            rb = GetComponent<Rigidbody2D>();
+            c2d = GetComponent<Collider2D>();
             
-            if (_playerAnimController != null)
+            if (_cratureAnimController != null)
             {
-                _animator = _playerAnimController.PlayerAnimator;
+                animator = _cratureAnimController.CreatureAnimator;
             }
         }
         
@@ -108,12 +77,12 @@ namespace PlayerFolder
             _collisionInfo.HandleGroundCheck();
             _collisionInfo.HandleWallCheck();
             
-            if (_isDead && _collisionInfo.IsGrounded) Die();
+            if (isDead && _collisionInfo.IsGrounded) Die();
             
-            if (_isKnocked || _isTeleporting || _isDead || _isAllreadyDead) return; 
+            if (isKnocked || _isTeleporting || isDead || isAllreadyDead) return; 
             
             CheckDeathFalling();
-            _playerAnimController.HandleAnimation();
+            _cratureAnimController.HandleAnimation();
             HandleMovement();
             HandleFlip();
         }
@@ -140,7 +109,7 @@ namespace PlayerFolder
 
         private void HandleMovement()
         {
-            _rb.velocity = new Vector2(_xInput * speed, _rb.velocity.y);
+            rb.velocity = new Vector2(_xInput * speed, rb.velocity.y);
         }
         
         public void HandleJump(bool isPressedSpace)
@@ -152,7 +121,7 @@ namespace PlayerFolder
                 if (_collisionInfo.IsGrounded)
                 {
                     OnPlayerJump?.Invoke();
-                    _rb.AddForce(new Vector2(_rb.velocity.x, jumpForce), ForceMode2D.Impulse);
+                    rb.AddForce(new Vector2(rb.velocity.x, jumpForce), ForceMode2D.Impulse);
                 }
 
                 if (_isAirborne && _canDoubleJump)
@@ -162,21 +131,21 @@ namespace PlayerFolder
                 }
             }
 
-            else if (_rb.velocity.y > 0) // уменьшаем прыжок, если кнопка не нажата.
+            else if (rb.velocity.y > 0) // уменьшаем прыжок, если кнопка не нажата.
             {
-                _rb.velocity = new Vector2(_rb.velocity.x, _rb.velocity.y * 0.5f);
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
             }
         }
 
         private void HandleDoubleJump()
         {
             _canDoubleJump = false;
-            _rb.velocity = new Vector2(_rb.velocity.x, doubleJumpForce);
+            rb.velocity = new Vector2(rb.velocity.x, doubleJumpForce);
         }
         
         private void HandleFlip()
         {
-            if (_rb.velocity.x < 0 && _isFacingRight || _rb.velocity.x > 0 && !_isFacingRight)
+            if (rb.velocity.x < 0 && isFacingRight || rb.velocity.x > 0 && !isFacingRight)
             {
                 Flip();
             }
@@ -184,27 +153,27 @@ namespace PlayerFolder
 
         private void Flip()
         {
-            _isFacingRight = !_isFacingRight;
-            _facingDirection *= -1;
+            isFacingRight = !isFacingRight;
+            FacingDirection *= -1;
             transform.Rotate(0f, 180f, 0f);
         }
  
         public void TakeDamage() 
         {
-            if (_isKnocked) return; 
+            if (isKnocked) return; 
 
             onPlayerTakeDamage?.Invoke();
-            _playerAnimController.SetKnockbackAnimation();
+            _cratureAnimController.SetKnockbackAnimation();
 
-            _rb.velocity = new Vector2(knockbackPower.x * -_facingDirection, knockbackPower.y); 
+            rb.velocity = new Vector2(knockbackPower.x * -FacingDirection, knockbackPower.y); 
             StartCoroutine(KnockbackRoutione()); 
         }
         
         private IEnumerator KnockbackRoutione() 
         {
-            _isKnocked = true; 
+            isKnocked = true; 
             yield return new WaitForSeconds(knockbackDuration); 
-            _isKnocked = false; 
+            isKnocked = false; 
         }
 
         #region Teleport
@@ -254,7 +223,7 @@ namespace PlayerFolder
             if (!_gameSession.PlayerData.isArmed || !_collisionInfo.IsGrounded) return;
             
             OnPlayerAttack?.Invoke();
-            _playerAnimController.SetAttackAnimation();
+            _cratureAnimController.SetAttackAnimation();
             var gos = _collisionInfo.GetObjectsInRange();
             foreach (var go in gos)
             {
@@ -265,29 +234,22 @@ namespace PlayerFolder
                 }
             }
         }
-
-        public void SitDown()
-        {
-            _playerAnimController.SetSitAnimation();
-        }
-
+        
         private void CheckDeathFalling()
         {
-            if (!_collisionInfo.IsGrounded && !_isDead)
+            if (!_collisionInfo.IsGrounded && !isDead)
             {
-                _isDead = Mathf.Abs(_rb.velocity.y) > maxSaveHieght;
+                isDead = Mathf.Abs(rb.velocity.y) > maxSaveHieght;
             }
         }
         
-        
-
         public void Die()
         {
-            if (!_isAllreadyDead)
+            if (!isAllreadyDead)
             {
-                _playerAnimController.SetDieAnimation();
-                _rb.velocity = new Vector2(knockbackPower.x / 2 * -_facingDirection, 0);
-                _rb.isKinematic = true;
+                _cratureAnimController.SetDieAnimation();
+                rb.velocity = new Vector2(knockbackPower.x / 2 * -FacingDirection, 0);
+                rb.isKinematic = true;
                 
                 if (_gameSession.PlayerData.isArmed)
                 {
@@ -296,7 +258,7 @@ namespace PlayerFolder
                 }
                 onPlayerDeath?.Invoke();
             
-                _isAllreadyDead = true;
+                isAllreadyDead = true;
                 OnPlayerDeath?.Invoke();
             }
         }

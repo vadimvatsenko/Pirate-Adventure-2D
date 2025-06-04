@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections;
-using DefaultNamespace.Model;
+using Creatures;
+using Model;
 using UnityEngine;
 
 namespace PlayerFolder
 {
-    public class PlayerAnimController : MonoBehaviour
+    public class CratureAnimController : MonoBehaviour
     {
         // что тут происходит, перевод string в hash
         private static int XVelocityKey { get; } = Animator.StringToHash("xVelocity");
@@ -21,9 +22,9 @@ namespace PlayerFolder
         [SerializeField] private RuntimeAnimatorController withArmor;
         [SerializeField] private SpriteRenderer playerSpriteRenderer;
         
-        public Animator PlayerAnimator { get; private set; }
-        private Player _player;
-        private PlayerCollisionInfo _playerCollisionInfo;
+        public Animator CreatureAnimator { get; private set; }
+        private Creature _creature;
+        private CreatureCollisionInfo _creatureCollisionInfo;
         private GameSession _gameSession; // ++
         public event Action OnIsArmed;
         
@@ -33,9 +34,9 @@ namespace PlayerFolder
         
         private void Awake()
         {
-            _player = GetComponent<Player>();
-            PlayerAnimator = GetComponentInChildren<Animator>();
-            _playerCollisionInfo = GetComponent<PlayerCollisionInfo>();
+            _creature = GetComponent<Creature>();
+            CreatureAnimator = GetComponentInChildren<Animator>();
+            _creatureCollisionInfo = GetComponent<CreatureCollisionInfo>();
             _gameSession = FindObjectOfType<GameSession>();
 
             if (_gameSession != null) // ++
@@ -70,10 +71,10 @@ namespace PlayerFolder
         
         public void HandleAnimation()
         {
-            Vector2 velocityNormalized = _player.Rb.velocity.normalized;
-            PlayerAnimator.SetFloat(XVelocityKey, velocityNormalized.x);
-            PlayerAnimator.SetFloat(YVelocityKey, velocityNormalized.y);
-            PlayerAnimator.SetBool(IsGroundedKey, _playerCollisionInfo.IsGrounded);
+            Vector2 velocityNormalized = _creature.Rb.velocity.normalized;
+            CreatureAnimator.SetFloat(XVelocityKey, velocityNormalized.x);
+            CreatureAnimator.SetFloat(YVelocityKey, velocityNormalized.y);
+            CreatureAnimator.SetBool(IsGroundedKey, _creatureCollisionInfo.IsGrounded);
         }
         
         public void ChangeArmedState()
@@ -85,28 +86,28 @@ namespace PlayerFolder
 
         private void UpdateArmedState()
         {
-            PlayerAnimator.runtimeAnimatorController 
+            CreatureAnimator.runtimeAnimatorController 
                 = _gameSession.PlayerData.isArmed ? withArmor : withoutArmor;
         }
 
         public void SetAttackAnimation()
         {
-            PlayerAnimator.SetTrigger(AttackKey);
+            CreatureAnimator.SetTrigger(AttackKey);
         }
 
         public void SetKnockbackAnimation()
         {
-            PlayerAnimator.SetTrigger(Knockback);
+            CreatureAnimator.SetTrigger(Knockback);
         }
 
         public void SetSitAnimation()
         {
-            PlayerAnimator.SetTrigger(SitKey);
+            CreatureAnimator.SetTrigger(SitKey);
         }
 
         public void SetDieAnimation()
         {
-            PlayerAnimator.SetTrigger(Die);
+            CreatureAnimator.SetTrigger(Die);
         }
     }
 }

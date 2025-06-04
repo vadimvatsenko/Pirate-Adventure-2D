@@ -1,10 +1,8 @@
-﻿using System;
-using Components;
-using DefaultNamespace.Model;
+﻿using Components;
+using Model;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
-using View;
+
 
 namespace Controllers.PlayerControllers
 {

@@ -1,30 +1,29 @@
-﻿using System;
-using Components.SpriteAnimator.AnimationControllers;
-using DefaultNamespace.Model;
+﻿using Model;
 using PlayerFolder;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Controllers.PlayerControllers
 {
     public class IsPlayerWithArmor : MonoBehaviour
     {
         [SerializeField] private GameObject armorObjectForUI;
-        [SerializeField] private PlayerAnimController playerAnimController;
+        [FormerlySerializedAs("playerAnimController")] [SerializeField] private CratureAnimController cratureAnimController;
         private GameSession _gameSession;
 
         private void Awake()
         {
-            if (playerAnimController != null)
+            if (cratureAnimController != null)
             {
-                playerAnimController.OnIsArmed += UpdatePlayerWithArmorStatus;
+                cratureAnimController.OnIsArmed += UpdateCratureWithArmorStatus;
             }
         }
 
         private void OnDisable()
         {
-            if (playerAnimController != null)
+            if (cratureAnimController != null)
             {
-                playerAnimController.OnIsArmed -= UpdatePlayerWithArmorStatus;
+                cratureAnimController.OnIsArmed -= UpdateCratureWithArmorStatus;
             }
         }
 
@@ -34,10 +33,10 @@ namespace Controllers.PlayerControllers
             
             if (_gameSession != null)
             {
-                UpdatePlayerWithArmorStatus();
+                UpdateCratureWithArmorStatus();
             }
         }
-        private void UpdatePlayerWithArmorStatus()
+        private void UpdateCratureWithArmorStatus()
         {
             
             if (_gameSession.PlayerData.isArmed)

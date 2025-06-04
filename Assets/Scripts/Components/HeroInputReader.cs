@@ -10,16 +10,16 @@ namespace Components
         
         // временно, потом удалю
         private Player _player; 
-        private PlayerCollisionInfo _playerCollisionInfo;
-        private PlayerAnimController _playerAnimController;
+        private CreatureCollisionInfo _creatureCollisionInfo;
+        private CratureAnimController _cratureAnimController;
     
         // Название должно совпадать с тем, что настроено в системе с приставкой On
 
         private void Start()
         {
             _player = FindObjectOfType<Player>();
-            _playerCollisionInfo = _player.GetComponent<PlayerCollisionInfo>();
-            _playerAnimController = _player.GetComponent<PlayerAnimController>();
+            _creatureCollisionInfo = _player.GetComponent<CreatureCollisionInfo>();
+            _cratureAnimController = _player.GetComponent<CratureAnimController>();
         }
         private void OnMovement(InputValue context) 
         {
@@ -38,7 +38,7 @@ namespace Components
 
         private void OnInteract(InputValue context)
         {
-            _playerCollisionInfo.Interact();
+            _creatureCollisionInfo.Interact();
         }
 
         private void OnHit(InputValue context) // временно
@@ -53,7 +53,7 @@ namespace Components
 
         private void OnLookDown(InputValue context)
         {
-            _player.SitDown();
+            
         }
     }
 }

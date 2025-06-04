@@ -1,5 +1,4 @@
-﻿using System;
-using DefaultNamespace.Model;
+﻿using Model;
 using PlayerFolder;
 using UnityEngine;
 using UnityEngine.Events;

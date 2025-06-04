@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using DefaultNamespace.Model;
-using NaughtyAttributes;
+﻿using System.Collections.Generic;
+using Model;
 using UnityEngine;
 
 namespace Components.Dropper

@@ -12,7 +12,7 @@ namespace PlayerFolder.PlayerParticles
         private Dictionary<ParticleType, SpawnComponent> _particleMap;
         
         private Player _player;
-        private PlayerCollisionInfo _collisionInfo;
+        private CreatureCollisionInfo _collisionInfo;
         
         // Партикал приземления
         private const float MinJumpHeight = 11.1f;
@@ -25,7 +25,7 @@ namespace PlayerFolder.PlayerParticles
             _player = GetComponentInParent<Player>();
             if (_player != null)
             {
-                _collisionInfo = _player.GetComponent<PlayerCollisionInfo>();
+                _collisionInfo = _player.GetComponent<CreatureCollisionInfo>();
             }
             _particleMap = new Dictionary<ParticleType, SpawnComponent>();
 

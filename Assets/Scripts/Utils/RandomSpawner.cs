@@ -63,22 +63,27 @@ namespace Utils
             return new Vector2(x, y);
         }
 
+#if UNITY_EDITOR // ограничения кода, для билда.
         private void OnDrawGizmosSelected()
         {
             Vector3 pos = transform.position;
             
             float middleAngleDelta = (180f - sectorRotation - sectorAngle) / 2f;
             Vector3 rightBound = GetUnitOnCircle(middleAngleDelta);
-            Handles.DrawLine(pos, pos + rightBound);
+            Gizmos.DrawLine(pos, pos + rightBound);
             
             Vector3 leftBound = GetUnitOnCircle(middleAngleDelta + sectorAngle);
-            Handles.DrawLine(pos, pos + leftBound);
+            Gizmos.DrawLine(pos, pos + leftBound);
+  
+            
+        
             Handles.DrawWireArc(pos, Vector3.forward, rightBound, sectorAngle, sectorRotation);
             
             Handles.color = new Color(1, 1, 1, 0.1f);
             Handles.DrawSolidArc(pos, Vector3.forward, rightBound, sectorAngle, sectorRotation);
         }
-
+        #endif
+        
         private void OnDisable()
         {
             TryStopRoutine();

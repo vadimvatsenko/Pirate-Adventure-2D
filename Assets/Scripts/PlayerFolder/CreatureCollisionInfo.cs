@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace PlayerFolder
 {
-    public class PlayerCollisionInfo : MonoBehaviour
+    public class CreatureCollisionInfo : MonoBehaviour
     {
         private Player _player;
         

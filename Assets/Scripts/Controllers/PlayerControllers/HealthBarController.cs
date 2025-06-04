@@ -1,6 +1,5 @@
-﻿using Components;
-using Components.HealthComponentFolder;
-using DefaultNamespace.Model;
+﻿using Components.HealthComponentFolder;
+using Model;
 using UnityEngine;
 using UnityEngine.UI;
 

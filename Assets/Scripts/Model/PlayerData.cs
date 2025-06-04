@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace DefaultNamespace.Model
+namespace Model
 {
     [Serializable]
     public class PlayerData

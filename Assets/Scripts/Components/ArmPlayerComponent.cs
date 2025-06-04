@@ -1,4 +1,4 @@
-﻿using DefaultNamespace.Model;
+﻿using Model;
 using PlayerFolder;
 using UnityEngine;
 
@@ -14,7 +14,7 @@ namespace Components
         }
         public void ArmPlayer()
         {
-            var playerAnim = FindObjectOfType<PlayerAnimController>();
+            var playerAnim = FindObjectOfType<CratureAnimController>();
             
             if(!_gameSession.PlayerData.isArmed)
             playerAnim.ChangeArmedState();

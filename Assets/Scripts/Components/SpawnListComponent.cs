@@ -12,17 +12,17 @@ namespace Components
     }
     public class SpawnListComponent : MonoBehaviour
     {
-        [SerializeField] private SpawnData[] _spawners;
+        [SerializeField] private SpawnData[] spawners;
 
         public void Spawn(string id)
         {
-            var spawner = _spawners.FirstOrDefault(el => el.Id == id);
+            var spawner = spawners.FirstOrDefault(el => el.Id == id);
             spawner?.Component.Spawn();
         }
 
         public void SpawnAll()
         {
-            foreach (var spawnData in _spawners)
+            foreach (var spawnData in spawners)
             {
                 spawnData?.Component.Spawn();
             }
