@@ -1,5 +1,5 @@
 ﻿using Cinemachine;
-using PlayerFolder;
+using Creatures;
 using UnityEngine;
 
 namespace Components.VirtualCamera

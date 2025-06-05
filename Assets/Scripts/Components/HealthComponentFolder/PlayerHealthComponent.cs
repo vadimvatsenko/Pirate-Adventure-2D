@@ -1,4 +1,5 @@
-﻿using Creatures;
+﻿using System;
+using Creatures;
 using Model;
 using UnityEngine;
 using UnityEngine.Events;
@@ -20,13 +21,14 @@ namespace Components.HealthComponentFolder
         private void Awake()
         {
             _hero = GetComponent<Hero>();
-            _hero.OnPlayerDeath += SetHealthIfHeroDeath;
+            _hero.SubscribeOnCreatureDeath(SetHealthIfHeroDeath);
+            
             _gameSession = FindObjectOfType<GameSession>();
         }
 
         private void OnDisable()
         {
-            _hero.OnPlayerDeath += SetHealthIfHeroDeath;
+            _hero.UnsubscribeOnCreatureDeath(SetHealthIfHeroDeath);
         }
 
         public void ApplyDamage(int damage)

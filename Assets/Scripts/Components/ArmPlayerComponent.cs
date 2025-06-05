@@ -16,8 +16,11 @@ namespace Components
         {
             var playerAnim = FindObjectOfType<CratureAnimController>();
             
-            if(!_gameSession.PlayerData.isArmed)
-            playerAnim.ChangeArmedState();
+            if (!_gameSession.PlayerData.isArmed)
+            {
+                Debug.Log("Arming Player");
+                playerAnim.ChangeArmedState();
+            }
         }
     }
 }

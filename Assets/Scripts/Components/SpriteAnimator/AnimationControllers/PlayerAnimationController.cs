@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Components.SpriteAnimator.AnimationTypes;
+using Creatures;
 using PlayerFolder;
 using UnityEngine;
 
@@ -9,12 +10,12 @@ namespace Components.SpriteAnimator.AnimationControllers
     {
         [SerializeField] private HandleAnimationClip[] animationClip;
         private HandleSpriteAnimator _handleSpriteAnimator;
-        private Hero _hero;
+        private Creature _creature;
         private string _curentPlayerAnimationType;
         
         private void Awake()
         {
-            _hero = GetComponentInParent<Hero>();
+            _creature = GetComponentInParent<Creature>();
             _handleSpriteAnimator = GetComponent<HandleSpriteAnimator>();
             
             var newClip = animationClip.FirstOrDefault(a => a.AnimationName == PlayerAnimationType.PlayerIdle.ToString());
@@ -42,9 +43,9 @@ namespace Components.SpriteAnimator.AnimationControllers
 
         private string GetAnimationType()
         {
-            if (_hero.Rb.velocity.y > 0.1f) return PlayerAnimationType.PlayerJump.ToString();
-            if (_hero.Rb.velocity.y < -0.1f) return PlayerAnimationType.PlayerFall.ToString();
-            if (_hero.XInput != 0) return PlayerAnimationType.PlayerMove.ToString();
+            if (_creature.Rb.velocity.y > 0.1f) return PlayerAnimationType.PlayerJump.ToString();
+            if (_creature.Rb.velocity.y < -0.1f) return PlayerAnimationType.PlayerFall.ToString();
+            if (_creature.XInput != 0) return PlayerAnimationType.PlayerMove.ToString();
             return PlayerAnimationType.PlayerIdle.ToString();
         }
     }

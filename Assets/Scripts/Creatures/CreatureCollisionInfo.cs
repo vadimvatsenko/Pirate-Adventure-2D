@@ -11,14 +11,19 @@ namespace Creatures
         [Header("Ground Collision Info")] 
         [SerializeField] private LayerMask whatIsGround;
         [SerializeField] private Vector3 groundCheckOffset;
-        [SerializeField] private float groundCheckDistance;
         [SerializeField] private Vector2 groundBoxSize = new Vector2(0.5f, 0.1f);
+        [SerializeField] private float groundCheckDistance;
         private bool _isGrounded;
         
         [Header("Wall Collision Info")] 
         [SerializeField] private Vector3 wallCheckOffset;
         [SerializeField] private Vector2 wallBoxSize = new Vector2(0.1f, 0.5f);
         public bool IsWallDetected { get; private set; }
+        
+        [Header("Abyss Detected Info")]
+        [SerializeField] private Vector3 abyssCheckOffset;
+        [SerializeField] private float abyssCheckDistance = 1.5f;
+        private bool _IsAbyssDetected;
 
         [Header("Interaction Collision Info")] 
         [SerializeField] private LayerMask whatIsInteraction;
@@ -32,10 +37,22 @@ namespace Creatures
         private readonly Collider2D[] _itemCollider2Ds = new Collider2D[5];
         
         public bool IsGrounded => _isGrounded;
+        public bool IsAbyssDetected => _IsAbyssDetected;
 
         private void Awake()
         {
             _creature = GetComponent<Creature>();
+        }
+
+        public void CheckAbyss()
+        {
+            Vector3 dir = new Vector3(_creature.FacingDirection / 2f, -0.5f, 0);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, whatIsGround);
+            
+            
+            _IsAbyssDetected = Physics2D.Raycast(transform.position, dir, abyssCheckDistance, whatIsGround);
+            Debug.DrawRay(transform.position, dir, !IsAbyssDetected ? Color.green : Color.red);
+                
         }
         
         public void HandleWallCheck()
@@ -44,7 +61,7 @@ namespace Creatures
                 Physics2D.BoxCast(
                     transform.position + (wallCheckOffset * _creature.FacingDirection), 
                     wallBoxSize, 
-                    0, 
+                    20f, 
                     Vector2.right * _creature.FacingDirection, 
                     0, 
                     whatIsGround);
@@ -56,7 +73,7 @@ namespace Creatures
                 transform.position + groundCheckOffset, 
                 groundBoxSize, 
                 0f, 
-                Vector2.down, 
+                Vector2.down,
                 groundCheckDistance,
                 whatIsGround);
 
@@ -106,11 +123,16 @@ namespace Creatures
         
         private void OnDrawGizmos()
         {
+            // проверка пропасти
+            
+            //Gizmos.DrawLine(transform.position, transform.position + abyssCheckOffset);
+            
+            
             // Ground check box
             Vector3 groundCheckPos = transform.position + groundCheckOffset;
             Gizmos.color = _isGrounded ? Color.green : Color.red;
             Gizmos.DrawWireCube(groundCheckPos, groundBoxSize);
-
+            
             // Wall check box
             if (_creature != null)
             {
@@ -127,6 +149,8 @@ namespace Creatures
                 Gizmos.color = GetObjectsInRange().Length > 0 ? HandlesUtils.TransparendGreen : HandlesUtils.TransparendRed;
                 Gizmos.DrawSphere(transform.position + offset * _creature.FacingDirection, radius);
             }
+            
+            
             
         }
 

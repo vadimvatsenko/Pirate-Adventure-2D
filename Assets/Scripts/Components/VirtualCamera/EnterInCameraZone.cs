@@ -1,9 +1,6 @@
-﻿using System;
-using Cinemachine;
-using Components.EnterCollisionComponent;
-using PlayerFolder;
+﻿using Cinemachine;
+using Creatures;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Components
 {

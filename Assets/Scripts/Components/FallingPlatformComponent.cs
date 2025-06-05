@@ -1,5 +1,5 @@
-﻿using PlayerFolder;
-using UnityEngine;
+﻿using UnityEngine;
+using Creatures;
 
 namespace Components
 {
@@ -92,8 +92,8 @@ namespace Components
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (_impactHappend) return;
-            Hero hero = other.GetComponent<Hero>();
-            if (hero)
+            Creature creatures = other.GetComponent<Creature>();
+            if (creatures)
             {
                 Invoke(nameof(SwitchOffPlatform), fallDelay); // вызывает метод с задержкой
                 _impactTimer = impactDuration;

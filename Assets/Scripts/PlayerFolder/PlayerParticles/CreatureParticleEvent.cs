@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace PlayerFolder.PlayerParticles
 {
-    public class PlayerParticleEvent :MonoBehaviour
+    public class CreatureParticleEvent :MonoBehaviour
     {
         [SerializeField] private ParticleEntry[] particles;
         
@@ -23,7 +23,7 @@ namespace PlayerFolder.PlayerParticles
         
         private void Awake()
         { 
-            _creature = GetComponentInParent<Hero>();
+            _creature = GetComponentInParent<Creature>();
             if (_creature != null)
             {
                 _collisionInfo = _creature.GetComponent<CreatureCollisionInfo>();
@@ -39,13 +39,13 @@ namespace PlayerFolder.PlayerParticles
 
         private void OnEnable()
         {
-            _creature.OnCreatureJump += HandleSpawnJumpParticle;
-            _creature.OnCreatureAttack += HandleSpawnAttack1Particle;
+            _creature.SubscribeOnCreatureJump(HandleSpawnJumpParticle);
+            _creature.SubscribeOnCreatureAttack(HandleSpawnAttack1Particle);
         }
         private void OnDisable()
         {
-            _creature.OnCreatureJump -= HandleSpawnJumpParticle;
-            _creature.OnCreatureAttack -= HandleSpawnAttack1Particle;
+            _creature.UnsubscribeOnCreatureJump(HandleSpawnJumpParticle);
+            _creature.UnSubscribeCreatureAttack(HandleSpawnAttack1Particle);
         }
 
         private void Update()

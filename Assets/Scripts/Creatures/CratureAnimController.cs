@@ -67,7 +67,6 @@ namespace Creatures
             }
         }
         
-        
         public void HandleAnimation()
         {
             Vector2 velocityNormalized = _creature.Rb.velocity.normalized;

@@ -26,18 +26,20 @@ namespace Creatures
         protected CratureAnimController CratureAnimationController;
         
         protected bool isFacingRight = true;
+        protected bool isAirborne;
         
         protected Rigidbody2D rb;
         protected Collider2D c2d;
         protected Animator animator;
         public Rigidbody2D Rb => rb;
         public bool IsDead => isDead;
+        public bool IsAirborne => isAirborne;
         public int FacingDirection { get; protected set; } = 1;
         protected float _xInput;
 
-        public event Action OnCreatureJump;
-        public event Action OnCreatureAttack;
-        public event Action OnCreatureDeath;
+        private event Action OnCreatureJump;
+        private event Action OnCreatureAttack;
+        private event Action OnCreatureDeath;
         
         protected virtual void Awake()
         {
@@ -52,11 +54,59 @@ namespace Creatures
             }
         }
         
+        protected virtual void FixedUpdate()
+        {
+            UpdateAirBornStatus();
+            CollisionInfo.HandleGroundCheck();
+            CollisionInfo.HandleWallCheck();
+            
+            if (isDead && CollisionInfo.IsGrounded) Die();
+            
+            //if (isKnocked || _isTeleporting || isDead || isAllreadyDead) return; 
+            if (isKnocked ||  isDead || isAllreadyDead) return; 
+            
+            CheckDeathFalling();
+            CratureAnimationController.HandleAnimation();
+            HandleMovement();
+            HandleFlip();
+            
+        }
+        
+        private void UpdateAirBornStatus()
+        {
+            if (CollisionInfo.IsGrounded && isAirborne) HandleLanding();
+            if (!CollisionInfo.IsGrounded && !isAirborne) BecomeAirborn();
+        }
+
+        private void BecomeAirborn()
+        {
+            isAirborne = true;
+        }
+
+        protected virtual void HandleLanding()
+        {
+            isAirborne = false;
+        }
+        
         // событие можно вызвать только из самого класса, но можно сделать
         // такую обвертку
-        public void CallEventOnCreatureJump() => OnCreatureJump?.Invoke();
         public void CallEventOnCreatureAttack() => OnCreatureAttack?.Invoke();
         public void CallEventOnCreatureDeath() => OnCreatureDeath?.Invoke();
+        public void CallEventOnCreatureJump() => OnCreatureJump?.Invoke();
+        
+
+        public void SubscribeOnCreatureDeath(Action onDeath) 
+            => OnCreatureDeath += onDeath;
+        public void UnsubscribeOnCreatureDeath(Action onDeath) 
+            => OnCreatureDeath -= onDeath;
+        public void SubscribeOnCreatureJump(Action onJump)
+            => OnCreatureJump += onJump;
+        public void UnsubscribeOnCreatureJump(Action onJump)
+            => OnCreatureJump -= onJump;
+        public void SubscribeOnCreatureAttack(Action onAttack)
+            => OnCreatureAttack += onAttack;
+        public void UnSubscribeCreatureAttack(Action onAttack)
+            => OnCreatureAttack -= onAttack;
         
         public float XInput => _xInput;
         
@@ -73,11 +123,33 @@ namespace Creatures
             }
         }
 
-        private void Flip()
+        protected void Flip()
         {
             isFacingRight = !isFacingRight;
             FacingDirection *= -1;
             transform.Rotate(0f, 180f, 0f);
+        }
+        
+        private void CheckDeathFalling()
+        {
+            if (!CollisionInfo.IsGrounded && !isDead)
+            {
+                isDead = Mathf.Abs(rb.velocity.y) > maxSaveHieght;
+            }
+        }
+        
+        protected virtual void Die()
+        {
+            if (!isAllreadyDead)
+            {
+                CratureAnimationController.SetDieAnimation();
+                rb.velocity = new Vector2(knockbackPower.x / 2 * -FacingDirection, 0);
+                rb.isKinematic = true;
+                
+                isAllreadyDead = true;
+                // событие
+                CallEventOnCreatureDeath();
+            }
         }
     }
 }
