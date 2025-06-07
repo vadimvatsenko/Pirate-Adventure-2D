@@ -6,7 +6,9 @@ namespace Components
 {
     public class ArmPlayerComponent : MonoBehaviour
     {
+        [SerializeField] private Hero hero;
         private GameSession _gameSession;
+        
 
         private void Awake()
         {
@@ -14,12 +16,11 @@ namespace Components
         }
         public void ArmPlayer()
         {
-            var playerAnim = FindObjectOfType<CratureAnimController>();
             
             if (!_gameSession.PlayerData.isArmed)
             {
                 Debug.Log("Arming Player");
-                playerAnim.ChangeArmedState();
+                //playerAnim.ChangeArmedState();
             }
         }
     }
