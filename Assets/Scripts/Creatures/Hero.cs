@@ -59,44 +59,44 @@ namespace Creatures
                 if (CollisionInfo.IsGrounded)
                 {
                     CallEventOnCreatureJump(); // событие
-                    rb.AddForce(new Vector2(rb.velocity.x, jumpForce), ForceMode2D.Impulse);
+                    Rb.AddForce(new Vector2(Rb.velocity.x, jumpForce), ForceMode2D.Impulse);
                 }
 
-                if (isAirborne && _canDoubleJump)
+                if (IsAirborne && _canDoubleJump)
                 {
                     CallEventOnCreatureJump(); // событие
                     HandleDoubleJump();
                 }
             }
 
-            else if (rb.velocity.y > 0) // уменьшаем прыжок, если кнопка не нажата.
+            else if (Rb.velocity.y > 0) // уменьшаем прыжок, если кнопка не нажата.
             {
-                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+                Rb.velocity = new Vector2(Rb.velocity.x, Rb.velocity.y * 0.5f);
             }
         }
 
         private void HandleDoubleJump()
         {
             _canDoubleJump = false;
-            rb.velocity = new Vector2(rb.velocity.x, doubleJumpForce);
+            Rb.velocity = new Vector2(Rb.velocity.x, doubleJumpForce);
         }
         
         public void TakeDamage() 
         {
-            if (isKnocked) return; 
+            if (IsKnocked) return; 
 
             onPlayerTakeDamage?.Invoke();
             CratureAnimationController.SetKnockbackAnimation();
 
-            rb.velocity = new Vector2(knockbackPower.x * -FacingDirection, knockbackPower.y); 
+            Rb.velocity = new Vector2(knockPower.x * -FacingDirection, knockPower.y); 
             StartCoroutine(KnockbackRoutione()); 
         }
         
         private IEnumerator KnockbackRoutione() 
         {
-            isKnocked = true; 
-            yield return new WaitForSeconds(knockbackDuration); 
-            isKnocked = false; 
+            IsKnocked = true; 
+            yield return new WaitForSeconds(knockDuration); 
+            IsKnocked = false; 
         }
         
         public void Attack()

@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Creatures
 {
@@ -12,31 +13,32 @@ namespace Creatures
         [SerializeField] protected float speed;
         [SerializeField] protected float jumpForce;
         
-        [Header("Knockback Info")] 
-        [SerializeField] protected float knockbackDuration;
-        [SerializeField] protected Vector2 knockbackPower; 
-        protected bool isKnocked;
+        [Header("Knock Info")] 
+        [SerializeField] protected float knockDuration;
+        [SerializeField] protected Vector2 knockPower; 
+        protected bool IsKnocked;
 
         [Header("Die Info")] 
         [SerializeField] protected float maxSaveHieght = 20f;
-        protected bool isDead;
-        protected bool isAllreadyDead;
+        public bool IsDead { get; protected set; }
+        public bool IsAllreadyDead { get; protected set; }
         
+        // components
         protected CreatureCollisionInfo CollisionInfo;
         protected CratureAnimController CratureAnimationController;
+        public Rigidbody2D Rb { get; protected set; }
+        protected Collider2D C2d;
+        protected Animator Animator;
         
-        protected bool isFacingRight = true;
-        protected bool isAirborne;
-        
-        protected Rigidbody2D rb;
-        protected Collider2D c2d;
-        protected Animator animator;
-        public Rigidbody2D Rb => rb;
-        public bool IsDead => isDead;
-        public bool IsAirborne => isAirborne;
+        // directions
+        public bool IsFacingRight { get; protected set; } = true;
         public int FacingDirection { get; protected set; } = 1;
-        protected float _xInput;
-
+        public float XInput { get; protected set; }
+        
+        // air status
+        public bool IsAirborne {get; protected set; }
+        
+        // events
         private event Action OnCreatureJump;
         private event Action OnCreatureAttack;
         private event Action OnCreatureDeath;
@@ -45,12 +47,12 @@ namespace Creatures
         {
             CollisionInfo = GetComponent<CreatureCollisionInfo>();
             CratureAnimationController = GetComponent<CratureAnimController>();
-            rb = GetComponent<Rigidbody2D>();
-            c2d = GetComponent<Collider2D>();
+            Rb = GetComponent<Rigidbody2D>();
+            C2d = GetComponent<Collider2D>();
             
             if (CratureAnimationController != null)
             {
-                animator = CratureAnimationController.CreatureAnimator;
+                Animator = CratureAnimationController.CreatureAnimator;
             }
         }
         
@@ -60,10 +62,10 @@ namespace Creatures
             CollisionInfo.HandleGroundCheck();
             CollisionInfo.HandleWallCheck();
             
-            if (isDead && CollisionInfo.IsGrounded) Die();
+            if (IsDead && CollisionInfo.IsGrounded) Die();
             
             //if (isKnocked || _isTeleporting || isDead || isAllreadyDead) return; 
-            if (isKnocked ||  isDead || isAllreadyDead) return; 
+            if (IsKnocked ||  IsDead || IsAllreadyDead) return; 
             
             CheckDeathFalling();
             CratureAnimationController.HandleAnimation();
@@ -74,18 +76,18 @@ namespace Creatures
         
         private void UpdateAirBornStatus()
         {
-            if (CollisionInfo.IsGrounded && isAirborne) HandleLanding();
-            if (!CollisionInfo.IsGrounded && !isAirborne) BecomeAirborn();
+            if (CollisionInfo.IsGrounded && IsAirborne) HandleLanding();
+            if (!CollisionInfo.IsGrounded && !IsAirborne) BecomeAirborn();
         }
 
         private void BecomeAirborn()
         {
-            isAirborne = true;
+            IsAirborne = true;
         }
 
         protected virtual void HandleLanding()
         {
-            isAirborne = false;
+            IsAirborne = false;
         }
         
         // событие можно вызвать только из самого класса, но можно сделать
@@ -108,16 +110,15 @@ namespace Creatures
         public void UnSubscribeCreatureAttack(Action onAttack)
             => OnCreatureAttack -= onAttack;
         
-        public float XInput => _xInput;
         
-        public void SetDirection(float dir) => _xInput = dir;
+        public void SetDirection(float dir) => XInput = dir;
         protected virtual void HandleMovement()
         {
-            rb.velocity = new Vector2(_xInput * speed, rb.velocity.y);
+            Rb.velocity = new Vector2(XInput * speed, Rb.velocity.y);
         }
-        protected void HandleFlip()
+        private void HandleFlip()
         {
-            if (rb.velocity.x < 0 && isFacingRight || rb.velocity.x > 0 && !isFacingRight)
+            if (Rb.velocity.x < 0 && IsFacingRight || Rb.velocity.x > 0 && !IsFacingRight)
             {
                 Flip();
             }
@@ -125,28 +126,28 @@ namespace Creatures
 
         protected void Flip()
         {
-            isFacingRight = !isFacingRight;
+            IsFacingRight = !IsFacingRight;
             FacingDirection *= -1;
             transform.Rotate(0f, 180f, 0f);
         }
         
         private void CheckDeathFalling()
         {
-            if (!CollisionInfo.IsGrounded && !isDead)
+            if (!CollisionInfo.IsGrounded && !IsDead)
             {
-                isDead = Mathf.Abs(rb.velocity.y) > maxSaveHieght;
+                IsDead = Mathf.Abs(Rb.velocity.y) > maxSaveHieght;
             }
         }
         
         protected virtual void Die()
         {
-            if (!isAllreadyDead)
+            if (!IsAllreadyDead)
             {
                 CratureAnimationController.SetDieAnimation();
-                rb.velocity = new Vector2(knockbackPower.x / 2 * -FacingDirection, 0);
-                rb.isKinematic = true;
+                Rb.velocity = new Vector2(knockPower.x / 2 * -FacingDirection, 0);
+                Rb.isKinematic = true;
                 
-                isAllreadyDead = true;
+                IsAllreadyDead = true;
                 // событие
                 CallEventOnCreatureDeath();
             }

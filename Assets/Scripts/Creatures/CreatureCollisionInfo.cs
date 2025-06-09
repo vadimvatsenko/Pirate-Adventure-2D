@@ -22,8 +22,10 @@ namespace Creatures
         
         [Header("Abyss Detected Info")]
         [SerializeField] private Vector3 abyssCheckOffset;
-        [SerializeField] private float abyssCheckDistance = 1.5f;
-        private bool _IsAbyssDetected;
+        private bool _isAbyssDetected;
+        [Space()]
+        [SerializeField] private Vector3 checkGroundAfterAbyssOffset;
+        private bool _isGroundAfterAbyss;
 
         [Header("Interaction Collision Info")] 
         [SerializeField] private LayerMask whatIsInteraction;
@@ -37,22 +39,43 @@ namespace Creatures
         private readonly Collider2D[] _itemCollider2Ds = new Collider2D[5];
         
         public bool IsGrounded => _isGrounded;
-        public bool IsAbyssDetected => _IsAbyssDetected;
+        public bool IsAbyssDetected => _isAbyssDetected;
+        public bool IsGroundAfterAbyss => _isGroundAfterAbyss;
 
         private void Awake()
         {
             _creature = GetComponent<Creature>();
         }
 
-        public void CheckAbyss()
+        public void CheckGroundBeforeCreature()
         {
-            Vector3 dir = new Vector3(_creature.FacingDirection / 2f, -0.5f, 0);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, whatIsGround);
+            Vector2 origin = transform.position;
+            // нормализация - это нормализация вектора, приводим его к 1це, при этом сохраняем направление
+            Vector2 directionToAbyss = new Vector2(_creature.FacingDirection * abyssCheckOffset.x, abyssCheckOffset.y).normalized;
+            // магнитюда - это длинна вектора
+            float distanceToAbyss = new Vector2(abyssCheckOffset.x, abyssCheckOffset.y).magnitude;
             
+            RaycastHit2D hitAbyss = 
+                Physics2D.Raycast(origin, directionToAbyss, distanceToAbyss, whatIsGround);
+            _isAbyssDetected = hitAbyss.collider == null; // если не задели землю — значит бездна
             
-            _IsAbyssDetected = Physics2D.Raycast(transform.position, dir, abyssCheckDistance, whatIsGround);
-            Debug.DrawRay(transform.position, dir, !IsAbyssDetected ? Color.green : Color.red);
-                
+            Debug.DrawRay(origin, directionToAbyss * distanceToAbyss, 
+                _isAbyssDetected ? Color.red : Color.green);
+            
+            Vector2 directionToGroundAfterAbyss = 
+                new Vector2(_creature.FacingDirection * checkGroundAfterAbyssOffset.x, checkGroundAfterAbyssOffset.y).normalized;
+            
+            float distanceToGroundAfterAbyss = 
+                new Vector2(checkGroundAfterAbyssOffset.x, checkGroundAfterAbyssOffset.y).magnitude;
+            
+            RaycastHit2D hitGroundAfterAbyss = 
+                Physics2D.Raycast(origin, directionToGroundAfterAbyss, distanceToGroundAfterAbyss, whatIsGround);
+            
+            _isGroundAfterAbyss = hitGroundAfterAbyss.collider != null;
+            
+            Debug.DrawRay
+                (origin, directionToGroundAfterAbyss * distanceToGroundAfterAbyss, 
+                    _isGroundAfterAbyss? Color.green : Color.red);
         }
         
         public void HandleWallCheck()
@@ -123,10 +146,6 @@ namespace Creatures
         
         private void OnDrawGizmos()
         {
-            // проверка пропасти
-            
-            //Gizmos.DrawLine(transform.position, transform.position + abyssCheckOffset);
-            
             
             // Ground check box
             Vector3 groundCheckPos = transform.position + groundCheckOffset;
@@ -150,8 +169,16 @@ namespace Creatures
                 Gizmos.DrawSphere(transform.position + offset * _creature.FacingDirection, radius);
             }
             
-            
-            
+            // пропасть
+            /*Gizmos.color = !IsAbyssDetected ? Color.green : Color.red;
+
+            if (_creature != null)
+            {
+                Vector3 targetPos = 
+                    new Vector2(transform.position.x * _creature.FacingDirection + abyssCheckOffset.x, transform.position.y + abyssCheckOffset.y);
+                
+                Gizmos.DrawLine(transform.position, targetPos);
+            }*/
         }
 
         /*#if UNITY_EDITOR // код вырежется при компиляции, это для того, чтобы прошла компиляция

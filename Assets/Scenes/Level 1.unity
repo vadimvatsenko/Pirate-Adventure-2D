@@ -23958,7 +23958,7 @@ MonoBehaviour:
   wallCheckOffset: {x: 0.35, y: 0, z: 0}
   wallBoxSize: {x: 0.1, y: 0.5}
   abyssCheckOffset: {x: 0.5, y: -0.5, z: 0}
-  abyssCheckDistance: 1.5
+  checkGroundAfterAbyssOffset: {x: 1.6, y: -0.5, z: 0}
   whatIsInteraction:
     serializedVersion: 2
     m_Bits: 4096
@@ -23973,7 +23973,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244109452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.3, y: -0.62, z: 0}
+  m_LocalPosition: {x: -24.8, y: -0.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1701455714}
@@ -23995,8 +23995,8 @@ MonoBehaviour:
   attackPower: 1
   speed: 1
   jumpForce: 0
-  knockbackDuration: 2
-  knockbackPower: {x: 5, y: 1}
+  knockDuration: 0
+  knockPower: {x: 0, y: 0}
   maxSaveHieght: 20
 --- !u!70 &1244109456
 CapsuleCollider2D:
@@ -24226,7 +24226,7 @@ PrefabInstance:
     - target: {fileID: 9166799973188151891, guid: 648fb7030dcf5314d88067b40ae5df9f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 9166799973188151891, guid: 648fb7030dcf5314d88067b40ae5df9f,
         type: 3}
@@ -24364,7 +24364,7 @@ PrefabInstance:
     - target: {fileID: 9166799973188151891, guid: 648fb7030dcf5314d88067b40ae5df9f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 9166799973188151891, guid: 648fb7030dcf5314d88067b40ae5df9f,
         type: 3}
