@@ -1,4 +1,4 @@
-﻿using PlayerFolder;
+﻿using Creatures;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -17,7 +17,7 @@ namespace DefaultNamespace
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.GetComponent<Player>() != null)
+            if (other.GetComponent<Hero>() != null)
             {
                 _playerInside = true;
                 _particleSystem?.Play();
@@ -26,7 +26,7 @@ namespace DefaultNamespace
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.GetComponent<Player>() != null)
+            if (other.GetComponent<Hero>() != null)
             {
                 _playerInside = false;
                 _particleSystem?.Stop();

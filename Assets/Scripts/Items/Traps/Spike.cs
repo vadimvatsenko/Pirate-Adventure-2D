@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Items.Traps;
+using UnityEngine;
 
-public class Spike : MonoBehaviour
+public class Spike : MonoBehaviour, ITraps
 {
     [SerializeField] private float speed;
     private float _travelDistance;

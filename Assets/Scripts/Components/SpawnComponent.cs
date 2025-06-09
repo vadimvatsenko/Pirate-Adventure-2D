@@ -22,7 +22,8 @@ namespace Components
             
             if (faced != null)
             {
-                spawnPos += offset * -faced.FacingDirection;
+                //spawnPos += offset * -faced.FacingDirection;
+                spawnPos += new Vector3(-faced.FacingDirection * offset.x, offset.y, offset.z);
             }
             else
             {
@@ -30,6 +31,7 @@ namespace Components
             }
 
             GameObject spawnObj = Instantiate(prefab, spawnPos, target.rotation);
+            spawnObj.SetActive(true); // +++
         }
     }
 }

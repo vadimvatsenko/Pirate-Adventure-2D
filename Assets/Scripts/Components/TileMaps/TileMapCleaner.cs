@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+//Tile Palette/Items
 namespace Components.TileMaps
 {
     public class TileMapCleaner : MonoBehaviour
     {
-        [SerializeField] private string pathToRuleTile;
+        [SerializeField] private string[] pathToRuleTiles;
         private RuleTile[] _ruleTiles;
         private Tilemap _tilemap;
 
@@ -17,7 +16,16 @@ namespace Components.TileMaps
         private void Awake()
         {
             _tilemap = GetComponent<Tilemap>();
-            _ruleTiles = Resources.LoadAll<RuleTile>(pathToRuleTile);
+
+            List<RuleTile> loadedTiles = new List<RuleTile>();
+
+            foreach (string path in pathToRuleTiles)
+            {
+                var tilesFromPath = Resources.LoadAll<RuleTile>(path);
+                loadedTiles.AddRange(tilesFromPath);
+            }
+            
+            _ruleTiles = loadedTiles.ToArray();
 
             foreach (var r in _ruleTiles)
             {

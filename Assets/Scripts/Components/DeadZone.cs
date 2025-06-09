@@ -1,8 +1,8 @@
 ﻿using Controllers;
-using PlayerFolder;
+using Creatures;
 using UnityEngine;
 
-namespace Items
+namespace Components
 {
     public class DeadZone : MonoBehaviour
     {
@@ -12,18 +12,16 @@ namespace Items
         [SerializeField] private EnterPoint enterPoint;
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            Player player = collision.GetComponent<Player>();
-            Barrel barrel = collision.GetComponent<Barrel>();
-
-            if (player)
+            Hero hero = collision.GetComponent<Hero>();
+            
+            if (hero)
             {
                 enterPoint.ReloadLevelController.ReloadLevel();
                 // onDead?.Invoke(); вызов события
             }
-
-            if (barrel)
+            else
             {
-                barrel.GetComponent<Barrel>().Destroy();
+                Destroy(collision.gameObject);
             }
         }
     }

@@ -1,5 +1,5 @@
-﻿using PlayerFolder;
-using UnityEngine;
+﻿using UnityEngine;
+using Creatures;
 
 namespace Components
 {
@@ -85,15 +85,15 @@ namespace Components
             transform.position =
                 Vector2.MoveTowards(
                     transform.position,
-                    transform.position + (Vector3.down * 10),
+                    transform.position + (Vector3.down * 3),
                     impactSpeed * Time.fixedDeltaTime);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (_impactHappend) return;
-            Player player = other.GetComponent<Player>();
-            if (player)
+            Creature creatures = other.GetComponent<Creature>();
+            if (creatures)
             {
                 Invoke(nameof(SwitchOffPlatform), fallDelay); // вызывает метод с задержкой
                 _impactTimer = impactDuration;

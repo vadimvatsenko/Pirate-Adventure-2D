@@ -2,9 +2,8 @@
 using Cinemachine;
 using UnityEngine;
 
-namespace Components
+namespace Components.VirtualCamera
 {
-
     public class VirtualCameraController : MonoBehaviour
     {
         [SerializeField] private CinemachineVirtualCamera startCamera;

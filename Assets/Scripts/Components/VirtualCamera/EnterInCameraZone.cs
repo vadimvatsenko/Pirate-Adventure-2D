@@ -1,9 +1,6 @@
-﻿using System;
-using Cinemachine;
-using Components.EnterCollisionComponent;
-using PlayerFolder;
+﻿using Cinemachine;
+using Creatures;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Components
 {
@@ -13,8 +10,8 @@ namespace Components
         public EnterInCameraEvent onEnterInCameraZone;
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Player player = other.GetComponent<Player>();
-            if (player != null)
+            Hero hero = other.GetComponent<Hero>();
+            if (hero != null)
             {
                 onEnterInCameraZone?.Invoke(currentCamera);
             }
