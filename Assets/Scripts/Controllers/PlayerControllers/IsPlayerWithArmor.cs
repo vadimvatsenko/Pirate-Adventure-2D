@@ -1,28 +1,29 @@
 ﻿using Creatures;
 using Model;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Controllers.PlayerControllers
 {
     public class IsPlayerWithArmor : MonoBehaviour
     {
         [SerializeField] private GameObject armorObjectForUI;
-        [SerializeField] private CratureAnimController cratureAnimController;
+        [FormerlySerializedAs("cratureAnimController")] [SerializeField] private CreatureAnimController creatureAnimController;
         private GameSession _gameSession;
 
         private void Awake()
         {
-            if (cratureAnimController != null)
+            if (creatureAnimController != null)
             {
-                cratureAnimController.OnIsArmed += UpdateCratureWithArmorStatus;
+                creatureAnimController.OnIsArmed += UpdateCreatureWithArmorStatus;
             }
         }
 
         private void OnDisable()
         {
-            if (cratureAnimController != null)
+            if (creatureAnimController != null)
             {
-                cratureAnimController.OnIsArmed -= UpdateCratureWithArmorStatus;
+                creatureAnimController.OnIsArmed -= UpdateCreatureWithArmorStatus;
             }
         }
 
@@ -32,10 +33,10 @@ namespace Controllers.PlayerControllers
             
             if (_gameSession != null)
             {
-                UpdateCratureWithArmorStatus();
+                UpdateCreatureWithArmorStatus();
             }
         }
-        private void UpdateCratureWithArmorStatus()
+        private void UpdateCreatureWithArmorStatus()
         {
             
             if (_gameSession.PlayerData.isArmed)

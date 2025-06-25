@@ -1,9 +1,9 @@
 ﻿using System;
 using Creatures;
+using Creatures.CreaturesStateMachine;
 using Model;
 using UnityEngine;
 using UnityEngine.Events;
-
 
 namespace Components.HealthComponentFolder
 {
@@ -14,21 +14,21 @@ namespace Components.HealthComponentFolder
         [SerializeField] private UnityEvent onDamage;
         [SerializeField] private UnityEvent onDie;
         
-        private Hero _hero;
+        private Creature _creature;
         public UnityAction OnHealthChange;
         private GameSession _gameSession;
 
         private void Awake()
         {
-            _hero = GetComponent<Hero>();
-            _hero.SubscribeOnCreatureDeath(SetHealthIfHeroDeath);
+            _creature = GetComponent<Hero>();
+            //_hero.SubscribeOnCreatureDeath(SetHealthIfHeroDeath);
             
             _gameSession = FindObjectOfType<GameSession>();
         }
 
         private void OnDisable()
         {
-            _hero.UnsubscribeOnCreatureDeath(SetHealthIfHeroDeath);
+            //_hero.UnsubscribeOnCreatureDeath(SetHealthIfHeroDeath);
         }
 
         public void ApplyDamage(int damage)

@@ -9,7 +9,6 @@ namespace Components
         [SerializeField] private Hero hero;
         private GameSession _gameSession;
         
-
         private void Awake()
         {
             _gameSession = FindObjectOfType<GameSession>();
@@ -19,8 +18,11 @@ namespace Components
             
             if (!_gameSession.PlayerData.isArmed)
             {
-                Debug.Log("Arming Player");
-                //playerAnim.ChangeArmedState();
+                CreatureAnimController anim = hero.GetComponent<CreatureAnimController>();
+                if (anim != null)
+                {
+                    anim.ChangeArmedState();
+                }
             }
         }
     }

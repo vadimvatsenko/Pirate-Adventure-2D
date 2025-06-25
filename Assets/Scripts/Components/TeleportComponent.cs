@@ -33,11 +33,11 @@ namespace Components
 
         private IEnumerator TeleportPlayerRoutine(GameObject target)
         {
-            if (target != null && target.GetComponent<Creature>() != null)
+            if (target != null && target.GetComponent<Creature_OLD>() != null)
             {
                 onStartTeleport?.Invoke(target.transform.position);
 
-                Creature creatures = target.GetComponent<Creature>();
+                Creature_OLD creaturesOld = target.GetComponent<Creature_OLD>();
                 
                 //creatures.Teleport(destTransform.position, () => CreateTeleport());
                 

@@ -5,6 +5,8 @@
         Move,
         Jump,
         Fall,
-        Attack1
+        Attack1,
+        Exclamation,
+        Interrogation,
     }
 }

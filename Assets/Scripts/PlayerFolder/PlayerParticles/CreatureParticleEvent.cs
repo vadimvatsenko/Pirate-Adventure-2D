@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Components;
 using Creatures;
+using Creatures.CreaturesStateMachine;
 using UnityEngine;
 
 namespace PlayerFolder.PlayerParticles
@@ -24,6 +25,7 @@ namespace PlayerFolder.PlayerParticles
         private void Awake()
         { 
             _creature = GetComponentInParent<Creature>();
+            
             if (_creature != null)
             {
                 _collisionInfo = _creature.GetComponent<CreatureCollisionInfo>();
@@ -39,13 +41,13 @@ namespace PlayerFolder.PlayerParticles
 
         private void OnEnable()
         {
-            _creature.SubscribeOnCreatureJump(HandleSpawnJumpParticle);
-            _creature.SubscribeOnCreatureAttack(HandleSpawnAttack1Particle);
+            //_creature.SubscribeOnCreatureJump(HandleSpawnJumpParticle);
+            //_creature.SubscribeOnCreatureAttack(HandleSpawnAttack1Particle);
         }
         private void OnDisable()
         {
-            _creature.UnsubscribeOnCreatureJump(HandleSpawnJumpParticle);
-            _creature.UnSubscribeCreatureAttack(HandleSpawnAttack1Particle);
+            //_creature.UnsubscribeOnCreatureJump(HandleSpawnJumpParticle);
+            //_creature.UnSubscribeCreatureAttack(HandleSpawnAttack1Particle);
         }
 
         private void Update()
@@ -68,7 +70,7 @@ namespace PlayerFolder.PlayerParticles
         
         public void HandleSpawnFallPartical()
         {
-            float vel = Mathf.Abs(_creature.Rb.velocity.y);
+            float vel = Mathf.Abs(_creature.Rb2D.velocity.y);
             
             if (vel > MinJumpHeight)
             {
@@ -91,5 +93,7 @@ namespace PlayerFolder.PlayerParticles
         }
         private void HandleSpawnJumpParticle() => HandleSpawn(ParticleType.Jump);
         private void HandleSpawnAttack1Particle() => HandleSpawn(ParticleType.Attack1);
+        public void HandleExclamationParticle() => HandleSpawn(ParticleType.Exclamation);
+        public void SpawnWtf() => HandleSpawn(ParticleType.Interrogation);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Components.SpriteAnimator.AnimationTypes;
 using Creatures;
+using Creatures.CreaturesStateMachine;
 using PlayerFolder;
 using UnityEngine;
 
@@ -43,8 +44,8 @@ namespace Components.SpriteAnimator.AnimationControllers
 
         private string GetAnimationType()
         {
-            if (_creature.Rb.velocity.y > 0.1f) return PlayerAnimationType.PlayerJump.ToString();
-            if (_creature.Rb.velocity.y < -0.1f) return PlayerAnimationType.PlayerFall.ToString();
+            if (_creature.Rb2D.velocity.y > 0.1f) return PlayerAnimationType.PlayerJump.ToString();
+            if (_creature.Rb2D.velocity.y < -0.1f) return PlayerAnimationType.PlayerFall.ToString();
             if (_creature.XInput != 0) return PlayerAnimationType.PlayerMove.ToString();
             return PlayerAnimationType.PlayerIdle.ToString();
         }

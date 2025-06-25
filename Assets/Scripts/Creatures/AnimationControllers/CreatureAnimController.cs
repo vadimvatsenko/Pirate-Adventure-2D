@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections;
+using Creatures.CreaturesStateMachine;
 using Model;
 using UnityEngine;
 
 namespace Creatures
 {
-    public class CratureAnimController : MonoBehaviour
+    public class CreatureAnimController : MonoBehaviour
     {
         // что тут происходит, перевод string в hash
         private static int XVelocityKey { get; } = Animator.StringToHash("xVelocity");
@@ -13,7 +14,6 @@ namespace Creatures
         private static readonly int IsGroundedKey = Animator.StringToHash("isGrounded");
         private static readonly int Knockback = Animator.StringToHash("knockback");
         private static readonly int AttackKey = Animator.StringToHash("attack");
-        private static readonly int SitKey = Animator.StringToHash("sit");
         private static readonly int Die = Animator.StringToHash("die");
         
         [Header("Animator Controllers")]
@@ -28,8 +28,8 @@ namespace Creatures
         public event Action OnIsArmed;
         
         // Colors
-        private Color startColor = new Color(1f, 1f, 1f, 0f);
-        private Color endColor = new Color(1f, 1f, 1f, 1f);
+        private readonly Color _startColor = new Color(1f, 1f, 1f, 0f);
+        private readonly Color _endColor = new Color(1f, 1f, 1f, 1f);
         
         private void Awake()
         {
@@ -46,12 +46,12 @@ namespace Creatures
 
         private void Start()
         {
-            playerSpriteRenderer.color = startColor;
-            ShowPlayer();
+            playerSpriteRenderer.color = _startColor;
+            ShowCreature();
         }
 
-        private void ShowPlayer() => StartCoroutine(ShowPlayerCoroutine(startColor, endColor));
-        public void HidePlayer(float duration) => StartCoroutine(ShowPlayerCoroutine(endColor, startColor, duration));
+        private void ShowCreature() => StartCoroutine(ShowPlayerCoroutine(_startColor, _endColor));
+        public void HideCreature(float duration) => StartCoroutine(ShowPlayerCoroutine(_endColor, _startColor, duration));
 
         private IEnumerator ShowPlayerCoroutine(Color col1, Color col2, float duration = 1)
         {
@@ -69,7 +69,7 @@ namespace Creatures
         
         public void HandleAnimation()
         {
-            Vector2 velocityNormalized = _creature.Rb.velocity.normalized;
+            Vector2 velocityNormalized = _creature.Rb2D.velocity.normalized;
             CreatureAnimator.SetFloat(XVelocityKey, velocityNormalized.x);
             CreatureAnimator.SetFloat(YVelocityKey, velocityNormalized.y);
             CreatureAnimator.SetBool(IsGroundedKey, _creatureCollisionInfo.IsGrounded);
@@ -97,12 +97,7 @@ namespace Creatures
         {
             CreatureAnimator.SetTrigger(Knockback);
         }
-
-        public void SetSitAnimation()
-        {
-            CreatureAnimator.SetTrigger(SitKey);
-        }
-
+        
         public void SetDieAnimation()
         {
             CreatureAnimator.SetTrigger(Die);

@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections;
-using Components.HealthComponentFolder;
+﻿using Components.HealthComponentFolder;
+using Creatures.CreaturesStateMachine;
 using Model;
 using Interfaces;
 using UnityEngine;
@@ -23,28 +22,13 @@ namespace Creatures
         
         public bool CanDoubleJump => _canDoubleJump;
         public bool IsPressedJumpButton => _isPressedJumpButton;
-
-        protected override void Awake()
-        {
-            base.Awake();
-        }
         
         private void Start()
         {
             _gameSession = FindObjectOfType<GameSession>();
         }
-
-        protected override void FixedUpdate()
-        {
-            base.FixedUpdate();
-        }
         
-        protected override void HandleMovement()
-        {
-            base.HandleMovement();
-        }
-
-        protected override void HandleLanding()
+        /*protected override void HandleLanding()
         {
             base.HandleLanding();
             _canDoubleJump = true;
@@ -81,50 +65,22 @@ namespace Creatures
             Rb.velocity = new Vector2(Rb.velocity.x, doubleJumpForce);
         }
         
-        public void TakeDamage() 
-        {
-            if (IsKnocked) return; 
-
-            onPlayerTakeDamage?.Invoke();
-            CratureAnimationController.SetKnockbackAnimation();
-
-            Rb.velocity = new Vector2(knockPower.x * -FacingDirection, knockPower.y); 
-            StartCoroutine(KnockbackRoutione()); 
-        }
-        
-        private IEnumerator KnockbackRoutione() 
-        {
-            IsKnocked = true; 
-            yield return new WaitForSeconds(knockDuration); 
-            IsKnocked = false; 
-        }
-        
-        public void Attack()
+        public override void Attack()
         {
             if (!_gameSession.PlayerData.isArmed || !CollisionInfo.IsGrounded) return;
 
             CallEventOnCreatureAttack(); //событие
-            CratureAnimationController.SetAttackAnimation();
+            CreatureAnimationController.SetAttackAnimation();
             var gos = CollisionInfo.GetObjectsInRange();
+            
             foreach (var go in gos)
             {
-                var hp = go.GetComponent<OtherHealthComponent>();
+                var hp = go.GetComponent<IHealthComponent>();
                 if (hp != null)
                 {
                     hp.ApplyDamage(attackPower);
                 }
             }
-        }
-        
-        protected override void Die()
-        {
-            base.Die();
-            if (_gameSession.PlayerData.isArmed)
-            {
-                _gameSession.PlayerData.isArmed = false;
-                OnSpawnObject?.Invoke();
-            }
-            onPlayerDeath?.Invoke();
-        }
+        }*/
     }
 }

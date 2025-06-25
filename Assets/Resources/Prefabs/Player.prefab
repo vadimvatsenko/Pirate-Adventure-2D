@@ -399,16 +399,10 @@ MonoBehaviour:
   attackPower: 1
   speed: 3
   jumpForce: 11.5
-  doubleJumpForce: 11
-  knockbackDuration: 0.5
-  knockbackPower: {x: 1, y: 3}
+  knockDuration: 1
+  knockPower: {x: 0.5, y: 2.5}
   maxSaveHieght: 20
-  durationInTeleport: 1
-  targetInTeleportHeight: 1
-  elapsedInTeleport: 0
-  rotationAmountInTeleport: 360
-  startScaleInTeleport: 1
-  endScaleInTeleport: 0.1
+  doubleJumpForce: 11
   onPlayerTakeDamage:
     m_PersistentCalls:
       m_Calls:
@@ -482,10 +476,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   groundCheckOffset: {x: 0, y: -0.33, z: 0}
-  groundCheckDistance: 0
   groundBoxSize: {x: 0.5, y: 0.1}
+  groundCheckDistance: 0.5
   wallCheckOffset: {x: 0.33, y: 0, z: 0}
   wallBoxSize: {x: 0.1, y: 0.5}
+  abyssCheckOffset: {x: 0, y: 0, z: 0}
+  checkGroundAfterAbyssOffset: {x: 0, y: 0, z: 0}
   whatIsInteraction:
     serializedVersion: 2
     m_Bits: 8192
