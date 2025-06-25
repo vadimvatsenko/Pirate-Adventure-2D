@@ -8,13 +8,20 @@ namespace Creatures.CreaturesStateMachine
     {
         private Creature _creature;
         
-        [Header("New Ground Collision Info")]
+        [Header("Ground Collision Info")]
         [SerializeField] private LayerMask whatIsGround;
         [SerializeField] private Transform groundCheckStartPos;
         [SerializeField] private Vector2 groundCheckBoxSize = new Vector2(0.5f, 0.1f);
         [SerializeField] private float groundCheckDistance = 1f;
         private bool _isGrounded;
         public bool IsGrounded => _isGrounded;
+        
+        [Header("Wall Collision Info")] 
+        [SerializeField] private Transform wallCheckStartPos;
+        [SerializeField] private Vector2 wallCheckBoxSize = new Vector2(0.1f, 0.5f);
+        [SerializeField] private float wallCheckDistance = 1f;
+        public bool _isWallDetected;
+        public bool IsWallDetected => _isWallDetected;
         
         [Header("Abyss Detected Info")]
         [SerializeField] private Transform abyssCheckStartPos;
@@ -27,12 +34,6 @@ namespace Creatures.CreaturesStateMachine
         [SerializeField] private float groundAfterAbyssCheckDistance = 1f;
         private bool _isGroundAfterAbyssDetected;
         public bool IsGroundAfterAbyssDetected => _isGroundAfterAbyssDetected;
-        
-        [Header("Wall Collision Info")] 
-        [SerializeField] private LayerMask whatIsWall;
-        [SerializeField] private Vector3 wallCheckOffset;
-        [SerializeField] private Vector2 wallBoxSize = new Vector2(0.1f, 0.5f);
-        public bool IsWallDetected { get; private set; }
         
         [Header("Interaction Collision Info")] 
         [SerializeField] private LayerMask whatIsInteraction;
@@ -52,19 +53,19 @@ namespace Creatures.CreaturesStateMachine
         
         public void HandleWallCheck()
         {
-            IsWallDetected = 
-                Physics2D.BoxCast(
-                    transform.position + (wallCheckOffset * _creature.FacingDirection), 
-                    wallBoxSize, 
-                    20f, 
-                    Vector2.right * _creature.FacingDirection, 
-                    0, 
-                    whatIsGround);
+            _isWallDetected = Physics2D.BoxCast(
+                wallCheckStartPos.position,
+                wallCheckBoxSize,
+                0f,
+                Vector2.right * _creature.FacingDirection,
+                wallCheckDistance,
+                whatIsGround
+            );
         }
 
         public void HandleGroundCheck()
         {
-            RaycastHit2D hit = Physics2D.BoxCast(
+            RaycastHit2D groundHit = Physics2D.BoxCast(
                 groundCheckStartPos.position,
                 groundCheckBoxSize,
                 0f,
@@ -72,9 +73,9 @@ namespace Creatures.CreaturesStateMachine
                 0,
                 whatIsGround);
 
-            if (hit.collider != null)
+            if (groundHit.collider != null)
             {
-                float dot = Vector2.Dot(hit.normal, Vector2.up);
+                float dot = Vector2.Dot(groundHit.normal, Vector2.up);
                 _isGrounded = dot >= 0.7f;
             }
             else
@@ -85,40 +86,23 @@ namespace Creatures.CreaturesStateMachine
 
         public void HandleAbyssCheck()
         {
-            RaycastHit2D abyssHit = Physics2D.Raycast(
+            _isAbyssDetected = Physics2D.Raycast(
                 abyssCheckStartPos.position,
                 Vector2.down,
                 abyssCheckDistance,
                 whatIsGround
             );
-
-            if (abyssHit.collider == null)
-            {
-                _isAbyssDetected = true;
-            }
-            else
-            {
-                _isAbyssDetected = false;
-            }
+            _isAbyssDetected = !_isAbyssDetected;
         }
 
         public void HandleGroundAfterAbyssCheck()
         {
-            RaycastHit2D groundAfterAbyssHit = Physics2D.Raycast(
+            _isGroundAfterAbyssDetected = Physics2D.Raycast(
                 groundAfterAbyssCheckStartPos.position,
                 Vector2.down,
                 groundAfterAbyssCheckDistance,
                 whatIsGround
             );
-
-            if (groundAfterAbyssHit.collider != null)
-            {
-                _isGroundAfterAbyssDetected = true;
-            }
-            else
-            {
-                _isGroundAfterAbyssDetected = false;
-            }
         }
         
         public void Interact()
@@ -132,7 +116,6 @@ namespace Creatures.CreaturesStateMachine
             
             for (int i = 0; i < size; i++)
             {
-                
                 var interactable = _interactionCollides[i].GetComponent<InteractableComponent>();
                 if (interactable != null)
                 {
@@ -160,6 +143,10 @@ namespace Creatures.CreaturesStateMachine
             // GroundCheck
             Gizmos.color = _isGrounded ? Color.green : Color.red;
             Gizmos.DrawWireCube(groundCheckStartPos.position, groundCheckBoxSize);
+            
+            // WallCheck
+            Gizmos.color = _isWallDetected ? Color.green : Color.red;
+            Gizmos.DrawWireCube(wallCheckStartPos.position, wallCheckBoxSize);
 
             // Abyss Check
             Gizmos.color = _isAbyssDetected ? Color.red : Color.green;

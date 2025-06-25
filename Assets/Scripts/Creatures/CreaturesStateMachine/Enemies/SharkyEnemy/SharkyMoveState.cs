@@ -27,7 +27,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
                 StateMachine.ChangeState(Creature.JumpState);
             }
             
-            else if (Creature.CollisionInfo.IsAbyssDetected)
+            else if (Creature.CollisionInfo.IsAbyssDetected || Creature.CollisionInfo.IsWallDetected)
             {
                 Creature.HandleFlip();
                 StateMachine.ChangeState(Creature.IdleState);

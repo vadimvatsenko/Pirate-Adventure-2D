@@ -48,10 +48,9 @@ namespace Creatures.CreaturesStateMachine
         protected virtual void Update()
         {
             CollisionInfo.HandleGroundCheck();
-            
+            CollisionInfo.HandleWallCheck();
             StateMachine.CurrentState.Update();
             
-            HandleFlip();
         }
         
         public void SetDirection(float dir) => XInput = dir;
@@ -61,7 +60,7 @@ namespace Creatures.CreaturesStateMachine
             Rb2D.velocity = new Vector2(XInput * movementSpeed, Rb2D.velocity.y);
         }
         
-        public virtual void HandleFlip()
+        public void HandleFlip()
         {
             if (Rb2D.velocity.x < 0 && IsFacingRight || Rb2D.velocity.x > 0 && !IsFacingRight)
             {
@@ -74,6 +73,8 @@ namespace Creatures.CreaturesStateMachine
             IsFacingRight = !IsFacingRight;
             FacingDirection *= -1;
             transform.Rotate(0f, 180f, 0f);
+            
+            Debug.Log(FacingDirection);
         }
     }
 }

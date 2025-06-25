@@ -33,13 +33,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
             CollisionInfo.HandleAbyssCheck();
             CollisionInfo.HandleGroundAfterAbyssCheck();
             
+            AnimController.SetFloat(AnimatorHashes.YVelocity, Rb2D.velocity.y);
             
-            //_sharkyStatesController.Update();
-        }
-
-        public override void HandleFlip()
-        {
-            base.HandleFlip();
         }
     }
 }

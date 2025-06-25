@@ -8,6 +8,7 @@ namespace Creatures.CreaturesStateMachine
         // static fields
         public static readonly int Idle = Animator.StringToHash("Idle");
         public static readonly int Move = Animator.StringToHash("Move");
+        public static readonly int YVelocity = Animator.StringToHash("YVelocity");
         public static readonly int Jump = Animator.StringToHash("Jump");
         public static readonly int Attack = Animator.StringToHash("Attack");
         public static readonly int Hit = Animator.StringToHash("Hit");
@@ -17,6 +18,7 @@ namespace Creatures.CreaturesStateMachine
         {
             { Idle, "Idle" },
             { Move, "Move" },
+            { YVelocity, "YVelocity" },
             { Jump, "Jump" },
             {Attack, "Attack"},
             { Hit, "Hit" },

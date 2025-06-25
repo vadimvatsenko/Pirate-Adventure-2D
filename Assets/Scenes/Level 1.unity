@@ -23671,7 +23671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 1.5
-  jumpForce: 0.5
+  jumpForce: 1
   idleDuration: 2
 --- !u!114 &1141928079
 MonoBehaviour:
