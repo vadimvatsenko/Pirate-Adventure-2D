@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Components.Teleport;
-using Creatures;
+using Creatures.CreaturesStateMachine;
 using UnityEngine;
 
 namespace Components
@@ -33,11 +33,11 @@ namespace Components
 
         private IEnumerator TeleportPlayerRoutine(GameObject target)
         {
-            if (target != null && target.GetComponent<Creature_OLD>() != null)
+            if (target != null && target.GetComponent<Creature>() != null)
             {
                 onStartTeleport?.Invoke(target.transform.position);
 
-                Creature_OLD creaturesOld = target.GetComponent<Creature_OLD>();
+                Creature creaturesOld = target.GetComponent<Creature>();
                 
                 //creatures.Teleport(destTransform.position, () => CreateTeleport());
                 

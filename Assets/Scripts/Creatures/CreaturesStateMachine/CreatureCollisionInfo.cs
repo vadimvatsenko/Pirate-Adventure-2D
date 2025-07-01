@@ -11,10 +11,11 @@ namespace Creatures.CreaturesStateMachine
         [Header("Ground Collision Info")]
         [SerializeField] private LayerMask whatIsGround;
         [SerializeField] private Transform groundCheckStartPos;
-        [SerializeField] private Vector2 groundCheckBoxSize = new Vector2(0.5f, 0.1f);
-        [SerializeField] private float groundCheckDistance = 1f;
-        private bool _isGrounded;
-        public bool IsGrounded => _isGrounded;
+        //[SerializeField] private Vector2 groundCheckBoxSize = new Vector2(0.5f, 0.1f);
+        [SerializeField] private float groundCheckDistance = 0.1f;
+        public bool IsGrounded { get; private set; }
+        
+        
         
         [Header("Wall Collision Info")] 
         [SerializeField] private Transform wallCheckStartPos;
@@ -65,23 +66,7 @@ namespace Creatures.CreaturesStateMachine
 
         public void HandleGroundCheck()
         {
-            RaycastHit2D groundHit = Physics2D.BoxCast(
-                groundCheckStartPos.position,
-                groundCheckBoxSize,
-                0f,
-                Vector2.down,
-                0,
-                whatIsGround);
-
-            if (groundHit.collider != null)
-            {
-                float dot = Vector2.Dot(groundHit.normal, Vector2.up);
-                _isGrounded = dot >= 0.7f;
-            }
-            else
-            {
-                _isGrounded = false;
-            }
+            IsGrounded = Physics2D.Raycast(groundCheckStartPos.position, Vector2.down, groundCheckDistance, whatIsGround);
         }
 
         public void HandleAbyssCheck()
@@ -141,12 +126,16 @@ namespace Creatures.CreaturesStateMachine
         private void OnDrawGizmos()
         {
             // GroundCheck
-            Gizmos.color = _isGrounded ? Color.green : Color.red;
-            Gizmos.DrawWireCube(groundCheckStartPos.position, groundCheckBoxSize);
+            Gizmos.color = IsGrounded ? Color.green : Color.red;
+            Vector2 toGround = new Vector2(groundCheckStartPos.position.x, groundCheckStartPos.position.y - groundCheckDistance);
+            Gizmos.DrawLine(groundCheckStartPos.position, toGround);
+            
             
             // WallCheck
             Gizmos.color = _isWallDetected ? Color.green : Color.red;
             Gizmos.DrawWireCube(wallCheckStartPos.position, wallCheckBoxSize);
+            /*Vector2 toWall = new Vector2(wallCheckStartPos.position.x + wallCheckDistance, wallCheckStartPos.position.y);
+            Gizmos.DrawLine(wallCheckStartPos.position, toWall);*/
 
             // Abyss Check
             Gizmos.color = _isAbyssDetected ? Color.red : Color.green;

@@ -6,35 +6,34 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
     {
         [Header("Idle Info")] 
         [SerializeField] private float idleDuration = 2f;
-        private SharkyStatesController _sharkyStatesController;
+        public float IdleDuration => idleDuration;
+        
+        public SharkyIdleState SharkyIdleState { get; private set; }
+        public SharkyMoveState SharkyMoveState { get; private set; }
+        public SharkyJumpState SharkyJumpState { get; private set; }
         
         protected override void Awake()
         {
             base.Awake();
-
-            //_sharkyStatesController = new SharkyStatesController(this, StateMachine, CollisionInfo);
             
-            IdleState = new SharkyIdleState(this, StateMachine, AnimatorHashes.Idle, idleDuration);
-            MoveState = new SharkyMoveState(this, StateMachine, AnimatorHashes.Move);
-            JumpState = new SharkyJumpState(this, StateMachine, AnimatorHashes.Jump, jumpForce);
+            SharkyIdleState = new SharkyIdleState(this, StateMachine, AnimatorHashes.Idle);
+            SharkyMoveState = new SharkyMoveState(this, StateMachine, AnimatorHashes.Move);
+            SharkyJumpState = new SharkyJumpState(this, StateMachine, AnimatorHashes.Jump);
             
-            StateMachine.Initialize(IdleState);
+            StateMachine.Initialize(SharkyIdleState);
         }
-
-        protected override void Start()
-        {
-            base.Start();
-        }
-
+        
         protected override void Update()
         {
             base.Update();
             
             CollisionInfo.HandleAbyssCheck();
             CollisionInfo.HandleGroundAfterAbyssCheck();
-            
-            AnimController.SetFloat(AnimatorHashes.YVelocity, Rb2D.velocity.y);
-            
+        }
+
+        public override void HandleFlip()
+        {
+            Flip();
         }
     }
 }

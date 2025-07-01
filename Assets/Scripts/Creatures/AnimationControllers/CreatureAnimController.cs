@@ -9,7 +9,7 @@ namespace Creatures
     public class CreatureAnimController : MonoBehaviour
     {
         // что тут происходит, перевод string в hash
-        private static int XVelocityKey { get; } = Animator.StringToHash("xVelocity");
+        /*private static readonly int XVelocityKey = Animator.StringToHash("xVelocity");
         private static readonly int YVelocityKey = Animator.StringToHash("yVelocity");
         private static readonly int IsGroundedKey = Animator.StringToHash("isGrounded");
         private static readonly int Knockback = Animator.StringToHash("knockback");
@@ -101,6 +101,6 @@ namespace Creatures
         public void SetDieAnimation()
         {
             CreatureAnimator.SetTrigger(Die);
-        }
+        }*/
     }
 }

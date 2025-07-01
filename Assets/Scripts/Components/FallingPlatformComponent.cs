@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using Creatures;
+using Creatures.CreaturesStateMachine;
 
 namespace Components
 {
@@ -92,7 +92,7 @@ namespace Components
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (_impactHappend) return;
-            Creature_OLD creaturesOld = other.GetComponent<Creature_OLD>();
+            Creature creaturesOld = other.GetComponent<Creature>();
             if (creaturesOld)
             {
                 Invoke(nameof(SwitchOffPlatform), fallDelay); // вызывает метод с задержкой

@@ -23,7 +23,7 @@ namespace Creatures.CreaturesStateMachine
 
         public virtual void Update()
         {
-            //Debug.Log($"{Creature.name} in {AnimatorHashes.GetName(_animBoolName)}");
+           //Debug.Log($"{Creature.name} in {AnimatorHashes.GetName(_animBoolName)}");
         }
 
         public virtual void Exit()

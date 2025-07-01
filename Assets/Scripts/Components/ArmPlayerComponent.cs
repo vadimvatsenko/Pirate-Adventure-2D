@@ -1,4 +1,5 @@
 ﻿using Creatures;
+using Creatures.CreaturesStateMachine.Hero;
 using Model;
 using UnityEngine;
 
@@ -21,7 +22,7 @@ namespace Components
                 CreatureAnimController anim = hero.GetComponent<CreatureAnimController>();
                 if (anim != null)
                 {
-                    anim.ChangeArmedState();
+                    //anim.ChangeArmedState();
                 }
             }
         }

@@ -15,7 +15,7 @@ namespace Controllers.PlayerControllers
         {
             if (creatureAnimController != null)
             {
-                creatureAnimController.OnIsArmed += UpdateCreatureWithArmorStatus;
+                //creatureAnimController.OnIsArmed += UpdateCreatureWithArmorStatus;
             }
         }
 
@@ -23,7 +23,7 @@ namespace Controllers.PlayerControllers
         {
             if (creatureAnimController != null)
             {
-                creatureAnimController.OnIsArmed -= UpdateCreatureWithArmorStatus;
+                //creatureAnimController.OnIsArmed -= UpdateCreatureWithArmorStatus;
             }
         }
 

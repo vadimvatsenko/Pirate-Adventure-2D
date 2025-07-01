@@ -24,40 +24,12 @@ namespace Creatures
         public bool IsDead { get; protected set; }
         public bool IsAllreadyDead { get; protected set; }
         
-        // components
-        
-        //public CreatureCollisionInfo CollisionInfo { get; private set; }
-        //protected CreatureAnimController CreatureAnimationController;
-        //public Rigidbody2D Rb { get; private set; }
-        //protected Collider2D C2d;
-        //protected Animator Animator;
-        
-        // directions
-        //public bool IsFacingRight { get; protected set; } = true;
-        //public int FacingDirection { get; private set; } = 1;
-        //public float XInput { get; protected set; }
         
         // air status
         public bool IsAirborne {get; protected set; }
         
         // events
-        private event Action OnCreatureJump;
-        private event Action OnCreatureAttack;
-        private event Action OnCreatureDeath;
-        private event Action OnCreatureTakeDamage;
         
-        protected virtual void Awake()
-        {
-            /*CollisionInfo = GetComponent<CreatureCollisionInfo>();
-            CreatureAnimationController = GetComponent<CreatureAnimController>();
-            Rb = GetComponent<Rigidbody2D>();
-            C2d = GetComponent<Collider2D>();*/
-            
-            /*if (CreatureAnimationController != null)
-            {
-                Animator = CreatureAnimationController.CreatureAnimator;
-            }*/
-        }
         
         protected virtual void FixedUpdate()
         {
@@ -78,67 +50,8 @@ namespace Creatures
             
         }
         
-        private void UpdateAirBornStatus()
-        {
-            /*if (CollisionInfo.IsGrounded && IsAirborne) HandleLanding();
-            if (!CollisionInfo.IsGrounded && !IsAirborne) BecomeAirborn();*/
-        }
-
-        private void BecomeAirborn()
-        {
-            IsAirborne = true;
-        }
-
-        protected virtual void HandleLanding()
-        {
-            IsAirborne = false;
-        }
-        
-        // событие можно вызвать только из самого класса, но можно сделать
-        // такую обвертку
-        public void CallEventOnCreatureTakeDanage() => OnCreatureTakeDamage?.Invoke();
-        public void CallEventOnCreatureAttack() => OnCreatureAttack?.Invoke();
-        public void CallEventOnCreatureDeath() => OnCreatureDeath?.Invoke();
-        public void CallEventOnCreatureJump() => OnCreatureJump?.Invoke();
-        
-        public void SubscribeOnCreatureTakeDamage(Action onCreatureTakeDamage)
-            => OnCreatureTakeDamage += onCreatureTakeDamage;
-        public void UnsubscribeOnCreatureTakeDamage(Action onCreatureTakeDamage)
-            => OnCreatureTakeDamage -= onCreatureTakeDamage;
-        public void SubscribeOnCreatureDeath(Action onDeath) 
-            => OnCreatureDeath += onDeath;
-        public void UnsubscribeOnCreatureDeath(Action onDeath) 
-            => OnCreatureDeath -= onDeath;
-        public void SubscribeOnCreatureJump(Action onJump)
-            => OnCreatureJump += onJump;
-        public void UnsubscribeOnCreatureJump(Action onJump)
-            => OnCreatureJump -= onJump;
-        public void SubscribeOnCreatureAttack(Action onAttack)
-            => OnCreatureAttack += onAttack;
-        public void UnSubscribeCreatureAttack(Action onAttack)
-            => OnCreatureAttack -= onAttack;
         
         
-        // public void SetDirection(float dir) => XInput = dir;
-        /*protected virtual void HandleMovement()
-        {
-            Rb.velocity = new Vector2(XInput * speed, Rb.velocity.y);
-        }*/
-        /*private void HandleFlip()
-        {
-            if (Rb.velocity.x < 0 && IsFacingRight || Rb.velocity.x > 0 && !IsFacingRight)
-            {
-                Flip();
-            }
-        }*/
-
-        //public void CallFlip() => Flip();
-        /*protected void Flip()
-        {
-            IsFacingRight = !IsFacingRight;
-            FacingDirection *= -1;
-            transform.Rotate(0f, 180f, 0f);
-        }*/
         
         private void CheckDeathFalling()
         {

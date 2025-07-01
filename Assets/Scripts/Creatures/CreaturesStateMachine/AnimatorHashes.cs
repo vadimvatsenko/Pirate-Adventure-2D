@@ -3,32 +3,38 @@ using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine
 {
-    public class AnimatorHashes
+    public abstract class AnimatorHashes
     {
         // static fields
-        public static readonly int Idle = Animator.StringToHash("Idle");
-        public static readonly int Move = Animator.StringToHash("Move");
-        public static readonly int YVelocity = Animator.StringToHash("YVelocity");
-        public static readonly int Jump = Animator.StringToHash("Jump");
-        public static readonly int Attack = Animator.StringToHash("Attack");
-        public static readonly int Hit = Animator.StringToHash("Hit");
-        public static readonly int Die = Animator.StringToHash("Die");
+        public static readonly int Idle = Animator.StringToHash("idle");
+        public static readonly int Move = Animator.StringToHash("move");
+        public static readonly int IdleMove = Animator.StringToHash("idleMove");
+        public static readonly int JumpFall = Animator.StringToHash("jumpFall");
+        public static readonly int YVelocity = Animator.StringToHash("yVelocity");
+        public static readonly int XVelocity = Animator.StringToHash("xVelocity");
+        public static readonly int Jump = Animator.StringToHash("jump");
+        public static readonly int Fall = Animator.StringToHash("fall");
+        public static readonly int Attack = Animator.StringToHash("attack");
+        public static readonly int Hit = Animator.StringToHash("hit");
+        public static readonly int Die = Animator.StringToHash("die");
 
         private static readonly Dictionary<int, string> HashToName = new Dictionary<int, string>()
         {
-            { Idle, "Idle" },
-            { Move, "Move" },
-            { YVelocity, "YVelocity" },
-            { Jump, "Jump" },
-            {Attack, "Attack"},
-            { Hit, "Hit" },
-            {Die, "Die"}
+            { Idle, "idle" },
+            { Move, "move" },
+            { IdleMove, "idleMove" },
+            { JumpFall, "jumpFall"},
+            { XVelocity, "xVelocity" },
+            { YVelocity, "yVelocity" },
+            { Jump, "jump" },
+            { Attack, "attack" },
+            { Hit, "hit" },
+            { Die, "die"}
         };
 
         public static string GetName(int hash)
         {
             return HashToName[hash];
         }
-
     }
 }

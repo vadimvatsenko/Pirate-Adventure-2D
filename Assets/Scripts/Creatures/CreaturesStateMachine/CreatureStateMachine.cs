@@ -1,4 +1,6 @@
-﻿namespace Creatures.CreaturesStateMachine
+﻿using UnityEngine;
+
+namespace Creatures.CreaturesStateMachine
 {
     public class CreatureStateMachine
     {

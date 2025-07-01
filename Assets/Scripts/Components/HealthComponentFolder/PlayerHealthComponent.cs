@@ -1,6 +1,7 @@
 ﻿using System;
 using Creatures;
 using Creatures.CreaturesStateMachine;
+using Creatures.CreaturesStateMachine.Hero;
 using Model;
 using UnityEngine;
 using UnityEngine.Events;
