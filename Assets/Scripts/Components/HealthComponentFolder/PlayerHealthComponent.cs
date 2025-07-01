@@ -10,39 +10,29 @@ namespace Components.HealthComponentFolder
 {
     public class PlayerHealthComponent : MonoBehaviour, IHealthComponent
     {
-        
         [SerializeField] private UnityEvent onAddHealth;
         [SerializeField] private UnityEvent onDamage;
-        [SerializeField] private UnityEvent onDie;
         
         private Creature _creature;
         public UnityAction OnHealthChange;
         private GameSession _gameSession;
+        
+        public event Action OnDeath;
 
         private void Awake()
         {
             _creature = GetComponent<Hero>();
-            //_hero.SubscribeOnCreatureDeath(SetHealthIfHeroDeath);
-            
             _gameSession = FindObjectOfType<GameSession>();
         }
-
-        private void OnDisable()
-        {
-            //_hero.UnsubscribeOnCreatureDeath(SetHealthIfHeroDeath);
-        }
-
+        
         public void ApplyDamage(int damage)
         {
             _gameSession.PlayerData.health -= damage;
             
-            onDamage?.Invoke();
-            OnHealthChange?.Invoke();
-            
             if (_gameSession.PlayerData.health <= 0)
             {
                 _gameSession.PlayerData.health = 0;
-                onDie?.Invoke();
+                OnDeath?.Invoke();
             }
         }
 

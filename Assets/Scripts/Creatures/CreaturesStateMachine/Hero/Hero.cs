@@ -32,6 +32,7 @@ namespace Creatures.CreaturesStateMachine.Hero
         public HeroJumpState HeroJumpState { get; private set; }
         public HeroDoubleJumpState HeroDoubleJumpState { get; private set; }
         public HeroFallState HeroFallState { get; private set; }
+        public HeroDieState HeroDieState { get; private set; }
 
         protected override void Awake()
         {
@@ -47,6 +48,7 @@ namespace Creatures.CreaturesStateMachine.Hero
             HeroJumpState = new HeroJumpState(this, StateMachine, AnimatorHashes.JumpFall);
             HeroDoubleJumpState = new HeroDoubleJumpState(this, StateMachine, AnimatorHashes.JumpFall); 
             HeroFallState = new HeroFallState(this, StateMachine, AnimatorHashes.JumpFall);
+            HeroDieState = new HeroDieState(this, StateMachine, AnimatorHashes.Die);
             
             StateMachine.Initialize(HeroIdleState);
         }
