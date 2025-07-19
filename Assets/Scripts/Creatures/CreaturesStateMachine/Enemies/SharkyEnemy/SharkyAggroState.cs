@@ -1,25 +1,24 @@
 ﻿using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
 {
-    public class SharkyMoveState : SharkyGroundedState
+    public class SharkyAggroState : SharkyGroundedState
     {
-        public SharkyMoveState(Sharky enemySharky, CreatureStateMachine stateMachine, int animBoolName) 
+        public SharkyAggroState(Sharky enemySharky, CreatureStateMachine stateMachine, int animBoolName) 
             : base(enemySharky, stateMachine, animBoolName)
         {
         }
-        
+
         public override void Enter()
         {
-           base.Enter();
-           EnemySharky.SetDirection(Creature.FacingDirection);
+            base.Enter();
+            EnemySharky.SetDirection(0f);
+            Debug.Log("Entered SharkyAggroState");
         }
 
         public override void Update()
         {
             base.Update();
-            EnemySharky.HandleMovement();
         }
 
         public override void Exit()

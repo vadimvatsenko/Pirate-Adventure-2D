@@ -2,29 +2,33 @@
 
 namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
 {
-    public class SharkyJumpState : CreatureState
+    public class SharkyJumpState : SharkyState
     {
-        private readonly Sharky _sharky;
-        public SharkyJumpState(Sharky sharky, CreatureStateMachine stateMachine, int animBoolName) 
-            : base(sharky, stateMachine, animBoolName)
+        public SharkyJumpState(Sharky enemySharky, CreatureStateMachine stateMachine, int animBoolName) 
+            : base(enemySharky, stateMachine, animBoolName)
         {
-            _sharky = sharky;
         }
 
         public override void Enter()
         {
             base.Enter();
-            _sharky.Rb2D.AddForce(new Vector2(_sharky.XInput * 1.5f, _sharky.JumpForce), ForceMode2D.Impulse);
-            _sharky.CallOnJumpEvent();
+            
+            EnemySharky.SetDirection(2f * EnemySharky.FacingDirection);
+            EnemySharky.Rb2D.velocity = new Vector2(EnemySharky.Rb2D.velocity.x, 3f);
+            
+            EnemySharky.CallOnJumpEvent();
         }
 
         public override void Update()
         {
             base.Update();
+            
+            Debug.Log(EnemySharky.Rb2D.velocity);
 
-            if (_sharky.CollisionInfo.IsGrounded)
+            if (EnemySharky.CollisionInfo.IsGrounded && EnemySharky.Rb2D.velocity.y < 0)
             {
-                StateMachine.ChangeState(_sharky.SharkyMoveState);
+                StateMachine.ChangeState(EnemySharky.SharkyMoveState);
+                
             }
         }
 

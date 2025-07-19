@@ -6,35 +6,29 @@ namespace Creatures.CreaturesStateMachine
 {
     public class CreatureCollisionInfo : MonoBehaviour
     {
-        private Creature _creature;
+        protected Creature Creature;
         
         [Header("Ground Collision Info")]
-        [SerializeField] private LayerMask whatIsGround;
+        [SerializeField] protected LayerMask whatIsGround;
         [SerializeField] private Transform groundCheckStartPos;
-        //[SerializeField] private Vector2 groundCheckBoxSize = new Vector2(0.5f, 0.1f);
         [SerializeField] private float groundCheckDistance = 0.1f;
         public bool IsGrounded { get; private set; }
-        
-        
         
         [Header("Wall Collision Info")] 
         [SerializeField] private Transform wallCheckStartPos;
         [SerializeField] private Vector2 wallCheckBoxSize = new Vector2(0.1f, 0.5f);
         [SerializeField] private float wallCheckDistance = 1f;
-        public bool _isWallDetected;
-        public bool IsWallDetected => _isWallDetected;
+        public bool IsWallDetected { get; private set; }
         
         [Header("Abyss Detected Info")]
         [SerializeField] private Transform abyssCheckStartPos;
         [SerializeField] private float abyssCheckDistance = 1f;
-        private bool _isAbyssDetected;
-        public bool IsAbyssDetected => _isAbyssDetected;
+        public bool IsAbyssDetected { get; private set; }
         
         [Header("Ground After Abyss Detected Info")]
         [SerializeField] private Transform groundAfterAbyssCheckStartPos;
         [SerializeField] private float groundAfterAbyssCheckDistance = 1f;
-        private bool _isGroundAfterAbyssDetected;
-        public bool IsGroundAfterAbyssDetected => _isGroundAfterAbyssDetected;
+        public bool IsGroundAfterAbyssDetected { get; private set; }
         
         [Header("Interaction Collision Info")] 
         [SerializeField] private LayerMask whatIsInteraction;
@@ -49,16 +43,16 @@ namespace Creatures.CreaturesStateMachine
         
         private void Awake()
         {
-            _creature = GetComponent<Creature>();
+            Creature = GetComponent<Creature>();
         }
         
         public void HandleWallCheck()
         {
-            _isWallDetected = Physics2D.BoxCast(
+            IsWallDetected = Physics2D.BoxCast(
                 wallCheckStartPos.position,
                 wallCheckBoxSize,
                 0f,
-                Vector2.right * _creature.FacingDirection,
+                Vector2.right * Creature.FacingDirection,
                 wallCheckDistance,
                 whatIsGround
             );
@@ -66,23 +60,24 @@ namespace Creatures.CreaturesStateMachine
 
         public void HandleGroundCheck()
         {
-            IsGrounded = Physics2D.Raycast(groundCheckStartPos.position, Vector2.down, groundCheckDistance, whatIsGround);
+            IsGrounded 
+                = Physics2D.Raycast(groundCheckStartPos.position, Vector2.down, groundCheckDistance, whatIsGround);
         }
 
         public void HandleAbyssCheck()
         {
-            _isAbyssDetected = Physics2D.Raycast(
+            IsAbyssDetected = Physics2D.Raycast(
                 abyssCheckStartPos.position,
                 Vector2.down,
                 abyssCheckDistance,
                 whatIsGround
             );
-            _isAbyssDetected = !_isAbyssDetected;
+            IsAbyssDetected = !IsAbyssDetected;
         }
 
         public void HandleGroundAfterAbyssCheck()
         {
-            _isGroundAfterAbyssDetected = Physics2D.Raycast(
+            IsGroundAfterAbyssDetected = Physics2D.Raycast(
                 groundAfterAbyssCheckStartPos.position,
                 Vector2.down,
                 groundAfterAbyssCheckDistance,
@@ -112,7 +107,7 @@ namespace Creatures.CreaturesStateMachine
         public GameObject[] GetObjectsInRange()
         {
             var size = 
-                Physics2D.OverlapCircleNonAlloc(transform.position + offset * _creature.FacingDirection, radius, _itemCollider2Ds);
+                Physics2D.OverlapCircleNonAlloc(transform.position + offset * Creature.FacingDirection, radius, _itemCollider2Ds);
             
             var objects = new GameObject[size];
             for (int i = 0; i < size; i++)
@@ -123,34 +118,32 @@ namespace Creatures.CreaturesStateMachine
             return objects;
         }
 
-        private void OnDrawGizmos()
+        protected virtual void OnDrawGizmos()
         {
             // GroundCheck
             Gizmos.color = IsGrounded ? Color.green : Color.red;
             Vector2 toGround = new Vector2(groundCheckStartPos.position.x, groundCheckStartPos.position.y - groundCheckDistance);
             Gizmos.DrawLine(groundCheckStartPos.position, toGround);
             
-            
             // WallCheck
-            Gizmos.color = _isWallDetected ? Color.green : Color.red;
+            Gizmos.color = IsWallDetected ? Color.green : Color.red;
             Gizmos.DrawWireCube(wallCheckStartPos.position, wallCheckBoxSize);
             /*Vector2 toWall = new Vector2(wallCheckStartPos.position.x + wallCheckDistance, wallCheckStartPos.position.y);
             Gizmos.DrawLine(wallCheckStartPos.position, toWall);*/
 
             // Abyss Check
-            Gizmos.color = _isAbyssDetected ? Color.red : Color.green;
+            Gizmos.color = IsAbyssDetected ? Color.green : Color.red;
             Vector2 toAbyss = 
                 new Vector2(abyssCheckStartPos.position.x, 
                     abyssCheckStartPos.position.y - abyssCheckDistance);
             Gizmos.DrawLine(abyssCheckStartPos.position, toAbyss);
             
             // Ground After Abyss Check
-            Gizmos.color = _isGroundAfterAbyssDetected ? Color.green : Color.red;
+            Gizmos.color = IsGroundAfterAbyssDetected ? Color.green : Color.red;
             Vector2 toGroundAfterAbyss = 
                 new Vector2(groundAfterAbyssCheckStartPos.position.x, 
                             groundAfterAbyssCheckStartPos.position.y - groundAfterAbyssCheckDistance);
             Gizmos.DrawLine(groundAfterAbyssCheckStartPos.position, toGroundAfterAbyss);
-            
             
             
             // Ground check box

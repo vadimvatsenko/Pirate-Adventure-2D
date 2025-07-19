@@ -48,8 +48,6 @@ namespace Creatures.CreaturesStateMachine
         {
             CollisionInfo.HandleGroundCheck();
             CollisionInfo.HandleWallCheck();
-
-            HandleMovement();
             
             UpdateAnimationVelocity();
             StateMachine.CurrentState.Update();

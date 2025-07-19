@@ -17,6 +17,7 @@ namespace Creatures.CreaturesStateMachine
         public static readonly int Attack = Animator.StringToHash("attack");
         public static readonly int Hit = Animator.StringToHash("hit");
         public static readonly int Die = Animator.StringToHash("die");
+        public static readonly int Aggro = Animator.StringToHash("aggro");
 
         private static readonly Dictionary<int, string> HashToName = new Dictionary<int, string>()
         {
@@ -29,7 +30,8 @@ namespace Creatures.CreaturesStateMachine
             { Jump, "jump" },
             { Attack, "attack" },
             { Hit, "hit" },
-            { Die, "die"}
+            { Die, "die"},
+            { Aggro, "aggro" },
         };
 
         public static string GetName(int hash)
