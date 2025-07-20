@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using Components;
+using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
 {
-    public class SharkyAttackState : SharkyState
+    public class SharkyAttackState : SharkyBattleState
     {
         public SharkyAttackState(Sharky enemySharky, CreatureStateMachine stateMachine, int animBoolName) 
             : base(enemySharky, stateMachine, animBoolName)
@@ -12,25 +14,29 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         public override void Enter()
         {
             base.Enter();
+            EnemySharky.Rb2D.velocity = Vector2.zero;
         }
 
         public override void Update()
         {
-            /*base.Update();
+            base.Update();
             
-            AnimatorStateInfo stateInfo = Sharky.AnimController.GetCurrentAnimatorStateInfo(0);
+            GameObject[] goArray = EnemySharky.SharkyCollisionInfo.GetObjectsInRange();
             
-            if (stateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Attack)) && stateInfo.normalizedTime >= 1f)
-            {
-                Sharky.StateMachine.ChangeState(Sharky.SharkyIdleState);
-                Debug.Log("End Attack");
-            }*/
-            
-        }
+            HealthComponent[] healthComponents 
+                = goArray.Select(obj => obj.GetComponent<HealthComponent>()).ToArray();
 
-        public override void Exit()
-        {
-            base.Exit();
+            Debug.Log(healthComponents[0].name);
+            
+            if (!EnemySharky.SharkyCollisionInfo.HeroDetection())
+            {
+                EnemySharky.StateMachine.ChangeState(EnemySharky.SharkyMoveState);
+            }
+
+            else if(!WithinAttackRange())
+            {
+                EnemySharky.StateMachine.ChangeState(EnemySharky.SharkyBattleState);
+            }
         }
     }
 }

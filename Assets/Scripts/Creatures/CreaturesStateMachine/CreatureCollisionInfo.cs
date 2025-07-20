@@ -20,16 +20,6 @@ namespace Creatures.CreaturesStateMachine
         [SerializeField] private float wallCheckDistance = 1f;
         public bool IsWallDetected { get; private set; }
         
-        [Header("Abyss Detected Info")]
-        [SerializeField] private Transform abyssCheckStartPos;
-        [SerializeField] private float abyssCheckDistance = 1f;
-        public bool IsAbyssDetected { get; private set; }
-        
-        [Header("Ground After Abyss Detected Info")]
-        [SerializeField] private Transform groundAfterAbyssCheckStartPos;
-        [SerializeField] private float groundAfterAbyssCheckDistance = 1f;
-        public bool IsGroundAfterAbyssDetected { get; private set; }
-        
         [Header("Interaction Collision Info")] 
         [SerializeField] private LayerMask whatIsInteraction;
         [SerializeField] private float interactionRadius;
@@ -62,27 +52,6 @@ namespace Creatures.CreaturesStateMachine
         {
             IsGrounded 
                 = Physics2D.Raycast(groundCheckStartPos.position, Vector2.down, groundCheckDistance, whatIsGround);
-        }
-
-        public void HandleAbyssCheck()
-        {
-            IsAbyssDetected = Physics2D.Raycast(
-                abyssCheckStartPos.position,
-                Vector2.down,
-                abyssCheckDistance,
-                whatIsGround
-            );
-            IsAbyssDetected = !IsAbyssDetected;
-        }
-
-        public void HandleGroundAfterAbyssCheck()
-        {
-            IsGroundAfterAbyssDetected = Physics2D.Raycast(
-                groundAfterAbyssCheckStartPos.position,
-                Vector2.down,
-                groundAfterAbyssCheckDistance,
-                whatIsGround
-            );
         }
         
         public void Interact()
@@ -128,47 +97,6 @@ namespace Creatures.CreaturesStateMachine
             // WallCheck
             Gizmos.color = IsWallDetected ? Color.green : Color.red;
             Gizmos.DrawWireCube(wallCheckStartPos.position, wallCheckBoxSize);
-            /*Vector2 toWall = new Vector2(wallCheckStartPos.position.x + wallCheckDistance, wallCheckStartPos.position.y);
-            Gizmos.DrawLine(wallCheckStartPos.position, toWall);*/
-
-            // Abyss Check
-            Gizmos.color = IsAbyssDetected ? Color.green : Color.red;
-            Vector2 toAbyss = 
-                new Vector2(abyssCheckStartPos.position.x, 
-                    abyssCheckStartPos.position.y - abyssCheckDistance);
-            Gizmos.DrawLine(abyssCheckStartPos.position, toAbyss);
-            
-            // Ground After Abyss Check
-            Gizmos.color = IsGroundAfterAbyssDetected ? Color.green : Color.red;
-            Vector2 toGroundAfterAbyss = 
-                new Vector2(groundAfterAbyssCheckStartPos.position.x, 
-                            groundAfterAbyssCheckStartPos.position.y - groundAfterAbyssCheckDistance);
-            Gizmos.DrawLine(groundAfterAbyssCheckStartPos.position, toGroundAfterAbyss);
-            
-            
-            // Ground check box
-            /*Vector3 groundCheckPos = transform.position + groundCheckOffset;
-            Gizmos.color = _isGrounded ? Color.green : Color.red;
-            Gizmos.DrawWireCube(groundCheckPos, groundBoxSize);*/
-
-            // Wall check box
-            /*if (_creature != null)
-            {
-                Gizmos.color = IsWallDetected ? Color.green : Color.red;
-                Gizmos.DrawWireCube(transform.position + (wallCheckOffset * _creature.FacingDirection), wallBoxSize);
-            }*/
-
-            // Interaction check circle
-            /*Gizmos.color = _isInteraction ? Color.green : Color.red;
-            Gizmos.DrawWireSphere(transform.position, interactionRadius);*/
-
-            /*if (_creature != null)
-            {
-                Gizmos.color = GetObjectsInRange().Length > 0
-                    ? HandlesUtils.TransparendGreen
-                    : HandlesUtils.TransparendRed;
-                Gizmos.DrawSphere(transform.position + offset * _creature.FacingDirection, radius);
-            }*/
         }
     }
 }

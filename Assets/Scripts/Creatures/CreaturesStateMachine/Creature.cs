@@ -61,7 +61,7 @@ namespace Creatures.CreaturesStateMachine
         
         public void SetDirection(float dir) => XInput = dir;
         
-        public void HandleMovement()
+        public virtual void HandleMovement()
         {
             Rb2D.velocity = new Vector2(XInput * movementSpeed, Rb2D.velocity.y);
         }

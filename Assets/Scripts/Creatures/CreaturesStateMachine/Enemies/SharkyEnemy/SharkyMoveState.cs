@@ -13,7 +13,6 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         public override void Enter()
         {
            base.Enter();
-           EnemySharky.SetDirection(Creature.FacingDirection);
         }
 
         public override void Update()
