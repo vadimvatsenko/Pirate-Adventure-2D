@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
 {
-    public class SharkyAttackState : SharkyBattleState
+    public class SharkyAttackState : SharkyGroundedState
     {
         public SharkyAttackState(Sharky enemySharky, CreatureStateMachine stateMachine, int animBoolName) 
             : base(enemySharky, stateMachine, animBoolName)
@@ -15,6 +15,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         {
             base.Enter();
             EnemySharky.Rb2D.velocity = Vector2.zero;
+            EnemySharky.CallOnAttackEvent();
         }
 
         public override void Update()
@@ -26,17 +27,17 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
             HealthComponent[] healthComponents 
                 = goArray.Select(obj => obj.GetComponent<HealthComponent>()).ToArray();
 
-            Debug.Log(healthComponents[0].name);
+            //Debug.Log(healthComponents[0].name);
             
             if (!EnemySharky.SharkyCollisionInfo.HeroDetection())
             {
                 EnemySharky.StateMachine.ChangeState(EnemySharky.SharkyMoveState);
             }
 
-            else if(!WithinAttackRange())
+            /*else if(!WithinAttackRange())
             {
                 EnemySharky.StateMachine.ChangeState(EnemySharky.SharkyBattleState);
-            }
+            }*/
         }
     }
 }

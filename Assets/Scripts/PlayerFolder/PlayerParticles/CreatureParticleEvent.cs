@@ -42,10 +42,12 @@ namespace PlayerFolder.PlayerParticles
         private void OnEnable()
         {
             _creature.SubscribeOnJumpEvent(HandleSpawnJumpParticle);
+            _creature.SubscribeOnAttackEvent(HandleSpawnAttack1Particle);
         }
         private void OnDisable()
         {
             _creature.UnsubscribeOnJumpEvent(HandleSpawnJumpParticle);
+            _creature.UnsubscribeOnAttackEvent(HandleSpawnAttack1Particle);
         }
 
         private void Update()

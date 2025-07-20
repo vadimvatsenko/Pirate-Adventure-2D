@@ -24,9 +24,11 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         public override void Update()
         {
             base.Update();
-            
-            if(WithinAttackRange()) 
+
+            if (WithinAttackRange())
+            {
                 EnemySharky.StateMachine.ChangeState(EnemySharky.SharkyAttackState);
+            }
             
             else
             {

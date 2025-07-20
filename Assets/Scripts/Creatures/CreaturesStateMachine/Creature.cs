@@ -34,6 +34,7 @@ namespace Creatures.CreaturesStateMachine
         
         // Events
         public event Action OnJumpEvent;
+        public event Action OnAttackEvent;
         
         protected virtual void Awake()
         {
@@ -58,6 +59,10 @@ namespace Creatures.CreaturesStateMachine
         public void CallOnJumpEvent() => OnJumpEvent?.Invoke();
         public void SubscribeOnJumpEvent(Action action) => OnJumpEvent += action;
         public void UnsubscribeOnJumpEvent(Action action) => OnJumpEvent -= action;
+        // Attack Event
+        public void CallOnAttackEvent() => OnAttackEvent?.Invoke();
+        public void SubscribeOnAttackEvent(Action action) => OnAttackEvent += action;
+        public void UnsubscribeOnAttackEvent(Action action) => OnAttackEvent -= action;
         
         public void SetDirection(float dir) => XInput = dir;
         
