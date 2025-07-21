@@ -12,34 +12,26 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
             : base(sharky, stateMachine, animBoolName)
         {
         }
-
+        
         public override void Enter()
         {
             base.Enter();
-            _aggroDuration = Sharky.AggroDuration;
-            _aggroTimer = 0f;
-            _isAggroing = true;
+            Rb2D.velocity = Vector2.zero;
         }
 
         public override void Update()
         {
             base.Update();
-            
-            ArrgoTimer();
-        }
-
-        public override void Exit()
-        {
-            base.Exit();
-        }
-
-        private void ArrgoTimer()
-        {
-            _aggroTimer += Time.deltaTime;
-            if (_aggroTimer >= _aggroDuration)
+            if (AnimatorContr.GetCurrentAnimatorStateInfo(0).IsName("Sharky_AGGRO") &&
+                AnimatorContr.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
             {
-                _isAggroing = false;
+                OnAggroEnded();
             }
+        }
+
+        public void OnAggroEnded()
+        {
+            StateMachine.ChangeState(Sharky.BattleState);
         }
     }
 }

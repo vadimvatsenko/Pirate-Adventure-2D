@@ -26,30 +26,35 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         public override void Update()
         {
             base.Update();
+            
 
-            if (CollisionInfo.HeroDetection())
+            if (CollisionInfo.HeroDetection()) UpdateBattleTimer();
+            
+            if (BattleTimeIsOver()) StateMachine.ChangeState(Sharky.IdleState);
             {
-                UpdateBattleTimer();
-                Debug.Log("UpdateBattleTimer");
-            }
-
-            if (BattleTimeIsOver())
-            {
-                StateMachine.ChangeState(Sharky.IdleState);
-                Debug.Log("BattleTime Is Over");
+                
             }
             
+            //
             if (WithinAttackRange())
             {
-                StateMachine.ChangeState(Sharky.AttackState);
+                Debug.Log("Is Attack");
+                //StateMachine.ChangeState(Sharky.AttackState);
             }
             
             else
             {
-                Debug.Log(DirectionToPlayer());
+                Debug.Log("Follow Target");
+
+                if (DirectionToPlayer() != Sharky.FacingDirection)
+                {
+                    Sharky.HandleFlip();
+                }
+                
                 Sharky.Rb2D.velocity 
                     = new Vector2(Sharky.BattleSpeed * DirectionToPlayer(), Rb2D.velocity.y);
             }
+            //
 
             if (CollisionInfo.IsAbyssDetected)
             {
@@ -68,12 +73,19 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
 
         private int DirectionToPlayer()
         {
-            if (_heroPos == null) return 0;
+            if (_heroPos == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return _heroPos.position.x > Sharky.transform.position.x ? 1 : -1;
+            }
             
-            return _heroPos.position.x > Sharky.transform.position.x ? 1 : -1;
         }
 
-        private void UpdateBattleTimer() => _lastTimeInBattle += Time.time;
-        private bool BattleTimeIsOver() => Time.time >= _lastTimeInBattle + Sharky.BattleTimeDuration;
+        // в Update постоянно записываем внутриигровое время
+        private void UpdateBattleTimer() => _lastTimeInBattle = Time.time;
+        private bool BattleTimeIsOver() => Time.time > _lastTimeInBattle + Sharky.BattleTimeDuration;
     }
 }

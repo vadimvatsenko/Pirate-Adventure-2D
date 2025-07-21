@@ -38,7 +38,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
             MoveState = new SharkyMoveState(this, StateMachine, AnimatorHashes.Move);
             JumpState = new SharkyJumpState(this, StateMachine, AnimatorHashes.Jump);
             FallState = new SharkyFallState(this, StateMachine, AnimatorHashes.Fall);
-            //AggroState = new SharkyAggroState(this, StateMachine, AnimatorHashes.Aggro);
+            AggroState = new SharkyAggroState(this, StateMachine, AnimatorHashes.Aggro);
             AttackState = new SharkyAttackState(this, StateMachine, AnimatorHashes.Attack);
             BattleState = new SharkyBattleState(this, StateMachine, AnimatorHashes.Battle);
             
@@ -67,7 +67,9 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         protected override void UpdateAnimationVelocity()
         {
             base.UpdateAnimationVelocity();
+            
             // это множитель для анимации. Он будет увеличивать скорость анимации преследования игрока
+            // в редакторе в Аниматоре, нажимаем на blandTree в инспекторе Multyply => parameters => battleAnimSpeed
             float battleAnimSpeed = BattleSpeed / MovementSpeed; 
             AnimController.SetFloat(AnimatorHashes.BattleAnimSpeed, battleAnimSpeed);
         }
