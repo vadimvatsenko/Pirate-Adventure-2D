@@ -19,7 +19,7 @@ namespace Creatures.CreaturesStateMachine
         public float JumpForce => jumpForce;
         
         // Components
-        public Animator AnimController { get; private set; }
+        public Animator AnimController { get; protected set; }
         public CreatureCollisionInfo CollisionInfo { get; private set; }
         public CreatureStateMachine StateMachine { get; protected set; }
         public Rigidbody2D Rb2D { get; private set; }
@@ -40,7 +40,9 @@ namespace Creatures.CreaturesStateMachine
         {
             Rb2D = GetComponent<Rigidbody2D>();
             C2D = GetComponent<Collider2D>();
+            
             AnimController = GetComponentInChildren<Animator>();
+            
             CollisionInfo = GetComponent<CreatureCollisionInfo>();
             StateMachine = new CreatureStateMachine();
         }
@@ -71,7 +73,7 @@ namespace Creatures.CreaturesStateMachine
             Rb2D.velocity = new Vector2(XInput * movementSpeed, Rb2D.velocity.y);
         }
 
-        private void UpdateAnimationVelocity()
+        protected virtual void UpdateAnimationVelocity()
         {
             AnimController.SetFloat(AnimatorHashes.YVelocity, Rb2D.velocity.y);
             AnimController.SetFloat(AnimatorHashes.XVelocity, Rb2D.velocity.x);
@@ -91,5 +93,6 @@ namespace Creatures.CreaturesStateMachine
             FacingDirection *= -1;
             transform.Rotate(0f, 180f, 0f);
         }
+        
     }
 }

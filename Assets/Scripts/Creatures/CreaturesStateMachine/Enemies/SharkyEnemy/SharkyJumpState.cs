@@ -4,18 +4,18 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
 {
     public class SharkyJumpState : SharkyAiredState
     {
-        public SharkyJumpState(Sharky enemySharky, CreatureStateMachine stateMachine, int animBoolName) 
-            : base(enemySharky, stateMachine, animBoolName)
+        public SharkyJumpState(SharkyE sharky, CreatureStateMachine stateMachine, int animBoolName) 
+            : base(sharky, stateMachine, animBoolName)
         {
         }
 
         public override void Enter()
         {
             base.Enter();
-            Debug.Log(EnemySharky.Rb2D.velocity);
-            EnemySharky.Rb2D.velocity = new Vector2(2.5f, 3f);
-            Debug.Log(EnemySharky.Rb2D.velocity);
-            EnemySharky.CallOnJumpEvent();
+            Debug.Log(Rb2D.velocity);
+            Rb2D.velocity = new Vector2(2.5f, 3f);
+            Debug.Log(Rb2D.velocity);
+            Sharky.CallOnJumpEvent();
         }
 
         public override void Update()

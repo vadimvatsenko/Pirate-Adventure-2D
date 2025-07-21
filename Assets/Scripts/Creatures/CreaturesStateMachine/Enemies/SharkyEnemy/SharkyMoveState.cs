@@ -5,8 +5,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
 {
     public class SharkyMoveState : SharkyGroundedState
     {
-        public SharkyMoveState(Sharky enemySharky, CreatureStateMachine stateMachine, int animBoolName) 
-            : base(enemySharky, stateMachine, animBoolName)
+        public SharkyMoveState(SharkyE sharky, CreatureStateMachine stateMachine, int animBoolName) 
+            : base(sharky, stateMachine, animBoolName)
         {
         }
         
@@ -18,7 +18,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         public override void Update()
         {
             base.Update();
-            EnemySharky.HandleMovement();
+            Sharky.HandleMovement();
         }
 
         public override void Exit()

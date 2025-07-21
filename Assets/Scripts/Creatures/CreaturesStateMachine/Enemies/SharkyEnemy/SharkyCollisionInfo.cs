@@ -60,14 +60,19 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         protected override void OnDrawGizmos()
         {
             base.OnDrawGizmos();
+
+            if (Creature != null)
+            {
+                Gizmos.color = Color.yellow;
+                Gizmos.DrawLine(Creature.transform.position,
+                    new Vector2(Creature.transform.position.x + (Creature.FacingDirection * distanceToHero), 
+                        Creature.transform.position.y));
             
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawLine(Creature.transform.position,
-                new Vector2(Creature.transform.position.x + (Creature.FacingDirection * distanceToHero), Creature.transform.position.y));
-            
-            Gizmos.color = Color.blue;
-            Gizmos.DrawLine(Creature.transform.position,
-                new Vector2(Creature.transform.position.x + (Creature.FacingDirection * attackDistance), Creature.transform.position.y));
+                Gizmos.color = Color.blue;
+                Gizmos.DrawLine(Creature.transform.position,
+                    new Vector2(Creature.transform.position.x + (Creature.FacingDirection * attackDistance), 
+                        Creature.transform.position.y));
+            }
             
             // Abyss Check
             Gizmos.color = IsAbyssDetected ? Color.green : Color.red;

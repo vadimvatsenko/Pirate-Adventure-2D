@@ -2,8 +2,8 @@
 {
     public class SharkyFallState : SharkyAiredState
     {
-        public SharkyFallState(Sharky enemySharky, CreatureStateMachine stateMachine, int animBoolName) 
-            : base(enemySharky, stateMachine, animBoolName)
+        public SharkyFallState(SharkyE sharky, CreatureStateMachine stateMachine, int animBoolName) 
+            : base(sharky, stateMachine, animBoolName)
         {
         }
 

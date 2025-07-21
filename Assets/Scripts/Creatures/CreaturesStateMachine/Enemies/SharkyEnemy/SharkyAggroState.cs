@@ -8,15 +8,15 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         private float _aggroDuration;
         private bool _isAggroing;
         
-        public SharkyAggroState(Sharky enemySharky, CreatureStateMachine stateMachine, int animBoolName) 
-            : base(enemySharky, stateMachine, animBoolName)
+        public SharkyAggroState(SharkyE sharky, CreatureStateMachine stateMachine, int animBoolName) 
+            : base(sharky, stateMachine, animBoolName)
         {
         }
 
         public override void Enter()
         {
             base.Enter();
-            _aggroDuration = EnemySharky.AggroDuration;
+            _aggroDuration = Sharky.AggroDuration;
             _aggroTimer = 0f;
             _isAggroing = true;
         }

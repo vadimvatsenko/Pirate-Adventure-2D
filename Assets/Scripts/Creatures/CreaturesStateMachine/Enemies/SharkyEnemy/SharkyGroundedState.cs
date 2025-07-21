@@ -4,34 +4,30 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
 {
     public class SharkyGroundedState : SharkyState
     {
-        public SharkyGroundedState(Sharky enemySharky, CreatureStateMachine stateMachine, int animBoolName) 
-            : base(enemySharky, stateMachine, animBoolName)
+        public SharkyGroundedState(SharkyE sharky, CreatureStateMachine stateMachine, int animBoolName) 
+            : base(sharky, stateMachine, animBoolName)
         {
         }
         
         public override void Update()
         {
             base.Update();
-
             
-            RaycastHit2D hit = EnemySharky.SharkyCollisionInfo.HeroDetection();
-            //Debug.Log(hit.transform);
-            
-            if (EnemySharky.SharkyCollisionInfo.IsGroundAfterAbyssDetected && EnemySharky.SharkyCollisionInfo.IsAbyssDetected)
+            /*if (Sharky.SharkyCollisionInfo.IsGroundAfterAbyssDetected && Sharky.SharkyCollisionInfo.IsAbyssDetected)
             {
-                EnemySharky.StateMachine.ChangeState(EnemySharky.SharkyJumpState);
-            }
+                Sharky.StateMachine.ChangeState(Sharky.JumpState);
+            }*/
 
-            else if (EnemySharky.SharkyCollisionInfo.IsWallDetected || EnemySharky.SharkyCollisionInfo.IsAbyssDetected)
+            if (Sharky.SharkyCollisionInfo.IsWallDetected || Sharky.SharkyCollisionInfo.IsAbyssDetected)
             {
-                EnemySharky.Rb2D.velocity = Vector2.zero;
-                EnemySharky.StateMachine.ChangeState(EnemySharky.SharkyIdleState);
-                EnemySharky.HandleFlip();
+                Rb2D.velocity = Vector2.zero;
+                Sharky.HandleFlip();
+                StateMachine.ChangeState(Sharky.IdleState);
             } 
             
-            else if (EnemySharky.SharkyCollisionInfo.HeroDetection())
+            else if (CollisionInfo.HeroDetection())
             {
-                EnemySharky.StateMachine.ChangeState(EnemySharky.SharkyBattleState);
+                StateMachine.ChangeState(Sharky.BattleState);
             }
         }
     }

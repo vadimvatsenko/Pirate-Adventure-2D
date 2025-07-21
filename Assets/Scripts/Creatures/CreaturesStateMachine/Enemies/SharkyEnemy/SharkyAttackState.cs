@@ -1,43 +1,43 @@
 ﻿using System.Linq;
 using Components;
+using Components.HealthComponentFolder;
 using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
 {
-    public class SharkyAttackState : SharkyGroundedState
+    public class SharkyAttackState : SharkyState
     {
-        public SharkyAttackState(Sharky enemySharky, CreatureStateMachine stateMachine, int animBoolName) 
-            : base(enemySharky, stateMachine, animBoolName)
+        public SharkyAttackState(SharkyE sharky, CreatureStateMachine stateMachine, int animBoolName) 
+            : base(sharky, stateMachine, animBoolName)
         {
         }
 
         public override void Enter()
         {
             base.Enter();
-            EnemySharky.Rb2D.velocity = Vector2.zero;
-            EnemySharky.CallOnAttackEvent();
+            //Rb2D.velocity = Vector2.zero;
+            Sharky.CallOnAttackEvent();
         }
 
         public override void Update()
         {
             base.Update();
+        }
+        
+        public void Attack()
+        {
+            if(!CollisionInfo.IsGrounded) return;
             
-            GameObject[] goArray = EnemySharky.SharkyCollisionInfo.GetObjectsInRange();
+            var gos = CollisionInfo.GetObjectsInRange();
             
-            HealthComponent[] healthComponents 
-                = goArray.Select(obj => obj.GetComponent<HealthComponent>()).ToArray();
-
-            //Debug.Log(healthComponents[0].name);
-            
-            if (!EnemySharky.SharkyCollisionInfo.HeroDetection())
+            foreach (var go in gos)
             {
-                EnemySharky.StateMachine.ChangeState(EnemySharky.SharkyMoveState);
+                var hp = go.GetComponent<IHealthComponent>();
+                if (hp != null)
+                {
+                    hp.ApplyDamage(1);
+                }
             }
-
-            /*else if(!WithinAttackRange())
-            {
-                EnemySharky.StateMachine.ChangeState(EnemySharky.SharkyBattleState);
-            }*/
         }
     }
 }

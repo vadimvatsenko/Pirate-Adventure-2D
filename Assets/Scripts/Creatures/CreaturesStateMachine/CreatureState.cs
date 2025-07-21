@@ -1,4 +1,5 @@
-﻿using Creatures.Player;
+﻿using System;
+using Creatures.Player;
 using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine
@@ -7,7 +8,9 @@ namespace Creatures.CreaturesStateMachine
     {
         protected Creature Creature;
         protected CreatureStateMachine StateMachine;
-        private readonly int _animBoolName;
+        protected int _animBoolName;
+        public event Action OnEnterEvent; // вход в анимацию
+        public event Action OnExitEvent; // выход с анимации
 
         public CreatureState(Creature creature, CreatureStateMachine stateMachine, int animBoolName)
         {
@@ -19,6 +22,7 @@ namespace Creatures.CreaturesStateMachine
         public virtual void Enter()
         {
             Creature.AnimController.SetBool(_animBoolName, true); // вход
+            OnEnterEvent?.Invoke();
         }
 
         public virtual void Update()
@@ -29,6 +33,7 @@ namespace Creatures.CreaturesStateMachine
         public virtual void Exit()
         {
             Creature.AnimController.SetBool(_animBoolName, false); // выход
+            OnExitEvent?.Invoke();
         }
     }
 }

@@ -18,7 +18,7 @@ namespace Creatures.CreaturesStateMachine.Hero
         {
             base.Update();
             
-            if (Hero.CollisionInfo.IsGrounded && Hero.Rb2D.velocity.y <= 0)
+            if (Hero.CollisionInfo.IsGrounded && Hero.Rb2D.velocity.y <= 0.1f)
             {
                 StateMachine.ChangeState(Hero.HeroIdleState);
             }

@@ -7,15 +7,15 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         private float _idleTime;
         private float _idleDuration;
         
-        public SharkyIdleState(Sharky enemySharky, CreatureStateMachine stateMachine, int animBoolName) 
-            : base(enemySharky, stateMachine, animBoolName)
+        public SharkyIdleState(SharkyE sharky, CreatureStateMachine stateMachine, int animBoolName) 
+            : base(sharky, stateMachine, animBoolName)
         {
         }
         public override void Enter()
         {
             base.Enter();
-            _idleDuration = EnemySharky.IdleDuration;
-            EnemySharky.Rb2D.velocity = Vector2.zero;
+            _idleDuration = Sharky.IdleDuration;
+            Rb2D.velocity = Vector2.zero;
         }
 
         public override void Update()
@@ -25,7 +25,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
 
             if (_idleDuration <= 0)
             {
-                StateMachine.ChangeState(EnemySharky.SharkyMoveState);
+                StateMachine.ChangeState(Sharky.MoveState);
             }
         }
 

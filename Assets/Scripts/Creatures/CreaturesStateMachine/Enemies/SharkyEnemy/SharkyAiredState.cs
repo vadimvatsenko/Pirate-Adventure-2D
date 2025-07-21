@@ -2,8 +2,8 @@
 {
     public class SharkyAiredState : SharkyState
     {
-        public SharkyAiredState(Sharky enemySharky, CreatureStateMachine stateMachine, int animBoolName) 
-            : base(enemySharky, stateMachine, animBoolName)
+        public SharkyAiredState(SharkyE sharky, CreatureStateMachine stateMachine, int animBoolName) 
+            : base(sharky, stateMachine, animBoolName)
         {
         }
         
@@ -11,9 +11,9 @@
         {
             base.Update();
             
-            if (EnemySharky.CollisionInfo.IsGrounded && EnemySharky.Rb2D.velocity.y <= 0)
+            if (CollisionInfo.IsGrounded && Rb2D.velocity.y <= 0)
             {
-                StateMachine.ChangeState(EnemySharky.SharkyMoveState);
+                StateMachine.ChangeState(Sharky.MoveState);
             }
         }
     }
