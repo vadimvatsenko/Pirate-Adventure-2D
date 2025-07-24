@@ -22,10 +22,6 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         public float BattleTimeDuration => battleTimeDuration;
         
         public SharkyCollisionInfo SharkyCollisionInfo { get; private set; }
-        public SharkyIdleState IdleState { get; private set; }
-        public SharkyMoveState MoveState { get; private set; }
-        public SharkyJumpState JumpState { get; private set; }
-        public SharkyFallState FallState { get; private set; }
         public SharkyAggroState AggroState { get; private set; }
         public SharkyAttackState AttackState {get; private set;}
         public SharkyBattleState BattleState { get; private set; }
