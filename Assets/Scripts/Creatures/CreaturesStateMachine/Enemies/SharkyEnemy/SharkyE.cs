@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using Creatures.AnimationControllers;
+using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
 {
@@ -9,7 +11,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         public float IdleDuration => idleDuration;
         
         [Header("Aggro Info")]
-        [SerializeField] private float aggroDuration = 2f;
+        [SerializeField] private float aggroDuration = 0.75f;
         public float AggroDuration => aggroDuration;
 
         [Header("Battle Info")] 
@@ -27,6 +29,19 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         public SharkyAggroState AggroState { get; private set; }
         public SharkyAttackState AttackState {get; private set;}
         public SharkyBattleState BattleState { get; private set; }
+        
+        // Aggro Event
+        public event Action OnAgroEvent;
+        public void CallOnAgroEvent() => OnAgroEvent?.Invoke();
+        public void SubscribeOnAgroEvent(Action action) => OnAgroEvent += action;
+        public void UnsubscribeOnAgroEvent(Action action) => OnAgroEvent -= action;
+        // 
+        // WTF Event
+        public event Action OnWTFEvent;
+        public void CallOnWTFEvent() => OnWTFEvent?.Invoke();
+        public void SubscribeOnWTFEvent(Action action) => OnWTFEvent += action;
+        public void UnsubscribeOnWTFEvent(Action action) => OnWTFEvent -= action;
+        
         
         protected override void Awake()
         {

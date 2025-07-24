@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Creatures.CreaturesStateMachine
+namespace Creatures.AnimationControllers
 {
     public abstract class AnimatorHashes
     {

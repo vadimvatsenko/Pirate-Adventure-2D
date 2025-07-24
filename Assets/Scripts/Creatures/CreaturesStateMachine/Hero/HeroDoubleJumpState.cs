@@ -4,8 +4,8 @@ namespace Creatures.CreaturesStateMachine.Hero
 {
     public class HeroDoubleJumpState : HeroAiredState
     {
-        public HeroDoubleJumpState(Hero hero, CreatureStateMachine stateMachine, int animBoolName) 
-            : base(hero, stateMachine, animBoolName)
+        public HeroDoubleJumpState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
+            : base(hr, stateMachine, animBoolName)
         {
         }
 
@@ -13,16 +13,16 @@ namespace Creatures.CreaturesStateMachine.Hero
         {
             base.Enter();
             
-            Hero.Rb2D.velocity = new Vector2(Hero.Rb2D.velocity.x, Hero.DoubleJumpForce);
+            Rb2D.velocity = new Vector2(Rb2D.velocity.x, Hr.DoubleJumpForce);
         }
 
         public override void Update()
         {
             base.Update();
             
-            if (Hero.Rb2D.velocity.y < 0)
+            if (Rb2D.velocity.y < 0)
             {
-                Hero.StateMachine.ChangeState(Hero.HeroFallState);
+                StateMachine.ChangeState(Hr.FallState);
             }
         }
 

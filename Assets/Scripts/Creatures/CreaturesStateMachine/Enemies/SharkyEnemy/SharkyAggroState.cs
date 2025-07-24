@@ -2,11 +2,9 @@
 
 namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
 {
-    public class SharkyAggroState : SharkyGroundedState
+    public class SharkyAggroState : SharkyState
     {
         private float _aggroTimer = 0f;
-        private float _aggroDuration;
-        private bool _isAggroing;
         
         public SharkyAggroState(SharkyE sharky, CreatureStateMachine stateMachine, int animBoolName) 
             : base(sharky, stateMachine, animBoolName)
@@ -17,15 +15,18 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         {
             base.Enter();
             Rb2D.velocity = Vector2.zero;
+            Sharky.CallOnAgroEvent();
         }
 
         public override void Update()
         {
             base.Update();
-            if (AnimatorContr.GetCurrentAnimatorStateInfo(0).IsName("Sharky_AGGRO") &&
-                AnimatorContr.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
+            
+            _aggroTimer += Time.deltaTime;
+            if (_aggroTimer >= Sharky.AggroDuration)
             {
                 OnAggroEnded();
+                _aggroTimer = 0f;
             }
         }
 

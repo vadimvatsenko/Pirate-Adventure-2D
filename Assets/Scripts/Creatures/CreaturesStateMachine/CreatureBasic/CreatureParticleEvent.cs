@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Components;
-using Creatures;
-using Creatures.CreaturesStateMachine;
+using PlayerFolder.PlayerParticles;
 using UnityEngine;
 
-namespace PlayerFolder.PlayerParticles
+namespace Creatures.CreaturesStateMachine
 {
     public class CreatureParticleEvent :MonoBehaviour
     {
@@ -20,9 +18,9 @@ namespace PlayerFolder.PlayerParticles
         private const float MinJumpHeight = 11.1f;
         private float _currentJumpHeight;
 
-        private float _moveSpawnTimer = 0.25f;
+        protected float MoveSpawnTimer = 0.25f;
         
-        private void Awake()
+        protected virtual void Awake()
         { 
             _creature = GetComponentInParent<Creature>();
             
@@ -39,12 +37,13 @@ namespace PlayerFolder.PlayerParticles
             }
         }
 
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             _creature.SubscribeOnJumpEvent(HandleSpawnJumpParticle);
             _creature.SubscribeOnAttackEvent(HandleSpawnAttack1Particle);
+            
         }
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
             _creature.UnsubscribeOnJumpEvent(HandleSpawnJumpParticle);
             _creature.UnsubscribeOnAttackEvent(HandleSpawnAttack1Particle);
@@ -54,17 +53,22 @@ namespace PlayerFolder.PlayerParticles
         {
             HandleSpawnFallPartical();
             HandleSpawnMovementPartical();
+
+            HandleTimer();
         }
         
-        public void HandleSpawnMovementPartical()
+        protected virtual void HandleSpawnMovementPartical()
         {
-            _moveSpawnTimer -= Time.deltaTime;
-            
-            if (_creature.XInput != 0 && _moveSpawnTimer <= 0 && _collisionInfo.IsGrounded)
+            if (_creature.XInput != 0 && MoveSpawnTimer <= 0 && _collisionInfo.IsGrounded)
             {
                 HandleSpawn(ParticleType.Move);
-                _moveSpawnTimer = 0.25f;
+                MoveSpawnTimer = 0.25f;
             }
+        }
+
+        private void HandleTimer()
+        {
+            MoveSpawnTimer -= Time.deltaTime;
         }
 
         
@@ -84,7 +88,7 @@ namespace PlayerFolder.PlayerParticles
             }
         }
 
-        private void HandleSpawn(ParticleType type)
+        protected void HandleSpawn(ParticleType type)
         {
             if (_particleMap.TryGetValue(type, out SpawnComponent particle))
             {
@@ -93,7 +97,6 @@ namespace PlayerFolder.PlayerParticles
         }
         private void HandleSpawnJumpParticle() => HandleSpawn(ParticleType.Jump);
         private void HandleSpawnAttack1Particle() => HandleSpawn(ParticleType.Attack1);
-        public void HandleExclamationParticle() => HandleSpawn(ParticleType.Exclamation);
-        public void SpawnWtf() => HandleSpawn(ParticleType.Interrogation);
+        
     }
 }

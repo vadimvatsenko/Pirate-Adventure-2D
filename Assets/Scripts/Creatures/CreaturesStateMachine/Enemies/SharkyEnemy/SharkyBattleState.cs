@@ -30,31 +30,26 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
 
             if (CollisionInfo.HeroDetection()) UpdateBattleTimer();
             
-            if (BattleTimeIsOver()) StateMachine.ChangeState(Sharky.IdleState);
+            if (BattleTimeIsOver()) 
             {
-                
+                Sharky.CallOnWTFEvent();
+                StateMachine.ChangeState(Sharky.IdleState);
             }
             
             //
             if (WithinAttackRange())
             {
-                Debug.Log("Is Attack");
+                //Debug.Log("Is Attack");
                 //StateMachine.ChangeState(Sharky.AttackState);
             }
             
             else
             {
-                Debug.Log("Follow Target");
+                if (DirectionToPlayer() != Sharky.FacingDirection) Sharky.HandleFlip();
 
-                if (DirectionToPlayer() != Sharky.FacingDirection)
-                {
-                    Sharky.HandleFlip();
-                }
-                
                 Sharky.Rb2D.velocity 
                     = new Vector2(Sharky.BattleSpeed * DirectionToPlayer(), Rb2D.velocity.y);
             }
-            //
 
             if (CollisionInfo.IsAbyssDetected)
             {

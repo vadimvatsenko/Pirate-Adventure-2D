@@ -4,28 +4,27 @@ namespace Creatures.CreaturesStateMachine.Hero
 {
     public class HeroMoveState : HeroGroundState
     {
-        private readonly Hero _hero;
-        public HeroMoveState(Hero hero, CreatureStateMachine stateMachine, int animBoolName) 
-            : base(hero, stateMachine, animBoolName)
+        
+        public HeroMoveState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
+            : base(hr, stateMachine, animBoolName)
         {
-            _hero = hero;
         }
 
         public override void Enter()
         {
             base.Enter();
-            _hero.Rb2D.velocity = new Vector2(Hero.XInput * Hero.MovementSpeed, Hero.Rb2D.velocity.y);
+            Rb2D.velocity = new Vector2(Hr.XInput * Hr.MovementSpeed, Rb2D.velocity.y);
         }
 
         public override void Update()
         {
             base.Update();
             
-            if (_hero.XInput == 0)
+            if (Hr.XInput == 0)
             {
-                _hero.StateMachine.ChangeState(_hero.HeroIdleState);
+                StateMachine.ChangeState(Hr.IdleState);
             }
-            _hero.Rb2D.velocity = new Vector2(Hero.XInput * Hero.MovementSpeed, Hero.Rb2D.velocity.y);
+            Rb2D.velocity = new Vector2(Hr.XInput * Hr.MovementSpeed, Hr.Rb2D.velocity.y);
         }
 
         public override void Exit()

@@ -1,4 +1,5 @@
 ﻿using Components.HealthComponentFolder;
+using Creatures.AnimationControllers;
 using Model;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,7 +8,7 @@ namespace Creatures.CreaturesStateMachine.Hero
 {
     public class Hero : Creature
     {
-        private GameSession _gameSession;
+        public GameSession GameSess { get; private set;}
         public NewInputSet NewInputSet { get; private set; }
         
         [Header("DoubleJump Info")] 
@@ -19,38 +20,22 @@ namespace Creatures.CreaturesStateMachine.Hero
         [Header("Attack Info")] 
         [SerializeField] private int attackForce;
         
-        // Animation Controllers
-        [Header("Animator Controllers")]
-        [SerializeField] private RuntimeAnimatorController withoutArmor;
-        [SerializeField] private RuntimeAnimatorController withArmor;
-        public RuntimeAnimatorController WithoutArmor => withoutArmor;
-        public RuntimeAnimatorController WithArmor => withArmor;
-        
-        // States
-        public HeroIdleState HeroIdleState { get; private set; }
-        public HeroMoveState HeroMoveState { get; private set; }
-        public HeroJumpState HeroJumpState { get; private set; }
-        public HeroDoubleJumpState HeroDoubleJumpState { get; private set; }
-        public HeroFallState HeroFallState { get; private set; }
-        public HeroDieState HeroDieState { get; private set; }
-
         protected override void Awake()
         {
             base.Awake();
             NewInputSet = new NewInputSet();
-            _gameSession = FindObjectOfType<GameSession>();
+            GameSess = FindObjectOfType<GameSession>();
         }
         
         private void Start()
         {
-            HeroIdleState = new HeroIdleState(this, StateMachine, AnimatorHashes.Idle);
-            HeroMoveState = new HeroMoveState(this, StateMachine, AnimatorHashes.Move);
-            HeroJumpState = new HeroJumpState(this, StateMachine, AnimatorHashes.JumpFall);
-            HeroDoubleJumpState = new HeroDoubleJumpState(this, StateMachine, AnimatorHashes.JumpFall); 
-            HeroFallState = new HeroFallState(this, StateMachine, AnimatorHashes.JumpFall);
-            HeroDieState = new HeroDieState(this, StateMachine, AnimatorHashes.Die);
-            
-            StateMachine.Initialize(HeroIdleState);
+            IdleState = new HeroIdleState(this, StateMachine, AnimatorHashes.Idle);
+            MoveState = new HeroMoveState(this, StateMachine, AnimatorHashes.Move);
+            JumpState = new HeroJumpState(this, StateMachine, AnimatorHashes.JumpFall);
+            DoubleJumpState = new HeroDoubleJumpState(this, StateMachine, AnimatorHashes.JumpFall); 
+            FallState = new HeroFallState(this, StateMachine, AnimatorHashes.JumpFall);
+            DeadState = new HeroDieState(this, StateMachine, AnimatorHashes.Die);
+            StateMachine.Initialize(IdleState);
         }
 
         private void OnEnable()
@@ -106,20 +91,5 @@ namespace Creatures.CreaturesStateMachine.Hero
             CanDoubleJump = false;
         }*/
         
-        public void Attack()
-        {
-            if (!_gameSession.PlayerData.isArmed || !CollisionInfo.IsGrounded) return;
-            
-            var gos = CollisionInfo.GetObjectsInRange();
-            
-            foreach (var go in gos)
-            {
-                var hp = go.GetComponent<IHealthComponent>();
-                if (hp != null)
-                {
-                    hp.ApplyDamage(attackForce);
-                }
-            }
-        }
     }
 }

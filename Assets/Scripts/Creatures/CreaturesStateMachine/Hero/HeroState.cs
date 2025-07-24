@@ -5,13 +5,13 @@ namespace Creatures.CreaturesStateMachine.Hero
 {
     public class HeroState : CreatureState
     {
-        protected Hero Hero;
+        protected readonly Hero Hr;
         private readonly PlayerHealthComponent _healthComponent;
-        public HeroState(Hero hero, CreatureStateMachine stateMachine, int animBoolName) 
-            : base(hero, stateMachine, animBoolName)
+        public HeroState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
+            : base(hr, stateMachine, animBoolName)
         {
-            Hero = hero;
-            _healthComponent = Hero.GetComponent<PlayerHealthComponent>();
+            Hr = hr;
+            _healthComponent = Hr.GetComponent<PlayerHealthComponent>();
             _healthComponent.OnDeath += DeathHero;
         }
 
@@ -19,25 +19,10 @@ namespace Creatures.CreaturesStateMachine.Hero
         {
             _healthComponent.OnDeath -= DeathHero;
         }
-
-        public override void Enter()
-        {
-            base.Enter();
-        }
-
-        public override void Update()
-        {
-            base.Update();
-        }
-
-        public override void Exit()
-        {
-            base.Exit();
-        }
-
+        
         private void DeathHero()
         {
-            Hero.StateMachine.ChangeState(Hero.HeroDieState);
+            Hr.StateMachine.ChangeState(Hr.DeadState);
         }
     }
 }

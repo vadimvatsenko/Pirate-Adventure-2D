@@ -4,8 +4,8 @@ namespace Creatures.CreaturesStateMachine.Hero
 {
     public class HeroGroundState : HeroState
     {
-        public HeroGroundState(Hero hero, CreatureStateMachine stateMachine, int animBoolName) 
-            : base(hero, stateMachine, animBoolName)
+        public HeroGroundState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
+            : base(hr, stateMachine, animBoolName)
         {
         }
         
@@ -13,14 +13,14 @@ namespace Creatures.CreaturesStateMachine.Hero
         {
             base.Update();
 
-            if (Hero.Rb2D.velocity.y < 0.1f && !Hero.CollisionInfo.IsGrounded)
+            if (Rb2D.velocity.y < 0.1f && !CollisionInfo.IsGrounded)
             {
-                StateMachine.ChangeState(Hero.HeroFallState);
+                StateMachine.ChangeState(Hr.FallState);
             }
             
-            if (Hero.NewInputSet.Hero.Jump.triggered && Hero.CollisionInfo.IsGrounded)
+            if (Hr.NewInputSet.Hero.Jump.triggered && CollisionInfo.IsGrounded)
             {
-                Hero.StateMachine.ChangeState(Hero.HeroJumpState);
+                StateMachine.ChangeState(Hr.JumpState);
             }
         }
     }

@@ -39,12 +39,12 @@ namespace Creatures
 
             if (_hero.CollisionInfo.IsGrounded)
             {
-                _hero.StateMachine.ChangeState(_hero.HeroJumpState);
+                //_hero.StateMachine.ChangeState(_hero.HeroJumpState);
             }
 
             if (_hero.CanDoubleJump && _hero.IsAirBorn)
             {
-                _hero.StateMachine.ChangeState(_hero.HeroDoubleJumpState);
+                //_hero.StateMachine.ChangeState(_hero.HeroDoubleJumpState);
             }
 
             //OnPressJumpButtonPressed?.Invoke(context.isPressed);

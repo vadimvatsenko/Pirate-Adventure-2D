@@ -4,29 +4,42 @@ namespace Creatures.CreaturesStateMachine.Hero
 {
     public class HeroFallState : HeroAiredState
     {
-        public HeroFallState(Hero hero, CreatureStateMachine stateMachine, int animBoolName) 
-            : base(hero, stateMachine, animBoolName)
+        private float _startFallY;
+        
+        public HeroFallState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
+            : base(hr, stateMachine, animBoolName)
         {
         }
 
         public override void Enter()
         {
             base.Enter();
+            
+            // фиксируем позицию по Y во время падения
+            _startFallY = Hr.transform.position.y;
         }
 
         public override void Update()
         {
             base.Update();
             
-            if (Hero.CollisionInfo.IsGrounded && Hero.Rb2D.velocity.y <= 0.1f)
+            if (CollisionInfo.IsGrounded && Rb2D.velocity.y <= 0.1f)
             {
-                StateMachine.ChangeState(Hero.HeroIdleState);
-            }
-        }
+                float landedY = Hr.transform.position.y;
+                float fallHeight = _startFallY - landedY;
 
-        public override void Exit()
-        {
-            base.Exit();
+                Debug.Log($"Fall Height = {fallHeight}");
+
+                if (fallHeight > 5f)
+                {
+                    Debug.Log("Die from high fall");
+                    StateMachine.ChangeState(Hr.DeadState);
+                }
+                else
+                {
+                    StateMachine.ChangeState(Hr.IdleState);
+                }
+            }
         }
     }
 }

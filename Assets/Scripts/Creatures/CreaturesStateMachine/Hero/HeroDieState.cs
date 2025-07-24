@@ -4,21 +4,19 @@ namespace Creatures.CreaturesStateMachine.Hero
 {
     public class HeroDieState : HeroState
     {
-        public HeroDieState(Hero hero, CreatureStateMachine stateMachine, int animBoolName) 
-            : base(hero, stateMachine, animBoolName)
+        public HeroDieState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
+            : base(hr, stateMachine, animBoolName)
         {
         }
 
         public override void Enter()
         {
             base.Enter();
-            Hero.Rb2D.AddForce(new Vector2(0.5f * Hero.FacingDirection, 2f), ForceMode2D.Impulse);
-            Hero.NewInputSet.Disable();
-            Hero.Rb2D.isKinematic = true;
             
-            Hero.Rb2D.velocity = Vector2.zero;
-            
-            
+            Rb2D.AddForce(new Vector2(0.5f * -Hr.FacingDirection, 2f), ForceMode2D.Impulse);
+            Hr.NewInputSet.Disable();
+            Rb2D.isKinematic = true;
+            Rb2D.velocity = Vector2.zero;
         }
 
         public override void Update()

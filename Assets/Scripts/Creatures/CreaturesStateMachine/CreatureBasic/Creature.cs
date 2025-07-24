@@ -1,4 +1,5 @@
 ﻿using System;
+using Creatures.AnimationControllers;
 using Interfaces;
 using UnityEngine;
 
@@ -10,14 +11,17 @@ namespace Creatures.CreaturesStateMachine
         [Header("Movement info")] 
         [SerializeField] private float movementSpeed = 1.5f;
         
-        [Space]
         [Header("Jump Info")]
         [SerializeField] protected float jumpForce;
+
+        [Header("Die Info")] [SerializeField] private float dieHeight = 5f;
         
         // Properties
         public float MovementSpeed => movementSpeed;
         public float JumpForce => jumpForce;
+        public float DieHeight => dieHeight;
         
+
         // Components
         public Animator AnimController { get; protected set; }
         public CreatureCollisionInfo CollisionInfo { get; private set; }
@@ -31,6 +35,12 @@ namespace Creatures.CreaturesStateMachine
         public float XInput { get; protected set; }
         
         // States
+        public CreatureState IdleState { get; protected set; }
+        public CreatureState MoveState { get; protected set; }
+        public CreatureState JumpState { get; protected set; }
+        public CreatureState DoubleJumpState { get; protected set; }
+        public CreatureState FallState { get; protected set; }
+        public CreatureState DeadState { get; protected set; }
         
         // Events
         public event Action OnJumpEvent;
@@ -66,6 +76,7 @@ namespace Creatures.CreaturesStateMachine
         public void SubscribeOnAttackEvent(Action action) => OnAttackEvent += action;
         public void UnsubscribeOnAttackEvent(Action action) => OnAttackEvent -= action;
         
+        
         public void SetDirection(float dir) => XInput = dir;
         
         public virtual void HandleMovement()
@@ -93,6 +104,5 @@ namespace Creatures.CreaturesStateMachine
             FacingDirection *= -1;
             transform.Rotate(0f, 180f, 0f);
         }
-        
     }
 }

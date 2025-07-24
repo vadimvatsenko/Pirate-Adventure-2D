@@ -1,4 +1,5 @@
-﻿using Components;
+﻿using System;
+using Components;
 using DefaultNamespace.Utils;
 using UnityEngine;
 
@@ -13,6 +14,9 @@ namespace Creatures.CreaturesStateMachine
         [SerializeField] private Transform groundCheckStartPos;
         [SerializeField] private float groundCheckDistance = 0.1f;
         public bool IsGrounded { get; private set; }
+        
+        [Header("Ground When Fall Distance")]
+        private float _groundHitDistance;
         
         [Header("Wall Collision Info")] 
         [SerializeField] private Transform wallCheckStartPos;
@@ -51,7 +55,10 @@ namespace Creatures.CreaturesStateMachine
         public void HandleGroundCheck()
         {
             IsGrounded 
-                = Physics2D.Raycast(groundCheckStartPos.position, Vector2.down, groundCheckDistance, whatIsGround);
+                = Physics2D.Raycast(groundCheckStartPos.position, 
+                    Vector2.down, 
+                    groundCheckDistance, 
+                    whatIsGround);
         }
         
         public void Interact()
@@ -71,6 +78,18 @@ namespace Creatures.CreaturesStateMachine
                     interactable.Interact();
                 } 
             }
+        }
+
+        public float HandleFallDistanceToGround()
+        {
+            RaycastHit2D hit = Physics2D.Raycast(
+                groundCheckStartPos.position, 
+                Vector2.down, 
+                Mathf.Infinity, 
+                whatIsGround);
+            
+            _groundHitDistance = hit.distance;
+            return hit.distance;
         }
 
         public GameObject[] GetObjectsInRange()
@@ -93,6 +112,11 @@ namespace Creatures.CreaturesStateMachine
             Gizmos.color = IsGrounded ? Color.green : Color.red;
             Vector2 toGround = new Vector2(groundCheckStartPos.position.x, groundCheckStartPos.position.y - groundCheckDistance);
             Gizmos.DrawLine(groundCheckStartPos.position, toGround);
+            
+            // GroundChekWhenFalling
+            Gizmos.color = Color.magenta;
+            Vector2 toAbbycGround = new Vector2(groundCheckStartPos.position.x, groundCheckStartPos.position.y - HandleFallDistanceToGround());
+            Gizmos.DrawLine(groundCheckStartPos.position, toAbbycGround); 
             
             // WallCheck
             Gizmos.color = IsWallDetected ? Color.green : Color.red;
