@@ -17,17 +17,13 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
 
             Rb2D.velocity = new Vector2(Sharky.BattleSpeed * DirectionToPlayer(), Rb2D.velocity.y);
             
-            if (_heroPos == null)
-            {
-                _heroPos = CollisionInfo.HeroDetection().transform;
-            }
+            if (_heroPos == null) _heroPos = CollisionInfo.HeroDetection().transform;
         }
 
         public override void Update()
         {
             base.Update();
             
-
             if (CollisionInfo.HeroDetection()) UpdateBattleTimer();
             
             if (BattleTimeIsOver()) 
@@ -40,7 +36,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
             if (WithinAttackRange())
             {
                 //Debug.Log("Is Attack");
-                //StateMachine.ChangeState(Sharky.AttackState);
+                StateMachine.ChangeState(Sharky.AttackState);
             }
             
             else

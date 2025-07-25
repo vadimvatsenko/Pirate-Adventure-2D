@@ -12,11 +12,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         {
             Sharky = sharky;
             StateMachine = stateMachine;
-
-            if (Sharky != null)
-            {
-                CollisionInfo = Sharky.SharkyCollisionInfo;
-            }
+            
+            if (Sharky != null) CollisionInfo = Sharky.SharkyCollisionInfo;
         }
     }
 }

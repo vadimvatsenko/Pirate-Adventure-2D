@@ -147,6 +147,33 @@ public class @NewInputSet : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Enemy"",
+            ""id"": ""6788b9f2-abae-4e20-a081-833ed1f8b70f"",
+            ""actions"": [
+                {
+                    ""name"": ""attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""a6ae2a7d-76e7-44b2-aec9-63265e01ee48"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""88943914-6321-4e0c-bd3c-85bbc3c07629"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox"",
+                    ""action"": ""attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -183,6 +210,9 @@ public class @NewInputSet : IInputActionCollection, IDisposable
         m_Hero = asset.FindActionMap("Hero", throwIfNotFound: true);
         m_Hero_Movement = m_Hero.FindAction("Movement", throwIfNotFound: true);
         m_Hero_Jump = m_Hero.FindAction("Jump", throwIfNotFound: true);
+        // Enemy
+        m_Enemy = asset.FindActionMap("Enemy", throwIfNotFound: true);
+        m_Enemy_attack = m_Enemy.FindAction("attack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -269,6 +299,39 @@ public class @NewInputSet : IInputActionCollection, IDisposable
         }
     }
     public HeroActions @Hero => new HeroActions(this);
+
+    // Enemy
+    private readonly InputActionMap m_Enemy;
+    private IEnemyActions m_EnemyActionsCallbackInterface;
+    private readonly InputAction m_Enemy_attack;
+    public struct EnemyActions
+    {
+        private @NewInputSet m_Wrapper;
+        public EnemyActions(@NewInputSet wrapper) { m_Wrapper = wrapper; }
+        public InputAction @attack => m_Wrapper.m_Enemy_attack;
+        public InputActionMap Get() { return m_Wrapper.m_Enemy; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(EnemyActions set) { return set.Get(); }
+        public void SetCallbacks(IEnemyActions instance)
+        {
+            if (m_Wrapper.m_EnemyActionsCallbackInterface != null)
+            {
+                @attack.started -= m_Wrapper.m_EnemyActionsCallbackInterface.OnAttack;
+                @attack.performed -= m_Wrapper.m_EnemyActionsCallbackInterface.OnAttack;
+                @attack.canceled -= m_Wrapper.m_EnemyActionsCallbackInterface.OnAttack;
+            }
+            m_Wrapper.m_EnemyActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @attack.started += instance.OnAttack;
+                @attack.performed += instance.OnAttack;
+                @attack.canceled += instance.OnAttack;
+            }
+        }
+    }
+    public EnemyActions @Enemy => new EnemyActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -291,5 +354,9 @@ public class @NewInputSet : IInputActionCollection, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+    }
+    public interface IEnemyActions
+    {
+        void OnAttack(InputAction.CallbackContext context);
     }
 }
