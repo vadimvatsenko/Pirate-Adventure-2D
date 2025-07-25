@@ -13,7 +13,7 @@ namespace Creatures.CreaturesStateMachine
         protected Collider2D C2D;
         
         protected readonly CreatureCollisionInfo CollisionInfo;
-        private readonly Animator _animContr;
+        protected readonly Animator AnimContr;
 
         private readonly int _animBoolName;
         public event Action OnEnterEvent; // вход в анимацию
@@ -29,14 +29,14 @@ namespace Creatures.CreaturesStateMachine
             {
                 this.Rb2D = creature.Rb2D;
                 this.C2D = creature.C2D;
-                _animContr = creature.GetComponentInChildren<Animator>();
+                AnimContr = creature.GetComponentInChildren<Animator>();
                 this.CollisionInfo = creature.CollisionInfo;
             }
         }
         
         public virtual void Enter()
         {
-            _animContr.SetBool(_animBoolName, true); // вход
+            AnimContr.SetBool(_animBoolName, true); // вход
             OnEnterEvent?.Invoke();
         }
 
@@ -47,7 +47,7 @@ namespace Creatures.CreaturesStateMachine
 
         public virtual void Exit()
         {
-            _animContr.SetBool(_animBoolName, false); // выход
+            AnimContr.SetBool(_animBoolName, false); // выход
             OnExitEvent?.Invoke();
         }
     }
