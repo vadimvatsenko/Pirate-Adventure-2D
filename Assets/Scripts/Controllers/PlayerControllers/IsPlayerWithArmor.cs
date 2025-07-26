@@ -1,5 +1,5 @@
 ﻿using Creatures;
-using Model;
+using GameManagerInfo;
 using UnityEngine;
 using UnityEngine.Serialization;
 

@@ -1,5 +1,5 @@
 ﻿using Components;
-using Model;
+using GameManagerInfo;
 using TMPro;
 using UnityEngine;
 

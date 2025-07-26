@@ -4,7 +4,6 @@ namespace Creatures.CreaturesStateMachine.Hero
 {
     public class HeroAiredState : HeroState
     {
-        public int JumpCounter { get; protected set; }
         public HeroAiredState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {

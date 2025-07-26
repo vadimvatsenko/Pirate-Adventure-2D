@@ -18,6 +18,13 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
             Rb2D.velocity = new Vector2(Sharky.BattleSpeed * DirectionToPlayer(), Rb2D.velocity.y);
             
             if (_heroPos == null) _heroPos = CollisionInfo.HeroDetection().transform;
+
+            if (ShouldRetreat())
+            {
+                Rb2D.velocity = new Vector2(Sharky.RetreatVelocity.x * -DirectionToPlayer(), Sharky.RetreatVelocity.y);
+                //Debug.Log(Rb2D.velocity);
+                //Sharky.HandleFlip();
+            }
         }
 
         public override void Update()
@@ -32,10 +39,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
                 StateMachine.ChangeState(Sharky.IdleState);
             }
             
-            //
-            if (WithinAttackRange())
+            if (WithinAttackRange() && CollisionInfo.HeroDetection())
             {
-                //Debug.Log("Is Attack");
                 StateMachine.ChangeState(Sharky.AttackState);
             }
             
@@ -49,6 +54,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
 
             if (CollisionInfo.IsAbyssDetected)
             {
+                Sharky.CallOnWTFEvent();
                 StateMachine.ChangeState(Sharky.IdleState);
             }
         }
@@ -78,5 +84,6 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         // в Update постоянно записываем внутриигровое время
         private void UpdateBattleTimer() => _lastTimeInBattle = Time.time;
         private bool BattleTimeIsOver() => Time.time > _lastTimeInBattle + Sharky.BattleTimeDuration;
+        private bool ShouldRetreat() => DistanceToHero() < Sharky.MinRetreatDistance;
     }
 }

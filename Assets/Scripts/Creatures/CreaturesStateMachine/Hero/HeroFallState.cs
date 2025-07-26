@@ -32,8 +32,7 @@ namespace Creatures.CreaturesStateMachine.Hero
 
                 if (fallHeight > 5f)
                 {
-                    Debug.Log("Die from high fall");
-                    StateMachine.ChangeState(Hr.DeadState);
+                    StateMachine.ChangeState(Hr.DeathState);
                 }
                 else
                 {

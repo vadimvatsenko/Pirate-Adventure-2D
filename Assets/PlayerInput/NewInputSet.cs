@@ -33,6 +33,14 @@ public class @NewInputSet : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""2af3bb6f-20e1-4f37-a930-7f2bd417dadd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -145,31 +153,26 @@ public class @NewInputSet : IInputActionCollection, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""Enemy"",
-            ""id"": ""6788b9f2-abae-4e20-a081-833ed1f8b70f"",
-            ""actions"": [
-                {
-                    ""name"": ""attack"",
-                    ""type"": ""Button"",
-                    ""id"": ""a6ae2a7d-76e7-44b2-aec9-63265e01ee48"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                }
-            ],
-            ""bindings"": [
+                },
                 {
                     ""name"": """",
-                    ""id"": ""88943914-6321-4e0c-bd3c-85bbc3c07629"",
-                    ""path"": ""<Keyboard>/k"",
+                    ""id"": ""2a020491-738d-423c-8f72-89a142495b65"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Xbox"",
-                    ""action"": ""attack"",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""37e7bead-22de-4143-ac4d-d33e896d2b05"",
+                    ""path"": ""<XInputController>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -210,9 +213,7 @@ public class @NewInputSet : IInputActionCollection, IDisposable
         m_Hero = asset.FindActionMap("Hero", throwIfNotFound: true);
         m_Hero_Movement = m_Hero.FindAction("Movement", throwIfNotFound: true);
         m_Hero_Jump = m_Hero.FindAction("Jump", throwIfNotFound: true);
-        // Enemy
-        m_Enemy = asset.FindActionMap("Enemy", throwIfNotFound: true);
-        m_Enemy_attack = m_Enemy.FindAction("attack", throwIfNotFound: true);
+        m_Hero_Attack = m_Hero.FindAction("Attack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -264,12 +265,14 @@ public class @NewInputSet : IInputActionCollection, IDisposable
     private IHeroActions m_HeroActionsCallbackInterface;
     private readonly InputAction m_Hero_Movement;
     private readonly InputAction m_Hero_Jump;
+    private readonly InputAction m_Hero_Attack;
     public struct HeroActions
     {
         private @NewInputSet m_Wrapper;
         public HeroActions(@NewInputSet wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Hero_Movement;
         public InputAction @Jump => m_Wrapper.m_Hero_Jump;
+        public InputAction @Attack => m_Wrapper.m_Hero_Attack;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -285,6 +288,9 @@ public class @NewInputSet : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnJump;
+                @Attack.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnAttack;
+                @Attack.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnAttack;
+                @Attack.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnAttack;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -295,43 +301,13 @@ public class @NewInputSet : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @Attack.started += instance.OnAttack;
+                @Attack.performed += instance.OnAttack;
+                @Attack.canceled += instance.OnAttack;
             }
         }
     }
     public HeroActions @Hero => new HeroActions(this);
-
-    // Enemy
-    private readonly InputActionMap m_Enemy;
-    private IEnemyActions m_EnemyActionsCallbackInterface;
-    private readonly InputAction m_Enemy_attack;
-    public struct EnemyActions
-    {
-        private @NewInputSet m_Wrapper;
-        public EnemyActions(@NewInputSet wrapper) { m_Wrapper = wrapper; }
-        public InputAction @attack => m_Wrapper.m_Enemy_attack;
-        public InputActionMap Get() { return m_Wrapper.m_Enemy; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(EnemyActions set) { return set.Get(); }
-        public void SetCallbacks(IEnemyActions instance)
-        {
-            if (m_Wrapper.m_EnemyActionsCallbackInterface != null)
-            {
-                @attack.started -= m_Wrapper.m_EnemyActionsCallbackInterface.OnAttack;
-                @attack.performed -= m_Wrapper.m_EnemyActionsCallbackInterface.OnAttack;
-                @attack.canceled -= m_Wrapper.m_EnemyActionsCallbackInterface.OnAttack;
-            }
-            m_Wrapper.m_EnemyActionsCallbackInterface = instance;
-            if (instance != null)
-            {
-                @attack.started += instance.OnAttack;
-                @attack.performed += instance.OnAttack;
-                @attack.canceled += instance.OnAttack;
-            }
-        }
-    }
-    public EnemyActions @Enemy => new EnemyActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -354,9 +330,6 @@ public class @NewInputSet : IInputActionCollection, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-    }
-    public interface IEnemyActions
-    {
         void OnAttack(InputAction.CallbackContext context);
     }
 }

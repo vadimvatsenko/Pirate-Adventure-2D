@@ -1,6 +1,6 @@
 ﻿using Components.HealthComponentFolder;
 using Creatures.AnimationControllers;
-using Model;
+using GameManagerInfo;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,6 +10,7 @@ namespace Creatures.CreaturesStateMachine.Hero
     {
         public GameSession GameSess { get; private set;}
         public NewInputSet NewInputSet { get; private set; }
+        public GameManager GameMg { get; private set; }
         
         [Header("DoubleJump Info")] 
         [SerializeField] private float doubleJumpForce;
@@ -18,13 +19,15 @@ namespace Creatures.CreaturesStateMachine.Hero
         public bool IsAirBorn { get; private set; }
 
         [Header("Attack Info")] 
-        [SerializeField] private int attackForce;
+        [SerializeField] private int attackForce = 1;
+        public int AttackForce => attackForce;
         
         protected override void Awake()
         {
             base.Awake();
             NewInputSet = new NewInputSet();
             GameSess = FindObjectOfType<GameSession>();
+            GameMg = FindObjectOfType<GameManager>();
         }
         
         private void Start()
@@ -32,9 +35,10 @@ namespace Creatures.CreaturesStateMachine.Hero
             IdleState = new HeroIdleState(this, StateMachine, AnimatorHashes.Idle);
             MoveState = new HeroMoveState(this, StateMachine, AnimatorHashes.Move);
             JumpState = new HeroJumpState(this, StateMachine, AnimatorHashes.JumpFall);
-            DoubleJumpState = new HeroDoubleJumpState(this, StateMachine, AnimatorHashes.JumpFall); 
+            DoubleJumpState = new HeroDoubleJumpState(this, StateMachine, AnimatorHashes.JumpFall);
+            AttackState = new HeroAttackState(this, StateMachine, AnimatorHashes.Attack);
             FallState = new HeroFallState(this, StateMachine, AnimatorHashes.JumpFall);
-            DeadState = new HeroDieState(this, StateMachine, AnimatorHashes.Die);
+            DeathState = new HeroDeathState(this, StateMachine, AnimatorHashes.Death);
             StateMachine.Initialize(IdleState);
         }
 

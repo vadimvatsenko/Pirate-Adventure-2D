@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections;
-using Model;
+using GameManagerInfo;
 using UnityEngine;
 
 namespace Creatures.AnimationControllers
@@ -14,6 +14,7 @@ namespace Creatures.AnimationControllers
         
         private GameSession _gameSession;
         public event Action OnIsArmed;
+        public event Action OnAppearanceHero;
         
         // Colors
         private readonly Color _startColor = new Color(1f, 1f, 1f, 0f);
@@ -46,7 +47,6 @@ namespace Creatures.AnimationControllers
         
         private void UpdateArmedState()
         {
-            Debug.Log("Updating armed state");
             CreatureAnim.runtimeAnimatorController
                 = _gameSession.PlayerData.isArmed ? withArmor : withoutArmor;
         }
@@ -66,6 +66,8 @@ namespace Creatures.AnimationControllers
                     Color.Lerp(col1, col2, elapsed / duration);
                 yield return null;
             }
+            
+            OnAppearanceHero?.Invoke();
         }
     }
 }

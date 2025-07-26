@@ -8,31 +8,26 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
 {
     public class SharkyAttackState : SharkyState
     {
-        private AnimatorStateInfo _stateInfo;
-        private string _animName;
         public SharkyAttackState(SharkyE sharky, CreatureStateMachine stateMachine, int animBoolName) 
             : base(sharky, stateMachine, animBoolName)
         {
-            
         }
 
         public override void Enter()
         {
             base.Enter();
-
-            _animName = AnimatorHashes.GetName(AnimatorHashes.Attack).ToString();
-            
-            Sharky.CallOnAttackEvent();
+            //Attack();
+            Rb2D.velocity = Vector2.zero;
         }
 
         public override void Update()
         {
             base.Update();
-            _stateInfo = AnimContr.GetCurrentAnimatorStateInfo(0);
             
-            if(_stateInfo.IsName(_animName))
+            if(StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Attack)) && StateInfo.normalizedTime > 1.0f)
             {
-                Debug.Log("Is same name");
+                StateMachine.ChangeState(Sharky.BattleState);
+                Sharky.CallOnAttackEvent();
             }
         }
         

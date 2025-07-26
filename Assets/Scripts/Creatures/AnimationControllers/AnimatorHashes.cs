@@ -16,7 +16,7 @@ namespace Creatures.AnimationControllers
         public static readonly int Fall = Animator.StringToHash("fall");
         public static readonly int Attack = Animator.StringToHash("attack");
         public static readonly int Hit = Animator.StringToHash("hit");
-        public static readonly int Die = Animator.StringToHash("die");
+        public static readonly int Death = Animator.StringToHash("death");
         public static readonly int Aggro = Animator.StringToHash("aggro");
         public static readonly int Battle = Animator.StringToHash("battle");
         public static readonly int BattleAnimSpeed = Animator.StringToHash("battleAnimSpeed");
@@ -32,7 +32,7 @@ namespace Creatures.AnimationControllers
             { Jump, "jump" },
             { Attack, "attack" },
             { Hit, "hit" },
-            { Die, "die"},
+            { Death, "death"},
             { Aggro, "aggro" },
             { Battle, "battle" },
             { BattleAnimSpeed, "battleAnimSpeed" },

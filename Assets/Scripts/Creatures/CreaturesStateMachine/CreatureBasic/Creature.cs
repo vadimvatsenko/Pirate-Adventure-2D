@@ -39,8 +39,11 @@ namespace Creatures.CreaturesStateMachine
         public CreatureState MoveState { get; protected set; }
         public CreatureState JumpState { get; protected set; }
         public CreatureState DoubleJumpState { get; protected set; }
+        
+        public CreatureState AttackState { get; protected set; }
         public CreatureState FallState { get; protected set; }
-        public CreatureState DeadState { get; protected set; }
+        public CreatureState HitState { get; protected set; }
+        public CreatureState DeathState { get; protected set; }
         
         // Events
         public event Action OnJumpEvent;
@@ -104,5 +107,7 @@ namespace Creatures.CreaturesStateMachine
             FacingDirection *= -1;
             transform.Rotate(0f, 180f, 0f);
         }
+
+        protected int TakeHit(Creature damager) => damager.FacingDirection;
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Model;
+using GameManagerInfo;
 using UnityEngine;
 
 namespace Components.Dropper

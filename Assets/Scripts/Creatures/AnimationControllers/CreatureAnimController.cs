@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using Creatures.CreaturesStateMachine;
-using Model;
 using UnityEngine;
 
 namespace Creatures

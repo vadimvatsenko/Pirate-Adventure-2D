@@ -20,6 +20,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Attack",
+                    "type": "Button",
+                    "id": "2af3bb6f-20e1-4f37-a930-7f2bd417dadd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -132,31 +140,26 @@
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Enemy",
-            "id": "6788b9f2-abae-4e20-a081-833ed1f8b70f",
-            "actions": [
-                {
-                    "name": "attack",
-                    "type": "Button",
-                    "id": "a6ae2a7d-76e7-44b2-aec9-63265e01ee48",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                }
-            ],
-            "bindings": [
+                },
                 {
                     "name": "",
-                    "id": "88943914-6321-4e0c-bd3c-85bbc3c07629",
-                    "path": "<Keyboard>/k",
+                    "id": "2a020491-738d-423c-8f72-89a142495b65",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Xbox",
-                    "action": "attack",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "37e7bead-22de-4143-ac4d-d33e896d2b05",
+                    "path": "<XInputController>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

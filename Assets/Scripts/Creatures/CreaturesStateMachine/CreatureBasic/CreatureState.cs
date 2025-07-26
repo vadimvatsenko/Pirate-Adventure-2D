@@ -1,4 +1,6 @@
 ﻿using System;
+using Components;
+using Components.HealthComponentFolder;
 using Creatures.Player;
 using UnityEngine;
 
@@ -14,6 +16,8 @@ namespace Creatures.CreaturesStateMachine
         
         protected readonly CreatureCollisionInfo CollisionInfo;
         protected readonly Animator AnimContr;
+        protected readonly HealthComponent Health;
+        public AnimatorStateInfo StateInfo { get; protected set; }
 
         private readonly int _animBoolName;
         public event Action OnEnterEvent; // вход в анимацию
@@ -31,6 +35,7 @@ namespace Creatures.CreaturesStateMachine
                 this.C2D = creature.C2D;
                 AnimContr = creature.GetComponentInChildren<Animator>();
                 this.CollisionInfo = creature.CollisionInfo;
+                Health = Creature.GetComponent<HealthComponent>();
             }
         }
         
@@ -42,6 +47,7 @@ namespace Creatures.CreaturesStateMachine
 
         public virtual void Update()
         {
+            StateInfo = AnimContr.GetCurrentAnimatorStateInfo(0);
            //Debug.Log($"{Creature.name} in {AnimatorHashes.GetName(_animBoolName)}");
         }
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Model
+namespace GameManagerInfo
 {
     [Serializable]
     public class PlayerData

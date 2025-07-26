@@ -18,9 +18,15 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         [SerializeField] private float battleSpeed = 2.5f;
         [SerializeField] private float attackDistance = 2f;
         [SerializeField] private float battleTimeDuration = 5f;
+        // отскок от игрока при атаке
+        [SerializeField] private float minRetreatDistance = 1f;
+        [SerializeField] private Vector2 retreatVelocity = Vector2.zero;
+        // свойства боевого состояния
         public float BattleSpeed => battleSpeed;
         public float BattleTimeDuration => battleTimeDuration;
-        
+        public float MinRetreatDistance => minRetreatDistance;
+        public Vector2 RetreatVelocity => retreatVelocity;
+        //
         public SharkyCollisionInfo SharkyCollisionInfo { get; private set; }
         public SharkyAggroState AggroState { get; private set; }
         public SharkyAttackState AttackState {get; private set;}
@@ -52,6 +58,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
             AggroState = new SharkyAggroState(this, StateMachine, AnimatorHashes.Aggro);
             AttackState = new SharkyAttackState(this, StateMachine, AnimatorHashes.Attack);
             BattleState = new SharkyBattleState(this, StateMachine, AnimatorHashes.Battle);
+            HitState = new SharkyHitState(this, StateMachine, AnimatorHashes.Hit);
+            DeathState = new SharkyDeathState(this, StateMachine, AnimatorHashes.Death);
             
             StateMachine.Initialize(IdleState);
         }

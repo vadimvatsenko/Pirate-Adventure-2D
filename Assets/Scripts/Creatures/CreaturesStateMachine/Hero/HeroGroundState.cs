@@ -18,9 +18,16 @@ namespace Creatures.CreaturesStateMachine.Hero
                 StateMachine.ChangeState(Hr.FallState);
             }
             
+            // система ввода
             if (Hr.NewInputSet.Hero.Jump.triggered && CollisionInfo.IsGrounded)
             {
                 StateMachine.ChangeState(Hr.JumpState);
+            }
+
+            // система ввода
+            if (Hr.NewInputSet.Hero.Attack.triggered && CollisionInfo.IsGrounded && Hr.GameSess.PlayerData.isArmed)
+            {
+                StateMachine.ChangeState(Hr.AttackState);
             }
         }
     }

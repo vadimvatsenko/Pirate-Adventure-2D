@@ -2,7 +2,7 @@
 using Creatures;
 using Creatures.CreaturesStateMachine;
 using Creatures.CreaturesStateMachine.Hero;
-using Model;
+using GameManagerInfo;
 using UnityEngine;
 using UnityEngine.Events;
 

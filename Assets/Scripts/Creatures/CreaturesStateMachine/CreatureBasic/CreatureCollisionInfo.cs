@@ -1,6 +1,4 @@
-﻿using System;
-using Components;
-using DefaultNamespace.Utils;
+﻿using Components;
 using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine
@@ -14,9 +12,6 @@ namespace Creatures.CreaturesStateMachine
         [SerializeField] private Transform groundCheckStartPos;
         [SerializeField] private float groundCheckDistance = 0.1f;
         public bool IsGrounded { get; private set; }
-        
-        [Header("Ground When Fall Distance")]
-        private float _groundHitDistance;
         
         [Header("Wall Collision Info")] 
         [SerializeField] private Transform wallCheckStartPos;
@@ -35,7 +30,7 @@ namespace Creatures.CreaturesStateMachine
         [SerializeField] private Vector3 offset = new Vector3(0.65f, 0, 0);
         private readonly Collider2D[] _itemCollider2Ds = new Collider2D[5];
         
-        private void Awake()
+        protected virtual void Awake()
         {
             Creature = GetComponent<Creature>();
         }
@@ -88,7 +83,6 @@ namespace Creatures.CreaturesStateMachine
                 Mathf.Infinity, 
                 whatIsGround);
             
-            _groundHitDistance = hit.distance;
             return hit.distance;
         }
 

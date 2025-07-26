@@ -24,10 +24,5 @@ namespace Creatures.CreaturesStateMachine.Hero
                 StateMachine.ChangeState(Hr.FallState);
             }
         }
-
-        public override void Exit()
-        {
-            base.Exit();
-        }
     }
 }

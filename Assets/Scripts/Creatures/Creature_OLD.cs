@@ -7,23 +7,11 @@ namespace Creatures
 {
     public class Creature_OLD : MonoBehaviour
     {
-        [Header("Attack Power Info")] 
-        [SerializeField] protected int attackPower = 1;
-        
-        /*[Header("Movement Info")] 
-        [SerializeField] protected float speed;
-        [SerializeField] protected float jumpForce;*/
         
         [Header("Knock Info")] 
         [SerializeField] protected float knockDuration;
         [SerializeField] protected Vector2 knockPower; 
         protected bool IsKnocked;
-
-        [Header("Die Info")] 
-        [SerializeField] protected float maxSaveHieght = 20f;
-        public bool IsDead { get; protected set; }
-        public bool IsAllreadyDead { get; protected set; }
-        
         
         // air status
         public bool IsAirborne {get; protected set; }
@@ -50,17 +38,6 @@ namespace Creatures
             
         }
         
-        
-        
-        
-        private void CheckDeathFalling()
-        {
-            /*if (!CollisionInfo.IsGrounded && !IsDead)
-            {
-                IsDead = Mathf.Abs(Rb.velocity.y) > maxSaveHieght;
-            }*/
-        }
-        
         public void TakeDamage() 
         {
             /*if (IsKnocked) return; 
@@ -78,33 +55,6 @@ namespace Creatures
             IsKnocked = true; 
             yield return new WaitForSeconds(knockDuration); 
             IsKnocked = false; 
-        }
-
-        public virtual void Attack()
-        {
-            //CreatureAnimationController.SetAttackAnimation();
-        }
-
-        public virtual void Die() => StartCoroutine(DieRoutine());
-        
-        private IEnumerator DieRoutine()
-        {
-            
-            if (!IsAllreadyDead)
-            {
-                /*CreatureAnimationController.SetDieAnimation();
-                Rb.velocity = new Vector2(knockPower.x / 2 * -FacingDirection, 0);
-                
-                IsAllreadyDead = true;
-                
-                yield return new WaitForSeconds(2f);
-                Rb.isKinematic = true;
-                
-                Debug.Log(this.name + " is dead");
-                CallEventOnCreatureDeath();*/
-            }
-
-            yield return null;
         }
     }
 }

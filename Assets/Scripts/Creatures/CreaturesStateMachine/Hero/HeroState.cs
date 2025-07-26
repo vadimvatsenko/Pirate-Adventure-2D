@@ -22,7 +22,7 @@ namespace Creatures.CreaturesStateMachine.Hero
         
         private void DeathHero()
         {
-            Hr.StateMachine.ChangeState(Hr.DeadState);
+            Hr.StateMachine.ChangeState(Hr.DeathState);
         }
     }
 }

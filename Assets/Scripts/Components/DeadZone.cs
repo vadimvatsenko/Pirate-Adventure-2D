@@ -1,7 +1,9 @@
 ﻿using Controllers;
 using Creatures;
 using Creatures.CreaturesStateMachine.Hero;
+using GameManagerInfo;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Components
 {
@@ -10,14 +12,14 @@ namespace Components
         // можно также создать событие и вызвать его в триггере
         // [SerializeField] private UnityEvent onDead;
 
-        [SerializeField] private EnterPoint enterPoint;
+        [FormerlySerializedAs("enterPoint")] [SerializeField] private GameManager gameManager;
         private void OnTriggerEnter2D(Collider2D collision)
         {
             Hero hero = collision.GetComponent<Hero>();
             
             if (hero)
             {
-                enterPoint.ReloadLevelController.ReloadLevel();
+                gameManager.LevelController.ReloadLevel();
                 // onDead?.Invoke(); вызов события
             }
             else

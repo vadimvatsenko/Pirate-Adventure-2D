@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Components;
+using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
 {
@@ -14,6 +15,19 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
             StateMachine = stateMachine;
             
             if (Sharky != null) CollisionInfo = Sharky.SharkyCollisionInfo;
+
+            Health.SubscribeOnHitEvent(CallHitState);
         }
+
+        ~SharkyState() => Health.UnsubscribeOnHitEvent(CallHitState);
+        
+        public override void Update()
+        {
+            base.Update();
+        }
+
+        private void CallHitState() => StateMachine.ChangeState(Sharky.HitState);
+        
+        
     }
 }

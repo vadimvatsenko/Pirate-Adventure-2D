@@ -1,5 +1,5 @@
 ﻿using Components.HealthComponentFolder;
-using Model;
+using GameManagerInfo;
 using UnityEngine;
 using UnityEngine.UI;
 

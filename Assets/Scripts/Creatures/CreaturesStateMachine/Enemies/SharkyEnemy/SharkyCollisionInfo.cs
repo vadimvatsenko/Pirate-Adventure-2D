@@ -4,6 +4,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
 {
     public class SharkyCollisionInfo : CreatureCollisionInfo
     {
+        private SharkyE _sharky;
+        
         [Header("Hero Detection Collision Info")]
         [SerializeField] private LayerMask whatIsHero;
         [SerializeField] private float distanceToHero;
@@ -21,7 +23,13 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         public bool IsGroundAfterAbyssDetected { get; private set; }
         public float DistanceToHero => distanceToHero;
         public float AttackDistance => attackDistance;
-        
+
+        protected override void Awake()
+        {
+            base.Awake();
+            _sharky = GetComponent<SharkyE>();
+        }
+
         public RaycastHit2D HeroDetection()
         {
             RaycastHit2D hit = 
@@ -72,6 +80,12 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
                 Gizmos.DrawLine(Creature.transform.position,
                     new Vector2(Creature.transform.position.x + (Creature.FacingDirection * attackDistance), 
                         Creature.transform.position.y));
+                
+                Gizmos.color = Color.green;
+                Gizmos.DrawLine(Creature.transform.position,
+                    new Vector2(Creature.transform.position.x + (Creature.FacingDirection * _sharky.MinRetreatDistance), 
+                        Creature.transform.position.y));
+                
             }
             
             // Abyss Check

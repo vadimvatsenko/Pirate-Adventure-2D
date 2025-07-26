@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Creatures.AnimationControllers;
+using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
 {
@@ -14,19 +15,17 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         public override void Enter()
         {
             base.Enter();
-            Rb2D.velocity = Vector2.zero;
             Sharky.CallOnAgroEvent();
+            Rb2D.velocity = Vector2.zero;
         }
 
         public override void Update()
         {
             base.Update();
             
-            _aggroTimer += Time.deltaTime;
-            if (_aggroTimer >= Sharky.AggroDuration)
+            if(StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Aggro)) && StateInfo.normalizedTime > 1.0f)
             {
-                OnAggroEnded();
-                _aggroTimer = 0f;
+                StateMachine.ChangeState(Sharky.BattleState);
             }
         }
 

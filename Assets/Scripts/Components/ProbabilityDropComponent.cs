@@ -16,7 +16,6 @@ namespace Components
     [Serializable]
     public class DropEvent : UnityEvent<GameObject[]>
     {
-        
     }
     
     public class ProbabilityDropComponent :MonoBehaviour

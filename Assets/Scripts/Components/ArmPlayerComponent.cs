@@ -1,6 +1,6 @@
 ﻿using Creatures;
 using Creatures.CreaturesStateMachine.Hero;
-using Model;
+using GameManagerInfo;
 using UnityEngine;
 
 namespace Components
