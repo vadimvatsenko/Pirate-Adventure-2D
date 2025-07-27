@@ -15,19 +15,18 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
 
         public override void Enter()
         {
-            base.Enter();
-            //Attack();
             Rb2D.velocity = Vector2.zero;
+            //Debug.Log("ATTACK ENTERED");
+            //Attack();
         }
 
         public override void Update()
         {
             base.Update();
             
-            if(StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Attack)) && StateInfo.normalizedTime > 1.0f)
+            if(StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Attack)) && StateInfo.normalizedTime > 1.5f)
             {
                 StateMachine.ChangeState(Sharky.BattleState);
-                Sharky.CallOnAttackEvent();
             }
         }
         

@@ -1,5 +1,6 @@
 ﻿using System;
 using Creatures.AnimationControllers;
+using Creatures.CreaturesStateMachine.Player;
 using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
@@ -16,7 +17,6 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
 
         [Header("Battle Info")] 
         [SerializeField] private float battleSpeed = 2.5f;
-        [SerializeField] private float attackDistance = 2f;
         [SerializeField] private float battleTimeDuration = 5f;
         // отскок от игрока при атаке
         [SerializeField] private float minRetreatDistance = 1f;
@@ -27,6 +27,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         public float MinRetreatDistance => minRetreatDistance;
         public Vector2 RetreatVelocity => retreatVelocity;
         //
+        public Hero Hr { get; private set; }
         public SharkyCollisionInfo SharkyCollisionInfo { get; private set; }
         public SharkyAggroState AggroState { get; private set; }
         public SharkyAttackState AttackState {get; private set;}
@@ -63,6 +64,11 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
             
             StateMachine.Initialize(IdleState);
         }
+
+        private void Start()
+        {
+            Hr = FindObjectOfType<Hero>();
+        }
         
         protected override void Update()
         {
@@ -81,6 +87,11 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         public override void HandleMovement()
         {
             Rb2D.velocity = new Vector2(MovementSpeed * FacingDirection, Rb2D.velocity.y);
+        }
+
+        public void SetFacingDirection(int facingDirection)
+        {
+            FacingDirection = facingDirection;
         }
 
         protected override void UpdateAnimationVelocity()

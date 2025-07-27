@@ -4,22 +4,44 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
 {
     public class SharkyDeathState : SharkyState
     {
+        private float _deathTimer;
+        private readonly float DeathDelay = 2f;
+        private Vector2 _initialSize;
+        
         public SharkyDeathState(SharkyE sharky, CreatureStateMachine stateMachine, int animBoolName) 
             : base(sharky, stateMachine, animBoolName)
         {
+            _deathTimer = 0f;
+            _initialSize = C2D.bounds.size;
         }
 
         public override void Enter()
         {
             base.Enter();
             //Rb2D.velocity = new Vector2(2 * -Sharky.FacingDirection, 2);
-            Rb2D.AddForce(new Vector2(2 * -Sharky.FacingDirection, 3), ForceMode2D.Impulse);
+            //Rb2D.AddForce(new Vector2(2 * -Sharky.FacingDirection, 3), ForceMode2D.Impulse);
             Health.enabled = false;
+            _deathTimer = 0f;
         }
 
         public override void Update()
         {
             base.Update();
+            
+            _deathTimer += Time.deltaTime;
+
+            float t = Mathf.Clamp01(_deathTimer / DeathDelay);
+            
+            Vector2 newSize = Vector2.Lerp(_initialSize, Vector2.zero, t);
+            
+            CapsuleCollider2D capsule = C2D as CapsuleCollider2D;
+            
+            capsule.size = newSize; // уменьшаем размер коллайдера
+            
+            Debug.Log(newSize);
+
+            if (newSize.x <= 0 && newSize.y <= 0)
+                Sharky.DestroySelf();
         }
 
         public override void Exit()

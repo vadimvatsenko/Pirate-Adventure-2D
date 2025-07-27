@@ -1,10 +1,8 @@
-﻿using Components.HealthComponentFolder;
-using Creatures.AnimationControllers;
+﻿using Creatures.AnimationControllers;
 using GameManagerInfo;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-namespace Creatures.CreaturesStateMachine.Hero
+namespace Creatures.CreaturesStateMachine.Player
 {
     public class Hero : Creature
     {

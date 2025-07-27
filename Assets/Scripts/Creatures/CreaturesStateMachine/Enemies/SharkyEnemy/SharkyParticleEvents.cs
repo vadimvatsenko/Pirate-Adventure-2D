@@ -1,5 +1,6 @@
 ﻿using System;
 using PlayerFolder.PlayerParticles;
+using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
 {
@@ -27,6 +28,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
             
             _sharky.UnsubscribeOnAgroEvent(HandleExclamationParticle);
             _sharky.UnsubscribeOnWTFEvent(SpawnWtf);
+            
+            //Debug.Log("Clear Particales");
         }
 
         protected override void HandleSpawnMovementPartical()

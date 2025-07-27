@@ -96,7 +96,10 @@ namespace Creatures.CreaturesStateMachine
             }
         }
         private void HandleSpawnJumpParticle() => HandleSpawn(ParticleType.Jump);
-        private void HandleSpawnAttack1Particle() => HandleSpawn(ParticleType.Attack1);
-        
+
+        private void HandleSpawnAttack1Particle()
+        {
+            HandleSpawn(ParticleType.Attack1);
+        }
     }
 }

@@ -19,7 +19,7 @@ namespace Creatures.CreaturesStateMachine
         protected readonly HealthComponent Health;
         public AnimatorStateInfo StateInfo { get; protected set; }
 
-        private readonly int _animBoolName;
+        public int _animBoolName { get; private set; }
         public event Action OnEnterEvent; // вход в анимацию
         public event Action OnExitEvent; // выход с анимации
 

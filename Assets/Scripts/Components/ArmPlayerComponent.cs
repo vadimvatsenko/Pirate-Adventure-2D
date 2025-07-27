@@ -1,5 +1,6 @@
 ﻿using Creatures;
-using Creatures.CreaturesStateMachine.Hero;
+using Creatures.AnimationControllers;
+using Creatures.CreaturesStateMachine.Player;
 using GameManagerInfo;
 using UnityEngine;
 
@@ -16,13 +17,15 @@ namespace Components
         }
         public void ArmPlayer()
         {
+            if(_gameSession.PlayerData.isArmed) return;
             
             if (!_gameSession.PlayerData.isArmed)
             {
-                CreatureAnimController anim = hero.GetComponent<CreatureAnimController>();
+                HeroAnimController anim = hero.GetComponent<HeroAnimController>();
+                
                 if (anim != null)
                 {
-                    //anim.ChangeArmedState();
+                    anim.ChangeArmedState();
                 }
             }
         }

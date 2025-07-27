@@ -10,7 +10,6 @@ namespace Creatures
         
         [Header("Knock Info")] 
         [SerializeField] protected float knockDuration;
-        [SerializeField] protected Vector2 knockPower; 
         protected bool IsKnocked;
         
         // air status

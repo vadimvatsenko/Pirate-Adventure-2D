@@ -1,4 +1,4 @@
-﻿using Creatures.CreaturesStateMachine.Hero;
+﻿using Creatures.CreaturesStateMachine.Player;
 using UnityEngine;
 
 public class ParticleSystemSwitcher : MonoBehaviour

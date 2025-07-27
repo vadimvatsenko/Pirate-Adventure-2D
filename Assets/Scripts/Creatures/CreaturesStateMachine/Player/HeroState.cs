@@ -1,7 +1,6 @@
 ﻿using Components.HealthComponentFolder;
-using UnityEngine;
 
-namespace Creatures.CreaturesStateMachine.Hero
+namespace Creatures.CreaturesStateMachine.Player
 {
     public class HeroState : CreatureState
     {

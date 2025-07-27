@@ -1,13 +1,12 @@
 ﻿using Components;
-using Components.HealthComponentFolder;
 using Creatures.AnimationControllers;
 using UnityEngine;
 
-namespace Creatures.CreaturesStateMachine.Hero
+namespace Creatures.CreaturesStateMachine.Player
 {
     public class HeroAttackState : HeroState
     {
-        public HeroAttackState(Hero hero, CreatureStateMachine stateMachine, int animBoolName) 
+        public HeroAttackState(Player.Hero hero, CreatureStateMachine stateMachine, int animBoolName) 
             : base(hero, stateMachine, animBoolName)
         {
             
@@ -35,6 +34,8 @@ namespace Creatures.CreaturesStateMachine.Hero
         {
             
             if (!Hr.GameSess.PlayerData.isArmed || !CollisionInfo.IsGrounded) return;
+            
+            Hr.CallOnAttackEvent();
             
             var gos = CollisionInfo.GetObjectsInRange();
             

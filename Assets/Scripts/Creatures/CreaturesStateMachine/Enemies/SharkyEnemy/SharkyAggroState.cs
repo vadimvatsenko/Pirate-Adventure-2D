@@ -6,6 +6,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
     public class SharkyAggroState : SharkyState
     {
         private float _aggroTimer = 0f;
+        private readonly float _aggroDuration = 1.5f;
         
         public SharkyAggroState(SharkyE sharky, CreatureStateMachine stateMachine, int animBoolName) 
             : base(sharky, stateMachine, animBoolName)
@@ -23,15 +24,16 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         {
             base.Update();
             
-            if(StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Aggro)) && StateInfo.normalizedTime > 1.0f)
+            _aggroTimer += Time.deltaTime;
+            if (_aggroTimer >= _aggroDuration)
             {
-                StateMachine.ChangeState(Sharky.BattleState);
+                _aggroTimer = 0f;
+                if(StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Aggro)) 
+                   && StateInfo.normalizedTime > 1.0f)
+                {
+                    StateMachine.ChangeState(Sharky.BattleState);
+                }
             }
-        }
-
-        public void OnAggroEnded()
-        {
-            StateMachine.ChangeState(Sharky.BattleState);
         }
     }
 }

@@ -1,11 +1,10 @@
-﻿using GameManagerInfo;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Creatures.CreaturesStateMachine.Hero
+namespace Creatures.CreaturesStateMachine.Player
 {
     public class HeroDeathState : HeroState
     {
-        public HeroDeathState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
+        public HeroDeathState(Player.Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {
         }
@@ -18,7 +17,9 @@ namespace Creatures.CreaturesStateMachine.Hero
             Hr.NewInputSet.Disable();
             Rb2D.isKinematic = true;
             //Rb2D.velocity = Vector2.zero;
+            Debug.Log("Hero Death");
             Hr.GameMg.ReloadLevel();
+            
         }
 
         public override void Update()

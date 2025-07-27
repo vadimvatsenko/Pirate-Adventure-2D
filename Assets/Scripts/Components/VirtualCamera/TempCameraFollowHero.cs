@@ -1,6 +1,6 @@
 ﻿using Cinemachine;
 using Creatures;
-using Creatures.CreaturesStateMachine.Hero;
+using Creatures.CreaturesStateMachine.Player;
 using UnityEngine;
 
 namespace Components.VirtualCamera

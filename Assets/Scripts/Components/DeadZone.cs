@@ -1,6 +1,6 @@
 ﻿using Controllers;
 using Creatures;
-using Creatures.CreaturesStateMachine.Hero;
+using Creatures.CreaturesStateMachine.Player;
 using GameManagerInfo;
 using UnityEngine;
 using UnityEngine.Serialization;

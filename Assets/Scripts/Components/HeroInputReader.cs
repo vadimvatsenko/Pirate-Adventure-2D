@@ -1,6 +1,6 @@
 ﻿using System;
 using Creatures.CreaturesStateMachine;
-using Creatures.CreaturesStateMachine.Hero;
+using Creatures.CreaturesStateMachine.Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

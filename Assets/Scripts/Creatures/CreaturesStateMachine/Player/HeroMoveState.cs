@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 
-namespace Creatures.CreaturesStateMachine.Hero
+namespace Creatures.CreaturesStateMachine.Player
 {
     public class HeroMoveState : HeroGroundState
     {
         
-        public HeroMoveState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
+        public HeroMoveState(Player.Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {
         }

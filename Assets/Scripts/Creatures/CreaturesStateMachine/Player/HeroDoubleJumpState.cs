@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-namespace Creatures.CreaturesStateMachine.Hero
+namespace Creatures.CreaturesStateMachine.Player
 {
     public class HeroDoubleJumpState : HeroAiredState
     {
-        public HeroDoubleJumpState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
+        public HeroDoubleJumpState(Player.Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {
         }

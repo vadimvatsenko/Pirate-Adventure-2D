@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-namespace Creatures.CreaturesStateMachine.Hero
+namespace Creatures.CreaturesStateMachine.Player
 {
     public class HeroAiredState : HeroState
     {
-        public HeroAiredState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
+        public HeroAiredState(Player.Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {
         }

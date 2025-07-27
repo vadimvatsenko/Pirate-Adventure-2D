@@ -1,10 +1,8 @@
-﻿using UnityEngine;
-
-namespace Creatures.CreaturesStateMachine.Hero
+﻿namespace Creatures.CreaturesStateMachine.Player
 {
     public class HeroGroundState : HeroState
     {
-        public HeroGroundState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
+        public HeroGroundState(Player.Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {
         }

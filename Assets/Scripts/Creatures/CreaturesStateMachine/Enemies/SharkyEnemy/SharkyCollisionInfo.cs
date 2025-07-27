@@ -11,6 +11,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         [SerializeField] private float distanceToHero;
         [SerializeField] private float attackDistance;
         [SerializeField] private Transform hero;
+        public Transform Hero => hero;
         
         [Header("Abyss Detected Info")]
         [SerializeField] private Transform abyssCheckStartPos;
@@ -20,6 +21,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         [Header("Ground After Abyss Detected Info")]
         [SerializeField] private Transform groundAfterAbyssCheckStartPos;
         [SerializeField] private float groundAfterAbyssCheckDistance = 1f;
+        
+        
         public bool IsGroundAfterAbyssDetected { get; private set; }
         public float DistanceToHero => distanceToHero;
         public float AttackDistance => attackDistance;
@@ -75,17 +78,16 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
                 Gizmos.DrawLine(Creature.transform.position,
                     new Vector2(Creature.transform.position.x + (Creature.FacingDirection * distanceToHero), 
                         Creature.transform.position.y));
-            
-                Gizmos.color = Color.blue;
-                Gizmos.DrawLine(Creature.transform.position,
-                    new Vector2(Creature.transform.position.x + (Creature.FacingDirection * attackDistance), 
-                        Creature.transform.position.y));
                 
                 Gizmos.color = Color.green;
                 Gizmos.DrawLine(Creature.transform.position,
                     new Vector2(Creature.transform.position.x + (Creature.FacingDirection * _sharky.MinRetreatDistance), 
                         Creature.transform.position.y));
                 
+                Gizmos.color = Color.blue;
+                Gizmos.DrawLine(Creature.transform.position,
+                    new Vector2(Creature.transform.position.x + (Creature.FacingDirection * attackDistance), 
+                        Creature.transform.position.y));
             }
             
             // Abyss Check

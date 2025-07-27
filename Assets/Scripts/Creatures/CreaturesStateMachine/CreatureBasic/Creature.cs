@@ -13,6 +13,9 @@ namespace Creatures.CreaturesStateMachine
         
         [Header("Jump Info")]
         [SerializeField] protected float jumpForce;
+        
+        [Header("Hit Info")]
+        [SerializeField] protected Vector2 hit; 
 
         [Header("Die Info")] [SerializeField] private float dieHeight = 5f;
         
@@ -20,7 +23,8 @@ namespace Creatures.CreaturesStateMachine
         public float MovementSpeed => movementSpeed;
         public float JumpForce => jumpForce;
         public float DieHeight => dieHeight;
-        
+        public Vector2 Hit => hit;
+        //
 
         // Components
         public Animator AnimController { get; protected set; }
@@ -79,7 +83,6 @@ namespace Creatures.CreaturesStateMachine
         public void SubscribeOnAttackEvent(Action action) => OnAttackEvent += action;
         public void UnsubscribeOnAttackEvent(Action action) => OnAttackEvent -= action;
         
-        
         public void SetDirection(float dir) => XInput = dir;
         
         public virtual void HandleMovement()
@@ -109,5 +112,6 @@ namespace Creatures.CreaturesStateMachine
         }
 
         protected int TakeHit(Creature damager) => damager.FacingDirection;
+        public void DestroySelf() => Destroy(gameObject);
     }
 }

@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
-namespace Creatures.CreaturesStateMachine.Hero
+namespace Creatures.CreaturesStateMachine.Player
 {
     public class HeroFallState : HeroAiredState
     {
         private float _startFallY;
         
-        public HeroFallState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
+        public HeroFallState(Player.Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {
         }
