@@ -25,7 +25,7 @@ TagManager:
   - Destructible
   - Coins
   - Enemies
-  - 
+  - FrontGround
   - 
   - 
   - 
@@ -67,4 +67,7 @@ TagManager:
     locked: 0
   - name: SuperLayer
     uniqueID: 4195657477
+    locked: 0
+  - name: FrontGround
+    uniqueID: 1970719135
     locked: 0
