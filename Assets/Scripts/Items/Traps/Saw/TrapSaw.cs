@@ -14,7 +14,7 @@ namespace Items.Traps
         protected Vector3[] WaypointsPositions;
         protected bool CanMove = true;
         protected int WaypointIndex = 0;
-        protected int MovementDirection = -1;
+        protected int MovementDirection = 1;
         protected float RotationAngle = 360f;
 
         private void Awake()
