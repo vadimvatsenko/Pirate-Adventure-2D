@@ -9,6 +9,7 @@ namespace Components
         [SerializeField] private float durationTime = 0.05f;
         [SerializeField] private float delayTime = 0.5f;
         [SerializeField] private Transform[] waypoints;
+        [SerializeField] private GameObject[] doorsElements;
 
         [Header("Events")] 
         public UnityEvent onEnableDoor;
@@ -67,18 +68,27 @@ namespace Components
             _isMoving = true;
             _elapsedTime = 0f;
 
-            while (_elapsedTime < durationTime)
+            for (int i = 0; i < doorsElements.Length; i++)
             {
-                float t = _elapsedTime / durationTime;
-                transform.position = Vector3.Lerp(from, to, t);
-                _elapsedTime += Time.deltaTime;
-                yield return null;
+                Vector3 fromCorrected = doorsElements[i].transform.position;
+                Vector2 toCorrect = new Vector2(doorsElements[i].transform.position.x, to.y);
+                _elapsedTime = 0f;
+                
+                while (_elapsedTime < durationTime)
+                {
+                    float t = _elapsedTime / durationTime;
+                    
+                    doorsElements[i].transform.position = Vector3.Lerp(fromCorrected, toCorrect, t);
+                    _elapsedTime += Time.deltaTime;
+                    yield return null;
+                }
+
+                doorsElements[i].transform.position = toCorrect;
+                _isOpen = opening;
+                _isMoving = false;
+                
             }
-
-            transform.position = to;
-            _isOpen = opening;
-            _isMoving = false;
-
+            
             if (_isOpen)
                 onDoorOpened?.Invoke();
             else

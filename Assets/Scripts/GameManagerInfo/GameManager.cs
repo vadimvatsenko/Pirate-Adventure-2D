@@ -22,6 +22,11 @@ namespace GameManagerInfo
             Debug.Log(score);
         }
 
+        public void LoadNextLevel()
+        {
+            _levelController.LoadNextLevel();
+        }
+
         public void ReloadLevel() => StartCoroutine(ReloadLevelWhithDelay(1f));
         
         private IEnumerator ReloadLevelWhithDelay(float delay)

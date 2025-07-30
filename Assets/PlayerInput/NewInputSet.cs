@@ -41,6 +41,14 @@ public class @NewInputSet : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""0244acf0-0e97-419b-9ce0-62acd021b1e2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -175,6 +183,28 @@ public class @NewInputSet : IInputActionCollection, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""646953a5-a72c-4d4a-9cc6-32a271b50ccd"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bb9329f5-239f-4943-aa49-1aee21061410"",
+                    ""path"": ""<XInputController>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -214,6 +244,7 @@ public class @NewInputSet : IInputActionCollection, IDisposable
         m_Hero_Movement = m_Hero.FindAction("Movement", throwIfNotFound: true);
         m_Hero_Jump = m_Hero.FindAction("Jump", throwIfNotFound: true);
         m_Hero_Attack = m_Hero.FindAction("Attack", throwIfNotFound: true);
+        m_Hero_Interact = m_Hero.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -266,6 +297,7 @@ public class @NewInputSet : IInputActionCollection, IDisposable
     private readonly InputAction m_Hero_Movement;
     private readonly InputAction m_Hero_Jump;
     private readonly InputAction m_Hero_Attack;
+    private readonly InputAction m_Hero_Interact;
     public struct HeroActions
     {
         private @NewInputSet m_Wrapper;
@@ -273,6 +305,7 @@ public class @NewInputSet : IInputActionCollection, IDisposable
         public InputAction @Movement => m_Wrapper.m_Hero_Movement;
         public InputAction @Jump => m_Wrapper.m_Hero_Jump;
         public InputAction @Attack => m_Wrapper.m_Hero_Attack;
+        public InputAction @Interact => m_Wrapper.m_Hero_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -291,6 +324,9 @@ public class @NewInputSet : IInputActionCollection, IDisposable
                 @Attack.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnAttack;
+                @Interact.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnInteract;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -304,6 +340,9 @@ public class @NewInputSet : IInputActionCollection, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
             }
         }
     }
@@ -331,5 +370,6 @@ public class @NewInputSet : IInputActionCollection, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
 }

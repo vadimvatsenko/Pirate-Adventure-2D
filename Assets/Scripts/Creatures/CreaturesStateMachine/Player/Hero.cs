@@ -60,6 +60,10 @@ namespace Creatures.CreaturesStateMachine.Player
             
             HandleFlip();
             
+            if (NewInputSet.Hero.Interact.triggered)
+                CollisionInfo.Interact();
+            
+            
             //Debug.Log(Rb2D.velocity);
         }
         

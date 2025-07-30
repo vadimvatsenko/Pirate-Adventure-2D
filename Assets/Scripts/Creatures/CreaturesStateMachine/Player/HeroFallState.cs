@@ -28,7 +28,7 @@ namespace Creatures.CreaturesStateMachine.Player
                 float landedY = Hr.transform.position.y;
                 float fallHeight = _startFallY - landedY;
 
-                Debug.Log($"Fall Height = {fallHeight}");
+                //Debug.Log($"Fall Height = {fallHeight}");
 
                 if (fallHeight > 5f)
                 {
