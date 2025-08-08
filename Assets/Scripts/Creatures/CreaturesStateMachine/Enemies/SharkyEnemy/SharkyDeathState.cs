@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Creatures.AnimationControllers;
+using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
 {
@@ -28,20 +29,29 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         {
             base.Update();
             
-            _deathTimer += Time.deltaTime;
+            /*_deathTimer += Time.deltaTime;
 
             float t = Mathf.Clamp01(_deathTimer / DeathDelay);
             
-            Vector2 newSize = Vector2.Lerp(_initialSize, Vector2.zero, t);
-            
+            //Vector2 newSize = Vector2.Lerp(_initialSize, Vector2.zero, t);
+            Vector2 newSize = Vector2.Lerp(_initialSize, Vector2.one, t);
+
             CapsuleCollider2D capsule = C2D as CapsuleCollider2D;
             
-            capsule.size = newSize; // уменьшаем размер коллайдера
+            capsule.size = newSize; // уменьшаем размер коллайдера*/
             
-            Debug.Log(newSize);
+            //Debug.Log(newSize);
 
-            if (newSize.x <= 0 && newSize.y <= 0)
-                Sharky.DestroySelf();
+            /*if (newSize.x <= 0 && newSize.y <= 0)
+                Sharky.DestroySelf();*/
+            
+            if (StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Death)))
+            {
+                if (Health.Health <= 0 && StateInfo.normalizedTime > 0.1f)
+                {
+                    StateMachine.ChangeState(Sharky.RespawnState);
+                }
+            }
         }
 
         public override void Exit()

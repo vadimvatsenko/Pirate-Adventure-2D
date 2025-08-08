@@ -4,7 +4,7 @@ namespace Creatures.CreaturesStateMachine.Player
 {
     public class HeroDeathState : HeroState
     {
-        public HeroDeathState(Player.Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
+        public HeroDeathState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {
         }
@@ -18,6 +18,7 @@ namespace Creatures.CreaturesStateMachine.Player
             //Rb2D.isKinematic = true;
             //Rb2D.velocity = Vector2.zero;
             Debug.Log("Hero Death");
+            Hr.CallOnDeathEvent();
             Hr.GameMg.ReloadLevel();
             
         }

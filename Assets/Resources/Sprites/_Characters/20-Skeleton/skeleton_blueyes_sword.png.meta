@@ -1,0 +1,6008 @@
+fileFormatVersion: 2
+guid: 1480ff2b718e88f4d9cdadf757117f84
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7713626194200216510
+    second: skeleton_blueyes_sword_0
+  - first:
+      213: 5541034096098927273
+    second: skeleton_blueyes_sword_1
+  - first:
+      213: 4285811211410127729
+    second: skeleton_blueyes_sword_2
+  - first:
+      213: -7282245333169694728
+    second: skeleton_blueyes_sword_3
+  - first:
+      213: 1837224515612521110
+    second: skeleton_blueyes_sword_4
+  - first:
+      213: -3662771965930501818
+    second: skeleton_blueyes_sword_5
+  - first:
+      213: -8185766053195047599
+    second: skeleton_blueyes_sword_6
+  - first:
+      213: -1759742980483175851
+    second: skeleton_blueyes_sword_7
+  - first:
+      213: -4537107760115070425
+    second: skeleton_blueyes_sword_8
+  - first:
+      213: 5600774857235823421
+    second: skeleton_blueyes_sword_9
+  - first:
+      213: 5761548164666880505
+    second: skeleton_blueyes_sword_10
+  - first:
+      213: -761432916324187757
+    second: skeleton_blueyes_sword_11
+  - first:
+      213: -2811976723670962008
+    second: skeleton_blueyes_sword_12
+  - first:
+      213: 4401183547882644039
+    second: skeleton_blueyes_sword_13
+  - first:
+      213: 7882897528743080198
+    second: skeleton_blueyes_sword_14
+  - first:
+      213: 4420913691239039727
+    second: skeleton_blueyes_sword_15
+  - first:
+      213: 5535293286631935787
+    second: skeleton_blueyes_sword_16
+  - first:
+      213: -1747577385623999856
+    second: skeleton_blueyes_sword_17
+  - first:
+      213: -6753794841586958089
+    second: skeleton_blueyes_sword_18
+  - first:
+      213: -8614859879345617740
+    second: skeleton_blueyes_sword_19
+  - first:
+      213: -2353020691707599808
+    second: skeleton_blueyes_sword_20
+  - first:
+      213: -6871044877301670184
+    second: skeleton_blueyes_sword_21
+  - first:
+      213: -6158982247178473430
+    second: skeleton_blueyes_sword_22
+  - first:
+      213: -3128620850114338650
+    second: skeleton_blueyes_sword_23
+  - first:
+      213: 4473099414235466255
+    second: skeleton_blueyes_sword_24
+  - first:
+      213: -4006233649186921472
+    second: skeleton_blueyes_sword_25
+  - first:
+      213: -6404015599353713859
+    second: skeleton_blueyes_sword_26
+  - first:
+      213: 1906566697161241620
+    second: skeleton_blueyes_sword_27
+  - first:
+      213: -6919893639618998388
+    second: skeleton_blueyes_sword_28
+  - first:
+      213: 7351181461674828932
+    second: skeleton_blueyes_sword_29
+  - first:
+      213: -4966015072441826678
+    second: skeleton_blueyes_sword_30
+  - first:
+      213: 6070682219024545720
+    second: skeleton_blueyes_sword_31
+  - first:
+      213: -5316649221580128123
+    second: skeleton_blueyes_sword_32
+  - first:
+      213: -7200103740644310882
+    second: skeleton_blueyes_sword_33
+  - first:
+      213: -3688431855600799246
+    second: skeleton_blueyes_sword_34
+  - first:
+      213: -6595680533385409697
+    second: skeleton_blueyes_sword_35
+  - first:
+      213: 8761257949928822626
+    second: skeleton_blueyes_sword_36
+  - first:
+      213: -1012041817310797344
+    second: skeleton_blueyes_sword_37
+  - first:
+      213: 4229433317283970036
+    second: skeleton_blueyes_sword_38
+  - first:
+      213: -1031072655048953707
+    second: skeleton_blueyes_sword_39
+  - first:
+      213: -5170489587204891143
+    second: skeleton_blueyes_sword_40
+  - first:
+      213: -2801365843354243307
+    second: skeleton_blueyes_sword_41
+  - first:
+      213: 2431528433307048096
+    second: skeleton_blueyes_sword_42
+  - first:
+      213: 8043397083431519981
+    second: skeleton_blueyes_sword_43
+  - first:
+      213: -7908445121057019640
+    second: skeleton_blueyes_sword_44
+  - first:
+      213: -3422396086763367199
+    second: skeleton_blueyes_sword_45
+  - first:
+      213: 8812314278926025203
+    second: skeleton_blueyes_sword_46
+  - first:
+      213: -7506704908233857362
+    second: skeleton_blueyes_sword_47
+  - first:
+      213: -2339408615202391997
+    second: skeleton_blueyes_sword_48
+  - first:
+      213: 8177287315788077942
+    second: skeleton_blueyes_sword_49
+  - first:
+      213: -2589442635656612089
+    second: skeleton_blueyes_sword_50
+  - first:
+      213: 7835143990611294185
+    second: skeleton_blueyes_sword_51
+  - first:
+      213: 5813539796243858630
+    second: skeleton_blueyes_sword_52
+  - first:
+      213: -2450408435261426783
+    second: skeleton_blueyes_sword_53
+  - first:
+      213: 1800304058144273183
+    second: skeleton_blueyes_sword_54
+  - first:
+      213: -599942653827459799
+    second: skeleton_blueyes_sword_55
+  - first:
+      213: -4571214952790902126
+    second: skeleton_blueyes_sword_56
+  - first:
+      213: 4831129004293717934
+    second: skeleton_blueyes_sword_57
+  - first:
+      213: 7899192369705471278
+    second: skeleton_blueyes_sword_58
+  - first:
+      213: 396060829503101777
+    second: skeleton_blueyes_sword_59
+  - first:
+      213: -4012060105872167806
+    second: skeleton_blueyes_sword_60
+  - first:
+      213: 8133902502866278286
+    second: skeleton_blueyes_sword_61
+  - first:
+      213: 2694050094842238255
+    second: skeleton_blueyes_sword_62
+  - first:
+      213: 3328897309198558309
+    second: skeleton_blueyes_sword_63
+  - first:
+      213: -5235875791102613411
+    second: skeleton_blueyes_sword_64
+  - first:
+      213: 4260740337276974344
+    second: skeleton_blueyes_sword_65
+  - first:
+      213: -349070420698334534
+    second: skeleton_blueyes_sword_66
+  - first:
+      213: 2046874795018991569
+    second: skeleton_blueyes_sword_67
+  - first:
+      213: 6811220804466074528
+    second: skeleton_blueyes_sword_68
+  - first:
+      213: -952429822209352260
+    second: skeleton_blueyes_sword_69
+  - first:
+      213: 4220338499728755783
+    second: skeleton_blueyes_sword_70
+  - first:
+      213: 2894464772999239766
+    second: skeleton_blueyes_sword_71
+  - first:
+      213: 366674075878380599
+    second: skeleton_blueyes_sword_72
+  - first:
+      213: -666871464097535500
+    second: skeleton_blueyes_sword_73
+  - first:
+      213: 5998011807593618479
+    second: skeleton_blueyes_sword_74
+  - first:
+      213: -841951911774301675
+    second: skeleton_blueyes_sword_75
+  - first:
+      213: 2829456849929258895
+    second: skeleton_blueyes_sword_76
+  - first:
+      213: -7915066369980632801
+    second: skeleton_blueyes_sword_77
+  - first:
+      213: -4864094357957005761
+    second: skeleton_blueyes_sword_78
+  - first:
+      213: 3074626159885371961
+    second: skeleton_blueyes_sword_79
+  - first:
+      213: 1410098649920225960
+    second: skeleton_blueyes_sword_80
+  - first:
+      213: -876259866859932676
+    second: skeleton_blueyes_sword_81
+  - first:
+      213: 6609284795781804012
+    second: skeleton_blueyes_sword_82
+  - first:
+      213: -5238743413244670937
+    second: skeleton_blueyes_sword_83
+  - first:
+      213: -5198642436057334098
+    second: skeleton_blueyes_sword_84
+  - first:
+      213: 7374266350978775871
+    second: skeleton_blueyes_sword_85
+  - first:
+      213: 4559828688345105782
+    second: skeleton_blueyes_sword_86
+  - first:
+      213: -8421740104431842742
+    second: skeleton_blueyes_sword_87
+  - first:
+      213: 1600624778921453669
+    second: skeleton_blueyes_sword_88
+  - first:
+      213: 6842473559967031320
+    second: skeleton_blueyes_sword_89
+  - first:
+      213: 7529999902785651207
+    second: skeleton_blueyes_sword_90
+  - first:
+      213: 5295484567843506932
+    second: skeleton_blueyes_sword_91
+  - first:
+      213: -4145304617164760252
+    second: skeleton_blueyes_sword_92
+  - first:
+      213: 6861033841759706284
+    second: skeleton_blueyes_sword_93
+  - first:
+      213: 7916785587785582322
+    second: skeleton_blueyes_sword_94
+  - first:
+      213: -3374112905154315795
+    second: skeleton_blueyes_sword_95
+  - first:
+      213: 5647627568187976271
+    second: skeleton_blueyes_sword_96
+  - first:
+      213: -8711469039505497118
+    second: skeleton_blueyes_sword_97
+  - first:
+      213: 2627487324403518423
+    second: skeleton_blueyes_sword_98
+  - first:
+      213: 7543879301399296575
+    second: skeleton_blueyes_sword_99
+  - first:
+      213: -4881258267669775978
+    second: skeleton_blueyes_sword_100
+  - first:
+      213: 603080779131006552
+    second: skeleton_blueyes_sword_101
+  - first:
+      213: 5938913149432516995
+    second: skeleton_blueyes_sword_102
+  - first:
+      213: -3013514412056766485
+    second: skeleton_blueyes_sword_103
+  - first:
+      213: 936338011011377380
+    second: skeleton_blueyes_sword_104
+  - first:
+      213: -367461063556532926
+    second: skeleton_blueyes_sword_105
+  - first:
+      213: -3391665646573258574
+    second: skeleton_blueyes_sword_106
+  - first:
+      213: -7871355305236685177
+    second: skeleton_blueyes_sword_107
+  - first:
+      213: 9151865865612045784
+    second: skeleton_blueyes_sword_108
+  - first:
+      213: 7504621113271011621
+    second: skeleton_blueyes_sword_109
+  - first:
+      213: 4155023164683116070
+    second: skeleton_blueyes_sword_110
+  - first:
+      213: 615780536626394899
+    second: skeleton_blueyes_sword_111
+  - first:
+      213: 763970817823364416
+    second: skeleton_blueyes_sword_112
+  - first:
+      213: 6677086008310211692
+    second: skeleton_blueyes_sword_113
+  - first:
+      213: -3836875033509300249
+    second: skeleton_blueyes_sword_114
+  - first:
+      213: -8468739111959000216
+    second: skeleton_blueyes_sword_115
+  - first:
+      213: 1527497326170262469
+    second: skeleton_blueyes_sword_116
+  - first:
+      213: 2398991119744199504
+    second: skeleton_blueyes_sword_117
+  - first:
+      213: 5198703205341773400
+    second: skeleton_blueyes_sword_118
+  - first:
+      213: -3430123719928194468
+    second: skeleton_blueyes_sword_119
+  - first:
+      213: -1902940790692236516
+    second: skeleton_blueyes_sword_120
+  - first:
+      213: 71922275186407317
+    second: skeleton_blueyes_sword_121
+  - first:
+      213: -3471925808155399710
+    second: skeleton_blueyes_sword_122
+  - first:
+      213: -677691192387655385
+    second: skeleton_blueyes_sword_123
+  - first:
+      213: 3639479634581717414
+    second: skeleton_blueyes_sword_124
+  - first:
+      213: 1600228635584840024
+    second: skeleton_blueyes_sword_125
+  - first:
+      213: 6557238997620180208
+    second: skeleton_blueyes_sword_126
+  - first:
+      213: 1705606350275994386
+    second: skeleton_blueyes_sword_127
+  - first:
+      213: -7293470022187191875
+    second: skeleton_blueyes_sword_128
+  - first:
+      213: 976288742158966933
+    second: skeleton_blueyes_sword_129
+  - first:
+      213: -2638849992314115607
+    second: skeleton_blueyes_sword_130
+  - first:
+      213: 8263413567609031836
+    second: skeleton_blueyes_sword_131
+  - first:
+      213: 4342097199502293325
+    second: skeleton_blueyes_sword_132
+  - first:
+      213: -1952084947141382045
+    second: skeleton_blueyes_sword_133
+  - first:
+      213: 4102614471591995533
+    second: skeleton_blueyes_sword_134
+  - first:
+      213: -5737766231092503894
+    second: skeleton_blueyes_sword_135
+  - first:
+      213: -2496024826129537957
+    second: skeleton_blueyes_sword_136
+  - first:
+      213: -8804978345103912953
+    second: skeleton_blueyes_sword_137
+  - first:
+      213: 6646716727058822900
+    second: skeleton_blueyes_sword_138
+  - first:
+      213: -2508696076079635621
+    second: skeleton_blueyes_sword_139
+  - first:
+      213: 6735862244755790666
+    second: skeleton_blueyes_sword_140
+  - first:
+      213: -5610999404032995699
+    second: skeleton_blueyes_sword_141
+  - first:
+      213: 4029558678372517176
+    second: skeleton_blueyes_sword_142
+  - first:
+      213: 9209663490041230612
+    second: skeleton_blueyes_sword_143
+  - first:
+      213: 6886693353319388379
+    second: skeleton_blueyes_sword_144
+  - first:
+      213: 8636044159868719289
+    second: skeleton_blueyes_sword_145
+  - first:
+      213: 3174111963395293421
+    second: skeleton_blueyes_sword_146
+  - first:
+      213: 2515287261093480853
+    second: skeleton_blueyes_sword_147
+  - first:
+      213: -3482558819734304367
+    second: skeleton_blueyes_sword_148
+  - first:
+      213: 7591036601099266324
+    second: skeleton_blueyes_sword_149
+  - first:
+      213: 2302614515053375881
+    second: skeleton_blueyes_sword_150
+  - first:
+      213: 5944847910790482163
+    second: skeleton_blueyes_sword_151
+  - first:
+      213: 3485206847576670551
+    second: skeleton_blueyes_sword_152
+  - first:
+      213: 4623726089448278817
+    second: skeleton_blueyes_sword_153
+  - first:
+      213: 7992859969100558250
+    second: skeleton_blueyes_sword_154
+  - first:
+      213: -3488856050511600525
+    second: skeleton_blueyes_sword_155
+  - first:
+      213: -3171264520710257989
+    second: skeleton_blueyes_sword_156
+  - first:
+      213: 2806549346770077884
+    second: skeleton_blueyes_sword_157
+  - first:
+      213: 8682599505950071829
+    second: skeleton_blueyes_sword_158
+  - first:
+      213: -1801803272999890135
+    second: skeleton_blueyes_sword_159
+  - first:
+      213: -5299428219481454815
+    second: skeleton_blueyes_sword_160
+  - first:
+      213: -7471004635270546156
+    second: skeleton_blueyes_sword_161
+  - first:
+      213: -5587919491332233886
+    second: skeleton_blueyes_sword_162
+  - first:
+      213: 7456980493129865430
+    second: skeleton_blueyes_sword_163
+  - first:
+      213: 8311498707456681780
+    second: skeleton_blueyes_sword_164
+  - first:
+      213: -1800031538851502694
+    second: skeleton_blueyes_sword_165
+  - first:
+      213: -8631248709315994454
+    second: skeleton_blueyes_sword_166
+  - first:
+      213: -8683837438961981538
+    second: skeleton_blueyes_sword_167
+  - first:
+      213: -4527615792703004065
+    second: skeleton_blueyes_sword_168
+  - first:
+      213: -1048671113133582260
+    second: skeleton_blueyes_sword_169
+  - first:
+      213: -3217591404509914283
+    second: skeleton_blueyes_sword_170
+  - first:
+      213: 3536464419809820174
+    second: skeleton_blueyes_sword_171
+  - first:
+      213: -416528609292486272
+    second: skeleton_blueyes_sword_172
+  - first:
+      213: -2187679839892730303
+    second: skeleton_blueyes_sword_173
+  - first:
+      213: 8224600920583597991
+    second: skeleton_blueyes_sword_174
+  - first:
+      213: 5846873467505505670
+    second: skeleton_blueyes_sword_175
+  - first:
+      213: -4163922454178151218
+    second: skeleton_blueyes_sword_176
+  - first:
+      213: 7415561174883863860
+    second: skeleton_blueyes_sword_177
+  - first:
+      213: 838748375122001589
+    second: skeleton_blueyes_sword_178
+  - first:
+      213: -5448181135053230063
+    second: skeleton_blueyes_sword_179
+  - first:
+      213: -5458902972298841051
+    second: skeleton_blueyes_sword_180
+  - first:
+      213: -3793673656246686534
+    second: skeleton_blueyes_sword_181
+  - first:
+      213: 1985170123687347345
+    second: skeleton_blueyes_sword_182
+  - first:
+      213: -4820459587292587736
+    second: skeleton_blueyes_sword_183
+  - first:
+      213: 2593424850184545361
+    second: skeleton_blueyes_sword_184
+  - first:
+      213: -1963642920340224713
+    second: skeleton_blueyes_sword_185
+  - first:
+      213: -703718447355628675
+    second: skeleton_blueyes_sword_186
+  - first:
+      213: 1004732693172455648
+    second: skeleton_blueyes_sword_187
+  - first:
+      213: 3310782545045056014
+    second: skeleton_blueyes_sword_188
+  - first:
+      213: 1921237545249232502
+    second: skeleton_blueyes_sword_189
+  - first:
+      213: -1528562179486444648
+    second: skeleton_blueyes_sword_190
+  - first:
+      213: 8653787830332345999
+    second: skeleton_blueyes_sword_191
+  - first:
+      213: -5500492370605630609
+    second: skeleton_blueyes_sword_192
+  - first:
+      213: -5685701510950255823
+    second: skeleton_blueyes_sword_193
+  - first:
+      213: 3324315782519107351
+    second: skeleton_blueyes_sword_194
+  - first:
+      213: -4089733412795780047
+    second: skeleton_blueyes_sword_195
+  - first:
+      213: 1224844137628484386
+    second: skeleton_blueyes_sword_196
+  - first:
+      213: 1767291526263176885
+    second: skeleton_blueyes_sword_197
+  - first:
+      213: -5737850035505509476
+    second: skeleton_blueyes_sword_198
+  - first:
+      213: -6492877274427482318
+    second: skeleton_blueyes_sword_199
+  - first:
+      213: -3345956570731324637
+    second: skeleton_blueyes_sword_200
+  - first:
+      213: -9007430814282460847
+    second: skeleton_blueyes_sword_201
+  - first:
+      213: -1064793482942536038
+    second: skeleton_blueyes_sword_202
+  - first:
+      213: -8627011183700956922
+    second: skeleton_blueyes_sword_203
+  - first:
+      213: -8699376674090434675
+    second: skeleton_blueyes_sword_204
+  - first:
+      213: 3061563212931582222
+    second: skeleton_blueyes_sword_205
+  - first:
+      213: 6917236657540312424
+    second: skeleton_blueyes_sword_206
+  - first:
+      213: -4426641800164391605
+    second: skeleton_blueyes_sword_207
+  - first:
+      213: 2266592505803231343
+    second: skeleton_blueyes_sword_208
+  - first:
+      213: 1534084643006522809
+    second: skeleton_blueyes_sword_209
+  - first:
+      213: -8761745484875214714
+    second: skeleton_blueyes_sword_210
+  - first:
+      213: 567355904610935172
+    second: skeleton_blueyes_sword_211
+  - first:
+      213: 756677751379405920
+    second: skeleton_blueyes_sword_212
+  - first:
+      213: -7973303011435849885
+    second: skeleton_blueyes_sword_213
+  - first:
+      213: -7728019702830371889
+    second: skeleton_blueyes_sword_214
+  - first:
+      213: 2686442607091671631
+    second: skeleton_blueyes_sword_215
+  - first:
+      213: -5501200693835895006
+    second: skeleton_blueyes_sword_216
+  - first:
+      213: -8885027174167359108
+    second: skeleton_blueyes_sword_217
+  - first:
+      213: -7513181734051076468
+    second: skeleton_blueyes_sword_218
+  - first:
+      213: 8082051372581341602
+    second: skeleton_blueyes_sword_219
+  - first:
+      213: 4632550238933885768
+    second: skeleton_blueyes_sword_220
+  - first:
+      213: -353589103871229298
+    second: skeleton_blueyes_sword_221
+  - first:
+      213: -7874908003986053568
+    second: skeleton_blueyes_sword_222
+  - first:
+      213: -243900669557935483
+    second: skeleton_blueyes_sword_223
+  - first:
+      213: -7902045572819138661
+    second: skeleton_blueyes_sword_224
+  - first:
+      213: 8971985856375178571
+    second: skeleton_blueyes_sword_225
+  - first:
+      213: 6412043818368092947
+    second: skeleton_blueyes_sword_226
+  - first:
+      213: 4542950123042840037
+    second: skeleton_blueyes_sword_227
+  - first:
+      213: 1444634003342645921
+    second: skeleton_blueyes_sword_228
+  - first:
+      213: 8153351116876670170
+    second: skeleton_blueyes_sword_229
+  - first:
+      213: -2303567874806284278
+    second: skeleton_blueyes_sword_230
+  - first:
+      213: 6958307961305689948
+    second: skeleton_blueyes_sword_231
+  - first:
+      213: 3541022517502871331
+    second: skeleton_blueyes_sword_232
+  - first:
+      213: -3091440464875317784
+    second: skeleton_blueyes_sword_233
+  - first:
+      213: -6353420882660681656
+    second: skeleton_blueyes_sword_234
+  - first:
+      213: -7409477105449982752
+    second: skeleton_blueyes_sword_235
+  - first:
+      213: -8299784588515817577
+    second: skeleton_blueyes_sword_236
+  - first:
+      213: -7982314671912677556
+    second: skeleton_blueyes_sword_237
+  - first:
+      213: -6526434480876985849
+    second: skeleton_blueyes_sword_238
+  - first:
+      213: 8553686560740788642
+    second: skeleton_blueyes_sword_239
+  - first:
+      213: 2695756560444523741
+    second: skeleton_blueyes_sword_240
+  - first:
+      213: 8418235640456455409
+    second: skeleton_blueyes_sword_241
+  - first:
+      213: -1279024249588010985
+    second: skeleton_blueyes_sword_242
+  - first:
+      213: 8061049215418891729
+    second: skeleton_blueyes_sword_243
+  - first:
+      213: 2021852057210918105
+    second: skeleton_blueyes_sword_244
+  - first:
+      213: -1775243858343069083
+    second: skeleton_blueyes_sword_245
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2976
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb3c373b72e4c0b60800000000000000
+      internalID: 7713626194200216510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 2976
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a2ed4a1725b5ec40800000000000000
+      internalID: 5541034096098927273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_2
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2976
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17bbc7ee6924a7b30800000000000000
+      internalID: 4285811211410127729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_3
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 2976
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f79c25d37440fa90800000000000000
+      internalID: -7282245333169694728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_4
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2976
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69239b186f12f7910800000000000000
+      internalID: 1837224515612521110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_5
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 2976
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 649047d9d483b2dc0800000000000000
+      internalID: -3662771965930501818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_6
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 2976
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15d9bd80521566e80800000000000000
+      internalID: -8185766053195047599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_7
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 2976
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55a205035132497e0800000000000000
+      internalID: -1759742980483175851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2880
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72a4ca2e784f801c0800000000000000
+      internalID: -4537107760115070425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_9
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 2880
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3bfa78fe03f9bd40800000000000000
+      internalID: 5600774857235823421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_10
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2880
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f1f54f978125ff40800000000000000
+      internalID: 5761548164666880505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_11
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 2880
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 391053efbc8de65f0800000000000000
+      internalID: -761432916324187757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_12
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2880
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a0fcec711ad9f8d0800000000000000
+      internalID: -2811976723670962008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_13
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 2880
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 742a6da4e15241d30800000000000000
+      internalID: 4401183547882644039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_14
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 2880
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6013989798da56d60800000000000000
+      internalID: 7882897528743080198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_15
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 2880
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe2c6f4449d3a5d30800000000000000
+      internalID: 4420913691239039727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2784
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2f0d4dbaef41dc40800000000000000
+      internalID: 5535293286631935787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_17
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 2784
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09a206870ab5fb7e0800000000000000
+      internalID: -1747577385623999856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_18
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2784
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f0085def53b542a0800000000000000
+      internalID: -6753794841586958089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_19
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 2784
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b407dd459ed17880800000000000000
+      internalID: -8614859879345617740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_20
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2784
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 044ef91d524685fd0800000000000000
+      internalID: -2353020691707599808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_21
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 2784
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8de9aa4a61525a0a0800000000000000
+      internalID: -6871044877301670184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_22
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 2784
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a207df22746e68aa0800000000000000
+      internalID: -6158982247178473430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_23
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 2784
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a0ed08b9e7e494d0800000000000000
+      internalID: -3128620850114338650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2688
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0a438eb734a31e30800000000000000
+      internalID: 4473099414235466255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_25
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 2688
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0042ff4d8bff668c0800000000000000
+      internalID: -4006233649186921472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_26
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2688
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3b26780ebd5027a0800000000000000
+      internalID: -6404015599353713859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_27
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 2688
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 414b2e44f4c757a10800000000000000
+      internalID: 1906566697161241620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_28
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2688
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8f460fd56997ff90800000000000000
+      internalID: -6919893639618998388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_29
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 2688
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 484a0965794a40660800000000000000
+      internalID: 7351181461674828932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_30
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 2688
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a828ed94a9b251bb0800000000000000
+      internalID: -4966015072441826678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_31
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 2688
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b7fc3970556f3450800000000000000
+      internalID: 6070682219024545720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2592
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5800c58a3b77736b0800000000000000
+      internalID: -5316649221580128123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_33
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 2592
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e904fe0bbc7141c90800000000000000
+      internalID: -7200103740644310882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_34
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2592
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f1fdacf4ce00dcc0800000000000000
+      internalID: -3688431855600799246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_35
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 2592
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5b8a93108f6774a0800000000000000
+      internalID: -6595680533385409697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_36
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2592
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2671313bfad369970800000000000000
+      internalID: 8761257949928822626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_37
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 2592
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e16955445184f1f0800000000000000
+      internalID: -1012041817310797344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_38
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 2592
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fbb9ed8137f1ba30800000000000000
+      internalID: 4229433317283970036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_39
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 2592
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 590303212e4e0b1f0800000000000000
+      internalID: -1031072655048953707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2496
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fddbc76d1bbe38b0800000000000000
+      internalID: -5170489587204891143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_41
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 2496
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51f25f49b9c8f19d0800000000000000
+      internalID: -2801365843354243307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_42
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2496
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a857803a368eb120800000000000000
+      internalID: 2431528433307048096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_43
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 2496
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de649591803ef9f60800000000000000
+      internalID: 8043397083431519981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_44
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2496
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 809a9b9201f8f3290800000000000000
+      internalID: -7908445121057019640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_45
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 2496
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e458c744e43180d0800000000000000
+      internalID: -3422396086763367199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_46
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 2496
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f10d74a521ab4a70800000000000000
+      internalID: 8812314278926025203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_47
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 2496
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea62a0f78a3d2d790800000000000000
+      internalID: -7506704908233857362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2400
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3487f5a5240c88fd0800000000000000
+      internalID: -2339408615202391997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_49
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 2400
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67b1bd31d7f8b7170800000000000000
+      internalID: 8177287315788077942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_50
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2400
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 707bf6f64a3701cd0800000000000000
+      internalID: -2589442635656612089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_51
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 2400
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e73c6472f50cbc60800000000000000
+      internalID: 7835143990611294185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_52
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2400
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c446baa4a7dda050800000000000000
+      internalID: 5813539796243858630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_53
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 2400
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a33f9dc2866efdd0800000000000000
+      internalID: -2450408435261426783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_54
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 2400
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f133261a007fbf810800000000000000
+      internalID: 1800304058144273183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_55
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 2400
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9255201c5539ca7f0800000000000000
+      internalID: -599942653827459799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2304
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29ab1f24838cf80c0800000000000000
+      internalID: -4571214952790902126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_57
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 2304
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaf7305ab3e9b0340800000000000000
+      internalID: 4831129004293717934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_58
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2304
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2d45c8cb919f9d60800000000000000
+      internalID: 7899192369705471278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_59
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 2304
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15b9afbd9371f7500800000000000000
+      internalID: 396060829503101777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_60
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2304
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28c29fb279c4258c0800000000000000
+      internalID: -4012060105872167806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_61
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 2304
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8751092b3d61e070800000000000000
+      internalID: 8133902502866278286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_62
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 2304
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f25dd2e9940336520800000000000000
+      internalID: 2694050094842238255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_63
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 2304
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 564a888277e923e20800000000000000
+      internalID: 3328897309198558309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_64
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2208
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d58e24775be6657b0800000000000000
+      internalID: -5235875791102613411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_65
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2208
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 805729b23c0312b30800000000000000
+      internalID: 4260740337276974344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_66
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2208
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abafda44d4ad72bf0800000000000000
+      internalID: -349070420698334534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_67
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 2208
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d7bec008c5f76c10800000000000000
+      internalID: 2046874795018991569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_68
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 2208
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a363f8fb31568e50800000000000000
+      internalID: 6811220804466074528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_69
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 2208
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbd19b57f1a48c2f0800000000000000
+      internalID: -952429822209352260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2112
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74ccc345187a19a30800000000000000
+      internalID: 4220338499728755783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_71
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2112
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 658508120643b2820800000000000000
+      internalID: 2894464772999239766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_72
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2112
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73453191120b61500800000000000000
+      internalID: 366674075878380599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_73
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 2112
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f92f97cfebceb6f0800000000000000
+      internalID: -666871464097535500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_74
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 2112
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2c573ec5f73d3350800000000000000
+      internalID: 5998011807593618479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_75
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 2112
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5125bb47239c054f0800000000000000
+      internalID: -841951911774301675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_76
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2016
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f87445f8300444720800000000000000
+      internalID: 2829456849929258895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_77
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 2016
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f11f9a38219082290800000000000000
+      internalID: -7915066369980632801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_78
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 2016
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3eadf7d3f34f7cb0800000000000000
+      internalID: -4864094357957005761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_79
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 2016
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93a471dc3344baa20800000000000000
+      internalID: 3074626159885371961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_80
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 2016
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a2c0c6404da19310800000000000000
+      internalID: 1410098649920225960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_81
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 2016
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf3f1e03b46e6d3f0800000000000000
+      internalID: -876259866859932676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_82
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 2016
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cefe6f71185e8bb50800000000000000
+      internalID: 6609284795781804012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_83
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 2016
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72c42282f9e3c47b0800000000000000
+      internalID: -5238743413244670937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_84
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaef78c7f36bad7b0800000000000000
+      internalID: -5198642436057334098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_85
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 1920
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3bb439fc28a65660800000000000000
+      internalID: 7374266350978775871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_86
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1920
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67502757804c74f30800000000000000
+      internalID: 4559828688345105782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_87
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 1920
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4acdaccef7ff1b80800000000000000
+      internalID: -8421740104431842742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_88
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1920
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5682d4681cf863610800000000000000
+      internalID: 1600624778921453669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_89
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1920
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81066d6237955fe50800000000000000
+      internalID: 6842473559967031320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_90
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1920
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 702c344140fef7860800000000000000
+      internalID: 7529999902785651207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_91
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 1920
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fa00e368275d7940800000000000000
+      internalID: 5295484567843506932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_92
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1824
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44b9b18d96be876c0800000000000000
+      internalID: -4145304617164760252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_93
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 1824
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cac55028de9473f50800000000000000
+      internalID: 6861033841759706284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_94
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1824
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f644e21c821edd60800000000000000
+      internalID: 7916785587785582322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_95
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 1824
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de93738803ebc21d0800000000000000
+      internalID: -3374112905154315795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_96
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1824
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4a2c81d957606e40800000000000000
+      internalID: 5647627568187976271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_97
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1824
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e3267c5015aa1780800000000000000
+      internalID: -8711469039505497118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_98
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1824
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dbc9eeecc5b67420800000000000000
+      internalID: 2627487324403518423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_99
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 1824
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3ab354614e31b860800000000000000
+      internalID: 7543879301399296575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_100
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1728
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 699ba92b779424cb0800000000000000
+      internalID: -4881258267669775978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_101
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 1728
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85e28faf5c29e5800800000000000000
+      internalID: 603080779131006552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_102
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1728
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38152df2b024b6250800000000000000
+      internalID: 5938913149432516995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_103
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 1728
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be716d7cb98dd26d0800000000000000
+      internalID: -3013514412056766485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_104
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1728
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e86708c57a8efc00800000000000000
+      internalID: 936338011011377380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_105
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1728
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 245fced0c1486eaf0800000000000000
+      internalID: -367461063556532926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_106
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1728
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b8fa1370126ee0d0800000000000000
+      internalID: -3391665646573258574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_107
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 1728
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78e1b7add0453c290800000000000000
+      internalID: -7871355305236685177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_108
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1632
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dd24df1485f10f70800000000000000
+      internalID: 9151865865612045784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_109
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 1632
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5294a6e2425c52860800000000000000
+      internalID: 7504621113271011621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_110
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1632
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62ed474dd8b99a930800000000000000
+      internalID: 4155023164683116070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_111
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 1632
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3173731b221bb8800800000000000000
+      internalID: 615780536626394899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_112
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1632
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 045502f396b2a9a00800000000000000
+      internalID: 763970817823364416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_113
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1632
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c64af0c0956c9ac50800000000000000
+      internalID: 6677086008310211692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_114
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1632
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e7fc145c7ea0cac0800000000000000
+      internalID: -3836875033509300249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_115
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 1632
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86b0a30a5aef87a80800000000000000
+      internalID: -8468739111959000216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_116
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cbccb1a9b2c23510800000000000000
+      internalID: 1527497326170262469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_117
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 1536
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05b6ba786bdea4120800000000000000
+      internalID: 2398991119744199504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_118
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1536
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85eb4177501852840800000000000000
+      internalID: 5198703205341773400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_119
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 1536
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5ad90a76a0c560d0800000000000000
+      internalID: -3430123719928194468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_120
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1536
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c13303ede656795e0800000000000000
+      internalID: -1902940790692236516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_121
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1536
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5977cef9de48ff000800000000000000
+      internalID: 71922275186407317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_122
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1536
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e9e26e5fdd31dfc0800000000000000
+      internalID: -3471925808155399710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_123
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 1536
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 729a25a737b5896f0800000000000000
+      internalID: -677691192387655385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_124
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1440
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a10382e177028230800000000000000
+      internalID: 3639479634581717414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_125
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 1440
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85141773777253610800000000000000
+      internalID: 1600228635584840024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_126
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1440
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f44d78602efffa50800000000000000
+      internalID: 6557238997620180208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_127
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 1440
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 213e9da50f78ba710800000000000000
+      internalID: 1705606350275994386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_128
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1440
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db1729348a368ca90800000000000000
+      internalID: -7293470022187191875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_129
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1440
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 590299a30797c8d00800000000000000
+      internalID: 976288742158966933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_130
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1440
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e92398c9ebe06bd0800000000000000
+      internalID: -2638849992314115607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_131
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 1440
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9cca79bbda8da270800000000000000
+      internalID: 8263413567609031836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_132
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d497d84c56a324c30800000000000000
+      internalID: 4342097199502293325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_133
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 1344
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 360304a451dc8e4e0800000000000000
+      internalID: -1952084947141382045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_134
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1344
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d882e95102a6fe830800000000000000
+      internalID: 4102614471591995533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_135
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 1344
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaadf77430c5f50b0800000000000000
+      internalID: -5737766231092503894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_136
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1344
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b542ef725a65c5dd0800000000000000
+      internalID: -2496024826129537957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_137
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1344
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 700131d88de6ec580800000000000000
+      internalID: -8804978345103912953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_138
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1344
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f6fcfeb5a1ed3c50800000000000000
+      internalID: 6646716727058822900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_139
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 1344
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b536bdfd5325f2dd0800000000000000
+      internalID: -2508696076079635621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_140
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1248
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4b52a206079a7d50800000000000000
+      internalID: 6735862244755790666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_141
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 1248
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8e4fa735c9b122b0800000000000000
+      internalID: -5610999404032995699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_142
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1248
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8358cf9b44edbe730800000000000000
+      internalID: 4029558678372517176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_143
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 1248
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 415bac8362c4fcf70800000000000000
+      internalID: 9209663490041230612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_144
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1248
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd455a91e13729f50800000000000000
+      internalID: 6886693353319388379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_145
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1248
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b0df8d586469d770800000000000000
+      internalID: 8636044159868719289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_146
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1248
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de08e777306bc0c20800000000000000
+      internalID: 3174111963395293421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_147
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 1248
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 599ca89ff6818e220800000000000000
+      internalID: 2515287261093480853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_148
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1152
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 199455074377bafc0800000000000000
+      internalID: -3482558819734304367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_149
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 1152
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 419a285d197c85960800000000000000
+      internalID: 7591036601099266324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_150
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1152
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9813a60a3b784ff10800000000000000
+      internalID: 2302614515053375881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_151
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 1152
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f8c36e7da7508250800000000000000
+      internalID: 5944847910790482163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_152
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1152
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75101969921fd5030800000000000000
+      internalID: 3485206847576670551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_153
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1152
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12b454c7166ca2040800000000000000
+      internalID: 4623726089448278817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_154
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1152
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aafadad3bc75cee60800000000000000
+      internalID: 7992859969100558250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_155
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 1152
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 374a8c428e7159fc0800000000000000
+      internalID: -3488856050511600525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_156
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1056
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb2044278b76df3d0800000000000000
+      internalID: -3171264520710257989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_157
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 1056
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb8c5dad2cdd2f620800000000000000
+      internalID: 2806549346770077884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_158
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1056
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51cd22f8f3ace7870800000000000000
+      internalID: 8682599505950071829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_159
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 1056
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92394b53875bef6e0800000000000000
+      internalID: -1801803272999890135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_160
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1056
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1278029ac16a476b0800000000000000
+      internalID: -5299428219481454815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_161
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1056
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41df6670ed8a15890800000000000000
+      internalID: -7471004635270546156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_162
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1056
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26529a524d8b372b0800000000000000
+      internalID: -5587919491332233886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_163
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 1056
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d8d50eef348c7760800000000000000
+      internalID: 7456980493129865430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_164
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 437e219c900685370800000000000000
+      internalID: 8311498707456681780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_165
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 960
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a95a1463ad00507e0800000000000000
+      internalID: -1800031538851502694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_166
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 960
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aacdb297705a73880800000000000000
+      internalID: -8631248709315994454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_167
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 960
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e97ee63bbdfcc7780800000000000000
+      internalID: -8683837438961981538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_168
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 960
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f522d74cc6daa21c0800000000000000
+      internalID: -4527615792703004065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_169
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 960
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c48957fbd2f5271f0800000000000000
+      internalID: -1048671113133582260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_170
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 960
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55b16d54aa1d853d0800000000000000
+      internalID: -3217591404509914283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_171
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 864
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0e729f17ab041130800000000000000
+      internalID: 3536464419809820174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_172
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 864
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 089755ccf61383af0800000000000000
+      internalID: -416528609292486272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_173
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 864
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14e09e4c6ccc3a1e0800000000000000
+      internalID: -2187679839892730303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_174
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 864
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7af6cb226f6a32270800000000000000
+      internalID: 8224600920583597991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_175
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 864
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 685725dc074442150800000000000000
+      internalID: 5846873467505505670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_176
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 864
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec4407ed696c636c0800000000000000
+      internalID: -4163922454178151218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_177
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 864
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43d8127699d59e660800000000000000
+      internalID: 7415561174883863860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_178
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 864
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5be351b0435d3ab00800000000000000
+      internalID: 838748375122001589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_179
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 110fa259f1c2464b0800000000000000
+      internalID: -5448181135053230063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_180
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 768
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 524bdc05ba41e34b0800000000000000
+      internalID: -5458902972298841051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_181
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 768
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abca8adc8e92a5bc0800000000000000
+      internalID: -3793673656246686534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_182
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1944a19a5bdbc8b10800000000000000
+      internalID: 1985170123687347345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_183
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 768
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8299c459b894a1db0800000000000000
+      internalID: -4820459587292587736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_184
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 768
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 154abe22922bdf320800000000000000
+      internalID: 2593424850184545361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_185
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 768
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7350963fa2dbfb4e0800000000000000
+      internalID: -1963642920340224713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_186
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 672
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d737a73fcc3eb36f0800000000000000
+      internalID: -703718447355628675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_187
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 672
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e804c6af0781fd00800000000000000
+      internalID: 1004732693172455648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_188
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 672
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0a69f5fe2342fd20800000000000000
+      internalID: 3310782545045056014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_189
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 672
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67659b54e5b99aa10800000000000000
+      internalID: 1921237545249232502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_190
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 672
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8931d92ebc479cae0800000000000000
+      internalID: -1528562179486444648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_191
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 672
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8ece849e2e681870800000000000000
+      internalID: 8653787830332345999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_192
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 672
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6b1e40f4535aa3b0800000000000000
+      internalID: -5500492370605630609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_193
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 672
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13388e499945811b0800000000000000
+      internalID: -5685701510950255823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_194
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71fa64a5797522e20800000000000000
+      internalID: 3324315782519107351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_195
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 576
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 134f24021295e37c0800000000000000
+      internalID: -4089733412795780047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_196
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 223c090f0458ff010800000000000000
+      internalID: 1224844137628484386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_197
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 576
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5be7975974ea68810800000000000000
+      internalID: 1767291526263176885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_198
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 576
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9b4b3b0bcf0f50b0800000000000000
+      internalID: -5737850035505509476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_199
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 576
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23f1b87058aa4e5a0800000000000000
+      internalID: -6492877274427482318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_200
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 576
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32bdcaff936c091d0800000000000000
+      internalID: -3345956570731324637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_201
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 576
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15159c7d56d2ff280800000000000000
+      internalID: -9007430814282460847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_202
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 480
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a962f0208f71931f0800000000000000
+      internalID: -1064793482942536038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_203
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 480
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 609ae2a4903b64880800000000000000
+      internalID: -8627011183700956922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_204
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 480
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8f3585910b954780800000000000000
+      internalID: -8699376674090434675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_205
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 480
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e09c034758bdc7a20800000000000000
+      internalID: 3061563212931582222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_206
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 480
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86d20084716feff50800000000000000
+      internalID: 6917236657540312424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_207
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 480
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b454e417cb86192c0800000000000000
+      internalID: -4426641800164391605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_208
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 480
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f60d6f600ed847f10800000000000000
+      internalID: 2266592505803231343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_209
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 480
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b529c9dad92a4510800000000000000
+      internalID: 1534084643006522809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_210
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68051a937e6086680800000000000000
+      internalID: -8761745484875214714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_211
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 384
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4812e837037afd700800000000000000
+      internalID: 567355904610935172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_212
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06c2964e762408a00800000000000000
+      internalID: 756677751379405920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_213
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 384
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36750dcc723295190800000000000000
+      internalID: -7973303011435849885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_214
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcb639b660f80c490800000000000000
+      internalID: -7728019702830371889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_215
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 384
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f426c295159284520800000000000000
+      internalID: 2686442607091671631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_216
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 384
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22f67c59d1fc7a3b0800000000000000
+      internalID: -5501200693835895006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_217
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 384
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c71df082cda02b480800000000000000
+      internalID: -8885027174167359108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_218
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c86aee8f401dbb790800000000000000
+      internalID: -7513181734051076468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_219
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a94b2f17e6392070800000000000000
+      internalID: 8082051372581341602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_220
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8432ec3e5ef1a4040800000000000000
+      internalID: 4632550238933885768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_221
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e828e4b559cc71bf0800000000000000
+      internalID: -353589103871229298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_222
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 046e787b4e4b6b290800000000000000
+      internalID: -7874908003986053568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_223
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 582f48e12ad7d9cf0800000000000000
+      internalID: -243900669557935483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_224
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b97ca291b6b465290800000000000000
+      internalID: -7902045572819138661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_225
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 288
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b45421bc995e28c70800000000000000
+      internalID: 8971985856375178571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_226
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31bc11e51e72cf850800000000000000
+      internalID: 6412043818368092947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_227
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ed194c311dcb0f30800000000000000
+      internalID: 4542950123042840037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_228
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aa50b7d8fe5c0410800000000000000
+      internalID: 1444634003342645921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_229
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 192
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad4e77a74a5862170800000000000000
+      internalID: 8153351116876670170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_230
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a008b2209351800e0800000000000000
+      internalID: -2303567874806284278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_231
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 192
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5fe56f5930e09060800000000000000
+      internalID: 6958307961305689948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_232
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 192
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3270b61f73d342130800000000000000
+      internalID: 3541022517502871331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_233
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 192
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e596deb64ff815d0800000000000000
+      internalID: -3091440464875317784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_234
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 848167c7e5d14d7a0800000000000000
+      internalID: -6353420882660681656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_235
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e4a34664df3c2990800000000000000
+      internalID: -7409477105449982752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_236
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 797c04114ed31dc80800000000000000
+      internalID: -8299784588515817577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_237
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 96
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4f8147191f193190800000000000000
+      internalID: -7982314671912677556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_238
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 96
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 702677d0b627d65a0800000000000000
+      internalID: -6526434480876985849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_239
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 96
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a9ccfc8b9cc4b670800000000000000
+      internalID: 8553686560740788642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_240
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 96
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd4893a1f40496520800000000000000
+      internalID: 2695756560444523741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_241
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 96
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f4a0f896b493d470800000000000000
+      internalID: 8418235640456455409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_242
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7103238b83eff3ee0800000000000000
+      internalID: -1279024249588010985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_243
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ddfbf95d899edf60800000000000000
+      internalID: 8061049215418891729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_244
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d4137adbbf0f0c10800000000000000
+      internalID: 2021852057210918105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_blueyes_sword_245
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56a74c1dd111d57e0800000000000000
+      internalID: -1775243858343069083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

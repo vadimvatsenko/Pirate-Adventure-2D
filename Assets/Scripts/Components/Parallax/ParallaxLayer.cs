@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Components
+namespace Components.Parallax
 {
     public class ParallaxLayer : MonoBehaviour
     {

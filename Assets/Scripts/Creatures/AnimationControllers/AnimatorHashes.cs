@@ -20,6 +20,7 @@ namespace Creatures.AnimationControllers
         public static readonly int Aggro = Animator.StringToHash("aggro");
         public static readonly int Battle = Animator.StringToHash("battle");
         public static readonly int BattleAnimSpeed = Animator.StringToHash("battleAnimSpeed");
+        public static readonly int Respawn = Animator.StringToHash("respawn");
 
         private static readonly Dictionary<int, string> HashToName = new Dictionary<int, string>()
         {
@@ -36,6 +37,7 @@ namespace Creatures.AnimationControllers
             { Aggro, "aggro" },
             { Battle, "battle" },
             { BattleAnimSpeed, "battleAnimSpeed" },
+            { Respawn, "respawn" },
         };
 
         public static string GetName(int hash)

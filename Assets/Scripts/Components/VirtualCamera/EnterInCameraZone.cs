@@ -1,9 +1,8 @@
 ﻿using Cinemachine;
-using Creatures;
 using Creatures.CreaturesStateMachine.Player;
 using UnityEngine;
 
-namespace Components
+namespace Components.VirtualCamera
 {
     public class EnterInCameraZone : MonoBehaviour
     {

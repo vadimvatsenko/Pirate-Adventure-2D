@@ -45,7 +45,11 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         }
 
 
-        public void HandleExclamationParticle() => HandleSpawn(ParticleType.Exclamation);
+        public void HandleExclamationParticle()
+        {
+            HandleSpawn(ParticleType.Exclamation);
+            Debug.Log("Agro");
+        }
         public void SpawnWtf() => HandleSpawn(ParticleType.Interrogation);
         
     }
