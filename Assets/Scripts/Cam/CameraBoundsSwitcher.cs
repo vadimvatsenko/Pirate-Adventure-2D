@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 
@@ -7,42 +8,45 @@ namespace Cam
     public class CameraBoundsSwitcher: MonoBehaviour
     {
         [SerializeField] private CinemachineVirtualCamera vcam;
-        [SerializeField] private float delay = 3f;
+        [SerializeField] private float moveTime = 1f;
         
-        private float time = 0f;
-        private CinemachineConfiner _confiner;
+        private Coroutine _moveCoroutine;
+        private Transform _followTarget;
         
-        private GameObject _prevCollider;
-        
-        private void Start()
+        void Awake()
         {
-            _confiner = vcam.GetComponent<CinemachineConfiner>();
-            time = 0f;
+            if (vcam == null) vcam = FindObjectOfType<CinemachineVirtualCamera>();
+
+            // один общий таргет для Follow
+            _followTarget = new GameObject("CameraFollowTarget").transform;
+            _followTarget.position = vcam.transform.position; // стартовая
+            vcam.Follow = _followTarget;
         }
-        
-        public void SwitchCameraBounds(GameObject other)
+
+        public void MoveTo(Vector2 worldPos)
         {
-            if (_prevCollider != other)
-            {
-                while (time < delay)
-                {
-                    time += Time.deltaTime;
-                    
-                    Vector2 direction = (other.transform.position - _prevCollider.transform.position).normalized;
-                    
-                    var targetPos = Vector2.Lerp(_prevCollider.transform.position, other.transform.position, time / delay);
-                    
-                    
-                    vcam.Follow = other.transform;
-                    
-                    
-                }
-                _confiner.m_BoundingShape2D = other.GetComponent<Collider2D>();
-                time = 0f;
-            }
+            var target = new Vector3(worldPos.x, worldPos.y, _followTarget.position.z);
+
+            if (_moveCoroutine != null) StopCoroutine(_moveCoroutine); // прервать текущий
+            _moveCoroutine = StartCoroutine(MoveCoroutine(target));
             
-            //vcam.Follow = other.transform;
+            Debug.Log("Move To Target");
         }
-        
+
+        private IEnumerator MoveCoroutine(Vector3 target)
+        {
+            Vector3 start = _followTarget.position;
+            float t = 0f;
+
+            while (t < 1f)
+            {
+                t += Time.deltaTime / moveTime;
+                float k = Mathf.SmoothStep(0f, 1f, t);
+                _followTarget.position = Vector3.Lerp(start, target, k);
+                yield return null;
+            }
+
+            _moveCoroutine = null;
+        }
     }
 }
