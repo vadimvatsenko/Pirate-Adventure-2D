@@ -18,7 +18,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
                 Sharky.StateMachine.ChangeState(Sharky.JumpState);
             }*/
 
-            if (Sharky.SharkyCollisionInfo.IsWallDetected || Sharky.SharkyCollisionInfo.IsAbyssDetected)
+            if (Sharky.SharkyCollisionInfo.IsWallDetected 
+                || Sharky.SharkyCollisionInfo.IsAbyssDetected)
             {
                 Rb2D.velocity = Vector2.zero;
                 Sharky.HandleFlip();

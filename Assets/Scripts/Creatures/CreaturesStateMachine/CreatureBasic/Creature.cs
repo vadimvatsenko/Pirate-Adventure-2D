@@ -3,7 +3,7 @@ using Creatures.AnimationControllers;
 using Interfaces;
 using UnityEngine;
 
-namespace Creatures.CreaturesStateMachine
+namespace Creatures.CreaturesStateMachine.CreatureBasic
 {
     public class Creature : MonoBehaviour, IMovable
     {
@@ -17,7 +17,8 @@ namespace Creatures.CreaturesStateMachine
         [Header("Hit Info")]
         [SerializeField] protected Vector2 hit; 
 
-        [Header("Die Info")] [SerializeField] private float dieHeight = 5f;
+        [Header("Die Info")] 
+        [SerializeField] private float dieHeight = 5f;
         
         // Properties
         public float MovementSpeed => movementSpeed;

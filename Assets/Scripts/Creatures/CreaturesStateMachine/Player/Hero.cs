@@ -1,4 +1,5 @@
 ﻿using Creatures.AnimationControllers;
+using Creatures.CreaturesStateMachine.CreatureBasic;
 using GameManagerInfo;
 using UnityEngine;
 
@@ -37,6 +38,7 @@ namespace Creatures.CreaturesStateMachine.Player
             AttackState = new HeroAttackState(this, StateMachine, AnimatorHashes.Attack);
             FallState = new HeroFallState(this, StateMachine, AnimatorHashes.JumpFall);
             DeathState = new HeroDeathState(this, StateMachine, AnimatorHashes.Death);
+            HitState = new CreatureState(this, StateMachine, AnimatorHashes.Hit);
             StateMachine.Initialize(IdleState);
         }
 

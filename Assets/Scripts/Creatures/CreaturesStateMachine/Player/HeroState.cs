@@ -12,16 +12,23 @@ namespace Creatures.CreaturesStateMachine.Player
             Hr = hr;
             _healthComponent = Hr.GetComponent<PlayerHealthComponent>();
             _healthComponent.OnDeath += DeathHero;
+            _healthComponent.OnDamage += HitHero;
         }
 
         ~HeroState()
         {
             _healthComponent.OnDeath -= DeathHero;
+            _healthComponent.OnDamage -= HitHero;
         }
         
         private void DeathHero()
         {
             Hr.StateMachine.ChangeState(Hr.DeathState);
+        }
+
+        private void HitHero()
+        {
+            Hr.StateMachine.ChangeState(Hr.HitState);
         }
     }
 }

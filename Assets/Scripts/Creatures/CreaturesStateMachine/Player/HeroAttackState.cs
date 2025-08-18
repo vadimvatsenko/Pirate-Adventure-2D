@@ -1,5 +1,6 @@
 ﻿using Components;
 using Creatures.AnimationControllers;
+using Creatures.CreaturesStateMachine.CreatureBasic;
 using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Player

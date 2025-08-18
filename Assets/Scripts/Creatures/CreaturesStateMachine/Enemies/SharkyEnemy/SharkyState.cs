@@ -25,7 +25,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         public override void Enter()
         {
             base.Enter();
-            //Debug.Log(AnimatorHashes.GetName(_animBoolName));
+            Debug.Log($"Entered in {AnimatorHashes.GetName(_animBoolName)}");
         }
 
         ~SharkyState() => Health.UnsubscribeOnHitEvent(CallHitState);

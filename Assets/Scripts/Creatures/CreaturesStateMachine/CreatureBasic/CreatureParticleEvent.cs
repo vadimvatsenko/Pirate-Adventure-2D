@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Components;
+using Creatures.CreaturesStateMachine.CreatureBasic;
 using PlayerFolder.PlayerParticles;
 using UnityEngine;
 
@@ -70,7 +71,6 @@ namespace Creatures.CreaturesStateMachine
         {
             MoveSpawnTimer -= Time.deltaTime;
         }
-
         
         public void HandleSpawnFallPartical()
         {

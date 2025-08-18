@@ -65,6 +65,12 @@ TagManager:
   - name: UI
     uniqueID: 156929725
     locked: 0
+  - name: Colums
+    uniqueID: 1802969525
+    locked: 0
+  - name: Platform
+    uniqueID: 879555717
+    locked: 0
   - name: SuperLayer
     uniqueID: 4195657477
     locked: 0

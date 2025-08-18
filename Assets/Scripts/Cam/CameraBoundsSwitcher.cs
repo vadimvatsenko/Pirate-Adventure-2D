@@ -29,8 +29,6 @@ namespace Cam
 
             if (_moveCoroutine != null) StopCoroutine(_moveCoroutine); // прервать текущий
             _moveCoroutine = StartCoroutine(MoveCoroutine(target));
-            
-            Debug.Log("Move To Target");
         }
 
         private IEnumerator MoveCoroutine(Vector3 target)

@@ -1,6 +1,7 @@
 ﻿using System;
 using Creatures;
 using Creatures.CreaturesStateMachine;
+using Creatures.CreaturesStateMachine.CreatureBasic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

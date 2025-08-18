@@ -3,7 +3,6 @@ using Components.HealthComponentFolder;
 using Items.Coins;
 using UnityEngine;
 
-
 namespace Components
 {
     public class CoinsComponent : MonoBehaviour

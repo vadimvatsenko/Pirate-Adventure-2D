@@ -1,6 +1,7 @@
 ﻿using System;
 using Components;
 using Components.HealthComponentFolder;
+using Creatures.CreaturesStateMachine.CreatureBasic;
 using Creatures.Player;
 using UnityEngine;
 

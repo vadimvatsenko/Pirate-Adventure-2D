@@ -26,13 +26,14 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         {
             base.Update();
             
-            if (StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Hit)))
+            if (StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Hit)) &&
+                StateInfo.normalizedTime > 0.1f)
             {
-                if (Health.Health <= 0 && StateInfo.normalizedTime > 0.1f)
+                if (Health.Health <= 0)
                 {
                     StateMachine.ChangeState(Sharky.DeathState);
                 }
-                else if (CollisionInfo.IsGrounded && StateInfo.normalizedTime > 1.0f)
+                else
                 {
                     StateMachine.ChangeState(Sharky.BattleState);
                 }

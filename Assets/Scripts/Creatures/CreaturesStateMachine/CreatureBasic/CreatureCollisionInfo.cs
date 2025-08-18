@@ -1,4 +1,5 @@
 ﻿using Components;
+using Creatures.CreaturesStateMachine.CreatureBasic;
 using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine

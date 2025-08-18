@@ -1,5 +1,6 @@
 ﻿using System;
 using Creatures.AnimationControllers;
+using Creatures.CreaturesStateMachine.CreatureBasic;
 using Creatures.CreaturesStateMachine.Player;
 using UnityEngine;
 
@@ -32,7 +33,6 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         public SharkyAggroState AggroState { get; private set; }
         public SharkyAttackState AttackState {get; private set;}
         public SharkyBattleState BattleState { get; private set; }
-        
         public SharkyRespawnState RespawnState { get; private set; }
         
         // Aggro Event
@@ -63,9 +63,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
             BattleState = new SharkyBattleState(this, StateMachine, AnimatorHashes.Battle);
             HitState = new SharkyHitState(this, StateMachine, AnimatorHashes.Hit);
             DeathState = new SharkyDeathState(this, StateMachine, AnimatorHashes.Death);
-            
-            RespawnState = new SharkyRespawnState(this, StateMachine, AnimatorHashes.Respawn);
-            
+            //RespawnState = new SharkyRespawnState(this, StateMachine, AnimatorHashes.Respawn);
             StateMachine.Initialize(IdleState);
         }
 
@@ -80,7 +78,6 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
             
             SharkyCollisionInfo.HandleAbyssCheck();
             SharkyCollisionInfo.HandleGroundAfterAbyssCheck();
-            
         }
 
         public override void HandleFlip()

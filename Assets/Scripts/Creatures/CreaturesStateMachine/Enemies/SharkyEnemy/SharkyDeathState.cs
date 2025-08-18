@@ -29,7 +29,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         {
             base.Update();
             
-            /*_deathTimer += Time.deltaTime;
+            _deathTimer += Time.deltaTime;
 
             float t = Mathf.Clamp01(_deathTimer / DeathDelay);
             
@@ -40,23 +40,16 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
             
             capsule.size = newSize; // уменьшаем размер коллайдера*/
             
-            //Debug.Log(newSize);
-
-            /*if (newSize.x <= 0 && newSize.y <= 0)
-                Sharky.DestroySelf();*/
+            if (newSize.x <= 0 && newSize.y <= 0)
+                Sharky.DestroySelf();
             
-            if (StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Death)))
+            /*if (StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Death)))
             {
                 if (Health.Health <= 0 && StateInfo.normalizedTime > 0.1f)
                 {
                     StateMachine.ChangeState(Sharky.RespawnState);
                 }
-            }
-        }
-
-        public override void Exit()
-        {
-            base.Exit();
+            }*/
         }
     }
 }

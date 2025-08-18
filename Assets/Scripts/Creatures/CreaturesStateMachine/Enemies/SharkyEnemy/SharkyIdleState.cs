@@ -28,10 +28,5 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
                 StateMachine.ChangeState(Sharky.MoveState);
             }
         }
-
-        public override void Exit()
-        {
-            base.Exit();
-        }
     }
 }

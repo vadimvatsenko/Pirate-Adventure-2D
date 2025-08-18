@@ -1,6 +1,7 @@
 ﻿using System;
 using Creatures;
 using Creatures.CreaturesStateMachine;
+using Creatures.CreaturesStateMachine.CreatureBasic;
 using Creatures.CreaturesStateMachine.Player;
 using GameManagerInfo;
 using UnityEngine;
@@ -18,6 +19,7 @@ namespace Components.HealthComponentFolder
         private GameSession _gameSession;
         
         public event Action OnDeath;
+        public event Action OnDamage;
 
         private void Awake()
         {
@@ -28,6 +30,8 @@ namespace Components.HealthComponentFolder
         public void ApplyDamage(int damage)
         {
             _gameSession.PlayerData.health -= damage;
+            
+            OnDamage?.Invoke();
             
             if (_gameSession.PlayerData.health <= 0)
             {

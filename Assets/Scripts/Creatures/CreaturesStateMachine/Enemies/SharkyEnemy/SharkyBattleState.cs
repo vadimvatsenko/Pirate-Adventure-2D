@@ -43,6 +43,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
             
             if (WithinAttackRange() && CollisionInfo.HeroDetection())
             {
+                Debug.Log("Enemies are attacking");
                 StateMachine.ChangeState(Sharky.AttackState);
             }
             else
@@ -56,7 +57,6 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
                 StateMachine.ChangeState(Sharky.IdleState);
             }
         }
-
         
         private bool WithinAttackRange() => DistanceToHero() < CollisionInfo.AttackDistance;
         private bool ShouldRetreat() => DistanceToHero() < Sharky.MinRetreatDistance;

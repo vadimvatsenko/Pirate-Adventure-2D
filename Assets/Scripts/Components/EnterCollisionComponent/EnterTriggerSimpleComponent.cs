@@ -15,8 +15,6 @@ namespace Components.EnterCollisionComponent
             {
                 onAction?.Invoke();
                 onEnter?.Invoke(this.transform.position);
-                
-                Debug.Log(this.transform.position);
             }
         }
     }

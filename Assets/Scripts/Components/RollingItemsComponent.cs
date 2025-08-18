@@ -1,5 +1,6 @@
 ﻿using Creatures;
 using Creatures.CreaturesStateMachine;
+using Creatures.CreaturesStateMachine.CreatureBasic;
 using PlayerFolder;
 using UnityEngine;
 
