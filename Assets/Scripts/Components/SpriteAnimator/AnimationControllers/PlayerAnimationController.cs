@@ -1,5 +1,8 @@
 ﻿using System.Linq;
 using Components.SpriteAnimator.AnimationTypes;
+using Creatures;
+using Creatures.CreaturesStateMachine;
+using Creatures.CreaturesStateMachine.CreatureBasic;
 using PlayerFolder;
 using UnityEngine;
 
@@ -9,12 +12,12 @@ namespace Components.SpriteAnimator.AnimationControllers
     {
         [SerializeField] private HandleAnimationClip[] animationClip;
         private HandleSpriteAnimator _handleSpriteAnimator;
-        private Player _player;
+        private Creature _creature;
         private string _curentPlayerAnimationType;
         
         private void Awake()
         {
-            _player = GetComponentInParent<Player>();
+            _creature = GetComponentInParent<Creature>();
             _handleSpriteAnimator = GetComponent<HandleSpriteAnimator>();
             
             var newClip = animationClip.FirstOrDefault(a => a.AnimationName == PlayerAnimationType.PlayerIdle.ToString());
@@ -42,9 +45,9 @@ namespace Components.SpriteAnimator.AnimationControllers
 
         private string GetAnimationType()
         {
-            if (_player.Rb.velocity.y > 0.1f) return PlayerAnimationType.PlayerJump.ToString();
-            if (_player.Rb.velocity.y < -0.1f) return PlayerAnimationType.PlayerFall.ToString();
-            if (_player.XInput != 0) return PlayerAnimationType.PlayerMove.ToString();
+            if (_creature.Rb2D.velocity.y > 0.1f) return PlayerAnimationType.PlayerJump.ToString();
+            if (_creature.Rb2D.velocity.y < -0.1f) return PlayerAnimationType.PlayerFall.ToString();
+            if (_creature.XInput != 0) return PlayerAnimationType.PlayerMove.ToString();
             return PlayerAnimationType.PlayerIdle.ToString();
         }
     }

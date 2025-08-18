@@ -1,5 +1,6 @@
-﻿using PlayerFolder;
-using UnityEngine;
+﻿using UnityEngine;
+using Creatures.CreaturesStateMachine;
+using Creatures.CreaturesStateMachine.CreatureBasic;
 
 namespace Components
 {
@@ -49,7 +50,7 @@ namespace Components
 
             _wayPoints[0] = transform.position + new Vector3(0, yOffset, 0); // точка 1, верх + половинка пути
             _wayPoints[1] = transform.position + new Vector3(0, -yOffset, 0); // точка 2, низ + половинка пути
-            // для того, что бы платформа начала двигатся со свого положения
+            // для того, что бы платформа начала двигаться со свого положения
             // на половину пути вверх и них от начала своей позиции
         }
 
@@ -85,15 +86,15 @@ namespace Components
             transform.position =
                 Vector2.MoveTowards(
                     transform.position,
-                    transform.position + (Vector3.down * 10),
+                    transform.position + (Vector3.down * 3),
                     impactSpeed * Time.fixedDeltaTime);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (_impactHappend) return;
-            Player player = other.GetComponent<Player>();
-            if (player)
+            Creature creaturesOld = other.GetComponent<Creature>();
+            if (creaturesOld)
             {
                 Invoke(nameof(SwitchOffPlatform), fallDelay); // вызывает метод с задержкой
                 _impactTimer = impactDuration;

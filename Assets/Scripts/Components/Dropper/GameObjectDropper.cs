@@ -1,84 +1,65 @@
-﻿using System.Collections;
-using NaughtyAttributes;
+﻿using System.Collections.Generic;
+using GameManagerInfo;
 using UnityEngine;
 
-namespace Components
+namespace Components.Dropper
 {
     public class GameObjectDropper : MonoBehaviour
     {
         // используется для выброса объектов
-        [SerializeField] private GameObject[] prefabs;
-        
-        // using NaughtyAttributes - теперь можно прятать поля по условию
-        // в данном случае если только один префаб, то это поле будет видно
-        [ShowIf("HasOnePrefab")] 
-        [Range(1, 10)]
-        [SerializeField] private int gameObjectCountToDrop = 10;
+        [SerializeField] private DroppedObjectEntry[] droppedObjects;
         
         [Range(0.1f, 10f)]
         [SerializeField] private float spreadForce = 1.5f;
+        
         [Range(0.1f, 10f)]
         [SerializeField] private float spreadRadius = 1.5f;
-        [SerializeField] private DropperDirection dropperDirection = DropperDirection.Right;
+        
+        [Range(0.1f, 1f)] 
+        [SerializeField] private float gravity = 0.25f;
+        
+        [SerializeField] private DropperDirection dropperDirection = DropperDirection.Top;
         [SerializeField] private bool destroyOnFinish = true;
         
+        private List<GameObject> _objectsToSpawn = new List<GameObject>();
         private Vector2 _currentDirection;
+        private GameSession _gameSession;
 
         private void Awake()
         {
             _currentDirection = GetDirection(dropperDirection);
+            
+            foreach (var obj in droppedObjects)
+            {
+                _objectsToSpawn.Add(obj.prefab);
+            }
+        }
+
+        private void Start()
+        {
+            _gameSession = FindObjectOfType<GameSession>();
         }
 
         public void DropObject()
         {
-            int count = prefabs.Length == 1 ? gameObjectCountToDrop : prefabs.Length; 
-            
-            for (int i = 0; i < count; i++)
+            if (_gameSession.PlayerData.coins != 0)
             {
-                GameObject prefab = prefabs.Length == 1 ? prefabs[0] : prefabs[i];
-                
-                GameObject go = Instantiate(prefab, transform.position, Quaternion.identity);
-                Collider2D c2d = go.GetComponent<Collider2D>();
-                Rigidbody2D rb2d = go.GetComponent<Rigidbody2D>();
-                
-                if (c2d != null)
+                for (int i = 0; i < _objectsToSpawn.Count; i++)
                 {
-                    c2d.isTrigger = false;
-                    c2d.enabled = false;
+                    GameObject go = Instantiate(_objectsToSpawn[i], transform.position, Quaternion.identity);
+                    Collider2D collider = go.GetComponent<Collider2D>();
+                    Rigidbody2D rb = go.GetComponent<Rigidbody2D>();
+
+                    if (collider != null  && rb != null)
+                    {
+                        rb.gravityScale = gravity;
+                        Vector2 direction = (_currentDirection + Random.insideUnitCircle * spreadRadius).normalized;
+                        rb.AddForce(direction * spreadForce, ForceMode2D.Impulse);
+                    }
                 }
-                
-                if (rb2d != null)
-                {
-                    Vector2 direction = (_currentDirection + Random.insideUnitCircle * spreadRadius).normalized;
-                    rb2d.AddForce(direction * spreadForce, ForceMode2D.Impulse);
-                }
-                
-                StartCoroutine(EnableColliderAfterDelay(go, c2d, rb2d));
             }
         }
         
-        private IEnumerator EnableColliderAfterDelay(GameObject go, Collider2D c2d, Rigidbody2D rb2d)
-        {
-            
-            yield return new WaitForSeconds(0.5f);
-            
-            if (rb2d != null)
-                rb2d.gravityScale = 1f;
-            
-            if (c2d != null)
-            {
-                c2d.isTrigger = true;
-                c2d.enabled = true;
-            }
-            
-            yield return new WaitForSeconds(3f);
-            
-            if (destroyOnFinish)
-            {
-                Destroy(go);
-            }
-        }
-
         private Vector3 GetDirection(DropperDirection dir)
         {
             switch (dir)
@@ -94,8 +75,5 @@ namespace Components
             }
             return Vector3.zero;
         }
-        
-        // метод срабатывает автоматически, его не нужно помещать в awake
-        private bool HasOnePrefab() => prefabs != null && prefabs.Length == 1;
     }
 }

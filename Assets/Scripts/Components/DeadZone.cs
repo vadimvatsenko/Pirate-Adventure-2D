@@ -1,29 +1,30 @@
 ﻿using Controllers;
-using PlayerFolder;
+using Creatures;
+using Creatures.CreaturesStateMachine.Player;
+using GameManagerInfo;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-namespace Items
+namespace Components
 {
     public class DeadZone : MonoBehaviour
     {
         // можно также создать событие и вызвать его в триггере
         // [SerializeField] private UnityEvent onDead;
 
-        [SerializeField] private EnterPoint enterPoint;
+        [FormerlySerializedAs("enterPoint")] [SerializeField] private GameManager gameManager;
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            Player player = collision.GetComponent<Player>();
-            Barrel barrel = collision.GetComponent<Barrel>();
-
-            if (player)
+            Hero hero = collision.GetComponent<Hero>();
+            
+            if (hero)
             {
-                enterPoint.ReloadLevelController.ReloadLevel();
+                gameManager.LevelController.ReloadLevel();
                 // onDead?.Invoke(); вызов события
             }
-
-            if (barrel)
+            else
             {
-                barrel.GetComponent<Barrel>().Destroy();
+                Destroy(collision.gameObject);
             }
         }
     }

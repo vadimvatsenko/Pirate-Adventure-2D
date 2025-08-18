@@ -9,11 +9,11 @@ namespace Components
     {
         [SerializeField] private Transform targetPos;
         [SerializeField] private float delay = 2f;
-        private Vector3 worldTransform;
+        private Vector3 _worldTransform;
 
         private void Awake()
         {
-            worldTransform = targetPos.position;
+            _worldTransform = targetPos.position;
         }
         
         public void Move() => StartCoroutine(MoveCoroutine());
@@ -26,12 +26,12 @@ namespace Components
 
             while (duration > elapsedTime)
             {
-                transform.position = Vector3.Lerp(transform.position, worldTransform, elapsedTime / duration);
+                transform.position = Vector3.Lerp(transform.position, _worldTransform, elapsedTime / duration);
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
 
-            transform.position = worldTransform;
+            transform.position = _worldTransform;
         }
     }
 }

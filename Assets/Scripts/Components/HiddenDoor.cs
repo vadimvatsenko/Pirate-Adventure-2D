@@ -9,15 +9,18 @@ namespace Components
         [SerializeField] private float durationTime = 0.05f;
         [SerializeField] private float delayTime = 0.5f;
         [SerializeField] private Transform[] waypoints;
-        
+        [SerializeField] private GameObject[] doorsElements;
+
+        [Header("Events")] 
+        public UnityEvent onEnableDoor;
+        public UnityEvent onDoorOpened;
+        public UnityEvent onDoorClosed;
+
         private Vector3[] _waypointPositions;
-        
         private float _elapsedTime;
         private bool _isMoving = false;
         private bool _isOpen = false;
-        
-        public UnityEvent OnEnableDoor;
-            
+
         private void Start()
         {
             UpdateWayPointsInfo();
@@ -32,43 +35,64 @@ namespace Components
                 _waypointPositions[i] = waypoints[i].position;
             }
         }
-        
+
         public void ToggleDoor()
         {
-            if(_isMoving) return;
-            
-            OnEnableDoor?.Invoke();
-            
-            StartCoroutine(ToggleDoorCoroutine());
+            if (_isMoving) return;
+
+            if (_isOpen)
+                CloseDoor();
+            else
+                OpenDoor();
         }
 
-        private IEnumerator ToggleDoorCoroutine()
+        public void OpenDoor()
+        {
+            if (_isMoving || _isOpen) return;
+
+            onEnableDoor?.Invoke();
+            StartCoroutine(MoveDoorCoroutine(_waypointPositions[0], _waypointPositions[1], true));
+        }
+
+        public void CloseDoor()
+        {
+            if (_isMoving || !_isOpen) return;
+
+            onEnableDoor?.Invoke();
+            StartCoroutine(MoveDoorCoroutine(_waypointPositions[1], _waypointPositions[0], false));
+        }
+
+        private IEnumerator MoveDoorCoroutine(Vector3 from, Vector3 to, bool opening)
         {
             yield return new WaitForSeconds(delayTime);
             _isMoving = true;
             _elapsedTime = 0f;
-            
-            while (durationTime > _elapsedTime)
+
+            for (int i = 0; i < doorsElements.Length; i++)
             {
-                float t = _elapsedTime / durationTime;
+                Vector3 fromCorrected = doorsElements[i].transform.position;
+                Vector2 toCorrect = new Vector2(doorsElements[i].transform.position.x, to.y);
+                _elapsedTime = 0f;
                 
-                transform.position = Vector3.Lerp(_waypointPositions[0], _waypointPositions[1], t);
-                _elapsedTime += Time.deltaTime;
-                yield return null;
+                while (_elapsedTime < durationTime)
+                {
+                    float t = _elapsedTime / durationTime;
+                    
+                    doorsElements[i].transform.position = Vector3.Lerp(fromCorrected, toCorrect, t);
+                    _elapsedTime += Time.deltaTime;
+                    yield return null;
+                }
+
+                doorsElements[i].transform.position = toCorrect;
+                _isOpen = opening;
+                _isMoving = false;
+                
             }
-
-            transform.position = _waypointPositions[1];
-            _isOpen = !_isOpen;
-            _isMoving = false;
             
-            SwapWayPoints();
-        }
-
-        private void SwapWayPoints()
-        {
-            var temp = _waypointPositions[1];
-            _waypointPositions[1] = _waypointPositions[0];
-            _waypointPositions[0] = temp;
+            if (_isOpen)
+                onDoorOpened?.Invoke();
+            else
+                onDoorClosed?.Invoke();
         }
     }
 }

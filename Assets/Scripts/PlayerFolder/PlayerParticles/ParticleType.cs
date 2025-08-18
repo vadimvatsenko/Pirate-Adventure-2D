@@ -4,6 +4,9 @@
     {
         Move,
         Jump,
-        Fall
+        Fall,
+        Attack1,
+        Exclamation,
+        Interrogation,
     }
 }

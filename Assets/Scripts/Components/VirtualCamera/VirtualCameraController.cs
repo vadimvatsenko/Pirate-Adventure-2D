@@ -1,12 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Cinemachine;
+using Creatures.CreaturesStateMachine.Player;
 using UnityEngine;
 
-namespace Components
+namespace Components.VirtualCamera
 {
-
     public class VirtualCameraController : MonoBehaviour
     {
+        private Hero _hero;
+        
         [SerializeField] private CinemachineVirtualCamera startCamera;
         [SerializeField] private float delayTempCamera = 1.5f;
         
@@ -19,6 +22,20 @@ namespace Components
             {
                 startCamera.Priority = 20;
             }
+            
+            _hero = FindObjectOfType<Hero>();
+            _preVirtualCamera = startCamera;
+            SetCameraAfterDead();
+        }
+
+        private void OnEnable()
+        {
+            _hero.SubscribeOnDeathEvent(SetCameraAfterDead);
+        }
+
+        private void OnDisable()
+        {
+            _hero.UnsubscribeOnDeathEvent(SetCameraAfterDead);
         }
 
         public void InteractiveObjectCameraActivated(CinemachineVirtualCamera camera) =>
@@ -49,6 +66,12 @@ namespace Components
     
             if (_preVirtualCamera != null)
                 _preVirtualCamera.Priority = 10;
+        }
+
+        private void SetCameraAfterDead()
+        {
+            _currentVirtualCamera = startCamera;
+            SwapPriority();
         }
     }
 }

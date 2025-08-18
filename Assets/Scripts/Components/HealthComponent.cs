@@ -1,37 +1,45 @@
-﻿using UnityEngine;
+﻿using System;
+using Components.HealthComponentFolder;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Components
 {
-    public class HealthComponent : MonoBehaviour
+    public class HealthComponent : MonoBehaviour, IHealthComponent
     {
-        [SerializeField] private int health = 100;
-        [SerializeField] private int maxHealth = 100;
+        [SerializeField] private int health;
+        /*[SerializeField] private UnityEvent onDeath;
+        [SerializeField] private UnityEvent onHit;*/
         
-        [SerializeField] private UnityEvent onAddHealth;
-        [SerializeField] private UnityEvent onDamage;
-        [SerializeField] private UnityEvent onDie;
+        public int Health => health; 
+        
+        private event Action OnDeath;
+        private event Action OnHit;
+        public void SubscribeOnHitEvent(Action action) => OnHit += action;
+        public void UnsubscribeOnHitEvent(Action action) => OnHit -= action;
+        public void SubscribeOnDeathEvent(Action action) => OnDeath += action;
+        public void UnsubscribeOnDeathEvent(Action action) => OnDeath -= action;
+        
+        public void ApplyHeal(int heal)
+        {
+            throw new System.NotImplementedException();
+        }
 
         public void ApplyDamage(int damage)
         {
-            health -= damage;
-            onDamage?.Invoke();
+            OnHit?.Invoke();
             
+            health -= damage;
             if (health <= 0)
             {
-                onDie?.Invoke();
+                health = 0;
+                OnDeath?.Invoke();
             }
         }
 
-        public void ApplyHeal(int heal)
+        public void AddHeart()
         {
-            health += heal;
-            if (health > maxHealth)
-                health = maxHealth;
-            
-            Debug.Log($"Player Health: {health}");
-            
-            onAddHealth?.Invoke();
+            throw new System.NotImplementedException();
         }
     }
 }

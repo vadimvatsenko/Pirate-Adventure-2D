@@ -1,37 +1,29 @@
-﻿using Controllers;
+﻿using System;
+using Controllers;
 using PlayerFolder;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace Items.Coins
 {
+    [Serializable]
+    public class ChangScoreEvent : UnityEvent<int>
+    {
+        public int score = 5;
+    }
     public class Coin : MonoBehaviour
     {
         [SerializeField] private CoinType coinType;
         [SerializeField] private int coinCost;
-        [SerializeField] private GameObject coinDestroyVfx;
-        [SerializeField] private UnityEvent onCoinDestroyCoin;
-        private CoinsController _coinsController;
-
+        [SerializeField] private ChangScoreEvent onAddCoin;
+        public int CoinCost => coinCost;
+        
+        private Collider2D _collider;
+        
         private void Awake()
         {
-            _coinsController = FindObjectOfType<EnterPoint>().CoinsController;
-        }
-        
-        private void Collect()
-        {
-            Destroy(gameObject);
-        }
-
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            Player hero = collision.GetComponent<Player>();
-            
-            if (hero != null)
-            {
-                Collect();
-                GameObject vfx = Instantiate(coinDestroyVfx, transform.position, Quaternion.identity);
-            }
+            _collider = GetComponent<Collider2D>();
         }
     }
 }
