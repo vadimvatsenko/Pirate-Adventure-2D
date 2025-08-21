@@ -1,4 +1,6 @@
-﻿namespace Creatures.CreaturesStateMachine.Player
+﻿using Creatures.CreaturesStateMachine.CreatureBasic;
+
+namespace Creatures.CreaturesStateMachine.Player
 {
     public class HeroGroundState : HeroState
     {

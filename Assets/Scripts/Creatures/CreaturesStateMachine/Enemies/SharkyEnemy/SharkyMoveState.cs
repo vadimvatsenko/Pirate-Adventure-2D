@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Creatures.CreaturesStateMachine.CreatureBasic;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy

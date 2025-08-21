@@ -2,6 +2,7 @@
 using Components;
 using Components.HealthComponentFolder;
 using Creatures.AnimationControllers;
+using Creatures.CreaturesStateMachine.CreatureBasic;
 using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy

@@ -1,8 +1,7 @@
 ﻿using Components;
-using Creatures.CreaturesStateMachine.CreatureBasic;
 using UnityEngine;
 
-namespace Creatures.CreaturesStateMachine
+namespace Creatures.CreaturesStateMachine.CreatureBasic
 {
     public class CreatureCollisionInfo : MonoBehaviour
     {
@@ -24,7 +23,7 @@ namespace Creatures.CreaturesStateMachine
         [SerializeField] private LayerMask whatIsInteraction;
         [SerializeField] private float interactionRadius;
         private bool _isInteraction;
-        private Collider2D[] _interactionCollides = new Collider2D[1];
+        private readonly Collider2D[] _interactionCollides = new Collider2D[1];
 
         [Header("GameObjects Collision Info")] 
         [SerializeField] private float radius = 0.25f;

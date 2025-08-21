@@ -1,4 +1,5 @@
 ﻿using Components.HealthComponentFolder;
+using Creatures.CreaturesStateMachine.CreatureBasic;
 
 namespace Creatures.CreaturesStateMachine.Player
 {

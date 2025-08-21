@@ -49,6 +49,7 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         public CreatureState FallState { get; protected set; }
         public CreatureState HitState { get; protected set; }
         public CreatureState DeathState { get; protected set; }
+        public CreatureState ClimbState { get; protected set; }
         
         // Events
         public event Action OnJumpEvent;

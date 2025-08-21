@@ -11,6 +11,8 @@ namespace Creatures.CreaturesStateMachine.Player
         public NewInputSet NewInputSet { get; private set; }
         public GameManager GameMg { get; private set; }
         
+        public HeroCollisionInfo HeroCollision { get; private set; }
+        
         [Header("DoubleJump Info")] 
         [SerializeField] private float doubleJumpForce;
         public float DoubleJumpForce => doubleJumpForce;
@@ -27,6 +29,7 @@ namespace Creatures.CreaturesStateMachine.Player
             NewInputSet = new NewInputSet();
             GameSess = FindObjectOfType<GameSession>();
             GameMg = FindObjectOfType<GameManager>();
+            HeroCollision = GetComponent<HeroCollisionInfo>();
         }
         
         private void Start()
@@ -39,6 +42,8 @@ namespace Creatures.CreaturesStateMachine.Player
             FallState = new HeroFallState(this, StateMachine, AnimatorHashes.JumpFall);
             DeathState = new HeroDeathState(this, StateMachine, AnimatorHashes.Death);
             HitState = new CreatureState(this, StateMachine, AnimatorHashes.Hit);
+            ClimbState = new HeroClimbState(this, StateMachine, AnimatorHashes.Climb);
+                
             StateMachine.Initialize(IdleState);
         }
 
@@ -67,6 +72,12 @@ namespace Creatures.CreaturesStateMachine.Player
             
             
             //Debug.Log(Rb2D.velocity);
+        }
+
+        private void FixedUpdate()
+        {
+            HeroCollision.CheckHeroGrab();
+            //Debug.Log(HeroCollision.IsGrabb);
         }
         
         

@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using Components;
-using Creatures.CreaturesStateMachine.CreatureBasic;
 using PlayerFolder.PlayerParticles;
 using UnityEngine;
 
-namespace Creatures.CreaturesStateMachine
+namespace Creatures.CreaturesStateMachine.CreatureBasic
 {
     public class CreatureParticleEvent :MonoBehaviour
     {

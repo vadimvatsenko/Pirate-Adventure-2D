@@ -3,10 +3,9 @@ using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Player
 {
-    public class HeroMoveState : HeroGroundState
+    public class HeroClimbState : HeroState
     {
-        
-        public HeroMoveState(Player.Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
+        public HeroClimbState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {
         }
@@ -14,18 +13,22 @@ namespace Creatures.CreaturesStateMachine.Player
         public override void Enter()
         {
             base.Enter();
-            Rb2D.velocity = new Vector2(Hr.XInput * Hr.MovementSpeed, Rb2D.velocity.y);
+            Rb2D.velocity = Vector2.zero;
         }
 
         public override void Update()
         {
             base.Update();
-            
-            if (Hr.XInput == 0)
+            if (Hr.NewInputSet.Hero.Jump.triggered)
             {
-                StateMachine.ChangeState(Hr.IdleState);
+                Debug.Log("Jump from Climb");
+                Hr.StateMachine.ChangeState(Hr.JumpState);
             }
-            Rb2D.velocity = new Vector2(Hr.XInput * Hr.MovementSpeed, Hr.Rb2D.velocity.y);
+
+            /*if (Rb2D.velocity.y <= 0.1f)
+            {   
+                Hr.StateMachine.ChangeState(Hr.FallState);
+            }*/
         }
 
         public override void Exit()

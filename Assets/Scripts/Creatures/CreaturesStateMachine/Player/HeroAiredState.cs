@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Creatures.CreaturesStateMachine.CreatureBasic;
+using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Player
 {

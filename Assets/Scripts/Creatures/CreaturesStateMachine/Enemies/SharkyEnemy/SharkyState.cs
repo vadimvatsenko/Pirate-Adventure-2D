@@ -1,4 +1,5 @@
 ﻿using Creatures.AnimationControllers;
+using Creatures.CreaturesStateMachine.CreatureBasic;
 using Creatures.CreaturesStateMachine.Player;
 using UnityEngine;
 
@@ -25,7 +26,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         public override void Enter()
         {
             base.Enter();
-            Debug.Log($"Entered in {AnimatorHashes.GetName(_animBoolName)}");
+            //Debug.Log($"Entered in {AnimatorHashes.GetName(_animBoolName)}");
         }
 
         ~SharkyState() => Health.UnsubscribeOnHitEvent(CallHitState);

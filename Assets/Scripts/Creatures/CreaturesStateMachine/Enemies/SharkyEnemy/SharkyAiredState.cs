@@ -1,4 +1,6 @@
-﻿namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
+﻿using Creatures.CreaturesStateMachine.CreatureBasic;
+
+namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
 {
     public class SharkyAiredState : SharkyState
     {
