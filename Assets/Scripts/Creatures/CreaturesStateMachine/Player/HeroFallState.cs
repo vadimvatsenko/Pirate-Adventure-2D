@@ -5,17 +5,23 @@ namespace Creatures.CreaturesStateMachine.Player
 {
     public class HeroFallState : HeroAiredState
     {
-        private float _startFallY;
-
-        private float _bufferJumpWindow;
+        // буфер прыжка
+        private readonly float _bufferJumpWindow;
         private float _bufferJumpActivated;
+        // койот
+        private float _coyoteJumpWindow;
+        private float _coyoteJumpActivated;
         
+        private int _jumpCount;
+        private int _maxJumpCount = 1;
+        
+        private float _startFallY;
         
         public HeroFallState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {
             _bufferJumpWindow = hr.BufferJumpWindow;
-            _bufferJumpActivated = hr.BufferJumpActivated;
+            _coyoteJumpWindow = hr.CoyoteJumpWindow;
         }
 
         public override void Enter()
@@ -23,6 +29,8 @@ namespace Creatures.CreaturesStateMachine.Player
             base.Enter();
             // фиксируем позицию по Y во время падения
             _startFallY = Hr.transform.position.y;
+            
+            ActivateCoyoteJump();
         }
 
         public override void Update()
@@ -31,13 +39,23 @@ namespace Creatures.CreaturesStateMachine.Player
 
             if (Hr.NewInputSet.Hero.Jump.triggered)
             {
-                _bufferJumpActivated = Time.time;
+                ActivateBufferJump();
+                bool coyoteJumpAvalible
+                    = Time.time < _coyoteJumpActivated + _coyoteJumpWindow;
+                
+                if (coyoteJumpAvalible && StateMachine.PreviousState != Hr.JumpState)
+                {
+                    StateMachine.ChangeState(Hr.JumpState);
+                    CancelCoyoteJump();
+                }
             }
-
-            if (CollisionInfo.IsGrounded)
-            {
-                AttemtBufferJump();
-            }
+            
+            if (Time.time < _bufferJumpActivated + _bufferJumpWindow 
+                && CollisionInfo.IsGrounded)  
+            {            
+                CancelBufferJump();
+                StateMachine.ChangeState(Hr.JumpState);  
+            }    
             
             if (CollisionInfo.IsGrounded && Rb2D.velocity.y <= 0.1f)
             {
@@ -55,13 +73,9 @@ namespace Creatures.CreaturesStateMachine.Player
             }
         }
         
-        private void AttemtBufferJump()   
-        {  
-            if (Time.time < _bufferJumpActivated + _bufferJumpWindow)  
-            {            
-                _bufferJumpActivated = 0; // Сбрасываем буфер  
-                StateMachine.ChangeState(Hr.JumpState);
-            }    
-        }
+        private void ActivateCoyoteJump() => _coyoteJumpActivated = Time.time;
+        private void CancelCoyoteJump() => _coyoteJumpActivated = Time.time - 1;
+        private void ActivateBufferJump() => _bufferJumpActivated = Time.time;
+        private void CancelBufferJump() => _bufferJumpActivated = Time.time - 1;
     }
 }

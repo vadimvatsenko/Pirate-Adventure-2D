@@ -37,7 +37,7 @@ namespace Creatures.CreaturesStateMachine.Player
         public override void Enter()
         {
             base.Enter();
-            Debug.Log(AnimatorHashes.GetName(_animBoolName));
+            //Debug.Log(AnimatorHashes.GetName(_animBoolName));
         }
     }
 }

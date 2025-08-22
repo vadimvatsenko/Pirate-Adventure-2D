@@ -19,6 +19,12 @@ namespace Creatures.CreaturesStateMachine.Player
         public float BufferJumpWindow => bufferJumpWindow;
         public float BufferJumpActivated => _bufferJumpActivated;
         
+        [Header("Coyote Jump")] 
+        [SerializeField] private float coyoteJumpWindow = 0.5f; // Окно буфера (сколько секунд допустимо)
+        private float _coyoteJumpActivated = -1; 
+        public float CoyoteJumpWindow => coyoteJumpWindow;
+        public float CoyoteJumpActivated => _coyoteJumpActivated;
+        
         [Header("DoubleJump Info")] 
         [SerializeField] private float doubleJumpForce;
         public float DoubleJumpForce => doubleJumpForce;
