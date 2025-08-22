@@ -1,9 +1,6 @@
-﻿using System;
-using PlayerFolder;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine;
 
-namespace Items
+namespace Items.GatesSwitchers
 {
     public class OpenGatesSwitcher : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &899353869870860188
+--- !u!1 &550240020942265000
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 899353869870860185}
-  - component: {fileID: 899353869870860184}
-  - component: {fileID: 899353869870860191}
-  - component: {fileID: 899353869870860190}
-  - component: {fileID: 899353869870860189}
-  m_Layer: 12
-  m_Name: HeroJumpParticle
+  - component: {fileID: 550240020942265004}
+  - component: {fileID: 550240020942265007}
+  - component: {fileID: 550240020942265006}
+  - component: {fileID: 550240020942265001}
+  m_Layer: 0
+  m_Name: Jump_VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &899353869870860185
+--- !u!4 &550240020942265004
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 899353869870860188}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 550240020942265000}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &899353869870860184
+--- !u!212 &550240020942265007
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 899353869870860188}
+  m_GameObject: {fileID: 550240020942265000}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -52,7 +51,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -73,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: -1041941339
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6f2cf9a9ed93ffc4b9c82817c110fc17, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aa2f219e85848c043a775c1c122573c9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,56 +83,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &899353869870860191
+--- !u!114 &550240020942265006
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 899353869870860188}
+  m_GameObject: {fileID: 550240020942265000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 104b4fa7ed764291b992116549f3f2ea, type: 3}
+  m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playOnAwake: 1
-  handleAnimationClip: {fileID: 11400000, guid: 2d53ef7f1c6389a4d8165be4581d145a,
-    type: 2}
---- !u!114 &899353869870860190
+  _frameRate: 10
+  _clips:
+  - _name: Jump
+    _sprites:
+    - {fileID: 21300000, guid: 7e51f1aeb4bc71549b3e8eb37b236b7c, type: 3}
+    - {fileID: 21300000, guid: a8a7d67e1c9424c46b074be0ab664eaa, type: 3}
+    - {fileID: 21300000, guid: 1a8d056e63171c443b6d70ee395bedc1, type: 3}
+    - {fileID: 21300000, guid: a34d3b322db43364ab08a23647c9674b, type: 3}
+    - {fileID: 21300000, guid: 34328f91c73a0f04085f4d1f6265d479, type: 3}
+    - {fileID: 21300000, guid: 9c65bb101fcaf134682ed2ff5db6b9c5, type: 3}
+    _loop: 0
+    _allowNextClip: 0
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 550240020942265001}
+          m_MethodName: DestroyGameObject
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &550240020942265001
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 899353869870860188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a46b6026432a471d8abbe103432748b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isStartWithRandomSprite: 0
-  isReversed: 0
-  onComplete:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 899353869870860189}
-        m_MethodName: DestroyGameObject
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &899353869870860189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 899353869870860188}
+  m_GameObject: {fileID: 550240020942265000}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 007e3171b9d94eddac2c6fc1d51d5422, type: 3}

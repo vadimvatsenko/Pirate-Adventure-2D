@@ -21,7 +21,6 @@ namespace Components.Triggers
             _climbingRenderer = GetComponentInChildren<SpriteRenderer>();
             
             _climbingRenderer.color = _startColor;
-            _climbingRenderer.enabled = false;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -29,7 +28,7 @@ namespace Components.Triggers
             if (collision.gameObject.CompareTag(targetTag))
             {
                 _climbingBox.enabled = false;
-                _climbingRenderer.enabled = true;
+                _climbingRenderer.color = _endColor;
             }
         }
 
