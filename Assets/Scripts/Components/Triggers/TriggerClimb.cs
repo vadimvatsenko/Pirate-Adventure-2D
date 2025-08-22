@@ -17,9 +17,11 @@ namespace Components.Triggers
         {
             _hero = GetComponentInParent<Hero>();
             _climbingBox = GetComponents<BoxCollider2D>()[0];
+            _climbingBox.enabled = false;
             _climbingRenderer = GetComponentInChildren<SpriteRenderer>();
             
             _climbingRenderer.color = _startColor;
+            _climbingRenderer.enabled = false;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -27,6 +29,7 @@ namespace Components.Triggers
             if (collision.gameObject.CompareTag(targetTag))
             {
                 _climbingBox.enabled = false;
+                _climbingRenderer.enabled = true;
             }
         }
 
@@ -36,6 +39,7 @@ namespace Components.Triggers
             {
                 _climbingBox.enabled = true;
                 _climbingRenderer.color = _startColor;
+                _climbingRenderer.enabled = false;
             }
         }
 

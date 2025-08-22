@@ -46,9 +46,9 @@
                     "interactions": ""
                 },
                 {
-                    "name": "LookDown",
+                    "name": "Down",
                     "type": "Button",
-                    "id": "3386006b-94e5-422c-a157-f71b208d0478",
+                    "id": "6e58e1ac-0fa6-49dd-849e-bffa54b0fdc6",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -233,12 +233,23 @@
                 },
                 {
                     "name": "",
-                    "id": "df4ddb97-f279-477d-be81-fa50bf6b21f8",
+                    "id": "62402c69-44ff-4cb3-b9a4-f243c18bff86",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "LookDown",
+                    "action": "Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9050b965-937f-4339-8b61-ee3ca8be8a8c",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Down",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

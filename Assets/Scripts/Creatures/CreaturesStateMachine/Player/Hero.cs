@@ -12,6 +12,12 @@ namespace Creatures.CreaturesStateMachine.Player
         public GameManager GameMg { get; private set; }
         
         public HeroCollisionInfo HeroCollision { get; private set; }
+
+        [Header("Buffer Jump")] 
+        [SerializeField] private float bufferJumpWindow = 0.25f;
+        private float _bufferJumpActivated = -1;
+        public float BufferJumpWindow => bufferJumpWindow;
+        public float BufferJumpActivated => _bufferJumpActivated;
         
         [Header("DoubleJump Info")] 
         [SerializeField] private float doubleJumpForce;
@@ -22,6 +28,10 @@ namespace Creatures.CreaturesStateMachine.Player
         [Header("Attack Info")] 
         [SerializeField] private int attackForce = 1;
         public int AttackForce => attackForce;
+        
+        [Header("Climb Info")]
+        [SerializeField] private BoxCollider2D[] climbingBoxes;
+        public BoxCollider2D ClimbingBox => climbingBoxes[0];
         
         protected override void Awake()
         {

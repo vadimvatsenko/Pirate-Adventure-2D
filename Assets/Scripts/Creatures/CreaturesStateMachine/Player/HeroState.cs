@@ -1,5 +1,7 @@
 ﻿using Components.HealthComponentFolder;
+using Creatures.AnimationControllers;
 using Creatures.CreaturesStateMachine.CreatureBasic;
+using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Player
 {
@@ -30,6 +32,12 @@ namespace Creatures.CreaturesStateMachine.Player
         private void HitHero()
         {
             Hr.StateMachine.ChangeState(Hr.HitState);
+        }
+
+        public override void Enter()
+        {
+            base.Enter();
+            Debug.Log(AnimatorHashes.GetName(_animBoolName));
         }
     }
 }

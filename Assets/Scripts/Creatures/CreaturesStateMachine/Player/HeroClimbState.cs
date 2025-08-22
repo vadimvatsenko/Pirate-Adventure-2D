@@ -1,13 +1,16 @@
-﻿using Creatures.CreaturesStateMachine.CreatureBasic;
+﻿using System.Collections;
+using Creatures.CreaturesStateMachine.CreatureBasic;
 using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Player
 {
     public class HeroClimbState : HeroState
     {
+        private BoxCollider2D _climbingBox;
         public HeroClimbState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {
+            _climbingBox = Hr.ClimbingBox;
         }
 
         public override void Enter()
@@ -21,16 +24,17 @@ namespace Creatures.CreaturesStateMachine.Player
             base.Update();
             if (Hr.NewInputSet.Hero.Jump.triggered)
             {
-                Debug.Log("Jump from Climb");
-                Hr.StateMachine.ChangeState(Hr.JumpState);
+                _climbingBox.enabled = false;
+                StateMachine.ChangeState(Hr.JumpState);
             }
 
-            /*if (Rb2D.velocity.y <= 0.1f)
-            {   
-                Hr.StateMachine.ChangeState(Hr.FallState);
-            }*/
+            if (Hr.NewInputSet.Hero.Down.triggered )
+            {
+                _climbingBox.enabled = false;
+                StateMachine.ChangeState(Hr.FallState);
+            }
         }
-
+        
         public override void Exit()
         {
             base.Exit();

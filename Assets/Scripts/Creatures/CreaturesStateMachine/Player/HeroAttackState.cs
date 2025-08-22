@@ -7,10 +7,9 @@ namespace Creatures.CreaturesStateMachine.Player
 {
     public class HeroAttackState : HeroState
     {
-        public HeroAttackState(Player.Hero hero, CreatureStateMachine stateMachine, int animBoolName) 
+        public HeroAttackState(Hero hero, CreatureStateMachine stateMachine, int animBoolName) 
             : base(hero, stateMachine, animBoolName)
         {
-            
         }
 
         public override void Enter()

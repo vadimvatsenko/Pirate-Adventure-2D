@@ -27,10 +27,5 @@ namespace Creatures.CreaturesStateMachine.Player
             }
             Rb2D.velocity = new Vector2(Hr.XInput * Hr.MovementSpeed, Hr.Rb2D.velocity.y);
         }
-
-        public override void Exit()
-        {
-            base.Exit();
-        }
     }
 }

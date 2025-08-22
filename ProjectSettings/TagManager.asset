@@ -8,6 +8,7 @@ TagManager:
   - Window
   - Poison
   - Ground
+  - ClimbPoint
   layers:
   - Default
   - TransparentFX
