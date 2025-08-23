@@ -10,6 +10,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
     public class SharkyAttackState : SharkyState
     {
         private bool _damageDealt;
+        private bool _attackEnded;
+        
         public SharkyAttackState(SharkyE sharky, CreatureStateMachine stateMachine, int animBoolName) 
             : base(sharky, stateMachine, animBoolName)
         {
@@ -20,22 +22,35 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
             base.Enter();
             Rb2D.velocity = Vector2.zero;
             _damageDealt = false;
+            _attackEnded = false;
         }
 
         public override void Update()
         {
             base.Update();
-            
-            if(StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Attack)) && StateInfo.normalizedTime > 1.0f)
+
+            // проверяем проигрывается ли анимация атаки
+            if(StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Attack)))
             {
-                Attack();
-                StateMachine.ChangeState(Sharky.IdleState);
+                // наносим урон только один раз (например на 50% анимации)
+                if(!_damageDealt && StateInfo.normalizedTime > 0.5f)
+                {
+                    Attack();
+                    _damageDealt = true;
+                }
+
+                // конец анимации атаки — выходим в Idle, только один раз
+                if(!_attackEnded && StateInfo.normalizedTime > 1.0f)
+                {
+                    _attackEnded = true;
+                    StateMachine.ChangeState(Sharky.BattleState);
+                }
             }
         }
         
         public void Attack()
         {
-            if(!CollisionInfo.IsGrounded || _damageDealt) return;
+            /*if(!CollisionInfo.IsGrounded || _damageDealt) return;
             
             var gos = CollisionInfo.GetObjectsInRange();
             
@@ -49,7 +64,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
                     _damageDealt = true;
                     return;
                 }
-            }
+            }*/
         }
 
         public override void Exit()

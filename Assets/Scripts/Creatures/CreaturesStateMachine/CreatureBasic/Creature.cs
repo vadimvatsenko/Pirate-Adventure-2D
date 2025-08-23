@@ -1,5 +1,6 @@
 ﻿using System;
 using Creatures.AnimationControllers;
+using Creatures.CreaturesCollisions;
 using Creatures.Interfaces;
 using UnityEngine;
 

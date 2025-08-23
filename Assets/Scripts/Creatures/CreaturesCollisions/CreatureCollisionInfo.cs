@@ -1,7 +1,8 @@
 ﻿using Components;
+using Creatures.CreaturesStateMachine.CreatureBasic;
 using UnityEngine;
 
-namespace Creatures.CreaturesStateMachine.CreatureBasic
+namespace Creatures.CreaturesCollisions
 {
     public class CreatureCollisionInfo : MonoBehaviour
     {
@@ -24,11 +25,6 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         [SerializeField] private float interactionRadius;
         private bool _isInteraction;
         private readonly Collider2D[] _interactionCollides = new Collider2D[1];
-
-        [Header("GameObjects Collision Info")] 
-        [SerializeField] private float radius = 0.25f;
-        [SerializeField] private Vector3 offset = new Vector3(0.65f, 0, 0);
-        private readonly Collider2D[] _itemCollider2Ds = new Collider2D[5];
         
         protected virtual void Awake()
         {
@@ -85,21 +81,7 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
             
             return hit.distance;
         }
-
-        public GameObject[] GetObjectsInRange()
-        {
-            var size = 
-                Physics2D.OverlapCircleNonAlloc(transform.position + offset * Creature.FacingDirection, radius, _itemCollider2Ds);
-            
-            var objects = new GameObject[size];
-            for (int i = 0; i < size; i++)
-            {
-                objects[i] = _itemCollider2Ds[i].gameObject;
-            }
-            
-            return objects;
-        }
-
+        
         protected virtual void OnDrawGizmos()
         {
             // GroundCheck

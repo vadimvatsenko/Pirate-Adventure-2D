@@ -32,7 +32,7 @@ namespace Creatures.CreaturesStateMachine.Player
         
         public void Attack()
         {
-            if (!Hr.GameSess.PlayerData.isArmed || !CollisionInfo.IsGrounded) return;
+            /*if (!Hr.GameSess.PlayerData.isArmed || !CollisionInfo.IsGrounded) return;
             
             Hr.CallOnAttackEvent();
             
@@ -47,7 +47,7 @@ namespace Creatures.CreaturesStateMachine.Player
                     if(hp.Health <= 0) return;
                     hp.ApplyDamage(Hr.AttackForce);
                 }
-            }
+            }*/
         }
     }
 }

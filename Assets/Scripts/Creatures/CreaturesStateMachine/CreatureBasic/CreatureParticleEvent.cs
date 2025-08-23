@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Components;
 using Components.Spawn;
+using Creatures.CreaturesCollisions;
 using Creatures.CreatureVFX;
 using UnityEngine;
 

@@ -44,7 +44,6 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
             
             if (WithinAttackRange() && CollisionInfo.HeroDetection())
             {
-                Debug.Log("Enemies are attacking");
                 StateMachine.ChangeState(Sharky.AttackState);
             }
             else
