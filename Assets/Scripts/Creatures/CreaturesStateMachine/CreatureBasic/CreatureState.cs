@@ -1,5 +1,6 @@
 ﻿using System;
 using Components;
+using Components.HealthComponentFolder;
 using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.CreatureBasic

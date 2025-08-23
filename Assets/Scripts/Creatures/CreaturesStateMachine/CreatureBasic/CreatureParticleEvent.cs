@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Components;
-using PlayerFolder.PlayerParticles;
+using Components.Spawn;
+using Creatures.CreatureVFX;
 using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.CreatureBasic
@@ -41,12 +42,14 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         {
             _creature.SubscribeOnJumpEvent(HandleSpawnJumpParticle);
             _creature.SubscribeOnAttackEvent(HandleSpawnAttack1Particle);
+            _creature.SubscribeOnDeathEvent(HandleSpawnBloodParticle);
             
         }
         protected virtual void OnDisable()
         {
             _creature.UnsubscribeOnJumpEvent(HandleSpawnJumpParticle);
             _creature.UnsubscribeOnAttackEvent(HandleSpawnAttack1Particle);
+            _creature.UnsubscribeOnDeathEvent(HandleSpawnBloodParticle);
         }
 
         private void Update()
@@ -95,10 +98,8 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
             }
         }
         private void HandleSpawnJumpParticle() => HandleSpawn(ParticleType.Jump);
+        private void HandleSpawnAttack1Particle() => HandleSpawn(ParticleType.Attack1);
+        private void HandleSpawnBloodParticle() => HandleSpawn(ParticleType.Blood);
 
-        private void HandleSpawnAttack1Particle()
-        {
-            HandleSpawn(ParticleType.Attack1);
-        }
     }
 }

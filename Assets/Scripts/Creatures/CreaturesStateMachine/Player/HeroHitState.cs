@@ -13,12 +13,16 @@ namespace Creatures.CreaturesStateMachine.Player
         public override void Enter()
         {
             base.Enter();
-            Debug.Log("Entered in HitState");
+            Rb2D.velocity = new Vector2(5f * -Hr.FacingDirection, 5f);
         }
 
         public override void Update()
         {
             base.Update();
+            if (CollisionInfo.IsGrounded)
+            {
+                StateMachine.ChangeState(Hr.IdleState);
+            }
         }
 
         public override void Exit()

@@ -6,7 +6,7 @@ namespace Creatures.CreaturesStateMachine.Player
 {
     public class HeroClimbState : HeroState
     {
-        private BoxCollider2D _climbingBox;
+        private readonly BoxCollider2D _climbingBox;
         public HeroClimbState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {
@@ -18,7 +18,8 @@ namespace Creatures.CreaturesStateMachine.Player
             base.Enter();
             Rb2D.velocity = Vector2.zero;
         }
-
+        
+        
         public override void Update()
         {
             base.Update();
@@ -28,16 +29,12 @@ namespace Creatures.CreaturesStateMachine.Player
                 StateMachine.ChangeState(Hr.JumpState);
             }
 
-            if (Hr.NewInputSet.Hero.Down.triggered )
+            if (Hr.NewInputSet.Hero.Down.triggered 
+                || Hr.NewInputSet.Hero.Movement.triggered)
             {
                 _climbingBox.enabled = false;
                 StateMachine.ChangeState(Hr.FallState);
             }
-        }
-        
-        public override void Exit()
-        {
-            base.Exit();
         }
     }
 }

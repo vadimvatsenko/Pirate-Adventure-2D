@@ -29,7 +29,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
             if(StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Attack)) && StateInfo.normalizedTime > 1.0f)
             {
                 Attack();
-                StateMachine.ChangeState(Sharky.BattleState);
+                StateMachine.ChangeState(Sharky.IdleState);
             }
         }
         
@@ -41,13 +41,13 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
             
             foreach (var go in gos)
             {
+                Debug.Log(go.name);
                 var hp = go.GetComponent<IHealthComponent>();
                 if (hp != null)
                 {
-                    Debug.Log(go.name);
                     hp.ApplyDamage(1);
                     _damageDealt = true;
-                    break;
+                    return;
                 }
             }
         }

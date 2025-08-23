@@ -89,12 +89,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         {
             Rb2D.velocity = new Vector2(MovementSpeed * FacingDirection, Rb2D.velocity.y);
         }
-
-        public void SetFacingDirection(int facingDirection)
-        {
-            FacingDirection = facingDirection;
-        }
-
+        
         protected override void UpdateAnimationVelocity()
         {
             base.UpdateAnimationVelocity();

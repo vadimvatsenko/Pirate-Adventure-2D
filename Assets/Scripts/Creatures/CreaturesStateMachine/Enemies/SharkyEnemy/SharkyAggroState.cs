@@ -17,7 +17,6 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         public override void Enter()
         {
             base.Enter();
-            Sharky.CallOnAgroEvent();
             Rb2D.velocity = Vector2.zero;
         }
 
@@ -32,6 +31,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
                 if(StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Aggro)) 
                    && StateInfo.normalizedTime > 1.0f)
                 {
+                    Sharky.CallOnAgroEvent();
                     StateMachine.ChangeState(Sharky.BattleState);
                 }
             }

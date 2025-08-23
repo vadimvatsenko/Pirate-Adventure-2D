@@ -14,13 +14,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         public override void Enter()
         {
             base.Enter();
-            
-            /*if (DirectionToHero() != Sharky.FacingDirection)
-            {
-                Sharky.HandleFlip();
-            }*/
-            
-            Rb2D.velocity = new Vector2(Sharky.Hit.x * Sharky.FacingDirection, Sharky.Hit.y);
+
+            Rb2D.velocity = new Vector2(Sharky.Hit.x, Sharky.Hit.y);
         }
 
         public override void Update()

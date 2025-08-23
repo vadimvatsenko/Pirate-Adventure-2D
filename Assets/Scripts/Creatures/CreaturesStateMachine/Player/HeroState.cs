@@ -24,20 +24,14 @@ namespace Creatures.CreaturesStateMachine.Player
             _healthComponent.OnDamage -= HitHero;
         }
         
-        private void DeathHero()
-        {
-            Hr.StateMachine.ChangeState(Hr.DeathState);
-        }
-
-        private void HitHero()
-        {
-            Hr.StateMachine.ChangeState(Hr.HitState);
-        }
-
+        private void DeathHero() => Hr.StateMachine.ChangeState(Hr.DeathState);
+        
+        private void HitHero() => Hr.StateMachine.ChangeState(Hr.HitState);
+        
         public override void Enter()
         {
             base.Enter();
-            //Debug.Log(AnimatorHashes.GetName(_animBoolName));
+            Debug.Log(AnimatorHashes.GetName(_animBoolName));
         }
     }
 }

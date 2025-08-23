@@ -1,4 +1,4 @@
-﻿namespace Interfaces
+﻿namespace Creatures.Interfaces
 {
     public interface IMovable
     {

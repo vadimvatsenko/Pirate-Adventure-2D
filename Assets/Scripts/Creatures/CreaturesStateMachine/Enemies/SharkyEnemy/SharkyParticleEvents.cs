@@ -1,6 +1,6 @@
 ﻿using System;
 using Creatures.CreaturesStateMachine.CreatureBasic;
-using PlayerFolder.PlayerParticles;
+using Creatures.CreatureVFX;
 using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy

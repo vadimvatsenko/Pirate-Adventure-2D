@@ -27,7 +27,7 @@ namespace GameManagerInfo
             _levelController.LoadNextLevel();
         }
 
-        public void ReloadLevel() => StartCoroutine(ReloadLevelWhithDelay(1f));
+        public void ReloadLevel() => StartCoroutine(ReloadLevelWhithDelay(2f));
         
         private IEnumerator ReloadLevelWhithDelay(float delay)
         {

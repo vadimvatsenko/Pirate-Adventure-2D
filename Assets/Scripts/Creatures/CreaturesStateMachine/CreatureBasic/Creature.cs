@@ -1,6 +1,6 @@
 ﻿using System;
 using Creatures.AnimationControllers;
-using Interfaces;
+using Creatures.Interfaces;
 using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.CreatureBasic

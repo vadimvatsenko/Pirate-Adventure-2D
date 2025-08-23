@@ -57,7 +57,7 @@ namespace Creatures.CreaturesStateMachine.Player
             AttackState = new HeroAttackState(this, StateMachine, AnimatorHashes.Attack);
             FallState = new HeroFallState(this, StateMachine, AnimatorHashes.JumpFall);
             DeathState = new HeroDeathState(this, StateMachine, AnimatorHashes.Death);
-            HitState = new CreatureState(this, StateMachine, AnimatorHashes.Hit);
+            HitState = new HeroHitState(this, StateMachine, AnimatorHashes.Hit);
             ClimbState = new HeroClimbState(this, StateMachine, AnimatorHashes.Climb);
                 
             StateMachine.Initialize(IdleState);

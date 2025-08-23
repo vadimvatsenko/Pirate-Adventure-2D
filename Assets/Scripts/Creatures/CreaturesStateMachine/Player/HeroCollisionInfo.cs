@@ -11,8 +11,6 @@ namespace Creatures.CreaturesStateMachine.Player
         [SerializeField] private float grabbingChecDistance;
 
         public bool IsGrabb {get; private set;}
-        
-
         public void CheckHeroGrab()
         {
             IsGrabb = Physics2D.Raycast(
