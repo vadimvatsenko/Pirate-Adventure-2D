@@ -1,12 +1,13 @@
 ﻿using Creatures.CreaturesCollisions;
 using Creatures.CreaturesStateMachine.CreatureBasic;
+using Creatures.CreaturesStateMachine.Enemies.EnemyStates;
 using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
 {
     public class SharkyCollisionInfo : CreatureCollisionInfo
     {
-        private SharkyE _sharky;
+        private Enemy _sharky;
         
         [Header("Hero Detection Collision Info")]
         [SerializeField] private LayerMask whatIsHero;
@@ -32,7 +33,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         protected override void Awake()
         {
             base.Awake();
-            _sharky = GetComponent<SharkyE>();
+            _sharky = GetComponent<Enemy>();
         }
 
         public RaycastHit2D HeroDetection()

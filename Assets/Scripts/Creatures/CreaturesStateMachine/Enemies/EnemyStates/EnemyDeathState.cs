@@ -1,16 +1,16 @@
-﻿using Creatures.AnimationControllers;
-using Creatures.CreaturesStateMachine.CreatureBasic;
+﻿using Creatures.CreaturesStateMachine.CreatureBasic;
+using Creatures.CreaturesStateMachine.Enemies.SharkyEnemy;
 using UnityEngine;
 
-namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
+namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 {
-    public class SharkyDeathState : SharkyState
+    public class EnemyDeathState : EnemyState
     {
         private float _deathTimer;
         private readonly float DeathDelay = 2f;
         private Vector2 _initialSize;
         
-        public SharkyDeathState(SharkyE sharky, CreatureStateMachine stateMachine, int animBoolName) 
+        public EnemyDeathState(Enemy sharky, CreatureStateMachine stateMachine, int animBoolName) 
             : base(sharky, stateMachine, animBoolName)
         {
             _deathTimer = 0f;

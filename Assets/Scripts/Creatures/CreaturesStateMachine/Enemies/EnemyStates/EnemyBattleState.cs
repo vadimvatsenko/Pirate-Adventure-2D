@@ -1,14 +1,15 @@
 ﻿using Creatures.CreaturesStateMachine.CreatureBasic;
+using Creatures.CreaturesStateMachine.Enemies.SharkyEnemy;
 using UnityEngine;
 
-namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
+namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 {
-    public class SharkyBattleState : SharkyState
+    public class EnemyBattleState : EnemyState
     {
         private Transform _heroPos;
         private float _lastTimeInBattle;
 
-        public SharkyBattleState(SharkyE sharky, CreatureStateMachine stateMachine, int animBoolName)
+        public EnemyBattleState(Enemy sharky, CreatureStateMachine stateMachine, int animBoolName)
             : base(sharky, stateMachine, animBoolName)
         {
         }
@@ -17,7 +18,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         {
             base.Enter();
 
-            if (_heroPos == null) _heroPos = CollisionInfo.HeroDetection().transform;
+            if (_heroPos == null) 
+                _heroPos = CollisionInfo.HeroDetection().transform;
             
             if (ShouldRetreat())
             {

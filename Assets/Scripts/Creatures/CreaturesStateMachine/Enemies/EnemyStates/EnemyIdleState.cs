@@ -1,14 +1,14 @@
 ﻿using Creatures.CreaturesStateMachine.CreatureBasic;
 using UnityEngine;
 
-namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
+namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 {
-    public class SharkyIdleState : SharkyGroundedState
+    public class EnemyIdleState : EnemyGroundedState
     {
         private float _idleTime;
         private float _idleDuration;
         
-        public SharkyIdleState(SharkyE sharky, CreatureStateMachine stateMachine, int animBoolName) 
+        public EnemyIdleState(Enemy sharky, CreatureStateMachine stateMachine, int animBoolName) 
             : base(sharky, stateMachine, animBoolName)
         {
         }

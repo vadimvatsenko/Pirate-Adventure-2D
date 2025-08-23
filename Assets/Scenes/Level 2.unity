@@ -13799,7 +13799,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1472195337}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.32, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1119451851296351244}
@@ -35046,46 +35046,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &685183821295876014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 685183821295876015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72fe54d299194dfdba082dda8688f42e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onAddHealth:
-    m_PersistentCalls:
-      m_Calls: []
-  onDamage:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 685183821295876011}
-        m_MethodName: TakeDamage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 938954257645496325}
-        m_MethodName: Spawn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &685183821295876015
 GameObject:
   m_ObjectHideFlags: 0
@@ -35101,8 +35061,8 @@ GameObject:
   - component: {fileID: 685183821295876011}
   - component: {fileID: 685183821295876018}
   - component: {fileID: 685183821295876019}
+  - component: {fileID: 685183821295876020}
   - component: {fileID: 685183821295876016}
-  - component: {fileID: 685183821295876014}
   - component: {fileID: 938954258518177346}
   m_Layer: 12
   m_Name: Hero_State_Machine
@@ -35193,11 +35153,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aaf86990d764781b5d81726344fddbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
   targetCheck: {fileID: 647158504}
   detectionRadius: 0.25
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 65536
+--- !u!114 &685183821295876020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685183821295876015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c841c8b8d74426b3393cbb91d0f124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  isDead: 0
 --- !u!114 &685183821358021824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35879,7 +35854,7 @@ GameObject:
   - component: {fileID: 1119451851296351241}
   - component: {fileID: 1119451851296351240}
   - component: {fileID: 1119451851296351245}
-  - component: {fileID: 1482753923971147430}
+  - component: {fileID: 1119451851296351248}
   m_Layer: 16
   m_Name: Skeleton_Blue_Armed_Machine
   m_TagString: Untagged
@@ -35920,11 +35895,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aaf86990d764781b5d81726344fddbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCheck: {fileID: 0}
-  detectionRadius: 0
+  damage: 10
+  targetCheck: {fileID: 1472195338}
+  detectionRadius: 0.25
   whatIsTarget:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4096
 --- !u!70 &1119451851296351246
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -35962,6 +35938,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &1119451851296351248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119451851296351243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c841c8b8d74426b3393cbb91d0f124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  isDead: 0
 --- !u!95 &1119451851437343584
 Animator:
   serializedVersion: 3
@@ -36544,19 +36534,6 @@ Transform:
   m_Father: {fileID: 1119451852117363886}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &1482753923971147430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1119451851296351243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87dfcd411dbc4455a9cbdf20f7855f20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 3
 --- !u!1001 &1744313399463732774
 PrefabInstance:
   m_ObjectHideFlags: 0

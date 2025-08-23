@@ -1,11 +1,11 @@
 ﻿using Creatures.CreaturesStateMachine.CreatureBasic;
 using UnityEngine;
 
-namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
+namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 {
-    public class SharkyJumpState : SharkyAiredState
+    public class EnemyJumpState : EnemyAiredState
     {
-        public SharkyJumpState(SharkyE sharky, CreatureStateMachine stateMachine, int animBoolName) 
+        public EnemyJumpState(Enemy sharky, CreatureStateMachine stateMachine, int animBoolName) 
             : base(sharky, stateMachine, animBoolName)
         {
         }

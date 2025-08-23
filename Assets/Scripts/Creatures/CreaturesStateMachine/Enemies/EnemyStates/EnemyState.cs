@@ -1,16 +1,17 @@
 ﻿using Creatures.CreaturesStateMachine.CreatureBasic;
+using Creatures.CreaturesStateMachine.Enemies.SharkyEnemy;
 using Creatures.CreaturesStateMachine.Player;
 using UnityEngine;
 
-namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
+namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 {
-    public class SharkyState : CreatureState
+    public class EnemyState : CreatureState
     {
-        protected readonly SharkyE Sharky;
+        protected readonly Enemy Sharky;
         private Hero Hr;
         protected readonly SharkyCollisionInfo CollisionInfo;
         
-        public SharkyState(SharkyE sharky, CreatureStateMachine stateMachine, int animBoolName) 
+        public EnemyState(Enemy sharky, CreatureStateMachine stateMachine, int animBoolName) 
             : base(sharky, stateMachine, animBoolName)
         {
             Sharky = sharky;
@@ -27,7 +28,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
             //Debug.Log($"Entered in {AnimatorHashes.GetName(_animBoolName)}");
         }
 
-        ~SharkyState() => Health.UnsubscribeOnHitEvent(CallHitState);
+        ~EnemyState() => Health.UnsubscribeOnHitEvent(CallHitState);
         
         private void CallHitState() => StateMachine.ChangeState(Sharky.HitState);
         

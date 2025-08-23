@@ -3,16 +3,16 @@ using Creatures.CreaturesStateMachine.CreatureBasic;
 using Creatures.CreatureVFX;
 using UnityEngine;
 
-namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
+namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 {
-    public class SharkyParticleEvents : CreatureParticleEvent
+    public class EnemyParticleEvents : CreatureParticleEvent
     {
-        private SharkyE _sharky;
+        private Enemy _sharky;
 
         protected override void Awake()
         {
             base.Awake();
-            _sharky = GetComponentInParent<SharkyE>();
+            _sharky = GetComponentInParent<Enemy>();
         }
 
         protected override void OnEnable()

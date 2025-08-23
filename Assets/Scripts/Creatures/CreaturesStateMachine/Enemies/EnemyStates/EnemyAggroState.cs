@@ -2,14 +2,14 @@
 using Creatures.CreaturesStateMachine.CreatureBasic;
 using UnityEngine;
 
-namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
+namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 {
-    public class SharkyAggroState : SharkyState
+    public class EnemyAggroState : EnemyState
     {
         private float _aggroTimer = 0f;
         private readonly float _aggroDuration = 1.5f;
         
-        public SharkyAggroState(SharkyE sharky, CreatureStateMachine stateMachine, int animBoolName) 
+        public EnemyAggroState(Enemy sharky, CreatureStateMachine stateMachine, int animBoolName) 
             : base(sharky, stateMachine, animBoolName)
         {
         }

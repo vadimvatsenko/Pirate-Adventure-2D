@@ -1,12 +1,13 @@
 ﻿using System;
 using Creatures.AnimationControllers;
 using Creatures.CreaturesStateMachine.CreatureBasic;
+using Creatures.CreaturesStateMachine.Enemies.SharkyEnemy;
 using Creatures.CreaturesStateMachine.Player;
 using UnityEngine;
 
-namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
+namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 {
-    public class SharkyE : Creature
+    public class Enemy : Creature
     {
         [Header("Idle Info")] 
         [SerializeField] private float idleDuration = 2f;
@@ -30,10 +31,10 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
         //
         public Hero Hr { get; private set; }
         public SharkyCollisionInfo SharkyCollisionInfo { get; private set; }
-        public SharkyAggroState AggroState { get; private set; }
-        public SharkyAttackState AttackState {get; private set;}
-        public SharkyBattleState BattleState { get; private set; }
-        public SharkyRespawnState RespawnState { get; private set; }
+        public EnemyAggroState AggroState { get; private set; }
+        public EnemyAttackState AttackState {get; private set;}
+        public EnemyBattleState BattleState { get; private set; }
+        public EnemyRespawnState RespawnState { get; private set; }
         
         // Aggro Event
         public event Action OnAgroEvent;
@@ -54,15 +55,15 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
             
             SharkyCollisionInfo = GetComponent<SharkyCollisionInfo>();
             
-            IdleState = new SharkyIdleState(this, StateMachine, AnimatorHashes.Idle);
-            MoveState = new SharkyMoveState(this, StateMachine, AnimatorHashes.Move);
-            JumpState = new SharkyJumpState(this, StateMachine, AnimatorHashes.Jump);
-            FallState = new SharkyFallState(this, StateMachine, AnimatorHashes.Fall);
-            AggroState = new SharkyAggroState(this, StateMachine, AnimatorHashes.Aggro);
-            AttackState = new SharkyAttackState(this, StateMachine, AnimatorHashes.Attack);
-            BattleState = new SharkyBattleState(this, StateMachine, AnimatorHashes.Battle);
-            HitState = new SharkyHitState(this, StateMachine, AnimatorHashes.Hit);
-            DeathState = new SharkyDeathState(this, StateMachine, AnimatorHashes.Death);
+            IdleState = new EnemyIdleState(this, StateMachine, AnimatorHashes.Idle);
+            MoveState = new EnemyMoveState(this, StateMachine, AnimatorHashes.Move);
+            JumpState = new EnemyJumpState(this, StateMachine, AnimatorHashes.Jump);
+            FallState = new EnemyFallState(this, StateMachine, AnimatorHashes.Fall);
+            AggroState = new EnemyAggroState(this, StateMachine, AnimatorHashes.Aggro);
+            AttackState = new EnemyAttackState(this, StateMachine, AnimatorHashes.Attack);
+            BattleState = new EnemyBattleState(this, StateMachine, AnimatorHashes.Battle);
+            HitState = new EnemyHitState(this, StateMachine, AnimatorHashes.Hit);
+            DeathState = new EnemyDeathState(this, StateMachine, AnimatorHashes.Death);
             //RespawnState = new SharkyRespawnState(this, StateMachine, AnimatorHashes.Respawn);
             StateMachine.Initialize(IdleState);
         }

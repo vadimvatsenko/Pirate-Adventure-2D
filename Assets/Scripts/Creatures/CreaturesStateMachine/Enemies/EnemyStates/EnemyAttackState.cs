@@ -1,18 +1,16 @@
-﻿using System.Linq;
-using Components;
-using Components.HealthComponentFolder;
-using Creatures.AnimationControllers;
+﻿using Creatures.AnimationControllers;
 using Creatures.CreaturesStateMachine.CreatureBasic;
+using Creatures.CreaturesStateMachine.Enemies.SharkyEnemy;
 using UnityEngine;
 
-namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
+namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 {
-    public class SharkyAttackState : SharkyState
+    public class EnemyAttackState : EnemyState
     {
         private bool _damageDealt;
         private bool _attackEnded;
         
-        public SharkyAttackState(SharkyE sharky, CreatureStateMachine stateMachine, int animBoolName) 
+        public EnemyAttackState(Enemy sharky, CreatureStateMachine stateMachine, int animBoolName) 
             : base(sharky, stateMachine, animBoolName)
         {
         }

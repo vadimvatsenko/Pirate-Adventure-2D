@@ -1,10 +1,10 @@
 ﻿using Creatures.CreaturesStateMachine.CreatureBasic;
 
-namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
+namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 {
-    public class SharkyFallState : SharkyAiredState
+    public class EnemyFallState : EnemyAiredState
     {
-        public SharkyFallState(SharkyE sharky, CreatureStateMachine stateMachine, int animBoolName) 
+        public EnemyFallState(Enemy sharky, CreatureStateMachine stateMachine, int animBoolName) 
             : base(sharky, stateMachine, animBoolName)
         {
         }
