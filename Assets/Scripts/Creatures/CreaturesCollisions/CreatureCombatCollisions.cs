@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Creatures.CreaturesHealth;
+using UnityEngine;
 
 namespace Creatures.CreaturesCollisions
 {
@@ -16,7 +17,8 @@ namespace Creatures.CreaturesCollisions
             
             foreach (var col in colls)
             {
-                Debug.Log(col.name);
+                CreatureHealth health = col.gameObject.GetComponent<CreatureHealth>();
+                health?.TakeDamage(10);
             }
         }
         private Collider2D[] GetDetectedColliders()

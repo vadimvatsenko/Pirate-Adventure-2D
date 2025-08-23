@@ -13,15 +13,15 @@ namespace Creatures.CreaturesStateMachine.Player
             : base(hr, stateMachine, animBoolName)
         {
             Hr = hr;
-            _healthComponent = Hr.GetComponent<PlayerHealthComponent>();
-            _healthComponent.OnDeath += DeathHero;
-            _healthComponent.OnDamage += HitHero;
+            //_healthComponent = Hr.GetComponent<PlayerHealthComponent>();
+            //_healthComponent.OnDeath += DeathHero;
+            //_healthComponent.OnDamage += HitHero;
         }
 
         ~HeroState()
         {
-            _healthComponent.OnDeath -= DeathHero;
-            _healthComponent.OnDamage -= HitHero;
+            //_healthComponent.OnDeath -= DeathHero;
+            //_healthComponent.OnDamage -= HitHero;
         }
         
         private void DeathHero() => Hr.StateMachine.ChangeState(Hr.DeathState);

@@ -1,5 +1,4 @@
-﻿using Creatures.AnimationControllers;
-using Creatures.CreaturesStateMachine.CreatureBasic;
+﻿using Creatures.CreaturesStateMachine.CreatureBasic;
 using Creatures.CreaturesStateMachine.Player;
 using UnityEngine;
 
@@ -19,7 +18,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
             
             if (Sharky != null) CollisionInfo = Sharky.SharkyCollisionInfo;
 
-            Health.SubscribeOnHitEvent(CallHitState);
+            //Health.SubscribeOnHitEvent(CallHitState);
         }
 
         public override void Enter()
