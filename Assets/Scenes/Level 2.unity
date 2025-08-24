@@ -35025,6 +35025,8 @@ MonoBehaviour:
   attackForce: 1
   climbingBoxes:
   - {fileID: 1866112004}
+  hitPower: {x: 0, y: 0}
+  hitDuration: 0
 --- !u!4 &685183821295876013
 Transform:
   m_ObjectHideFlags: 0
@@ -35064,6 +35066,7 @@ GameObject:
   - component: {fileID: 685183821295876020}
   - component: {fileID: 685183821295876016}
   - component: {fileID: 938954258518177346}
+  - component: {fileID: 685183821295876021}
   m_Layer: 12
   m_Name: Hero_State_Machine
   m_TagString: Player
@@ -35173,6 +35176,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   isDead: 0
+--- !u!114 &685183821295876021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685183821295876015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b6517d414054d338413568e3819d01e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onDamageMaterial: {fileID: 2100000, guid: 2802f6afd6ab73e4daee056ef58d2469, type: 2}
+  onDamageVFXDuration: 0.15
 --- !u!114 &685183821358021824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35484,6 +35501,7 @@ GameObject:
   - component: {fileID: 685183822660710319}
   - component: {fileID: 685183822660710318}
   - component: {fileID: 685183822660710306}
+  - component: {fileID: 685183822660710307}
   m_Layer: 0
   m_Name: Animator
   m_TagString: Untagged
@@ -35503,6 +35521,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76b2599cb1c24a4ca55c44422283b9a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &685183822660710307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685183822660710305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 699c6ff34cae49208ec5c7f383322d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withoutArmor: {fileID: 9100000, guid: 6273da241f681c4419c0c62be0502ca2, type: 2}
+  withArmor: {fileID: 22100000, guid: 0369b22e0f354d04883062a5eea02b1f, type: 2}
+  playerSpriteRenderer: {fileID: 685183822660710319}
 --- !u!95 &685183822660710318
 Animator:
   serializedVersion: 3
@@ -35855,6 +35888,7 @@ GameObject:
   - component: {fileID: 1119451851296351240}
   - component: {fileID: 1119451851296351245}
   - component: {fileID: 1119451851296351248}
+  - component: {fileID: 1119451851296351249}
   m_Layer: 16
   m_Name: Skeleton_Blue_Armed_Machine
   m_TagString: Untagged
@@ -35947,11 +35981,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1119451851296351243}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4c841c8b8d74426b3393cbb91d0f124, type: 3}
+  m_Script: {fileID: 11500000, guid: 013423114819447d810c579fe3a891fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
   isDead: 0
+--- !u!114 &1119451851296351249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119451851296351243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b6517d414054d338413568e3819d01e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onDamageMaterial: {fileID: 2100000, guid: 2802f6afd6ab73e4daee056ef58d2469, type: 2}
+  onDamageVFXDuration: 0.15
 --- !u!95 &1119451851437343584
 Animator:
   serializedVersion: 3

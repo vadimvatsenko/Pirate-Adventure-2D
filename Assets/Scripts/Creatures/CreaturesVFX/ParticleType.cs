@@ -1,4 +1,4 @@
-﻿namespace Creatures.CreatureVFX
+﻿namespace Creatures.CreaturesVFX
 {
     public enum ParticleType
     {

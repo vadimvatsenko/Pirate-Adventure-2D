@@ -7,17 +7,17 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 {
     public class EnemyState : CreatureState
     {
-        protected readonly Enemy Sharky;
+        protected readonly Enemy Enemy;
         private Hero Hr;
         protected readonly SharkyCollisionInfo CollisionInfo;
         
-        public EnemyState(Enemy sharky, CreatureStateMachine stateMachine, int animBoolName) 
-            : base(sharky, stateMachine, animBoolName)
+        public EnemyState(Enemy enemy, CreatureStateMachine stateMachine, int animBoolName) 
+            : base(enemy, stateMachine, animBoolName)
         {
-            Sharky = sharky;
+            Enemy = enemy;
             StateMachine = stateMachine;
             
-            if (Sharky != null) CollisionInfo = Sharky.SharkyCollisionInfo;
+            if (Enemy != null) CollisionInfo = Enemy.SharkyCollisionInfo;
 
             //Health.SubscribeOnHitEvent(CallHitState);
         }
@@ -30,20 +30,20 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 
         ~EnemyState() => Health.UnsubscribeOnHitEvent(CallHitState);
         
-        private void CallHitState() => StateMachine.ChangeState(Sharky.HitState);
+        private void CallHitState() => StateMachine.ChangeState(Enemy.HitState);
         
         protected float DistanceToHero()
         {
-            Hr = Sharky.Hr;
+            Hr = Enemy.Hr;
             if (Hr == null) return float.MaxValue;
 
-            return Mathf.Abs(Hr.transform.position.x - Sharky.transform.position.x);
+            return Mathf.Abs(Hr.transform.position.x - Enemy.transform.position.x);
         }
 
         protected int DirectionToHero()
         {
             if (Hr == null) return 0;
-            else return Hr.transform.position.x > Sharky.transform.position.x ? 1 : -1;
+            else return Hr.transform.position.x > Enemy.transform.position.x ? 1 : -1;
         }
     }
 }

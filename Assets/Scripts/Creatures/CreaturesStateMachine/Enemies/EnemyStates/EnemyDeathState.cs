@@ -10,8 +10,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
         private readonly float DeathDelay = 2f;
         private Vector2 _initialSize;
         
-        public EnemyDeathState(Enemy sharky, CreatureStateMachine stateMachine, int animBoolName) 
-            : base(sharky, stateMachine, animBoolName)
+        public EnemyDeathState(Enemy enemy, CreatureStateMachine stateMachine, int animBoolName) 
+            : base(enemy, stateMachine, animBoolName)
         {
             _deathTimer = 0f;
             _initialSize = C2D.bounds.size;
@@ -42,7 +42,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
             capsule.size = newSize; // уменьшаем размер коллайдера*/
             
             if (newSize.x <= 0 && newSize.y <= 0)
-                Sharky.DestroySelf();
+                Enemy.DestroySelf();
             
             /*if (StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Death)))
             {

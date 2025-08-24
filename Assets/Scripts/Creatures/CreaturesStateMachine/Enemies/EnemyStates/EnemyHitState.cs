@@ -7,8 +7,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 {
     public class EnemyHitState : EnemyState
     {
-        public EnemyHitState(Enemy sharky, CreatureStateMachine stateMachine, int animBoolName) 
-            : base(sharky, stateMachine, animBoolName)
+        public EnemyHitState(Enemy enemy, CreatureStateMachine stateMachine, int animBoolName) 
+            : base(enemy, stateMachine, animBoolName)
         {
         }
         
@@ -16,7 +16,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
         {
             base.Enter();
 
-            Rb2D.velocity = new Vector2(Sharky.Hit.x, Sharky.Hit.y);
+            Rb2D.velocity = new Vector2(Enemy.Hit.x, Enemy.Hit.y);
         }
 
         public override void Update()
@@ -28,11 +28,11 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
             {
                 if (Health.Health <= 0)
                 {
-                    StateMachine.ChangeState(Sharky.DeathState);
+                    StateMachine.ChangeState(Enemy.DeathState);
                 }
                 else
                 {
-                    StateMachine.ChangeState(Sharky.BattleState);
+                    StateMachine.ChangeState(Enemy.BattleState);
                 }
             }
         }

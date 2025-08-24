@@ -1,6 +1,6 @@
 ﻿using System;
 using Creatures.CreaturesStateMachine.CreatureBasic;
-using Creatures.CreatureVFX;
+using Creatures.CreaturesVFX;
 using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates

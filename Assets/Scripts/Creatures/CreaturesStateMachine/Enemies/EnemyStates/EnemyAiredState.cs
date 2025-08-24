@@ -5,8 +5,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 {
     public class EnemyAiredState : EnemyState
     {
-        public EnemyAiredState(Enemy sharky, CreatureStateMachine stateMachine, int animBoolName) 
-            : base(sharky, stateMachine, animBoolName)
+        public EnemyAiredState(Enemy enemy, CreatureStateMachine stateMachine, int animBoolName) 
+            : base(enemy, stateMachine, animBoolName)
         {
         }
         
@@ -16,7 +16,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
             
             if (CollisionInfo.IsGrounded && Rb2D.velocity.y <= 0)
             {
-                StateMachine.ChangeState(Sharky.MoveState);
+                StateMachine.ChangeState(Enemy.MoveState);
             }
         }
     }

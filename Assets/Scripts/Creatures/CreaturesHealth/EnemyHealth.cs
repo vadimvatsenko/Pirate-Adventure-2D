@@ -17,7 +17,7 @@ namespace Creatures.CreaturesHealth
 
         public override void TakeDamage(float damage, Transform attacker)
         {
-            Debug.Log(attacker.name);
+           
             Debug.Log(attacker == _hero);
             if (attacker == _hero)
             {

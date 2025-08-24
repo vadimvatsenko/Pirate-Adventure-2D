@@ -9,8 +9,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
         private float _aggroTimer = 0f;
         private readonly float _aggroDuration = 1.5f;
         
-        public EnemyAggroState(Enemy sharky, CreatureStateMachine stateMachine, int animBoolName) 
-            : base(sharky, stateMachine, animBoolName)
+        public EnemyAggroState(Enemy enemy, CreatureStateMachine stateMachine, int animBoolName) 
+            : base(enemy, stateMachine, animBoolName)
         {
         }
         
@@ -31,8 +31,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
                 if(StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Aggro)) 
                    && StateInfo.normalizedTime > 1.0f)
                 {
-                    Sharky.CallOnAgroEvent();
-                    StateMachine.ChangeState(Sharky.BattleState);
+                    Enemy.CallOnAgroEvent();
+                    StateMachine.ChangeState(Enemy.BattleState);
                 }
             }
         }

@@ -1,5 +1,6 @@
 ﻿using Creatures.AnimationControllers;
 using Creatures.CreaturesStateMachine.CreatureBasic;
+using Creatures.Settings;
 using GameManagerInfo;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ namespace Creatures.CreaturesStateMachine.Player
         public GameManager GameMg { get; private set; }
         
         public HeroCollisionInfo HeroCollision { get; private set; }
-
+        
         [Header("Buffer Jump")] 
         [SerializeField] private float bufferJumpWindow = 0.25f;
         private float _bufferJumpActivated = -1;
@@ -38,7 +39,14 @@ namespace Creatures.CreaturesStateMachine.Player
         [Header("Climb Info")]
         [SerializeField] private BoxCollider2D[] climbingBoxes;
         public BoxCollider2D ClimbingBox => climbingBoxes[0];
-        
+
+        //
+        [Header("Hit Info")] 
+        [SerializeField] private Vector2 hitPower;
+        [SerializeField] private float hitDuration;
+        public Vector2 HitPower => hitPower;
+        public float HitDuration => hitDuration;
+        //
         protected override void Awake()
         {
             base.Awake();

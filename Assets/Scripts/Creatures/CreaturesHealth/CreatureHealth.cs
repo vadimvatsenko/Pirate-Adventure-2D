@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Creatures.CreaturesVFX;
+using UnityEngine;
 
 namespace Creatures.CreaturesHealth
 {
@@ -6,10 +7,17 @@ namespace Creatures.CreaturesHealth
     {
         [SerializeField] protected float maxHealth = 100f;
         [SerializeField] protected bool isDead;
+        
+        private CreatureVFX _creaturesVFX;
 
+        protected virtual void Awake()
+        {
+            _creaturesVFX = GetComponent<CreatureVFX>();
+        }
         public virtual void TakeDamage(float damage, Transform attacker)
         {
             if(isDead) return;
+            _creaturesVFX.PlayOnDamageVFX();
             ReduceHealth(damage);
         }
 

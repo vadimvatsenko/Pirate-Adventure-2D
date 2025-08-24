@@ -9,8 +9,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
         private Transform _heroPos;
         private float _lastTimeInBattle;
 
-        public EnemyBattleState(Enemy sharky, CreatureStateMachine stateMachine, int animBoolName)
-            : base(sharky, stateMachine, animBoolName)
+        public EnemyBattleState(Enemy enemy, CreatureStateMachine stateMachine, int animBoolName)
+            : base(enemy, stateMachine, animBoolName)
         {
         }
 
@@ -23,7 +23,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
             
             if (ShouldRetreat())
             {
-                Rb2D.velocity = new Vector2(Sharky.RetreatVelocity.x * -Sharky.FacingDirection, Rb2D.velocity.y);
+                Rb2D.velocity = new Vector2(Enemy.RetreatVelocity.x * -Enemy.FacingDirection, Rb2D.velocity.y);
             }
         }
 
@@ -35,36 +35,36 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
             
             if (BattleTimeIsOver())
             {
-                Sharky.CallOnWTFEvent();
-                StateMachine.ChangeState(Sharky.IdleState);
+                Enemy.CallOnWTFEvent();
+                StateMachine.ChangeState(Enemy.IdleState);
             }
             
-            if (DirectionToHero() != Sharky.FacingDirection)
+            if (DirectionToHero() != Enemy.FacingDirection)
             {
-                Sharky.HandleFlip();
+                Enemy.HandleFlip();
             }
             
             if (WithinAttackRange() && CollisionInfo.HeroDetection())
             {
-                StateMachine.ChangeState(Sharky.AttackState);
+                StateMachine.ChangeState(Enemy.AttackState);
             }
             else
             {
-                Rb2D.velocity = new Vector2(Sharky.BattleSpeed * Sharky.FacingDirection, Rb2D.velocity.y);
+                Rb2D.velocity = new Vector2(Enemy.BattleSpeed * Enemy.FacingDirection, Rb2D.velocity.y);
             }
             
             if (CollisionInfo.IsAbyssDetected)
             {
-                Sharky.CallOnWTFEvent();
-                StateMachine.ChangeState(Sharky.IdleState);
+                Enemy.CallOnWTFEvent();
+                StateMachine.ChangeState(Enemy.IdleState);
             }
         }
         
         private bool WithinAttackRange() => DistanceToHero() < CollisionInfo.AttackDistance;
-        private bool ShouldRetreat() => DistanceToHero() < Sharky.MinRetreatDistance;
+        private bool ShouldRetreat() => DistanceToHero() < Enemy.MinRetreatDistance;
 
         // в Update постоянно записываем внутриигровое время
         private void UpdateBattleTimer() => _lastTimeInBattle = Time.time;
-        private bool BattleTimeIsOver() => Time.time > _lastTimeInBattle + Sharky.BattleTimeDuration;
+        private bool BattleTimeIsOver() => Time.time > _lastTimeInBattle + Enemy.BattleTimeDuration;
     }
 }

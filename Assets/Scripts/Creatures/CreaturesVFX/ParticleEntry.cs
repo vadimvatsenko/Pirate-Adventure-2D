@@ -2,7 +2,7 @@
 using Components;
 using Components.Spawn;
 
-namespace Creatures.CreatureVFX
+namespace Creatures.CreaturesVFX
 {
     [Serializable]
     public struct ParticleEntry

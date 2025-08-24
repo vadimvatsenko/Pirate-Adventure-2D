@@ -22,6 +22,7 @@ namespace Creatures.CreaturesStateMachine.Player
         {
             _bufferJumpWindow = hr.BufferJumpWindow;
             _coyoteJumpWindow = hr.CoyoteJumpWindow;
+            
         }
 
         public override void Enter()

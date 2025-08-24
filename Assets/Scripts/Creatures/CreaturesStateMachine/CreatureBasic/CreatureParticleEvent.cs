@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using Components;
 using Components.Spawn;
 using Creatures.CreaturesCollisions;
-using Creatures.CreatureVFX;
+using Creatures.CreaturesVFX;
 using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.CreatureBasic
@@ -101,6 +100,5 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         private void HandleSpawnJumpParticle() => HandleSpawn(ParticleType.Jump);
         private void HandleSpawnAttack1Particle() => HandleSpawn(ParticleType.Attack1);
         private void HandleSpawnBloodParticle() => HandleSpawn(ParticleType.Blood);
-
     }
 }
