@@ -1,5 +1,4 @@
 ﻿using Creatures.CreaturesStateMachine.CreatureBasic;
-using Creatures.CreaturesStateMachine.Enemies.SharkyEnemy;
 
 namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 {

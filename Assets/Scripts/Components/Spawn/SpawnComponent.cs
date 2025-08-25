@@ -16,7 +16,7 @@ namespace Components.Spawn
         public void Spawn()
         {
             // почему так? Это интерфейс контракт которого говорит, что у объекта будет направление движения
-            var faced = target.GetComponent<IMovable>();
+            var faced = target.GetComponent<IFacingDirection>();
             //Vector3 spawnPos = target.position;
             Vector3 spawnPos = transform.position;
             

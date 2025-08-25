@@ -1,5 +1,4 @@
 ﻿using Creatures.CreaturesStateMachine.CreatureBasic;
-using Creatures.CreaturesStateMachine.Enemies.SharkyEnemy;
 using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
@@ -20,8 +19,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
                 Sharky.StateMachine.ChangeState(Sharky.JumpState);
             }*/
 
-            if (Enemy.SharkyCollisionInfo.IsWallDetected 
-                || Enemy.SharkyCollisionInfo.IsAbyssDetected)
+            if (Enemy.EnemyCollisionInfo.IsWallDetected 
+                || Enemy.EnemyCollisionInfo.IsAbyssDetected)
             {
                 Rb2D.velocity = Vector2.zero;
                 Enemy.HandleFlip();

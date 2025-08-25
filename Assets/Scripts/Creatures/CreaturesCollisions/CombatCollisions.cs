@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Creatures.CreaturesCollisions
 {
-    public class CreatureCombatCollisions : MonoBehaviour
+    public class CombatCollisions : MonoBehaviour
     {
         [Header("Target Detection")] 
         [SerializeField] private float damage = 10f;
@@ -22,14 +22,14 @@ namespace Creatures.CreaturesCollisions
                 health?.TakeDamage(damage, this.transform);
             }
         }
-        private Collider2D[] GetDetectedColliders()
+        protected virtual Collider2D[] GetDetectedColliders()
         {
             return Physics2D.OverlapCircleAll(
                     targetCheck.position, 
                     detectionRadius, 
                     whatIsTarget);
         }
-        private void OnDrawGizmos()
+        protected virtual void OnDrawGizmos()
         {
             Gizmos.DrawWireSphere(targetCheck.position, detectionRadius);
         }

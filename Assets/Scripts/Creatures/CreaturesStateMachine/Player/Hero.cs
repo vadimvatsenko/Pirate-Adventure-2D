@@ -39,14 +39,7 @@ namespace Creatures.CreaturesStateMachine.Player
         [Header("Climb Info")]
         [SerializeField] private BoxCollider2D[] climbingBoxes;
         public BoxCollider2D ClimbingBox => climbingBoxes[0];
-
-        //
-        [Header("Hit Info")] 
-        [SerializeField] private Vector2 hitPower;
-        [SerializeField] private float hitDuration;
-        public Vector2 HitPower => hitPower;
-        public float HitDuration => hitDuration;
-        //
+        
         protected override void Awake()
         {
             base.Awake();

@@ -6,15 +6,15 @@ using UnityEngine;
 
 namespace Creatures
 {
-    public class CreatureAnimController : MonoBehaviour
+    public class CreatureArmAnimController : MonoBehaviour
     {
         protected Animator CreatureAnim { get; private set; }
         protected Creature Cre {get; private set;}
         
         protected virtual void Awake()
         {
-            Cre = GetComponent<Creature>();
-            CreatureAnim = GetComponentInChildren<Animator>();
+            Cre = GetComponentInParent<Creature>();
+            CreatureAnim = GetComponent<Animator>();
         }
     }
 }

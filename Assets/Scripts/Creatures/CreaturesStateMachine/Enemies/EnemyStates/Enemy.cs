@@ -1,7 +1,7 @@
 ﻿using System;
 using Creatures.AnimationControllers;
+using Creatures.CreaturesCollisions;
 using Creatures.CreaturesStateMachine.CreatureBasic;
-using Creatures.CreaturesStateMachine.Enemies.SharkyEnemy;
 using Creatures.CreaturesStateMachine.Player;
 using UnityEngine;
 
@@ -30,7 +30,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
         public Vector2 RetreatVelocity => retreatVelocity;
         //
         public Hero Hr { get; private set; }
-        public SharkyCollisionInfo SharkyCollisionInfo { get; private set; }
+        public EnemyCollisionInfo EnemyCollisionInfo { get; private set; }
         public EnemyAggroState AggroState { get; private set; }
         public EnemyAttackState AttackState {get; private set;}
         public EnemyBattleState BattleState { get; private set; }
@@ -53,7 +53,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
         {
             base.Awake();
             
-            SharkyCollisionInfo = GetComponent<SharkyCollisionInfo>();
+            EnemyCollisionInfo = GetComponent<EnemyCollisionInfo>();
             
             IdleState = new EnemyIdleState(this, StateMachine, AnimatorHashes.Idle);
             MoveState = new EnemyMoveState(this, StateMachine, AnimatorHashes.Move);
@@ -77,8 +77,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
         {
             base.Update();
             
-            SharkyCollisionInfo.HandleAbyssCheck();
-            SharkyCollisionInfo.HandleGroundAfterAbyssCheck();
+            EnemyCollisionInfo.HandleAbyssCheck();
+            EnemyCollisionInfo.HandleGroundAfterAbyssCheck();
         }
 
         public override void HandleFlip()

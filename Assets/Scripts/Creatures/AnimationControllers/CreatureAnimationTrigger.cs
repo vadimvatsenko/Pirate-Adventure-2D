@@ -9,18 +9,18 @@ namespace Creatures.AnimationControllers
     public class CreatureAnimationTrigger : MonoBehaviour
     {
         private Creature _creature;
-        private CreatureCombatCollisions _creatureCombatCollisions;
+        private CombatCollisions _combatCollisions;
 
         private void Awake()
         {
             _creature = GetComponentInParent<Creature>();
-            _creatureCombatCollisions = GetComponentInParent<CreatureCombatCollisions>();
+            _combatCollisions = GetComponentInParent<CombatCollisions>();
         }
 
         private void AttackTrigger()
         {
             //Debug.Log("Attack Trigger");
-            _creatureCombatCollisions.PerformAttack();
+            _combatCollisions.PerformAttack();
         }
     }
 }

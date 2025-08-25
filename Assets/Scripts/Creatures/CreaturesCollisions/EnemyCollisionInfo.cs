@@ -1,11 +1,9 @@
-﻿using Creatures.CreaturesCollisions;
-using Creatures.CreaturesStateMachine.CreatureBasic;
-using Creatures.CreaturesStateMachine.Enemies.EnemyStates;
+﻿using Creatures.CreaturesStateMachine.Enemies.EnemyStates;
 using UnityEngine;
 
-namespace Creatures.CreaturesStateMachine.Enemies.SharkyEnemy
+namespace Creatures.CreaturesCollisions
 {
-    public class SharkyCollisionInfo : CreatureCollisionInfo
+    public class EnemyCollisionInfo : CreatureCollisionInfo
     {
         private Enemy _sharky;
         

@@ -1,12 +1,12 @@
 ﻿using Creatures.AnimationControllers;
 using Creatures.CreaturesStateMachine.CreatureBasic;
-using Creatures.CreaturesStateMachine.Enemies.SharkyEnemy;
 using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 {
     public class EnemyHitState : EnemyState
     {
+        private Vector2 _hitDirection;
         public EnemyHitState(Enemy enemy, CreatureStateMachine stateMachine, int animBoolName) 
             : base(enemy, stateMachine, animBoolName)
         {
@@ -16,7 +16,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
         {
             base.Enter();
 
-            Rb2D.velocity = new Vector2(Enemy.Hit.x, Enemy.Hit.y);
+            //Rb2D.velocity = new Vector2(Enemy.Hit.x, Enemy.Hit.y);
         }
 
         public override void Update()
@@ -35,6 +35,11 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
                     StateMachine.ChangeState(Enemy.BattleState);
                 }
             }
+        }
+
+        public void SetDirection(Vector2 direction)
+        {
+            _hitDirection = direction;
         }
     }
 }

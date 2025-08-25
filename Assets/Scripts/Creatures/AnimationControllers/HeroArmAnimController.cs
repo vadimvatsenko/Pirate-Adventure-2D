@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Creatures.AnimationControllers
 {
-    public class HeroAnimController : CreatureAnimController
+    public class HeroArmAnimController : CreatureArmAnimController
     {
         [Header("Animator Controllers")]
         [SerializeField] private RuntimeAnimatorController withoutArmor;

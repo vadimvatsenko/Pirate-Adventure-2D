@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.CreatureBasic
 {
-    public class Creature : MonoBehaviour, IMovable
+    public class Creature : MonoBehaviour, IFacingDirection
     {
         // Settings
         [Header("Movement info")] 
@@ -15,17 +15,20 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         [Header("Jump Info")]
         [SerializeField] protected float jumpForce;
         
-        [Header("Hit Info")]
-        [SerializeField] protected Vector2 hit; 
-
         [Header("Die Info")] 
         [SerializeField] private float dieHeight = 5f;
+        
+        [Header("Hit Info")] 
+        [SerializeField] private Vector2 hitPower;
+        [SerializeField] private float hitDuration;
+        private Vector2 _finalHit;
         
         // Properties
         public float MovementSpeed => movementSpeed;
         public float JumpForce => jumpForce;
-        public float DieHeight => dieHeight;
-        public Vector2 Hit => hit;
+        public Vector2 HitPower => hitPower;
+        public float HitDuration => hitDuration;
+        public Vector2 FinalHit => _finalHit;
         //
 
         // Components
@@ -112,13 +115,15 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
             }
         }
         
-        protected void Flip()
+        public void Flip()
         {
             IsFacingRight = !IsFacingRight;
             FacingDirection *= -1;
             transform.Rotate(0f, 180f, 0f);
         }
 
+        public void SetFinalHit(Vector2 finalHit) => _finalHit = finalHit;
+        
         protected int TakeHit(Creature damager) => damager.FacingDirection;
         public void DestroySelf() => Destroy(gameObject);
     }

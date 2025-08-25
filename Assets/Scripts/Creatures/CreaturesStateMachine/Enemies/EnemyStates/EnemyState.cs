@@ -1,5 +1,5 @@
-﻿using Creatures.CreaturesStateMachine.CreatureBasic;
-using Creatures.CreaturesStateMachine.Enemies.SharkyEnemy;
+﻿using Creatures.CreaturesCollisions;
+using Creatures.CreaturesStateMachine.CreatureBasic;
 using Creatures.CreaturesStateMachine.Player;
 using UnityEngine;
 
@@ -9,7 +9,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
     {
         protected readonly Enemy Enemy;
         private Hero Hr;
-        protected readonly SharkyCollisionInfo CollisionInfo;
+        protected readonly EnemyCollisionInfo CollisionInfo;
         
         public EnemyState(Enemy enemy, CreatureStateMachine stateMachine, int animBoolName) 
             : base(enemy, stateMachine, animBoolName)
@@ -17,7 +17,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
             Enemy = enemy;
             StateMachine = stateMachine;
             
-            if (Enemy != null) CollisionInfo = Enemy.SharkyCollisionInfo;
+            if (Enemy != null) CollisionInfo = Enemy.EnemyCollisionInfo;
 
             //Health.SubscribeOnHitEvent(CallHitState);
         }

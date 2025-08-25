@@ -1,15 +1,15 @@
-﻿using Components;
-using Components.HealthComponentFolder;
+﻿using Creatures.CreaturesHealth;
 using Creatures.CreaturesStateMachine.CreatureBasic;
+using Items.Traps.Spikes;
 using UnityEngine;
 
-namespace Items.Traps.Spikes
+namespace Items.Traps
 {
-    public class SpikesTrigger : MonoBehaviour
+    public class TrapsDamageTrigger : MonoBehaviour
     {
         [SerializeField] private int damage;
         private Creature _creature;
-        private IHealthComponent _healthComponent;
+        private CreatureHealth _healthComponent;
         private SpikesController _spikesController;
 
         private void Awake()
@@ -18,12 +18,15 @@ namespace Items.Traps.Spikes
         }
         private void OnTriggerEnter2D(Collider2D other)
         {
-            _healthComponent = other.GetComponent<IHealthComponent>();
+            _healthComponent = other.GetComponent<CreatureHealth>();
             
             if (_healthComponent != null)
             {
-                _spikesController.ActivateSpikes();
-                _healthComponent.ApplyDamage(damage);
+                if (_spikesController != null)
+                {
+                    _spikesController.ActivateSpikes();
+                }
+                _healthComponent.TakeDamage(damage, this.transform);
             }
         }
     }

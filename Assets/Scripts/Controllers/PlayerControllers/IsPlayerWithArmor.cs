@@ -8,12 +8,12 @@ namespace Controllers.PlayerControllers
     public class IsPlayerWithArmor : MonoBehaviour
     {
         [SerializeField] private GameObject armorObjectForUI;
-        [FormerlySerializedAs("cratureAnimController")] [SerializeField] private CreatureAnimController creatureAnimController;
+        [FormerlySerializedAs("creatureAnimController")] [FormerlySerializedAs("cratureAnimController")] [SerializeField] private CreatureArmAnimController creatureArmAnimController;
         private GameSession _gameSession;
 
         private void Awake()
         {
-            if (creatureAnimController != null)
+            if (creatureArmAnimController != null)
             {
                 //creatureAnimController.OnIsArmed += UpdateCreatureWithArmorStatus;
             }
@@ -21,7 +21,7 @@ namespace Controllers.PlayerControllers
 
         private void OnDisable()
         {
-            if (creatureAnimController != null)
+            if (creatureArmAnimController != null)
             {
                 //creatureAnimController.OnIsArmed -= UpdateCreatureWithArmorStatus;
             }

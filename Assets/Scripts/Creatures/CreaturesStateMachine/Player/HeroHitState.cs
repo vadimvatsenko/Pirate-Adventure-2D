@@ -1,10 +1,14 @@
-﻿using Creatures.CreaturesStateMachine.CreatureBasic;
+﻿using System.Collections;
+using Creatures.CreaturesStateMachine.CreatureBasic;
 using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Player
 {
     public class HeroHitState : HeroState
     {
+        private bool _isHited;
+        private Coroutine _hitCoroutine;
+        
         public HeroHitState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {
@@ -13,21 +17,38 @@ namespace Creatures.CreaturesStateMachine.Player
         public override void Enter()
         {
             base.Enter();
-            Rb2D.velocity = new Vector2(5f * -Hr.FacingDirection, 5f);
+            
+            ReciveHit(Hr.FinalHit, Hr.HitDuration);
         }
 
         public override void Update()
         {
             base.Update();
-            if (CollisionInfo.IsGrounded)
+            
+            if (CollisionInfo.IsGrounded && !_isHited)
             {
                 StateMachine.ChangeState(Hr.IdleState);
             }
         }
 
-        public override void Exit()
+        public void ReciveHit(Vector2 hitDirection, float duration)
         {
-            base.Exit();
+            if (_hitCoroutine != null)
+            {
+                Hr.StopCoroutine(_hitCoroutine); // вызов курутины из скрипта Mono (через Hr)
+            }
+            _hitCoroutine = Hr.StartCoroutine(HitCoroutine(hitDirection, duration));
+        }
+
+        private IEnumerator HitCoroutine(Vector2 hirDirection, float duration)
+        {
+            _isHited = true;
+            Hr.NewInputSet.Disable();
+            Rb2D.velocity = new Vector2(hirDirection.x, hirDirection.y);
+            yield return new WaitForSeconds(duration);
+            //Rb2D.velocity = Vector2.zero;
+            _isHited = false;
+            Hr.NewInputSet.Enable();
         }
     }
 }
