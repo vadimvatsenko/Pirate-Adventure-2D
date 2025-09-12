@@ -25,6 +25,17 @@
 - Attack - Mouse 0
 - Interact - R
 
+```sh
+Pirate-Adventures-2D/
+│── PlayerInput/         
+│── Engine/         
+│── Fabrics/        
+│── Systems/        
+│── Venicals/       
+│── States/         
+│── Program.cs      
+│── README.md      
+```
 
 
 
