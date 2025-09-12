@@ -27,8 +27,9 @@
 
 ```sh
 Pirate-Adventures-2D/
-│── PlayerInput/         
-│── Engine/         
+│── PlayerInput/      # New Input System   
+│── Resources/
+    | --          
 │── Fabrics/        
 │── Systems/        
 │── Venicals/       
