@@ -25,6 +25,18 @@
 - Attack - Mouse 0
 - Interact - R
 
+### 🗂️ Project Structure / Scripts
+PlayerController.cs — движение, прыжок, стен‑джамп/койот‑тайм
+
+PlayerStateMachine/ — состояния Idle/Run/Jump/Attack/Dash
+
+EnemyPatrol.cs — патруль/агро на игрока
+
+GameManager.cs — управление сессией, пауза, рестарт
+
+ParallaxController.cs — параллакс‑слои
+
+
 ```sh
 Pirate-Adventures-2D/
 │── PlayerInput/      # New Input System   
