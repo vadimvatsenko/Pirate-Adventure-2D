@@ -12,7 +12,7 @@
 - 🧠 State‑based player/enemy logic (FSM)
 - 🌴 Parallax backgrounds, tileset‑based levels
 - 🎵 Basic SFX/music hooks - in future
-- 🧰 Simple save/checkpoint system (stub) - in future
+- 🧰 Simple save/checkpoint system - in future
 
 ### 📦 Tech Stack
 - Unity (LTS recommended, e.g. 2022.3.x)
@@ -54,10 +54,10 @@ Pirate-Adventures-2D/
 - `InteractableCamera.cs`   - camera interact
 - `RoomController.cs`       - call in scene when player interact cam area
 
-`Creatures` => `AnimationControllers.cs` - Start and End Events
-`Creatures` => `AnimatorHashes.cs` - names to int Hashes
-`Creatures` => `CreatureAnimationTrigger.cs` - triggers for Unity Anim
-`Creatures` => `HeroArmAnimController` - change arm anim state
+- `Creatures` => `AnimationControllers.cs` - Start and End Events
+- `Creatures` => `AnimatorHashes.cs` - names to int Hashes
+- `Creatures` => `CreatureAnimationTrigger.cs` - triggers for Unity Anim
+- `Creatures` => `HeroArmAnimController` - change arm anim state
 
 
 
