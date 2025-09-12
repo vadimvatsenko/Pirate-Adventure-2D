@@ -1,7 +1,7 @@
 # Pirate‑Adventure‑2D
 
 ![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
-A small 2D platformer prototype in Unity about a cheeky pirate, treasure, and trouble at sea.
+## A small 2D platformer prototype in Unity about a cheeky pirate, treasure, and trouble at sea.
 
 ### ✨ Features
 
