@@ -1,4 +1,5 @@
 ﻿using Creatures;
+using Creatures.CreaturesCollisions;
 using Creatures.CreaturesStateMachine;
 using Creatures.CreaturesStateMachine.CreatureBasic;
 using PlayerFolder;

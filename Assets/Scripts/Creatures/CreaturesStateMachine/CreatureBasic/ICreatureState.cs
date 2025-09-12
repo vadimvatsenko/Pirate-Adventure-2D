@@ -1,4 +1,4 @@
-﻿namespace Creatures.Player
+﻿namespace Creatures.CreaturesStateMachine.CreatureBasic
 {
     public interface ICreatureState
     {

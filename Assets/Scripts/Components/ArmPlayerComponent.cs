@@ -1,5 +1,4 @@
-﻿using Creatures;
-using Creatures.AnimationControllers;
+﻿using Creatures.AnimationControllers;
 using Creatures.CreaturesStateMachine.Player;
 using GameManagerInfo;
 using UnityEngine;
@@ -8,12 +7,13 @@ namespace Components
 {
     public class ArmPlayerComponent : MonoBehaviour
     {
-        [SerializeField] private Hero hero;
+        private Hero _hero;
         private GameSession _gameSession;
         
         private void Awake()
         {
             _gameSession = FindObjectOfType<GameSession>();
+            _hero = FindObjectOfType<Hero>();
         }
         public void ArmPlayer()
         {
@@ -21,11 +21,11 @@ namespace Components
             
             if (!_gameSession.PlayerData.isArmed)
             {
-                HeroAnimController anim = hero.GetComponent<HeroAnimController>();
+                HeroArmAnimController armAnim = _hero.GetComponentInChildren<HeroArmAnimController>();
                 
-                if (anim != null)
+                if (armAnim != null)
                 {
-                    anim.ChangeArmedState();
+                    armAnim.ChangeArmedState();
                 }
             }
         }

@@ -1,6 +1,4 @@
 ﻿using System;
-using Creatures;
-using Creatures.CreaturesStateMachine;
 using Creatures.CreaturesStateMachine.CreatureBasic;
 using Creatures.CreaturesStateMachine.Player;
 using GameManagerInfo;
@@ -14,7 +12,7 @@ namespace Components.HealthComponentFolder
         [SerializeField] private UnityEvent onAddHealth;
         [SerializeField] private UnityEvent onDamage;
         
-        private Creature _creature;
+        private Hero _hero;
         public UnityAction OnHealthChange;
         private GameSession _gameSession;
         
@@ -23,7 +21,7 @@ namespace Components.HealthComponentFolder
 
         private void Awake()
         {
-            _creature = GetComponent<Hero>();
+            _hero = GetComponent<Hero>();
             _gameSession = FindObjectOfType<GameSession>();
         }
         
@@ -32,7 +30,6 @@ namespace Components.HealthComponentFolder
             _gameSession.PlayerData.health -= damage;
             
             OnDamage?.Invoke();
-            
             if (_gameSession.PlayerData.health <= 0)
             {
                 _gameSession.PlayerData.health = 0;

@@ -1,35 +1,68 @@
-﻿using UnityEngine;
+﻿using Creatures.CreaturesStateMachine.CreatureBasic;
+using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Player
 {
     public class HeroFallState : HeroAiredState
     {
+        // буфер прыжка
+        private readonly float _bufferJumpWindow;
+        private float _bufferJumpActivated;
+        // койот
+        private float _coyoteJumpWindow;
+        private float _coyoteJumpActivated;
+        
+        private int _jumpCount;
+        private int _maxJumpCount = 1;
+        
         private float _startFallY;
         
-        public HeroFallState(Player.Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
+        public HeroFallState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {
+            _bufferJumpWindow = hr.BufferJumpWindow;
+            _coyoteJumpWindow = hr.CoyoteJumpWindow;
+            
         }
 
         public override void Enter()
         {
             base.Enter();
-            
             // фиксируем позицию по Y во время падения
             _startFallY = Hr.transform.position.y;
+            
+            ActivateCoyoteJump();
         }
 
         public override void Update()
         {
             base.Update();
+
+            if (Hr.NewInputSet.Hero.Jump.triggered)
+            {
+                ActivateBufferJump();
+                bool coyoteJumpAvalible
+                    = Time.time < _coyoteJumpActivated + _coyoteJumpWindow;
+                
+                if (coyoteJumpAvalible && StateMachine.PreviousState != Hr.JumpState)
+                {
+                    StateMachine.ChangeState(Hr.JumpState);
+                    CancelCoyoteJump();
+                }
+            }
+            
+            if (Time.time < _bufferJumpActivated + _bufferJumpWindow 
+                && CollisionInfo.IsGrounded)  
+            {            
+                CancelBufferJump();
+                StateMachine.ChangeState(Hr.JumpState);  
+            }    
             
             if (CollisionInfo.IsGrounded && Rb2D.velocity.y <= 0.1f)
             {
                 float landedY = Hr.transform.position.y;
                 float fallHeight = _startFallY - landedY;
-
-                //Debug.Log($"Fall Height = {fallHeight}");
-
+                
                 if (fallHeight > 5f)
                 {
                     StateMachine.ChangeState(Hr.DeathState);
@@ -40,5 +73,10 @@ namespace Creatures.CreaturesStateMachine.Player
                 }
             }
         }
+        
+        private void ActivateCoyoteJump() => _coyoteJumpActivated = Time.time;
+        private void CancelCoyoteJump() => _coyoteJumpActivated = Time.time - 1;
+        private void ActivateBufferJump() => _bufferJumpActivated = Time.time;
+        private void CancelBufferJump() => _bufferJumpActivated = Time.time - 1;
     }
 }

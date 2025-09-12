@@ -1,11 +1,9 @@
 ﻿using System;
-using Components;
 using Components.HealthComponentFolder;
-using Creatures.CreaturesStateMachine.CreatureBasic;
-using Creatures.Player;
+using Creatures.CreaturesCollisions;
 using UnityEngine;
 
-namespace Creatures.CreaturesStateMachine
+namespace Creatures.CreaturesStateMachine.CreatureBasic
 {
     public class CreatureState : ICreatureState
     {
@@ -20,7 +18,7 @@ namespace Creatures.CreaturesStateMachine
         protected readonly HealthComponent Health;
         public AnimatorStateInfo StateInfo { get; protected set; }
 
-        public int _animBoolName { get; private set; }
+        public int AnimBoolName { get; private set; }
         public event Action OnEnterEvent; // вход в анимацию
         public event Action OnExitEvent; // выход с анимации
 
@@ -28,7 +26,7 @@ namespace Creatures.CreaturesStateMachine
         {
             this.Creature = creature;
             this.StateMachine = stateMachine;
-            this._animBoolName = animBoolName;
+            this.AnimBoolName = animBoolName;
 
             if (Creature != null)
             {
@@ -42,7 +40,7 @@ namespace Creatures.CreaturesStateMachine
         
         public virtual void Enter()
         {
-            AnimContr.SetBool(_animBoolName, true); // вход
+            AnimContr.SetBool(AnimBoolName, true); // вход
             OnEnterEvent?.Invoke();
         }
 
@@ -54,7 +52,7 @@ namespace Creatures.CreaturesStateMachine
 
         public virtual void Exit()
         {
-            AnimContr.SetBool(_animBoolName, false); // выход
+            AnimContr.SetBool(AnimBoolName, false); // выход
             OnExitEvent?.Invoke();
         }
     }

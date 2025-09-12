@@ -1,8 +1,11 @@
-﻿namespace Creatures.CreaturesStateMachine.Player
+﻿using Creatures.CreaturesStateMachine.CreatureBasic;
+using UnityEngine;
+
+namespace Creatures.CreaturesStateMachine.Player
 {
     public class HeroGroundState : HeroState
     {
-        public HeroGroundState(Player.Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
+        public HeroGroundState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {
         }
@@ -26,6 +29,12 @@
             if (Hr.NewInputSet.Hero.Attack.triggered && CollisionInfo.IsGrounded && Hr.GameSess.PlayerData.isArmed)
             {
                 StateMachine.ChangeState(Hr.AttackState);
+            }
+
+            if (Hr.NewInputSet.Hero.Interact.triggered && CollisionInfo.IsGrounded)
+            {
+                CollisionInfo.Interact();
+                Debug.Log("Interacted");
             }
         }
     }

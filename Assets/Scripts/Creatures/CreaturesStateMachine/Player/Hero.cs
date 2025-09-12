@@ -1,5 +1,7 @@
 ﻿using Creatures.AnimationControllers;
+using Creatures.CreaturesCollisions;
 using Creatures.CreaturesStateMachine.CreatureBasic;
+using Creatures.Settings;
 using GameManagerInfo;
 using UnityEngine;
 
@@ -11,6 +13,20 @@ namespace Creatures.CreaturesStateMachine.Player
         public NewInputSet NewInputSet { get; private set; }
         public GameManager GameMg { get; private set; }
         
+        public HeroCollisionInfo HeroCollision { get; private set; }
+        
+        [Header("Buffer Jump")] 
+        [SerializeField] private float bufferJumpWindow = 0.25f;
+        private float _bufferJumpActivated = -1;
+        public float BufferJumpWindow => bufferJumpWindow;
+        public float BufferJumpActivated => _bufferJumpActivated;
+        
+        [Header("Coyote Jump")] 
+        [SerializeField] private float coyoteJumpWindow = 0.5f; // Окно буфера (сколько секунд допустимо)
+        private float _coyoteJumpActivated = -1; 
+        public float CoyoteJumpWindow => coyoteJumpWindow;
+        public float CoyoteJumpActivated => _coyoteJumpActivated;
+        
         [Header("DoubleJump Info")] 
         [SerializeField] private float doubleJumpForce;
         public float DoubleJumpForce => doubleJumpForce;
@@ -21,12 +37,17 @@ namespace Creatures.CreaturesStateMachine.Player
         [SerializeField] private int attackForce = 1;
         public int AttackForce => attackForce;
         
+        [Header("Climb Info")]
+        [SerializeField] private BoxCollider2D[] climbingBoxes;
+        public BoxCollider2D ClimbingBox => climbingBoxes[0];
+        
         protected override void Awake()
         {
             base.Awake();
             NewInputSet = new NewInputSet();
             GameSess = FindObjectOfType<GameSession>();
             GameMg = FindObjectOfType<GameManager>();
+            HeroCollision = GetComponent<HeroCollisionInfo>();
         }
         
         private void Start()
@@ -38,7 +59,9 @@ namespace Creatures.CreaturesStateMachine.Player
             AttackState = new HeroAttackState(this, StateMachine, AnimatorHashes.Attack);
             FallState = new HeroFallState(this, StateMachine, AnimatorHashes.JumpFall);
             DeathState = new HeroDeathState(this, StateMachine, AnimatorHashes.Death);
-            HitState = new CreatureState(this, StateMachine, AnimatorHashes.Hit);
+            HitState = new HeroHitState(this, StateMachine, AnimatorHashes.Hit);
+            ClimbState = new HeroClimbState(this, StateMachine, AnimatorHashes.Climb);
+                
             StateMachine.Initialize(IdleState);
         }
 
@@ -61,12 +84,12 @@ namespace Creatures.CreaturesStateMachine.Player
             //UpdateAirBornStatus();
             
             HandleFlip();
-            
-            if (NewInputSet.Hero.Interact.triggered)
-                CollisionInfo.Interact();
-            
-            
-            //Debug.Log(Rb2D.velocity);
+        }
+
+        private void FixedUpdate()
+        {
+            HeroCollision.CheckHeroGrab();
+            //Debug.Log(HeroCollision.IsGrabb);
         }
         
         

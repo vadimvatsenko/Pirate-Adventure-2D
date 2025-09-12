@@ -1,6 +1,6 @@
-﻿namespace Interfaces
+﻿namespace Creatures.Interfaces
 {
-    public interface IMovable
+    public interface IFacingDirection
     {
         int FacingDirection { get; }
     }

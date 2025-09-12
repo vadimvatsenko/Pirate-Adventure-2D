@@ -49,6 +49,14 @@ public class @NewInputSet : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Down"",
+                    ""type"": ""Button"",
+                    ""id"": ""1a04de90-dcc9-46a7-9cca-3b1a778c6efb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -187,7 +195,7 @@ public class @NewInputSet : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""646953a5-a72c-4d4a-9cc6-32a271b50ccd"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -203,6 +211,28 @@ public class @NewInputSet : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ddae4151-f5f5-44f0-b7c8-c2a92da50cbd"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f1bb020f-7bea-46f6-891d-ce66bd6ec537"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Down"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -245,6 +275,7 @@ public class @NewInputSet : IInputActionCollection, IDisposable
         m_Hero_Jump = m_Hero.FindAction("Jump", throwIfNotFound: true);
         m_Hero_Attack = m_Hero.FindAction("Attack", throwIfNotFound: true);
         m_Hero_Interact = m_Hero.FindAction("Interact", throwIfNotFound: true);
+        m_Hero_Down = m_Hero.FindAction("Down", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -298,6 +329,7 @@ public class @NewInputSet : IInputActionCollection, IDisposable
     private readonly InputAction m_Hero_Jump;
     private readonly InputAction m_Hero_Attack;
     private readonly InputAction m_Hero_Interact;
+    private readonly InputAction m_Hero_Down;
     public struct HeroActions
     {
         private @NewInputSet m_Wrapper;
@@ -306,6 +338,7 @@ public class @NewInputSet : IInputActionCollection, IDisposable
         public InputAction @Jump => m_Wrapper.m_Hero_Jump;
         public InputAction @Attack => m_Wrapper.m_Hero_Attack;
         public InputAction @Interact => m_Wrapper.m_Hero_Interact;
+        public InputAction @Down => m_Wrapper.m_Hero_Down;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -327,6 +360,9 @@ public class @NewInputSet : IInputActionCollection, IDisposable
                 @Interact.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnInteract;
+                @Down.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnDown;
+                @Down.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnDown;
+                @Down.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnDown;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -343,6 +379,9 @@ public class @NewInputSet : IInputActionCollection, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @Down.started += instance.OnDown;
+                @Down.performed += instance.OnDown;
+                @Down.canceled += instance.OnDown;
             }
         }
     }
@@ -371,5 +410,6 @@ public class @NewInputSet : IInputActionCollection, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnDown(InputAction.CallbackContext context);
     }
 }
