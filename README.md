@@ -61,9 +61,9 @@
 |-------------------|------------------|
 | Move              | **A / D**        |
 | Jump              | **Space**        |
-| Attack            | **Mouse 0**      |
+| Attack            | **L BTN Mouse**  |
 | Interact          | **R**            |
-| Pause             | **Esc**          |
+
 
 ---
 
