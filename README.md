@@ -19,10 +19,12 @@ A small 2D platformer prototype in Unity about a cheeky pirate, treasure, and tr
 - New Input System
 
 ### 🎮 Controls
-Move - A/D
-Jump - Space
-Attack - Mouse 0
-Interact - R
+- Move - A/D
+- Jump - Space
+- Attack - Mouse 0
+- Interact - R
+
+
 
 
 
