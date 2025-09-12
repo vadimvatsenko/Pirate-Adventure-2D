@@ -1,4 +1,4 @@
-﻿namespace Components
+﻿namespace Components.Dropper
 {
     public enum DropperDirection
     {
