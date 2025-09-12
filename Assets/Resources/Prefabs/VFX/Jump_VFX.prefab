@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 550240020942265000}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -97,17 +97,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - _name: Jump
-    _sprites:
+  - name: jump
+    sprites:
     - {fileID: 21300000, guid: 7e51f1aeb4bc71549b3e8eb37b236b7c, type: 3}
     - {fileID: 21300000, guid: a8a7d67e1c9424c46b074be0ab664eaa, type: 3}
     - {fileID: 21300000, guid: 1a8d056e63171c443b6d70ee395bedc1, type: 3}
     - {fileID: 21300000, guid: a34d3b322db43364ab08a23647c9674b, type: 3}
     - {fileID: 21300000, guid: 34328f91c73a0f04085f4d1f6265d479, type: 3}
     - {fileID: 21300000, guid: 9c65bb101fcaf134682ed2ff5db6b9c5, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 550240020942265001}

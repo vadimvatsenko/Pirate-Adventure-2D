@@ -5,7 +5,7 @@ namespace Items.Traps.Spikes
 {
     public class SpikesController : MonoBehaviour
     {
-        [SerializeField] private SpriteAnimator.NewSpriteAnimator.SpriteAnimator[] spikes;
+        [SerializeField] private SpriteAnimators.NewSpriteAnimator.SpriteAnimator[] spikes;
         public void ActivateSpikes()
         {
             foreach (var spike in spikes)
