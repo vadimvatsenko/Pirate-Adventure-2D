@@ -395,16 +395,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - _name: Open
-    _sprites:
-    - {fileID: 21300000, guid: 4ff619785866ccf4fa6ab8bf4689230f, type: 3}
-    - {fileID: 21300000, guid: 0f743223478983e42aacda4b20c22b64, type: 3}
-    - {fileID: 21300000, guid: 86563df83b8d9f64f986f801a7e4c843, type: 3}
-    - {fileID: 21300000, guid: 0ad0ca2157e9339428f387bed773d23a, type: 3}
-    - {fileID: 21300000, guid: a87b1141b7246df4c8c741f83da1c7a2, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
+  - name: 
+    sprites: []
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls: []
 --- !u!61 &147694956
@@ -1192,16 +1187,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - _name: Eat
-    _sprites:
-    - {fileID: 7877564854975707568, guid: 42329eb7868aab946b5bb8f7487cb515, type: 3}
-    - {fileID: -599245311886299819, guid: 42329eb7868aab946b5bb8f7487cb515, type: 3}
-    - {fileID: 92226957055846924, guid: 42329eb7868aab946b5bb8f7487cb515, type: 3}
-    - {fileID: 5317887176093947835, guid: 42329eb7868aab946b5bb8f7487cb515, type: 3}
-    - {fileID: -5464094885827604386, guid: 42329eb7868aab946b5bb8f7487cb515, type: 3}
-    _loop: 1
-    _allowNextClip: 0
-    _onComplete:
+  - name: 
+    sprites: []
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls: []
 --- !u!212 &481950691
@@ -1642,47 +1632,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - _name: Idle
-    _sprites:
-    - {fileID: 21300000, guid: 4ff619785866ccf4fa6ab8bf4689230f, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
+  - name: 
+    sprites: []
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls: []
-  - _name: Open
-    _sprites:
-    - {fileID: 21300000, guid: 4ff619785866ccf4fa6ab8bf4689230f, type: 3}
-    - {fileID: 21300000, guid: 0f743223478983e42aacda4b20c22b64, type: 3}
-    - {fileID: 21300000, guid: 86563df83b8d9f64f986f801a7e4c843, type: 3}
-    - {fileID: 21300000, guid: 0ad0ca2157e9339428f387bed773d23a, type: 3}
-    - {fileID: 21300000, guid: a87b1141b7246df4c8c741f83da1c7a2, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
+  - name: 
+    sprites: []
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 574879298}
-          m_MethodName: Exit
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - _name: Close
-    _sprites:
-    - {fileID: 21300000, guid: 8dceede3306e9a947a63e68e3862efb4, type: 3}
-    - {fileID: 21300000, guid: 8cef8e970f00f5246b73ad8bcb6ce1e6, type: 3}
-    - {fileID: 21300000, guid: 8147d2c712db6d24994f6007e954e356, type: 3}
-    - {fileID: 21300000, guid: d059439085fd27d43bc847f7f1b38dc4, type: 3}
-    - {fileID: 21300000, guid: a7f874f9029affb4ab14b272634de7eb, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
+        m_Calls: []
+  - name: 
+    sprites: []
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls: []
 --- !u!212 &574879295
@@ -32174,34 +32142,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - _name: idle
-    _sprites:
-    - {fileID: -3975624549204834352, guid: 5f6dba834b5041049bed45061da5e5b8, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
+  - name: 
+    sprites: []
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls: []
-  - _name: open
-    _sprites:
-    - {fileID: -3975624549204834352, guid: 5f6dba834b5041049bed45061da5e5b8, type: 3}
-    - {fileID: -258920163012198913, guid: 5f6dba834b5041049bed45061da5e5b8, type: 3}
-    - {fileID: -2372938531549053325, guid: 5f6dba834b5041049bed45061da5e5b8, type: 3}
-    - {fileID: -1089659241226972634, guid: 5f6dba834b5041049bed45061da5e5b8, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
+  - name: 
+    sprites: []
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls: []
-  - _name: close
-    _sprites:
-    - {fileID: -3975624549204834352, guid: 5f6dba834b5041049bed45061da5e5b8, type: 3}
-    - {fileID: -258920163012198913, guid: 5f6dba834b5041049bed45061da5e5b8, type: 3}
-    - {fileID: -2372938531549053325, guid: 5f6dba834b5041049bed45061da5e5b8, type: 3}
-    - {fileID: -1089659241226972634, guid: 5f6dba834b5041049bed45061da5e5b8, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
+  - name: 
+    sprites: []
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls: []
 --- !u!114 &1666859200
@@ -32817,24 +32776,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - _name: Idle
-    _sprites:
-    - {fileID: 21300000, guid: c75848afd4bb536469d2300e54f1007d, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
+  - name: 
+    sprites: []
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls: []
-  - _name: Open
-    _sprites:
-    - {fileID: 5766932301440263773, guid: ecfaa54b555d2e74f8f214eafed59a6a, type: 3}
-    - {fileID: 7574254900258906491, guid: ecfaa54b555d2e74f8f214eafed59a6a, type: 3}
-    - {fileID: -288794636156215083, guid: ecfaa54b555d2e74f8f214eafed59a6a, type: 3}
-    - {fileID: -7974944233769877187, guid: ecfaa54b555d2e74f8f214eafed59a6a, type: 3}
-    - {fileID: 7254458428943586074, guid: ecfaa54b555d2e74f8f214eafed59a6a, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
+  - name: 
+    sprites: []
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls: []
 --- !u!114 &1789054495
@@ -37667,19 +37620,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - _name: move
-    _sprites:
-    - {fileID: -6955790032328933191, guid: 265a0cc63a56a59418965f351122ecfd, type: 3}
-    - {fileID: 6773459715169517474, guid: 265a0cc63a56a59418965f351122ecfd, type: 3}
-    - {fileID: 6726424302046983146, guid: 265a0cc63a56a59418965f351122ecfd, type: 3}
-    - {fileID: 1062175669879547232, guid: 265a0cc63a56a59418965f351122ecfd, type: 3}
-    - {fileID: 6272456057867270974, guid: 265a0cc63a56a59418965f351122ecfd, type: 3}
-    - {fileID: 5296617233920379225, guid: 265a0cc63a56a59418965f351122ecfd, type: 3}
-    - {fileID: -8662503132835019991, guid: 265a0cc63a56a59418965f351122ecfd, type: 3}
-    - {fileID: -5278572858738193430, guid: 265a0cc63a56a59418965f351122ecfd, type: 3}
-    _loop: 1
-    _allowNextClip: 0
-    _onComplete:
+  - name: 
+    sprites: []
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls: []
 --- !u!1 &8614285763762326432
