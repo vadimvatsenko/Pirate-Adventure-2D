@@ -1,8 +1,8 @@
-### Pirate‑Adventure‑2D
+# Pirate‑Adventure‑2D
 
 A small 2D platformer prototype in Unity about a cheeky pirate, treasure, and trouble at sea.
 
-✨ Features
+### ✨ Features
 
 - ⚓️ Tight 2D platformer controls (run, jump, coyote time, variable jump)
 - 🗡️ Melee & ranged attack foundation - in progress
@@ -11,14 +11,14 @@ A small 2D platformer prototype in Unity about a cheeky pirate, treasure, and tr
 - 🎵 Basic SFX/music hooks - in future
 - 🧰 Simple save/checkpoint system (stub) - in future
 
-📦 Tech Stack
+### 📦 Tech Stack
 - Unity (LTS recommended, e.g. 2022.3.x)
 - C# scripts
 - Unity 2D
 - Cinemachine (camera)
 - New Input System
 
-🎮 Controls
+### 🎮 Controls
 Move - A/D
 Jump - Space
 Attack - Mouse 0
