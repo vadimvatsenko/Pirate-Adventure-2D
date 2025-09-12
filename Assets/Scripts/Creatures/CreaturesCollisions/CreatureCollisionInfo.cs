@@ -66,6 +66,7 @@ namespace Creatures.CreaturesCollisions
                 var interactable = _interactionCollides[i].GetComponent<InteractableComponent>();
                 if (interactable != null)
                 {
+                    Debug.Log(interactable);
                     interactable.Interact();
                 } 
             }
@@ -97,6 +98,10 @@ namespace Creatures.CreaturesCollisions
             // WallCheck
             Gizmos.color = IsWallDetected ? Color.green : Color.red;
             Gizmos.DrawWireCube(wallCheckStartPos.position, wallCheckBoxSize);
+            
+            // Interact
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawWireSphere(this.transform.position, interactionRadius);
         }
     }
 }

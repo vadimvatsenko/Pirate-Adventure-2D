@@ -1,8 +1,6 @@
-﻿using Creatures.CreaturesCollisions;
-using Creatures.CreaturesStateMachine.CreatureBasic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Creatures.CreaturesStateMachine.Player
+namespace Creatures.CreaturesCollisions
 {
     public class HeroCollisionInfo : CreatureCollisionInfo
     {
@@ -20,6 +18,8 @@ namespace Creatures.CreaturesStateMachine.Player
                 grabbingChecDistance, 
                 wallLayer);
         }
+        
+        
 
         protected override void OnDrawGizmos()
         {

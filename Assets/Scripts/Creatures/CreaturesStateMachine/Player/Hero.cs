@@ -1,4 +1,5 @@
 ﻿using Creatures.AnimationControllers;
+using Creatures.CreaturesCollisions;
 using Creatures.CreaturesStateMachine.CreatureBasic;
 using Creatures.Settings;
 using GameManagerInfo;
@@ -83,12 +84,6 @@ namespace Creatures.CreaturesStateMachine.Player
             //UpdateAirBornStatus();
             
             HandleFlip();
-            
-            if (NewInputSet.Hero.Interact.triggered)
-                CollisionInfo.Interact();
-            
-            
-            //Debug.Log(Rb2D.velocity);
         }
 
         private void FixedUpdate()

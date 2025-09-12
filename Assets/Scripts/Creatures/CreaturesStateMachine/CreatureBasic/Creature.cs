@@ -19,9 +19,15 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         [SerializeField] private float dieHeight = 5f;
         
         [Header("Hit Info")] 
-        [SerializeField] private Vector2 hitPower;
-        [SerializeField] private float hitDuration;
-        private Vector2 _finalHit;
+        [SerializeField] private Vector2 hitPower = new Vector2(1.5f, 3f);
+        [SerializeField] private float hitDuration = 0.5f;
+        [Space] // пример для более тяжелого получения урона
+        [SerializeField] private Vector2 heavyHitPower = new Vector2(7f, 7f);
+        [SerializeField] private float heavyHitDuration = 1f;
+        [SerializeField] private float heavyDamageThreshold = 0.3f; // Процент тяжелой атаки
+        
+        private Vector2 _finalHit; // финальное направление при получении удара
+        private float _finalHitDuration;
         
         // Properties
         public float MovementSpeed => movementSpeed;
@@ -29,6 +35,12 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         public Vector2 HitPower => hitPower;
         public float HitDuration => hitDuration;
         public Vector2 FinalHit => _finalHit;
+        public float FinalHitDuration => _finalHitDuration;
+        //
+        public Vector2 HeavyHitPower => heavyHitPower;
+        public float HeavyHitDuration => heavyHitDuration;
+        public float HeavyDamageThreshold => heavyDamageThreshold;
+        
         //
 
         // Components
@@ -37,6 +49,8 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         public CreatureStateMachine StateMachine { get; protected set; }
         public Rigidbody2D Rb2D { get; private set; }
         public Collider2D C2D { get; protected set; }
+        
+        public CreatureHandleStateChange HandleStateChange { get; protected set; }
         
         // Directions
         public bool IsFacingRight { get; protected set; } = true;
@@ -69,6 +83,8 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
             
             CollisionInfo = GetComponent<CreatureCollisionInfo>();
             StateMachine = new CreatureStateMachine();
+            
+            HandleStateChange = new CreatureHandleStateChange(this, StateMachine);
         }
         
         protected virtual void Update()
@@ -123,6 +139,7 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         }
 
         public void SetFinalHit(Vector2 finalHit) => _finalHit = finalHit;
+        public void SetFinalHitDuration(float duration) => _finalHitDuration = duration;
         
         protected int TakeHit(Creature damager) => damager.FacingDirection;
         public void DestroySelf() => Destroy(gameObject);

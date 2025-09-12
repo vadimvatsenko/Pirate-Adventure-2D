@@ -6,7 +6,6 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 {
     public class EnemyHitState : EnemyState
     {
-        private Vector2 _hitDirection;
         public EnemyHitState(Enemy enemy, CreatureStateMachine stateMachine, int animBoolName) 
             : base(enemy, stateMachine, animBoolName)
         {
@@ -23,7 +22,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
         {
             base.Update();
             
-            if (StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Hit)) &&
+            /*if (StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Hit)) &&
                 StateInfo.normalizedTime > 0.1f)
             {
                 if (Health.Health <= 0)
@@ -34,12 +33,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
                 {
                     StateMachine.ChangeState(Enemy.BattleState);
                 }
-            }
+            }*/
         }
-
-        public void SetDirection(Vector2 direction)
-        {
-            _hitDirection = direction;
-        }
+        
     }
 }

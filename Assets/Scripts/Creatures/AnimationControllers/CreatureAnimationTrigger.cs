@@ -19,7 +19,6 @@ namespace Creatures.AnimationControllers
 
         private void AttackTrigger()
         {
-            //Debug.Log("Attack Trigger");
             _combatCollisions.PerformAttack();
         }
     }

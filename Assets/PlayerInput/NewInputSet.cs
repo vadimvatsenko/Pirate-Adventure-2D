@@ -195,7 +195,7 @@ public class @NewInputSet : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""646953a5-a72c-4d4a-9cc6-32a271b50ccd"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

@@ -3,6 +3,7 @@ using Creatures.CreaturesStateMachine.CreatureBasic;
 using Items.Traps.Spikes;
 using UnityEngine;
 
+// триггер для урона ловушками
 namespace Items.Traps
 {
     public class TrapsDamageTrigger : MonoBehaviour

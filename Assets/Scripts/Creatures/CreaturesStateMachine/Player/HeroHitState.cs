@@ -18,7 +18,7 @@ namespace Creatures.CreaturesStateMachine.Player
         {
             base.Enter();
             
-            ReciveHit(Hr.FinalHit, Hr.HitDuration);
+            ReciveHit(Hr.FinalHit, Hr.FinalHitDuration);
         }
 
         public override void Update()

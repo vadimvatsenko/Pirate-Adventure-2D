@@ -9,37 +9,46 @@ namespace Creatures.CreaturesHealth
 {
     public class CreatureHealth : MonoBehaviour
     {
+
         [SerializeField] protected float maxHealth = 100f;
         [SerializeField] protected bool isDead;
-        
+
+        private float _currentHealth;
         private CreatureVFX _creaturesVFX;
         private Creature _creature;
-        
+
 
         protected virtual void Awake()
         {
             _creaturesVFX = GetComponent<CreatureVFX>();
             _creature = GetComponentInParent<Creature>();
-        }
-        public virtual void TakeDamage(float damage, Transform attacker)
-        {
-            if(isDead) return;
-            
-            Vector2 hitDir = CaclulateHitDirection(attacker);
-            
-            // Тут нужно визвать состояние hit
-            _creature.SetFinalHit(hitDir);
-            _creature.StateMachine.ChangeState(_creature.HitState);
-            
-            _creaturesVFX.PlayOnDamageVFX();
-            ReduceHealth(damage);
+            _currentHealth = maxHealth;
         }
 
-        protected void ReduceHealth(float damage)
+        public virtual void TakeDamage(float damage, Transform attacker)
         {
-            maxHealth -= damage;
+            if (isDead) return;
+
+            Vector2 hitDir = CaclulateHitDirection(damage, attacker);
             
-            if (maxHealth <= 0f)
+            float duration = CalculateDuration(damage);
+
+            // Тут нужно визвать состояние hit
+            _creature.SetFinalHitDuration(duration);
+            _creature.SetFinalHit(hitDir);
+            
+            _creature.StateMachine.ChangeState(_creature.HitState);
+
+            ReduceHealth(damage); // важен порядок
+            _creaturesVFX.PlayOnDamageVFX();
+        }
+
+        private void ReduceHealth(float damage)
+        {
+            if(isDead) return;
+            _currentHealth -= damage;
+
+            if (_currentHealth <= 0f)
             {
                 Die();
             }
@@ -49,10 +58,9 @@ namespace Creatures.CreaturesHealth
         {
             isDead = true;
             _creature.StateMachine.ChangeState(_creature.DeathState);
-            Debug.Log("Creature Die");
         }
 
-        private Vector2 CaclulateHitDirection(Transform attacker)
+        private Vector2 CaclulateHitDirection(float damage, Transform attacker)
         {
             int direction = transform.position.x > attacker.position.x ? 1 : -1;
 
@@ -60,17 +68,28 @@ namespace Creatures.CreaturesHealth
 
             if (facingCreature != null)
             {
-                int enemyFacingDirectionDirection = attacker.GetComponent<Enemy>().FacingDirection;
-            
+                int enemyFacingDirectionDirection = attacker.GetComponent<Creature>().FacingDirection;
+
                 if (enemyFacingDirectionDirection == _creature.FacingDirection)
                 {
                     _creature.Flip();
                 }
             }
-            
-            Vector2 hitPower = _creature.HitPower;
+
+
+            //Vector2 hitPower = _creature.HitPower;
+
+            Vector2 hitPower = IsHeavyDamage(damage) ? _creature.HeavyHitPower : _creature.HitPower;
+
             hitPower.x *= direction;
             return hitPower;
         }
+
+        private float CalculateDuration(float damage) =>
+            IsHeavyDamage(damage) ? _creature.HeavyHitDuration : _creature.HitDuration;
+
+        private bool IsHeavyDamage(float damage) => 
+            damage / maxHealth > _creature.HeavyDamageThreshold;
     }
+
 }

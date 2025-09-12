@@ -49,7 +49,6 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
         public void HandleExclamationParticle()
         {
             HandleSpawn(ParticleType.Exclamation);
-            Debug.Log("Agro");
         }
         public void SpawnWtf() => HandleSpawn(ParticleType.Interrogation);
         

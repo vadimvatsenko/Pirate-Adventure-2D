@@ -6,14 +6,11 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 {
     public class EnemyAggroState : EnemyState
     {
-        private float _aggroTimer = 0f;
-        private readonly float _aggroDuration = 1.5f;
-        
-        public EnemyAggroState(Enemy enemy, CreatureStateMachine stateMachine, int animBoolName) 
+        public EnemyAggroState(Enemy enemy, CreatureStateMachine stateMachine, int animBoolName)
             : base(enemy, stateMachine, animBoolName)
         {
         }
-        
+
         public override void Enter()
         {
             base.Enter();
@@ -23,17 +20,11 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
         public override void Update()
         {
             base.Update();
-            
-            _aggroTimer += Time.deltaTime;
-            if (_aggroTimer >= _aggroDuration)
+
+            if (StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Aggro)) && StateInfo.normalizedTime > 1.0f)
             {
-                _aggroTimer = 0f;
-                if(StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Aggro)) 
-                   && StateInfo.normalizedTime > 1.0f)
-                {
-                    Enemy.CallOnAgroEvent();
-                    StateMachine.ChangeState(Enemy.BattleState);
-                }
+                Enemy.CallOnAgroEvent(); // VFX Agro
+                StateMachine.ChangeState(Enemy.BattleState);
             }
         }
     }

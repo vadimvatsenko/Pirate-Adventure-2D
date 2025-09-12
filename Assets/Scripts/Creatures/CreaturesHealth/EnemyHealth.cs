@@ -17,8 +17,10 @@ namespace Creatures.CreaturesHealth
 
         public override void TakeDamage(float damage, Transform attacker)
         {
-           
-            Debug.Log(attacker == _hero);
+            base.TakeDamage(damage, attacker);
+            
+            if(isDead) return;
+            
             if (attacker == _hero)
             {
                 if(_enemy.StateMachine.CurrentState == _enemy.BattleState) return;
@@ -26,6 +28,8 @@ namespace Creatures.CreaturesHealth
                 
                 _enemy.StateMachine.ChangeState(_enemy.BattleState);
             }
+            
+            
         }
     }
 }
