@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.Events;
+using AnimationClip = SpriteAnimator.NewSpriteAnimator.AnimationClip;
 
 // Анимационная система с уроков
-namespace Components.SpriteAnimator.NewSpriteAnimator
+namespace SpriteAnimator.NewSpriteAnimator
 {
     [RequireComponent(typeof(SpriteRenderer))]
     public class SpriteAnimator : MonoBehaviour

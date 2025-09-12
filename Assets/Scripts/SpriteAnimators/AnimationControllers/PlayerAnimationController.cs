@@ -1,12 +1,10 @@
 ﻿using System.Linq;
 using Components.SpriteAnimator.AnimationTypes;
-using Creatures;
-using Creatures.CreaturesStateMachine;
 using Creatures.CreaturesStateMachine.CreatureBasic;
-using PlayerFolder;
+using SpriteAnimator;
 using UnityEngine;
 
-namespace Components.SpriteAnimator.AnimationControllers
+namespace SpriteAnimators.AnimationControllers
 {
     public class PlayerAnimationController : MonoBehaviour
     {

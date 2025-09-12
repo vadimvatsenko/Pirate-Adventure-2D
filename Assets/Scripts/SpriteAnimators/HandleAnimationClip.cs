@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
-namespace Components.SpriteAnimator
+namespace SpriteAnimators
 {
     [CreateAssetMenu(fileName = "NewAnimationClip", menuName = "Animation/Clip")]
     public class HandleAnimationClip : ScriptableObject

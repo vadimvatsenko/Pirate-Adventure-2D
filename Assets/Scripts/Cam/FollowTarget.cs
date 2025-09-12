@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Components
+namespace Cam
 {
     // старый скрипт слежения за игроком
     public class FollowTarget : MonoBehaviour

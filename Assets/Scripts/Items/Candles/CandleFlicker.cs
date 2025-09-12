@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
-namespace Components.Candles
+namespace Items.Candles
 {
     public class CandleFlicker : MonoBehaviour
     {

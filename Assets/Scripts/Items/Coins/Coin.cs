@@ -1,9 +1,6 @@
 ﻿using System;
-using Controllers;
-using PlayerFolder;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 namespace Items.Coins
 {

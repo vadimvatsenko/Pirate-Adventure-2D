@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
-namespace Components
+namespace Items.Candles
 {
     public class CandleLightController : MonoBehaviour
     {

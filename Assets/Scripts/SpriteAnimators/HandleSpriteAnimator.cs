@@ -1,8 +1,7 @@
-﻿using Components.SpriteAnimator;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace PlayerFolder
+namespace SpriteAnimators
 {
     [RequireComponent(typeof(SpriteRenderer))] 
     public class HandleSpriteAnimator : MonoBehaviour

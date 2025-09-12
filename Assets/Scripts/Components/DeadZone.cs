@@ -1,9 +1,6 @@
-﻿using Controllers;
-using Creatures;
-using Creatures.CreaturesStateMachine.Player;
+﻿using Creatures.CreaturesStateMachine.Player;
 using GameManagerInfo;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Components
 {
@@ -12,7 +9,7 @@ namespace Components
         // можно также создать событие и вызвать его в триггере
         // [SerializeField] private UnityEvent onDead;
 
-        [FormerlySerializedAs("enterPoint")] [SerializeField] private GameManager gameManager;
+        [SerializeField] private GameManager gameManager;
         private void OnTriggerEnter2D(Collider2D collision)
         {
             Hero hero = collision.GetComponent<Hero>();

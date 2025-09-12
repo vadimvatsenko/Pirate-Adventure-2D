@@ -1,7 +1,7 @@
-﻿using PlayerFolder;
+﻿using SpriteAnimator;
 using UnityEngine;
 
-namespace Components.SpriteAnimator.AnimationControllers
+namespace SpriteAnimators.AnimationControllers
 {
     public class SimpleAnimationController : MonoBehaviour
     {

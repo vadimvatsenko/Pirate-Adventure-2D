@@ -1,9 +1,7 @@
-﻿using System.Linq;
-using Components.SpriteAnimator.AnimationTypes;
-using PlayerFolder;
+﻿using SpriteAnimator;
 using UnityEngine;
 
-namespace Components.SpriteAnimator.AnimationControllers
+namespace SpriteAnimators.AnimationControllers
 {
     public class HelmAnimationController : MonoBehaviour
     {
