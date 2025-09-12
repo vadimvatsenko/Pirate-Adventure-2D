@@ -11,12 +11,20 @@ A small 2D platformer prototype in Unity about a cheeky pirate, treasure, and tr
 - 🎵 Basic SFX/music hooks - in future
 - 🧰 Simple save/checkpoint system (stub) - in future
 
-📦 Tech Stack / Стек
+📦 Tech Stack
 - Unity (LTS recommended, e.g. 2022.3.x)
 - C# scripts
 - Unity 2D
 - Cinemachine (camera)
 - New Input System
+
+🎮 Controls
+Move - A/D
+Jump - Space
+Attack - Mouse 0
+Interact - R
+
+
 
 
 
