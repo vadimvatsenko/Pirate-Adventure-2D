@@ -9,11 +9,6 @@
 [![Branches](https://img.shields.io/badge/branch-HomeWork--11-blue)](#)
 [![Issues](https://img.shields.io/github/issues/vadimvatsenko/Pirate-Adventure-2D)](#)
 
-<p align="center">
-  <img src="img/cover.png" alt="Cover" width="760"/><br/>
-  <i>Replace with your own screenshots / GIFs</i>
-</p>
-
 ---
 
 ## Table of Contents
