@@ -7,7 +7,6 @@
 [![C%23](https://img.shields.io/badge/Code-C%23-239120?logo=csharp&logoColor=white)](#)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Branches](https://img.shields.io/badge/branch-HomeWork--11-blue)](#)
-[![Issues](https://img.shields.io/github/issues/vadimvatsenko/Pirate-Adventure-2D)](#)
 
 ---
 
@@ -21,8 +20,6 @@
 - [Getting Started](#getting-started)
 - [Build](#build)
 - [Roadmap](#roadmap)
-- [Contributing](#contributing)
-- [License](#license)
 
 ---
 
