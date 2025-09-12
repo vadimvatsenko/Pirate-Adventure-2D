@@ -28,7 +28,7 @@
 ### 🗂️ Project Structure / Scripts
 PlayerController.cs — движение, прыжок, стен‑джамп/койот‑тайм
 
-PlayerStateMachine/ — состояния Idle/Run/Jump/Attack/Dash
+- 'PlayerStateMachine' — состояния Idle/Run/Jump/Attack/Dash
 
 EnemyPatrol.cs — патруль/агро на игрока
 
