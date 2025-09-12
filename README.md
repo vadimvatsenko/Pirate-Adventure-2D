@@ -4,12 +4,12 @@ A small 2D platformer prototype in Unity about a cheeky pirate, treasure, and tr
 
 ✨ Features
 
-⚓️ Tight 2D platformer controls (run, jump, coyote time, variable jump)
-🗡️ Melee & ranged attack foundation - in progress
-🧠 State‑based player/enemy logic (FSM)
-🌴 Parallax backgrounds, tileset‑based levels
-🎵 Basic SFX/music hooks - in future
-🧰 Simple save/checkpoint system (stub) - in future
+-⚓️ Tight 2D platformer controls (run, jump, coyote time, variable jump)
+-🗡️ Melee & ranged attack foundation - in progress
+- 🧠 State‑based player/enemy logic (FSM)
+-🌴 Parallax backgrounds, tileset‑based levels
+-🎵 Basic SFX/music hooks - in future
+- 🧰 Simple save/checkpoint system (stub) - in future
 
 📦 Tech Stack / Стек
 Unity (LTS recommended, e.g. 2022.3.x)
