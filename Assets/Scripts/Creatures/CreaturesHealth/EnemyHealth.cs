@@ -28,8 +28,6 @@ namespace Creatures.CreaturesHealth
                 
                 _enemy.StateMachine.ChangeState(_enemy.BattleState);
             }
-            
-            
         }
     }
 }

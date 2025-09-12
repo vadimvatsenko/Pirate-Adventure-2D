@@ -15,7 +15,6 @@ namespace Creatures.CreaturesHealth
         public override void TakeDamage(float damage, Transform attacker)
         {
             base.TakeDamage(damage, attacker);
-            
         }
     }
 }

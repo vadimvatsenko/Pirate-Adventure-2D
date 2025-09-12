@@ -54,6 +54,11 @@ Pirate-Adventures-2D/
 - `InteractableCamera.cs`   - camera interact
 - `RoomController.cs`       - call in scene when player interact cam area
 
-`Creatures` =>`AnimationControllers` 
+`Creatures` => `AnimationControllers.cs` - Start and End Events
+`Creatures` => `AnimatorHashes.cs` - names to int Hashes
+`Creatures` => `CreatureAnimationTrigger.cs` - triggers for Unity Anim
+`Creatures` => `HeroArmAnimController` - change arm anim state
+
+
 
 
