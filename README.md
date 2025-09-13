@@ -6,6 +6,10 @@
 [![Unity](https://img.shields.io/badge/Made%20with-Unity-000?logo=unity)](#)
 [![C%23](https://img.shields.io/badge/Code-C%23-239120?logo=csharp&logoColor=white)](#)
 [![Branches](https://img.shields.io/badge/branch-main-blue)](#)
+![GitHub last commit](https://img.shields.io/github/last-commit/vadimvatsenko/Pirate-Adventure-2D
+)
+![GitHub repo size](https://img.shields.io/github/repo-size/vadimvatsenko/Pirate-Adventure-2D
+)
 
 ---
 
@@ -33,7 +37,7 @@
 ---
 
 ## Tech Stack
-- **Unity** LTS (recommend **2022.3.x** or project version)
+- **Unity** LTS (recommend **2019.4.21f1** or project version)
 - **C#** scripts
 - **Unity 2D** tools (Sprite, Tilemap, Rule Tiles, etc.)
 - **Cinemachine** (camera)
