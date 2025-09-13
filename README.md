@@ -5,8 +5,7 @@
 
 [![Unity](https://img.shields.io/badge/Made%20with-Unity-000?logo=unity)](#)
 [![C%23](https://img.shields.io/badge/Code-C%23-239120?logo=csharp&logoColor=white)](#)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Branches](https://img.shields.io/badge/branch-HomeWork--11-blue)](#)
+[![Branches](https://img.shields.io/badge/branch-main-blue)](#)
 
 ---
 
