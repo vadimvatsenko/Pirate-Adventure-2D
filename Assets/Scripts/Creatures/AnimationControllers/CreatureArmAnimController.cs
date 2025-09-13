@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections;
-using Creatures.CreaturesStateMachine;
-using Creatures.CreaturesStateMachine.CreatureBasic;
+﻿using Creatures.CreaturesStateMachine.CreatureBasic;
 using UnityEngine;
 
-namespace Creatures
+namespace Creatures.AnimationControllers
 {
     public class CreatureArmAnimController : MonoBehaviour
     {

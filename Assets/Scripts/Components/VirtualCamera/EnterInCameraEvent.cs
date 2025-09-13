@@ -1,9 +1,8 @@
 ﻿using System;
 using Cinemachine;
-using UnityEngine;
 using UnityEngine.Events;
 
-namespace Components
+namespace Components.VirtualCamera
 {
     [Serializable]
     public class EnterInCameraEvent : UnityEvent<CinemachineVirtualCamera>

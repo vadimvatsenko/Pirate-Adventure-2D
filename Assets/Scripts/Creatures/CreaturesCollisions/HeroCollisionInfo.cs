@@ -19,8 +19,6 @@ namespace Creatures.CreaturesCollisions
                 wallLayer);
         }
         
-        
-
         protected override void OnDrawGizmos()
         {
             base.OnDrawGizmos();

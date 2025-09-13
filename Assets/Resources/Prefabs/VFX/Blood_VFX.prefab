@@ -96,8 +96,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - _name: idle
-    _sprites:
+  - name: blood
+    sprites:
     - {fileID: 21300000, guid: d9c632ac996a6224bb86ad3aa2b049ba, type: 3}
     - {fileID: 21300000, guid: e27479be64bafab42ba987cca20f39dc, type: 3}
     - {fileID: 21300000, guid: c07574fa949d59546afcaf874586c862, type: 3}
@@ -128,8 +128,8 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 04e2af6c459d445419a64f536598d0ef, type: 3}
     - {fileID: 21300000, guid: 51f987839da88664ab35683b694d5081, type: 3}
     - {fileID: 21300000, guid: f36b9f9fb30a51540b8ca21523af131b, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls: []

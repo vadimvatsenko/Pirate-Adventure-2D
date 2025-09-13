@@ -1,6 +1,4 @@
-﻿using Components;
-using Components.HealthComponentFolder;
-using Creatures.AnimationControllers;
+﻿using Creatures.AnimationControllers;
 using Creatures.CreaturesStateMachine.CreatureBasic;
 using UnityEngine;
 

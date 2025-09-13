@@ -97,16 +97,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - _name: idle
-    _sprites:
+  - name: Idle
+    sprites:
     - {fileID: 6108012597462862368, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls: []
-  - _name: attack
-    _sprites:
+  - name: attack
+    sprites:
     - {fileID: 6108012597462862368, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: -3232016802565754395, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: 7579325349694084374, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
@@ -119,9 +119,9 @@ MonoBehaviour:
     - {fileID: 4987719907933409365, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: -8452378982718362965, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: -5278986678097760932, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 6515540603647965592}
@@ -132,7 +132,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: idle
+            m_StringArgument: Idle
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &6515540603911072406
@@ -232,16 +232,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - _name: idle
-    _sprites:
+  - name: Idle
+    sprites:
     - {fileID: 6108012597462862368, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls: []
-  - _name: attack
-    _sprites:
+  - name: attack
+    sprites:
     - {fileID: 6108012597462862368, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: -3232016802565754395, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: 7579325349694084374, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
@@ -254,9 +254,9 @@ MonoBehaviour:
     - {fileID: 4987719907933409365, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: -8452378982718362965, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: -5278986678097760932, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 6515540603911072404}
@@ -267,7 +267,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: idle
+            m_StringArgument: Idle
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &6515540603921282886
@@ -367,16 +367,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - _name: idle
-    _sprites:
+  - name: Idle
+    sprites:
     - {fileID: 6108012597462862368, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls: []
-  - _name: attack
-    _sprites:
+  - name: attack
+    sprites:
     - {fileID: 6108012597462862368, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: -3232016802565754395, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: 7579325349694084374, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
@@ -389,9 +389,9 @@ MonoBehaviour:
     - {fileID: 4987719907933409365, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: -8452378982718362965, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: -5278986678097760932, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 6515540603921282884}
@@ -402,7 +402,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: idle
+            m_StringArgument: Idle
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &6515540604287000059
@@ -603,16 +603,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - _name: idle
-    _sprites:
+  - name: Idle
+    sprites:
     - {fileID: 6108012597462862368, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls: []
-  - _name: attack
-    _sprites:
+  - name: attack
+    sprites:
     - {fileID: 6108012597462862368, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: -3232016802565754395, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: 7579325349694084374, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
@@ -625,9 +625,9 @@ MonoBehaviour:
     - {fileID: 4987719907933409365, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: -8452378982718362965, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: -5278986678097760932, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 6515540604505918910}
@@ -638,7 +638,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: idle
+            m_StringArgument: Idle
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &6515540604688506670
@@ -738,16 +738,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - _name: idle
-    _sprites:
+  - name: Idle
+    sprites:
     - {fileID: 6108012597462862368, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls: []
-  - _name: attack
-    _sprites:
+  - name: attack
+    sprites:
     - {fileID: 6108012597462862368, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: -3232016802565754395, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: 7579325349694084374, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
@@ -760,9 +760,9 @@ MonoBehaviour:
     - {fileID: 4987719907933409365, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: -8452378982718362965, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: -5278986678097760932, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 6515540604688506668}
@@ -773,7 +773,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: idle
+            m_StringArgument: Idle
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &6515540604897364701
@@ -873,16 +873,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - _name: idle
-    _sprites:
+  - name: Idle
+    sprites:
     - {fileID: 6108012597462862368, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls: []
-  - _name: attack
-    _sprites:
+  - name: attack
+    sprites:
     - {fileID: 6108012597462862368, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: -3232016802565754395, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: 7579325349694084374, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
@@ -895,9 +895,9 @@ MonoBehaviour:
     - {fileID: 4987719907933409365, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: -8452378982718362965, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: -5278986678097760932, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 6515540604897364643}
@@ -908,7 +908,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: idle
+            m_StringArgument: Idle
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &6515540605089170859
@@ -1008,16 +1008,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - _name: idle
-    _sprites:
+  - name: Idle
+    sprites:
     - {fileID: 6108012597462862368, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls: []
-  - _name: attack
-    _sprites:
+  - name: attack
+    sprites:
     - {fileID: 6108012597462862368, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: -3232016802565754395, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: 7579325349694084374, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
@@ -1030,9 +1030,9 @@ MonoBehaviour:
     - {fileID: 4987719907933409365, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: -8452378982718362965, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: -5278986678097760932, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 6515540605089170857}
@@ -1043,7 +1043,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: idle
+            m_StringArgument: Idle
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &6515540605141144482
@@ -1143,16 +1143,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - _name: idle
-    _sprites:
+  - name: Idle
+    sprites:
     - {fileID: 6108012597462862368, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls: []
-  - _name: attack
-    _sprites:
+  - name: attack
+    sprites:
     - {fileID: 6108012597462862368, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: -3232016802565754395, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: 7579325349694084374, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
@@ -1165,9 +1165,9 @@ MonoBehaviour:
     - {fileID: 4987719907933409365, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: -8452378982718362965, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
     - {fileID: -5278986678097760932, guid: f24e30906f2a0324ea46c423d65177ec, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
+    loop: 0
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 6515540605141144480}
@@ -1178,7 +1178,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: idle
+            m_StringArgument: Idle
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!1 &6515540605715280033
@@ -1204,7 +1204,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6515540605715280033}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.2475, y: -4.728, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

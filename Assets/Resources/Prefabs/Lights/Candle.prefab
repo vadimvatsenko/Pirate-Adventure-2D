@@ -178,9 +178,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2035886063
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: d960d733580f31840adc2a9cc7ee1a33, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.23529412}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -204,15 +204,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - _name: Idle
-    _sprites:
+  - name: idle
+    sprites:
     - {fileID: 21300000, guid: d960d733580f31840adc2a9cc7ee1a33, type: 3}
     - {fileID: 21300000, guid: a3d849e87ba241e4bba248eaeed5370d, type: 3}
     - {fileID: 21300000, guid: b774303dd1fdf734d9a9d38f36f464f4, type: 3}
     - {fileID: 21300000, guid: baa93697daaaf0447b8509266a6e24c2, type: 3}
-    _loop: 1
-    _allowNextClip: 0
-    _onComplete:
+    loop: 1
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls: []
 --- !u!1 &5784059539987756152
@@ -312,16 +312,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - _name: Idle
-    _sprites:
+  - name: idle
+    sprites:
     - {fileID: 21300000, guid: 7e1ef0bff3ac07f4cb4c6df432ec6695, type: 3}
     - {fileID: 21300000, guid: ff6b51c60006f8c408ba8fe604eda619, type: 3}
     - {fileID: 21300000, guid: c52b490faaae6cb489acdcc7565e18ee, type: 3}
     - {fileID: 21300000, guid: ff2ac63b31d69de4ebf4e12378824574, type: 3}
     - {fileID: 21300000, guid: b12cd88702194e54d882ac5cb350efb2, type: 3}
     - {fileID: 21300000, guid: e294f2554c018844f8301035438deed9, type: 3}
-    _loop: 1
-    _allowNextClip: 0
-    _onComplete:
+    loop: 1
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls: []

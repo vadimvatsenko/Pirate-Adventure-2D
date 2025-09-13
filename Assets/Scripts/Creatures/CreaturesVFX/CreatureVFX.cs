@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+// мигание персонажа при уроне
 namespace Creatures.CreaturesVFX
 {
     public class CreatureVFX : MonoBehaviour

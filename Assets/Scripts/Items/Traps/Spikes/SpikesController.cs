@@ -1,12 +1,11 @@
-﻿using Components.SpriteAnimator.NewSpriteAnimator;
-using Creatures.AnimationControllers;
+﻿using Creatures.AnimationControllers;
 using UnityEngine;
 
 namespace Items.Traps.Spikes
 {
     public class SpikesController : MonoBehaviour
     {
-        [SerializeField] private SpriteAnimator[] spikes;
+        [SerializeField] private SpriteAnimators.NewSpriteAnimator.SpriteAnimator[] spikes;
         public void ActivateSpikes()
         {
             foreach (var spike in spikes)
