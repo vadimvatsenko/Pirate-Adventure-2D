@@ -1,25 +1,22 @@
 fileFormatVersion: 2
-guid: 4b4aa1a0cad2ba048ba3a50b7490c894
+guid: 8be1e48595df6f74b8de564166ac6ec2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4673112251582950578
-    second: wheels_0
+      213: 938943928154464263
+    second: pixilart-sprite - Kopi_0
   - first:
-      213: -4380801312336655772
-    second: wheels_1
+      213: 7119298293192081297
+    second: pixilart-sprite - Kopi_1
   - first:
-      213: -6581993127691855439
-    second: wheels_2
+      213: 2876514749873264436
+    second: pixilart-sprite - Kopi_2
   - first:
-      213: 5767260758280246048
-    second: wheels_3
+      213: -5002421924174355977
+    second: pixilart-sprite - Kopi_3
   - first:
-      213: 7771588909235068314
-    second: wheels_4
-  - first:
-      213: 7305951325879276459
-    second: wheels_5
+      213: 4098959990202999974
+    second: pixilart-sprite - Kopi_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -63,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -79,7 +76,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -91,7 +88,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -105,13 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: wheels_0
+      name: pixilart-sprite - Kopi_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 120
-        height: 37
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +116,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2bca02765da3ad040800000000000000
-      internalID: 4673112251582950578
+      spriteID: 70028a5278cc70d00800000000000000
+      internalID: 938943928154464263
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wheels_1
+      name: pixilart-sprite - Kopi_1
       rect:
         serializedVersion: 2
-        x: 120
+        x: 64
         y: 0
-        width: 120
-        height: 37
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46acb9aba644433c0800000000000000
-      internalID: -4380801312336655772
+      spriteID: 19f32c7f314dcc260800000000000000
+      internalID: 7119298293192081297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wheels_2
+      name: pixilart-sprite - Kopi_2
       rect:
         serializedVersion: 2
-        x: 240
+        x: 128
         y: 0
-        width: 120
-        height: 37
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b95ddd8f1018a4a0800000000000000
-      internalID: -6581993127691855439
+      spriteID: 4371e51bcee6be720800000000000000
+      internalID: 2876514749873264436
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wheels_3
+      name: pixilart-sprite - Kopi_3
       rect:
         serializedVersion: 2
-        x: 360
+        x: 192
         y: 0
-        width: 120
-        height: 37
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02318587a1d690050800000000000000
-      internalID: 5767260758280246048
+      spriteID: 7f126f093c3d39ab0800000000000000
+      internalID: -5002421924174355977
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wheels_4
+      name: pixilart-sprite - Kopi_4
       rect:
         serializedVersion: 2
-        x: 480
+        x: 256
         y: 0
-        width: 120
-        height: 37
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,29 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9d5253ffea3adb60800000000000000
-      internalID: 7771588909235068314
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: wheels_5
-      rect:
-        serializedVersion: 2
-        x: 600
-        y: 0
-        width: 120
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ba31455b504f36560800000000000000
-      internalID: 7305951325879276459
+      spriteID: 6a4a694d46e62e830800000000000000
+      internalID: 4098959990202999974
       vertices: []
       indices: 
       edges: []
