@@ -43,13 +43,10 @@
 ---
 
 ## Screenshots
-> Put your real media in the **img/** folder and link here.
 
 | Gameplay                              |
 |---------------------------------------|
 | ![Gameplay](img/PirateGameplay.gif)   |
-
-
 
 ---
 
@@ -86,7 +83,6 @@ Pirate-Adventure-2D/
 ---
 
 ## 🧠 Code Highlights 
-
 ### General
 - **`ParticleSystemSwitcher.cs`** — switches between different particle systems (effects).
 
@@ -271,12 +267,11 @@ Pirate-Adventure-2D/
 
 ## Getting Started
 ### Prerequisites
-- Unity **2024.x LTS** or newer *(open in the version the project was created with)*
+- Unity **2019.4.21f1 LTS** or newer *(open in the version the project was created with)*
 
 ### Clone
 ```bash
 git clone https://github.com/vadimvatsenko/Pirate-Adventure-2D.git
-git checkout HomeWork-11
 ```
 
 ### Open
