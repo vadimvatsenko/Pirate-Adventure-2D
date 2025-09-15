@@ -25,11 +25,13 @@ namespace Items.Elevator
 
         private void Update()
         {
-            if (_travelTimer >= travelTime)
+            if (_travelTimer < travelTime)
             {
                 _travelTimer += Time.deltaTime;
                 
-                this.transform.position = Vector2.Lerp(_startPosition, _worldElevatorPoints[1], _travelTimer / travelTime);
+                float t = _travelTimer / travelTime;
+                transform.position = Vector2.Lerp(_startPosition, _worldElevatorPoints[1], t);
+                
             }
         }
     }

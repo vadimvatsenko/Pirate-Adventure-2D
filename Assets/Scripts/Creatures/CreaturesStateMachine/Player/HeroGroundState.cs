@@ -34,7 +34,6 @@ namespace Creatures.CreaturesStateMachine.Player
             if (Hr.NewInputSet.Hero.Interact.triggered && CollisionInfo.IsGrounded)
             {
                 CollisionInfo.Interact();
-                Debug.Log("Interacted");
             }
         }
     }

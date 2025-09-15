@@ -7,7 +7,7 @@ namespace Cam
     public class CameraBoundsSwitcher: MonoBehaviour
     {
         [SerializeField] private CinemachineVirtualCamera vcam;
-        [SerializeField] private float moveTime = 1f;
+        [SerializeField] private float moveTime = 0.125f;
         
         private Coroutine _moveCoroutine;
         private Transform _followTarget;
