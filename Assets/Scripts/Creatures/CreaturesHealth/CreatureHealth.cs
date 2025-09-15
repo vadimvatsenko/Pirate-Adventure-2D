@@ -1,9 +1,8 @@
-﻿using Creatures.CreaturesStateMachine.CreatureBasic;
-using Creatures.CreaturesStateMachine.Enemies.EnemyStates;
+﻿using System;
+using Creatures.CreaturesStateMachine.CreatureBasic;
 using Creatures.CreaturesVFX;
 using Creatures.Interfaces;
 using UnityEngine;
-using UnityEngine.TextCore;
 
 namespace Creatures.CreaturesHealth
 {
@@ -13,18 +12,23 @@ namespace Creatures.CreaturesHealth
         [SerializeField] protected float maxHealth = 100f;
         [SerializeField] protected bool isDead;
 
+        private float _previousHealth;
         private float _currentHealth;
         private CreatureVFX _creaturesVFX;
         private Creature _creature;
-
-
+        
+        public event Action<float, float> OnHealthChange;
+        
         protected virtual void Awake()
         {
             _creaturesVFX = GetComponent<CreatureVFX>();
             _creature = GetComponentInParent<Creature>();
             _currentHealth = maxHealth;
+            _previousHealth = _currentHealth;
+            
+            OnHealthChange?.Invoke(_previousHealth, _currentHealth);
         }
-
+        
         public virtual void TakeDamage(float damage, Transform attacker)
         {
             if (isDead) return;
@@ -46,7 +50,11 @@ namespace Creatures.CreaturesHealth
         private void ReduceHealth(float damage)
         {
             if(isDead) return;
+            
+            _previousHealth = _currentHealth;
             _currentHealth -= damage;
+            
+            OnHealthChange?.Invoke(_previousHealth, _currentHealth);
 
             if (_currentHealth <= 0f)
             {
