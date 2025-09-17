@@ -20,6 +20,7 @@ namespace Creatures.AnimationControllers
         private void AttackTrigger()
         {
             _combatCollisions.PerformAttack();
+            _creature.CallOnAttackEvent();
         }
     }
 }

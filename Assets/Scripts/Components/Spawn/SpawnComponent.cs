@@ -31,7 +31,14 @@ namespace Components.Spawn
             }
 
             GameObject spawnObj = Instantiate(prefab, spawnPos, target.rotation);
+            
             spawnObj.SetActive(true); // +++
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position + offset, 0.05f);
         }
     }
 }

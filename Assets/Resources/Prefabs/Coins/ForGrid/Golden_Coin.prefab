@@ -168,15 +168,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - _name: Idle
-    _sprites:
-    - {fileID: 21300000, guid: d40bbb2e62fd5a4448610b4c6db315a5, type: 3}
-    - {fileID: 21300000, guid: 6b48cddebc716c24aa626097f86a0212, type: 3}
-    - {fileID: 21300000, guid: 6b27f9deebc75da4ea5095903ffb997c, type: 3}
-    - {fileID: 21300000, guid: b5c1614c1b20bd843b107e79189f1405, type: 3}
-    _loop: 1
-    _allowNextClip: 0
-    _onComplete:
+  - name: idle
+    sprites:
+    - {fileID: 21300000, guid: 174a9d67df81e1a479b6f542f30c37c3, type: 3}
+    - {fileID: 21300000, guid: 528658ba8d6d7d24b8d32c8fcde349af, type: 3}
+    - {fileID: 21300000, guid: 375f4ee9724265c4daba689019e1fae8, type: 3}
+    - {fileID: 21300000, guid: c412110ea41a06842a61eeb71527e018, type: 3}
+    loop: 1
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls: []
 --- !u!114 &5223631522347630219
@@ -217,6 +217,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onEnter:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1957107401
 MonoBehaviour:
   m_ObjectHideFlags: 0

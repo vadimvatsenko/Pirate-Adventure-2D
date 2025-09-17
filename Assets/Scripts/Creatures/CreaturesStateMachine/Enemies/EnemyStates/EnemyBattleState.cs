@@ -40,7 +40,11 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
             
             if (DirectionToHero() != Enemy.FacingDirection)
             {
-                Enemy.HandleFlip();
+                if (_heroPos != null)
+                {
+                    if(_heroPos.position.y > Enemy.transform.position.y) return;
+                    Enemy.HandleFlip();
+                }
             }
             
             if (WithinAttackRange() && CollisionInfo.HeroDetection())
