@@ -135,7 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 2279830649293672629}
   prefab: {fileID: 1697433962725565108, guid: a28b7059a7d78e04aa0817d6a423c93f, type: 3}
-  offset: {x: 0.33, y: 0.33, z: 0}
+  offset: {x: 0, y: 0.5, z: 0}
 --- !u!1 &2279830647651370405
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 2279830649293672629}
   prefab: {fileID: 5931130299153987579, guid: 619683d4f1a36a146a2a6378226365a4, type: 3}
-  offset: {x: 0.25, y: -0.1, z: 0}
+  offset: {x: 0.25, y: -0.15, z: 0}
 --- !u!1 &2279830647831099408
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2279830649293672629}
-  prefab: {fileID: 7848302452962614932, guid: 8fb955da5a95dae47828443fc7c53fe7, type: 3}
+  prefab: {fileID: 7154941818032335747, guid: 4dab9e108989aa544900e97ca6eb160f, type: 3}
   offset: {x: -1, y: -0.1, z: 0}
 --- !u!1 &2279830648623434801
 GameObject:
@@ -396,7 +396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 2279830649293672629}
   prefab: {fileID: 8077373667050378732, guid: d3268588f56aec94f9627d5794466f27, type: 3}
-  offset: {x: 0.33, y: 0.33, z: 0}
+  offset: {x: 0, y: 0.5, z: 0}
 --- !u!1 &2279830648816696842
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,7 +804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aaf86990d764781b5d81726344fddbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 30
   targetCheck: {fileID: 1164886812039143347}
   detectionRadius: 0.25
   whatIsTarget:

@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 407504932837964559}
   - component: {fileID: 4104860579418383025}
   - component: {fileID: 4874132119197366311}
-  - component: {fileID: 3388522094091066412}
   - component: {fileID: 1690380591346926452}
+  - component: {fileID: 757513124561814067}
   - component: {fileID: 8325475208728714335}
   m_Layer: 15
   m_Name: SilverCoinForParticle
@@ -185,67 +185,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - _name: Idle
-    _sprites:
-    - {fileID: 21300000, guid: de5e771a142ab164e9bcccb9b536364e, type: 3}
-    - {fileID: 21300000, guid: 31fbe8525f9c23546a33c705586d8f5b, type: 3}
-    - {fileID: 21300000, guid: 245370cb2c444eb4d800398a7340afe5, type: 3}
-    - {fileID: 21300000, guid: 4eb96d8633c378a4fbe8f853456fac93, type: 3}
-    _loop: 1
-    _allowNextClip: 0
-    _onComplete:
+  - name: Idle
+    sprites:
+    - {fileID: 21300000, guid: 0c6f34c54b7719544be46d326c3883e6, type: 3}
+    - {fileID: 21300000, guid: 5b90bc6bf2b2ab64a9a29d973e248d82, type: 3}
+    - {fileID: 21300000, guid: 2c8778071ec1e1c43a92f3d199787a6e, type: 3}
+    - {fileID: 21300000, guid: a796b0b8dd259904e957a1f1ae88930b, type: 3}
+    loop: 1
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls: []
---- !u!114 &3388522094091066412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 407504932837964547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b98bf37e3ea4d80b147693b40c75dbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameObjectTag: Player
-  destroyThisGameObjectAfterTrigger: 0
-  onAction:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8325475208728714335}
-        m_MethodName: DestroyGameObject
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1690380591346926452}
-        m_MethodName: Spawn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: ChangeCoinsText
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1690380591346926452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,6 +211,36 @@ MonoBehaviour:
   target: {fileID: 407504932837964553}
   prefab: {fileID: 8988252005245749755, guid: 058c9f735ad4b2941ad7c7d1a79f77f6, type: 3}
   offset: {x: 0, y: 0, z: 0}
+--- !u!114 &757513124561814067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407504932837964547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b13f88d7d4a14941a424b9404a2419b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectTag: Player
+  onAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8325475208728714335}
+        m_MethodName: DestroyGameObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onEnter:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8325475208728714335
 MonoBehaviour:
   m_ObjectHideFlags: 0

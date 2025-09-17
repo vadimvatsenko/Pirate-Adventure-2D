@@ -10,9 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8988252005245749758}
   - component: {fileID: 8988252005245749759}
+  - component: {fileID: -1388714704399438141}
   - component: {fileID: 8988252005245749752}
-  - component: {fileID: 8988252005245749754}
-  - component: {fileID: 8988252005245749753}
   m_Layer: 10
   m_Name: CoinVFX
   m_TagString: Coin
@@ -71,7 +70,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1740054481
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2b261c0254df43d4f988bcfd621fbc78, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -84,6 +83,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-1388714704399438141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8988252005245749755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frameRate: 10
+  _clips:
+  - name: Idle
+    sprites:
+    - {fileID: 21300000, guid: 2b261c0254df43d4f988bcfd621fbc78, type: 3}
+    - {fileID: 21300000, guid: 9fefe63cfa26a0f4bb3e32e0cf431ffa, type: 3}
+    - {fileID: 21300000, guid: 16c5c8d1af995574ba7be22d5aa39a30, type: 3}
+    loop: 0
+    allowNextClip: 0
+    onComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8988252005245749752}
+          m_MethodName: DestroyGameObject
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &8988252005245749752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,45 +130,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 007e3171b9d94eddac2c6fc1d51d5422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8988252005245749754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8988252005245749755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 104b4fa7ed764291b992116549f3f2ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  handleAnimationClip: {fileID: 11400000, guid: 5c69509e60390fa4387d0ef4cd362a93,
-    type: 2}
---- !u!114 &8988252005245749753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8988252005245749755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a46b6026432a471d8abbe103432748b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onComplete:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8988252005245749752}
-        m_MethodName: DestroyGameObject
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  isStartWithRandomSprite: 0
-  isReversed: 0

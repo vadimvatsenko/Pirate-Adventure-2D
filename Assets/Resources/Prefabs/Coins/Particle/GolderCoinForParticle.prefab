@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 5100303834844654446}
   - component: {fileID: 7878007299322521985}
   - component: {fileID: 1061154481871612754}
-  - component: {fileID: 5100303836085633808}
   - component: {fileID: 2687960183580134017}
+  - component: {fileID: 5100303836085633808}
   m_Layer: 15
   m_Name: GolderCoinForParticle
   m_TagString: Coin
@@ -185,15 +185,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - _name: Idle
-    _sprites:
-    - {fileID: 21300000, guid: d40bbb2e62fd5a4448610b4c6db315a5, type: 3}
-    - {fileID: 21300000, guid: 6b48cddebc716c24aa626097f86a0212, type: 3}
-    - {fileID: 21300000, guid: 6b27f9deebc75da4ea5095903ffb997c, type: 3}
-    - {fileID: 21300000, guid: b5c1614c1b20bd843b107e79189f1405, type: 3}
-    _loop: 1
-    _allowNextClip: 0
-    _onComplete:
+  - name: Idle
+    sprites:
+    - {fileID: 21300000, guid: 174a9d67df81e1a479b6f542f30c37c3, type: 3}
+    - {fileID: 21300000, guid: 174a9d67df81e1a479b6f542f30c37c3, type: 3}
+    - {fileID: 21300000, guid: 528658ba8d6d7d24b8d32c8fcde349af, type: 3}
+    - {fileID: 21300000, guid: 375f4ee9724265c4daba689019e1fae8, type: 3}
+    - {fileID: 21300000, guid: c412110ea41a06842a61eeb71527e018, type: 3}
+    loop: 1
+    allowNextClip: 0
+    onComplete:
       m_PersistentCalls:
         m_Calls: []
 --- !u!114 &1061154481871612754
@@ -234,29 +235,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: ChangeCoinsText
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 10
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &5100303836085633808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1011413954198681897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 007e3171b9d94eddac2c6fc1d51d5422, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  onEnter:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2687960183580134017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,3 +253,15 @@ MonoBehaviour:
   target: {fileID: 1011413954198681909}
   prefab: {fileID: 8988252005245749755, guid: 058c9f735ad4b2941ad7c7d1a79f77f6, type: 3}
   offset: {x: 0, y: 0, z: 0}
+--- !u!114 &5100303836085633808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011413954198681897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 007e3171b9d94eddac2c6fc1d51d5422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
