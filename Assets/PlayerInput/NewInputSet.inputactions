@@ -44,6 +44,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Thow",
+                    "type": "Button",
+                    "id": "ca804f67-3f4f-4998-be1a-225a76e008f7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -182,10 +190,10 @@
                 {
                     "name": "",
                     "id": "646953a5-a72c-4d4a-9cc6-32a271b50ccd",
-                    "path": "<Keyboard>/r",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Xbox",
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -220,6 +228,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "55c5e287-900e-4ea5-8bee-f69c6e3a2dee",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Xbox",
+                    "action": "Thow",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7d34ca92-fe25-4017-8e22-b77d567b2347",
+                    "path": "<XInputController>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Thow",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

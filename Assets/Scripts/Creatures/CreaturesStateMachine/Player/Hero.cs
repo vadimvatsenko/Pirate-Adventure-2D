@@ -1,7 +1,6 @@
 ﻿using Creatures.AnimationControllers;
 using Creatures.CreaturesCollisions;
 using Creatures.CreaturesStateMachine.CreatureBasic;
-using Creatures.Settings;
 using GameManagerInfo;
 using UnityEngine;
 
@@ -26,17 +25,7 @@ namespace Creatures.CreaturesStateMachine.Player
         private float _coyoteJumpActivated = -1; 
         public float CoyoteJumpWindow => coyoteJumpWindow;
         public float CoyoteJumpActivated => _coyoteJumpActivated;
-        
-        [Header("DoubleJump Info")] 
-        [SerializeField] private float doubleJumpForce;
-        public float DoubleJumpForce => doubleJumpForce;
-        public bool CanDoubleJump { get; private set; }
-        public bool IsAirBorn { get; private set; }
 
-        [Header("Attack Info")] 
-        [SerializeField] private int attackForce = 1;
-        public int AttackForce => attackForce;
-        
         [Header("Climb Info")]
         [SerializeField] private BoxCollider2D[] climbingBoxes;
         public BoxCollider2D ClimbingBox => climbingBoxes[0];
@@ -81,46 +70,12 @@ namespace Creatures.CreaturesStateMachine.Player
         protected override void Update()
         {
             base.Update();
-            //UpdateAirBornStatus();
-            
             HandleFlip();
         }
 
         private void FixedUpdate()
         {
             HeroCollision.CheckHeroGrab();
-            //Debug.Log(HeroCollision.IsGrabb);
         }
-        
-        
-        /*public void HandleJump(bool isPressedSpace)
-        {
-            _isPressedJumpButton = isPressedSpace;
-            if (_isPressedJumpButton)
-            {
-                if (CollisionInfo.IsGrounded)
-                {
-                    CallOnJumpEvent(); // событие
-                    StateMachine.ChangeState(HeroJumpFallState);
-                }
-
-                if (IsAirBorn && CanDoubleJump)
-                {
-                    CallOnJumpEvent();
-                    HandleDoubleJump();
-                }
-            }
-
-            else if (Rb2D.velocity.y > 0) // уменьшаем прыжок, если кнопка не нажата.
-            {
-                Rb2D.velocity = new Vector2(Rb2D.velocity.x, Rb2D.velocity.y * 0.5f);
-            }
-        }
-
-        private void HandleDoubleJump()
-        {
-            CanDoubleJump = false;
-        }*/
-        
     }
 }
