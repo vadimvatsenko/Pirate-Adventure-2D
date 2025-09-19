@@ -14,10 +14,7 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         
         [Header("Jump Info")]
         [SerializeField] protected float jumpForce;
-        
-        [Header("Die Info")] 
-        [SerializeField] private float dieHeight = 5f;
-        
+
         [Header("Hit Info")] 
         [SerializeField] private Vector2 hitPower = new Vector2(1.5f, 3f);
         [SerializeField] private float hitDuration = 0.5f;

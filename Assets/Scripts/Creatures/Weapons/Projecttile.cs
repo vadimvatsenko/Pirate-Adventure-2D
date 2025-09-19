@@ -25,10 +25,5 @@ namespace Creatures.Weapons
             position.x += -_direction * speed * Time.fixedDeltaTime;
             _rigidbody.MovePosition(position);
         }
-
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            
-        }
     }
 }

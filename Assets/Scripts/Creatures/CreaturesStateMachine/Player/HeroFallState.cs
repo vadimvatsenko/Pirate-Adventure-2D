@@ -13,8 +13,6 @@ namespace Creatures.CreaturesStateMachine.Player
         private float _coyoteJumpActivated;
         
         private int _jumpCount;
-        private int _maxJumpCount = 1;
-        
         private float _startFallY;
         
         public HeroFallState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
