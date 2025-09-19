@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &503043697857819144
+--- !u!1 &5360728648923829525
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 503043697857819148}
-  - component: {fileID: 503043697857819149}
-  - component: {fileID: 503043697857819146}
-  - component: {fileID: 503043697857819147}
-  m_Layer: 9
-  m_Name: BigChain_BG
+  - component: {fileID: 8931808980273602852}
+  - component: {fileID: 4453505845918505129}
+  - component: {fileID: 5039554490662703744}
+  m_Layer: 0
+  m_Name: SwordProjectTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &503043697857819148
+--- !u!4 &8931808980273602852
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 503043697857819144}
+  m_GameObject: {fileID: 5360728648923829525}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.5, y: 6, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &503043697857819149
+--- !u!212 &4453505845918505129
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 503043697857819144}
+  m_GameObject: {fileID: 5360728648923829525}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -51,7 +50,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -71,47 +70,48 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1740054481
   m_SortingLayer: 5
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 550abb2e267dd4d4995d48176ba490f0, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: d42a67714954ae74eb1d1967de000d7f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 0.2, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &503043697857819146
+--- !u!114 &5039554490662703744
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 503043697857819144}
+  m_GameObject: {fileID: 5360728648923829525}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 104b4fa7ed764291b992116549f3f2ea, type: 3}
+  m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playOnAwake: 1
-  handleAnimationClip: {fileID: 11400000, guid: 5d31ef318295b364588614e2fc0ba11f,
-    type: 2}
---- !u!114 &503043697857819147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 503043697857819144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a46b6026432a471d8abbe103432748b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isStartWithRandomSprite: 0
-  isReversed: 0
-  onComplete:
-    m_PersistentCalls:
-      m_Calls: []
+  _frameRate: 10
+  _clips:
+  - name: idle
+    sprites:
+    - {fileID: 21300000, guid: d42a67714954ae74eb1d1967de000d7f, type: 3}
+    loop: 0
+    allowNextClip: 0
+    onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: spin
+    sprites:
+    - {fileID: 21300000, guid: d42a67714954ae74eb1d1967de000d7f, type: 3}
+    - {fileID: 21300000, guid: b8d5ea38fec438547ab7bfc3db2ddb71, type: 3}
+    - {fileID: 21300000, guid: a2b1725b26741ef4bb0a035baaf07042, type: 3}
+    - {fileID: 21300000, guid: a993c800a3dd2de429c297c177405e61, type: 3}
+    loop: 1
+    allowNextClip: 0
+    onComplete:
+      m_PersistentCalls:
+        m_Calls: []
