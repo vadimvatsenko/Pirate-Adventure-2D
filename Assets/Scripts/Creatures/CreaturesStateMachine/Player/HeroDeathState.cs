@@ -17,7 +17,7 @@ namespace Creatures.CreaturesStateMachine.Player
             Hr.NewInputSet.Disable();
             StateMachine.SwitchOffStateMachine();
             Hr.CallOnDeathEvent();
-            Hr.GameMg.ReloadLevel();
+            Hr.GameSess.ReloadLevel();
         }
     }
 }

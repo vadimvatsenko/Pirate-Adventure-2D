@@ -24,7 +24,7 @@ namespace Creatures.CreaturesHealth
             if (attacker == _hero)
             {
                 if(_enemy.StateMachine.CurrentState == _enemy.BattleState) return;
-                if(_enemy.StateMachine.CurrentState == _enemy.AttackState) return;
+                if(_enemy.StateMachine.CurrentState == _enemy.EnemyAttackState) return;
                 
                 _enemy.StateMachine.ChangeState(_enemy.BattleState);
             }

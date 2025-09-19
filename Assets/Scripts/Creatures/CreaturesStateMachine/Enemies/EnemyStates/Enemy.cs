@@ -28,13 +28,13 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
         public float BattleTimeDuration => battleTimeDuration;
         public float MinRetreatDistance => minRetreatDistance;
         public Vector2 RetreatVelocity => retreatVelocity;
+        
         //
         public Hero Hr { get; private set; }
         public EnemyCollisionInfo EnemyCollisionInfo { get; private set; }
         public EnemyAggroState AggroState { get; private set; }
-        public EnemyAttackState AttackState {get; private set;}
+        public EnemyAttackState EnemyAttackState {get; private set;}
         public EnemyBattleState BattleState { get; private set; }
-        public EnemyRespawnState RespawnState { get; private set; }
         
         // Aggro Event
         public event Action OnAgroEvent;
@@ -64,7 +64,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
             BattleState = new EnemyBattleState(this, StateMachine, AnimatorHashes.Battle);
             HitState = new EnemyHitState(this, StateMachine, AnimatorHashes.Hit);
             DeathState = new EnemyDeathState(this, StateMachine, AnimatorHashes.Death);
-            //RespawnState = new SharkyRespawnState(this, StateMachine, AnimatorHashes.Respawn);
+            
             StateMachine.Initialize(IdleState);
         }
 
@@ -95,7 +95,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
         {
             base.UpdateAnimationVelocity();
             
-            // это множитель для анимации. Он будет увеличивать скорость анимации преследования игрока
+            // Это множитель для анимации. Он будет увеличивать скорость анимации преследования игрока
             // в редакторе в Аниматоре, нажимаем на blandTree в инспекторе Multyply => parameters => battleAnimSpeed
             float battleAnimSpeed = BattleSpeed / MovementSpeed; 
             AnimController.SetFloat(AnimatorHashes.BattleAnimSpeed, battleAnimSpeed);

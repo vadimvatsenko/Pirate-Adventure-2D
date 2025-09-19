@@ -49,7 +49,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
             
             if (WithinAttackRange() && CollisionInfo.HeroDetection())
             {
-                StateMachine.ChangeState(Enemy.AttackState);
+                StateMachine.ChangeState(Enemy.EnemyAttackState);
             }
             else
             {

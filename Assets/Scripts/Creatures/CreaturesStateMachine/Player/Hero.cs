@@ -10,7 +10,6 @@ namespace Creatures.CreaturesStateMachine.Player
     {
         public GameSession GameSess { get; private set;}
         public NewInputSet NewInputSet { get; private set; }
-        public GameManager GameMg { get; private set; }
         
         public HeroCollisionInfo HeroCollision { get; private set; }
         
@@ -35,7 +34,6 @@ namespace Creatures.CreaturesStateMachine.Player
             base.Awake();
             NewInputSet = new NewInputSet();
             GameSess = FindObjectOfType<GameSession>();
-            GameMg = FindObjectOfType<GameManager>();
             HeroCollision = GetComponent<HeroCollisionInfo>();
         }
         
