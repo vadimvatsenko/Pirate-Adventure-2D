@@ -35,6 +35,11 @@ namespace Creatures.CreaturesStateMachine.Player
             {
                 CollisionInfo.Interact();
             }
+
+            if (Hr.NewInputSet.Hero.Thow.triggered && Hr.GameSess.PlayerData.isArmed && CollisionInfo.IsGrounded) // ++
+            {
+                StateMachine.ChangeState(Hr.ThrowState);
+            }
         }
     }
 }

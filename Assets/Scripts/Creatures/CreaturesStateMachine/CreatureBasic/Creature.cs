@@ -68,11 +68,13 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         public CreatureState HitState { get; protected set; }
         public CreatureState DeathState { get; protected set; }
         public CreatureState ClimbState { get; protected set; }
+        public CreatureState ThrowState { get; protected set; }
         
         // Events
         public event Action OnJumpEvent;
         public event Action OnAttackEvent;
         public event Action OnDeathEvent;
+        public event Action OnThrowEvent; 
         
         protected virtual void Awake()
         {
@@ -109,6 +111,10 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         public void CallOnDeathEvent() => OnDeathEvent?.Invoke();
         public void SubscribeOnDeathEvent(Action action) => OnDeathEvent += action;
         public void UnsubscribeOnDeathEvent(Action action) => OnDeathEvent -= action;
+        // Throw Event - бросок
+        public void CallOnThrowEvent() => OnThrowEvent?.Invoke(); // ++
+        public void SubscribeOnThrowEvent(Action action) => OnThrowEvent += action; // ++
+        public void UnsubscribeOnThrowEvent(Action action) => OnThrowEvent -= action; // ++
         
         public void SetDirection(float dir) => XInput = dir;
         
@@ -141,7 +147,5 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         public void SetFinalHit(Vector2 finalHit) => _finalHit = finalHit;
         public void SetFinalHitDuration(float duration) => _finalHitDuration = duration;
         
-        protected int TakeHit(Creature damager) => damager.FacingDirection;
-        public void DestroySelf() => Destroy(gameObject);
     }
 }
