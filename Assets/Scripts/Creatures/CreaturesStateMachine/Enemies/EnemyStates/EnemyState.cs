@@ -9,7 +9,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
     {
         protected readonly Enemy Enemy;
         private Hero _hr;
-        protected readonly EnemyCollisionInfo CollisionInfo;
+        protected readonly EnemyCollisionInfo EnemyCollisionInfo;
         
         public EnemyState(Enemy enemy, CreatureStateMachine stateMachine, int animBoolName) 
             : base(enemy, stateMachine, animBoolName)
@@ -17,7 +17,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
             Enemy = enemy;
             StateMachine = stateMachine;
             
-            if (Enemy != null) CollisionInfo = Enemy.EnemyCollisionInfo;
+            if (Enemy != null) EnemyCollisionInfo = Enemy.EnemyCollisionInfo;
 
             //Health.SubscribeOnHitEvent(CallHitState);
         }

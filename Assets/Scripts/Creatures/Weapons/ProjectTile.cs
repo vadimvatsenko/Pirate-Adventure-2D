@@ -1,20 +1,25 @@
-﻿using Creatures.CreaturesCollisions;
+﻿using Creatures.Interfaces;
 using UnityEngine;
 
 namespace Creatures.Weapons
 {
-    public class Projecttile : MonoBehaviour
+    public class ProjectTile : MonoBehaviour, IFacingDirection
     {
         [SerializeField] private float speed;
         
         private Rigidbody2D _rigidbody;
-        private int _direction;
-        private void Awake()
+        public int FacingDirection { get; private set; }
+        private void Start()
         {
-            Debug.Log(transform.lossyScale.x);
-            _direction = transform.lossyScale.x > 0 ? 1 : -1;
             _rigidbody = GetComponent<Rigidbody2D>();
+        }
+
+        public void SetDirection(int direction)
+        {
+            FacingDirection = direction;
             
+            if (FacingDirection == -1)
+                Flip();
         }
         
         private void FixedUpdate()
@@ -22,8 +27,14 @@ namespace Creatures.Weapons
             // если у нас есть на компоненте Rigidbody2D, то нужно его двигать через него, документация Юнити
             
             var position = _rigidbody.position;
-            position.x += -_direction * speed * Time.fixedDeltaTime;
+            position.x += FacingDirection * speed * Time.fixedDeltaTime;
             _rigidbody.MovePosition(position);
+        }
+        
+        private void Flip()
+        {
+            //FacingDirection *= -1;
+            transform.Rotate(0f, 180f, 0f);
         }
     }
 }

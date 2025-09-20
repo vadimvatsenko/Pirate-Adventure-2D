@@ -1,15 +1,17 @@
 ﻿using Creatures.CreaturesStateMachine.CreatureBasic;
+using GameManagerInfo;
 using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Player
 {
     public class HeroGroundState : HeroState
     {
-        public HeroGroundState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
+        public HeroGroundState(Hero hr, CreatureStateMachine stateMachine, int animBoolName)
             : base(hr, stateMachine, animBoolName)
         {
         }
         
+
         public override void Update()
         {
             base.Update();
@@ -18,27 +20,17 @@ namespace Creatures.CreaturesStateMachine.Player
             {
                 StateMachine.ChangeState(Hr.FallState);
             }
-            
+
             // система ввода
             if (Hr.NewInputSet.Hero.Jump.triggered && CollisionInfo.IsGrounded)
             {
                 StateMachine.ChangeState(Hr.JumpState);
             }
 
-            // система ввода
-            if (Hr.NewInputSet.Hero.Attack.triggered && CollisionInfo.IsGrounded && Hr.GameSess.PlayerData.isArmed)
-            {
-                StateMachine.ChangeState(Hr.AttackState);
-            }
-
+            
             if (Hr.NewInputSet.Hero.Interact.triggered && CollisionInfo.IsGrounded)
             {
                 CollisionInfo.Interact();
-            }
-
-            if (Hr.NewInputSet.Hero.Thow.triggered && Hr.GameSess.PlayerData.isArmed && CollisionInfo.IsGrounded) // ++
-            {
-                StateMachine.ChangeState(Hr.ThrowState);
             }
         }
     }

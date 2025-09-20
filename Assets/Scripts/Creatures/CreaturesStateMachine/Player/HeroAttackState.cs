@@ -14,8 +14,12 @@ namespace Creatures.CreaturesStateMachine.Player
         public override void Update()
         {
             base.Update();
+
+            if (CollisionInfo.IsGrounded)
+            {
+                Rb2D.velocity = Vector2.zero;
+            }
             
-            Rb2D.velocity = Vector2.zero;
             if(StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Attack)) && StateInfo.normalizedTime > 1.0f)
             {
                 StateMachine.ChangeState(Hr.IdleState);

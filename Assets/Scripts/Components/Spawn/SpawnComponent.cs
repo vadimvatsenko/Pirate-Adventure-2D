@@ -1,26 +1,27 @@
-﻿using Creatures.Interfaces;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Components.Spawn
 {
     public class SpawnComponent : MonoBehaviour
     {
         // Позиция где будем отображать партикл
-        [SerializeField] private Transform target;
+        [SerializeField] protected Transform target;
         // Префаб партикла
-        [SerializeField] private GameObject prefab;
-
+        [SerializeField] protected GameObject prefab;
+        
         [ContextMenu("Spawn")]
-        public void Spawn()
+        public virtual void Spawn()
         {
             Vector3 spawnPos = transform.position;
             
             GameObject spawnObj = Instantiate(prefab, spawnPos, target.rotation);
             
-            spawnObj.SetActive(true); // +++
+            spawnObj.transform.localScale = target.lossyScale;
+            
+            spawnObj.SetActive(true);
         }
 
-        private void OnDrawGizmos()
+        protected void OnDrawGizmos()
         {
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, 0.05f);

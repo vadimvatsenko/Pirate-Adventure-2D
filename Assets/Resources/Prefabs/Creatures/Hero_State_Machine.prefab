@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2101981482}
-  - component: {fileID: 2101981483}
+  - component: {fileID: 1528399571}
   m_Layer: 12
   m_Name: SpawnSwordPoint
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 1013203842059538652}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2101981483
+--- !u!114 &1528399571
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,11 +40,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2101981481}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f11c1936a26d47c9b5a428508b5d1a2b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e2e2f893110463386f82df35b1950a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2101981482}
   prefab: {fileID: 5360728648923829525, guid: 8d3b5697569c28c44a37031f81d3fb62, type: 3}
+  owner: {fileID: 1013203842059538650}
 --- !u!1 &544333609047970106
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,7 +743,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 3
   jumpForce: 8.5
-  dieHeight: 5
   hitPower: {x: 1.5, y: 3}
   hitDuration: 0.5
   heavyHitPower: {x: 7, y: 7}
