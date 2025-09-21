@@ -8,7 +8,7 @@ namespace Creatures.CreaturesStateMachine.Player
 {
     public class Hero : Creature
     {
-        public GameSession GameSess { get; private set;}
+        public GameSession GameSess { get; private set;} //
         public NewInputSet NewInputSet { get; private set; }
         
         public HeroCollisionInfo HeroCollision { get; private set; }
