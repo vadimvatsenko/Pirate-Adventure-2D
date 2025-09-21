@@ -246,6 +246,17 @@ public class @NewInputSet : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""bbdddb24-c349-4ea4-8136-a1129846bf4e"",
+                    ""path"": ""<XInputController>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox"",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""55c5e287-900e-4ea5-8bee-f69c6e3a2dee"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",

@@ -17,12 +17,7 @@ namespace Creatures.CreaturesStateMachine.Player
             Hr = hr;
             
         }
-
-        ~HeroState()
-        {
-            
-        }
-
+        
         public override void Enter()
         {
             base.Enter();

@@ -25,9 +25,6 @@ namespace Creatures.CreaturesStateMachine.Player
         public float CoyoteJumpWindow => coyoteJumpWindow;
         public float CoyoteJumpActivated => _coyoteJumpActivated;
 
-        [Header("Climb Info")]
-        [SerializeField] private BoxCollider2D[] climbingBoxes;
-        public BoxCollider2D ClimbingBox => climbingBoxes[0];
         
         protected override void Awake()
         {
@@ -74,7 +71,7 @@ namespace Creatures.CreaturesStateMachine.Player
 
         private void FixedUpdate()
         {
-            HeroCollision.CheckHeroGrab();
+            //HeroCollision.CheckHeroGrab();
         }
     }
 }
