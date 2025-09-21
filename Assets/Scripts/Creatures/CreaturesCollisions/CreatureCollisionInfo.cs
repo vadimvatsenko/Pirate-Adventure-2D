@@ -66,7 +66,6 @@ namespace Creatures.CreaturesCollisions
                 var interactable = _interactionCollides[i].GetComponent<InteractableComponent>();
                 if (interactable != null)
                 {
-                    Debug.Log(interactable);
                     interactable.Interact();
                 } 
             }

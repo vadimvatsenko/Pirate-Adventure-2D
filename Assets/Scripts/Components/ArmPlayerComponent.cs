@@ -17,7 +17,11 @@ namespace Components
         }
         public void ArmPlayer()
         {
-            if(_gameSession.PlayerData.isArmed) return;
+            if (_gameSession.PlayerData.isArmed)
+            {
+                _gameSession.PlayerData.swords += 1;
+                return;
+            }
             
             if (!_gameSession.PlayerData.isArmed)
             {

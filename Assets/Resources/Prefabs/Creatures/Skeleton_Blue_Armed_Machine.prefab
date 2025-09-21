@@ -135,7 +135,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 2279830649293672629}
   prefab: {fileID: 1697433962725565108, guid: a28b7059a7d78e04aa0817d6a423c93f, type: 3}
-  offset: {x: 0, y: 0.5, z: 0}
 --- !u!1 &2279830647651370405
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,7 +190,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2279830647692964219}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2279830647831099415}
@@ -211,7 +210,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 2279830649293672629}
   prefab: {fileID: 5931130299153987579, guid: 619683d4f1a36a146a2a6378226365a4, type: 3}
-  offset: {x: 0.25, y: -0.15, z: 0}
 --- !u!1 &2279830647831099408
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +348,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 2279830649293672629}
   prefab: {fileID: 7154941818032335747, guid: 4dab9e108989aa544900e97ca6eb160f, type: 3}
-  offset: {x: -1, y: -0.1, z: 0}
 --- !u!1 &2279830648623434801
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,7 +393,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 2279830649293672629}
   prefab: {fileID: 8077373667050378732, guid: d3268588f56aec94f9627d5794466f27, type: 3}
-  offset: {x: 0, y: 0.5, z: 0}
 --- !u!1 &2279830648816696842
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,7 +438,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 2279830649293672629}
   prefab: {fileID: 550240020942265000, guid: 0b6b9a9ac9811f142b0c09a8d050655d, type: 3}
-  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &2279830648999493252
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,7 +483,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 2279830649293672629}
   prefab: {fileID: 3953502041118120816, guid: 758ea74fb408faf498d27f678c22a197, type: 3}
-  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &2279830649021900103
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,7 +529,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   prefab: {fileID: 8447154244612240028}
-  offset: {x: 0, y: 0.75, z: 0}
 --- !u!1 &2279830649047955419
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,7 +662,7 @@ GameObject:
   - component: {fileID: 2279830649293672616}
   m_Layer: 16
   m_Name: Skeleton_Blue_Armed_Machine
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -746,7 +739,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 1.5
   jumpForce: 0.5
-  dieHeight: 5
   hitPower: {x: 1.5, y: 1.5}
   hitDuration: 0.5
   heavyHitPower: {x: 7, y: 7}

@@ -28,7 +28,6 @@ namespace Components
         [Space] 
         [SerializeField] private float startScaleInTeleport = 1f;
         [SerializeField] private float endScaleInTeleport = 0.1f;
-        private bool _isTeleporting;
         
         public void Teleport(GameObject target) => StartCoroutine(TeleportPlayerRoutine(target));
 
@@ -75,7 +74,6 @@ namespace Components
         
         private IEnumerator SmoothLift(Vector3 targetPosition, Action OnDestination)
         {
-            _isTeleporting = true;
             elapsedInTeleport = 0f; // сброс таймера
             
             _startInTeleportY = transform.position.y;
@@ -107,8 +105,6 @@ namespace Components
             transform.position = new Vector3(targetPosition.x, targetPosition.y, transform.position.z);
             transform.rotation = Quaternion.Euler(0f, endRotationInTeleportY, 0f);
             transform.localScale = new Vector3(startScaleInTeleport, startScaleInTeleport, startScaleInTeleport);
-            _isTeleporting = false;
         }
-        
     }
 }

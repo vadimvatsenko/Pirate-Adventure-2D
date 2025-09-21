@@ -9,6 +9,7 @@ TagManager:
   - Poison
   - Ground
   - ClimbPoint
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - FrontGround
   - Camera
   - Grapple
-  - 
+  - ClimbPoint
   - 
   - 
   - 

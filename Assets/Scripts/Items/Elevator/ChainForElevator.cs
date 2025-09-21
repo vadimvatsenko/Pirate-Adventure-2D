@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace Items.Elevator
 {
@@ -28,13 +29,19 @@ namespace Items.Elevator
                 float percentage = _time / targetDuration;
                 _spriteRenderer.size = Vector2.Lerp(_starSize, new Vector2(_starSize.x, targetHeight), percentage);
             }
-            
-            
         }
 
         private void OnDrawGizmos()
         {
             Gizmos.DrawLine(this.transform.position, transform.position + ((Vector3)direction * targetHeight));
+        }
+
+        public void EnableChainForElevator() => StartCoroutine(ChainForElevatorsCourutine());
+
+        private IEnumerator ChainForElevatorsCourutine()
+        {
+            
+            yield return new WaitForSeconds(targetDuration);
         }
     }
 }

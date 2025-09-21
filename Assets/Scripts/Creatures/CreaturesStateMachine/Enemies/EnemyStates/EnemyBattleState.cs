@@ -18,7 +18,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
             base.Enter();
 
             if (_heroPos == null) 
-                _heroPos = CollisionInfo.HeroDetection().transform;
+                _heroPos = EnemyCollisionInfo.HeroDetection().transform;
             
             if (ShouldRetreat())
             {
@@ -30,7 +30,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
         {
             base.Update();
             
-            if (CollisionInfo.HeroDetection()) UpdateBattleTimer();
+            if (EnemyCollisionInfo.HeroDetection()) UpdateBattleTimer();
             
             if (BattleTimeIsOver())
             {
@@ -47,7 +47,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
                 }
             }
             
-            if (WithinAttackRange() && CollisionInfo.HeroDetection())
+            if (WithinAttackRange() && EnemyCollisionInfo.HeroDetection())
             {
                 StateMachine.ChangeState(Enemy.AttackState);
             }
@@ -56,14 +56,14 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
                 Rb2D.velocity = new Vector2(Enemy.BattleSpeed * Enemy.FacingDirection, Rb2D.velocity.y);
             }
             
-            if (CollisionInfo.IsAbyssDetected)
+            if (EnemyCollisionInfo.IsAbyssDetected)
             {
                 Enemy.CallOnWTFEvent();
                 StateMachine.ChangeState(Enemy.IdleState);
             }
         }
         
-        private bool WithinAttackRange() => DistanceToHero() < CollisionInfo.AttackDistance;
+        private bool WithinAttackRange() => DistanceToHero() < EnemyCollisionInfo.AttackDistance;
         private bool ShouldRetreat() => DistanceToHero() < Enemy.MinRetreatDistance;
 
         // в Update постоянно записываем внутриигровое время

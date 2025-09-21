@@ -3,7 +3,7 @@ using Creatures.CreaturesStateMachine.CreatureBasic;
 using UnityEngine;
 
 // вешается на аниматор
-// можно через инспектор повесить событие на AttackTrigger()
+// можно через инспектор повесить событие на AttackTrigger() итп.
 namespace Creatures.AnimationControllers
 {
     public class CreatureAnimationTrigger : MonoBehaviour
@@ -22,5 +22,9 @@ namespace Creatures.AnimationControllers
             _combatCollisions.PerformAttack();
             _creature.CallOnAttackEvent();
         }
+
+        // триггер броска оружия, вызывается в аниматоре
+        private void ThrowTrigger() => _creature.CallOnThrowEvent();
+        
     }
 }

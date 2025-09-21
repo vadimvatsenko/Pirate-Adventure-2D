@@ -13,7 +13,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
         {
             base.Update();
             
-            if (CollisionInfo.IsGrounded && Rb2D.velocity.y <= 0)
+            if (EnemyCollisionInfo.IsGrounded && Rb2D.velocity.y <= 0)
             {
                 StateMachine.ChangeState(Enemy.MoveState);
             }

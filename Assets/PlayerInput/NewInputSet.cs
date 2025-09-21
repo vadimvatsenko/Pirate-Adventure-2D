@@ -57,6 +57,14 @@ public class @NewInputSet : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Thow"",
+                    ""type"": ""Button"",
+                    ""id"": ""ca804f67-3f4f-4998-be1a-225a76e008f7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -195,10 +203,10 @@ public class @NewInputSet : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""646953a5-a72c-4d4a-9cc6-32a271b50ccd"",
-                    ""path"": ""<Keyboard>/r"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Xbox"",
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -233,6 +241,39 @@ public class @NewInputSet : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bbdddb24-c349-4ea4-8136-a1129846bf4e"",
+                    ""path"": ""<XInputController>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox"",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""55c5e287-900e-4ea5-8bee-f69c6e3a2dee"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox"",
+                    ""action"": ""Thow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7d34ca92-fe25-4017-8e22-b77d567b2347"",
+                    ""path"": ""<XInputController>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Thow"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -276,6 +317,7 @@ public class @NewInputSet : IInputActionCollection, IDisposable
         m_Hero_Attack = m_Hero.FindAction("Attack", throwIfNotFound: true);
         m_Hero_Interact = m_Hero.FindAction("Interact", throwIfNotFound: true);
         m_Hero_Down = m_Hero.FindAction("Down", throwIfNotFound: true);
+        m_Hero_Thow = m_Hero.FindAction("Thow", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -330,6 +372,7 @@ public class @NewInputSet : IInputActionCollection, IDisposable
     private readonly InputAction m_Hero_Attack;
     private readonly InputAction m_Hero_Interact;
     private readonly InputAction m_Hero_Down;
+    private readonly InputAction m_Hero_Thow;
     public struct HeroActions
     {
         private @NewInputSet m_Wrapper;
@@ -339,6 +382,7 @@ public class @NewInputSet : IInputActionCollection, IDisposable
         public InputAction @Attack => m_Wrapper.m_Hero_Attack;
         public InputAction @Interact => m_Wrapper.m_Hero_Interact;
         public InputAction @Down => m_Wrapper.m_Hero_Down;
+        public InputAction @Thow => m_Wrapper.m_Hero_Thow;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -363,6 +407,9 @@ public class @NewInputSet : IInputActionCollection, IDisposable
                 @Down.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnDown;
                 @Down.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnDown;
                 @Down.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnDown;
+                @Thow.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnThow;
+                @Thow.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnThow;
+                @Thow.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnThow;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -382,6 +429,9 @@ public class @NewInputSet : IInputActionCollection, IDisposable
                 @Down.started += instance.OnDown;
                 @Down.performed += instance.OnDown;
                 @Down.canceled += instance.OnDown;
+                @Thow.started += instance.OnThow;
+                @Thow.performed += instance.OnThow;
+                @Thow.canceled += instance.OnThow;
             }
         }
     }
@@ -411,5 +461,6 @@ public class @NewInputSet : IInputActionCollection, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnDown(InputAction.CallbackContext context);
+        void OnThow(InputAction.CallbackContext context);
     }
 }

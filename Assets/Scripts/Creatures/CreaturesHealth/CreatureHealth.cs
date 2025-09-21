@@ -76,7 +76,7 @@ namespace Creatures.CreaturesHealth
 
             if (facingCreature != null)
             {
-                int enemyFacingDirectionDirection = attacker.GetComponent<Creature>().FacingDirection;
+                int enemyFacingDirectionDirection = attacker.GetComponent<IFacingDirection>().FacingDirection;
 
                 if (enemyFacingDirectionDirection == _creature.FacingDirection)
                 {

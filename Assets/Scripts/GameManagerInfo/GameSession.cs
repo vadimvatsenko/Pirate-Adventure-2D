@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace GameManagerInfo
 {
@@ -7,6 +8,12 @@ namespace GameManagerInfo
     {
         [SerializeField] private PlayerData playerData;
         public PlayerData PlayerData => playerData;
+        
+        //Temp
+        private LevelController _levelController;
+        public LevelController LevelController => _levelController;
+        //
+        
         private void Awake()
         {
             // Если уже существует другой объект GameSession, текущий уничтожается.
@@ -19,6 +26,8 @@ namespace GameManagerInfo
             {
                 DontDestroyOnLoad(this);
             }
+            
+            _levelController = new LevelController();
         }
 
         // Находит все объекты GameSession в сцене:
@@ -33,6 +42,20 @@ namespace GameManagerInfo
                 if(gameSession != this) return true;
             }
             return false;
+        }
+        
+        // Temp
+        public void LoadNextLevel()
+        {
+            _levelController.LoadNextLevel();
+        }
+
+        public void ReloadLevel() => StartCoroutine(ReloadLevelWhithDelay(2f));
+        
+        private IEnumerator ReloadLevelWhithDelay(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            _levelController.ReloadLevel();
         }
     }
 }

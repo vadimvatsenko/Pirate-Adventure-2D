@@ -21,10 +21,10 @@ namespace Creatures.CreaturesHealth
             
             if(isDead) return;
             
-            if (attacker == _hero)
+            if (attacker != null)
             {
                 if(_enemy.StateMachine.CurrentState == _enemy.BattleState) return;
-                if(_enemy.StateMachine.CurrentState == _enemy.AttackState) return;
+                if(_enemy.StateMachine.CurrentState == _enemy.EnemyAttackState) return;
                 
                 _enemy.StateMachine.ChangeState(_enemy.BattleState);
             }

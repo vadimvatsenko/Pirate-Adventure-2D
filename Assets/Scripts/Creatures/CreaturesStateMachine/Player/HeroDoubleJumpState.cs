@@ -14,7 +14,7 @@ namespace Creatures.CreaturesStateMachine.Player
         {
             base.Enter();
             
-            Rb2D.velocity = new Vector2(Rb2D.velocity.x, Hr.DoubleJumpForce);
+            //Rb2D.velocity = new Vector2(Rb2D.velocity.x, Hr.DoubleJumpForce);
         }
 
         public override void Update()

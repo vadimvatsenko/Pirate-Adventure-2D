@@ -8,8 +8,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
     public class EnemyState : CreatureState
     {
         protected readonly Enemy Enemy;
-        private Hero Hr;
-        protected readonly EnemyCollisionInfo CollisionInfo;
+        private Hero _hr;
+        protected readonly EnemyCollisionInfo EnemyCollisionInfo;
         
         public EnemyState(Enemy enemy, CreatureStateMachine stateMachine, int animBoolName) 
             : base(enemy, stateMachine, animBoolName)
@@ -17,7 +17,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
             Enemy = enemy;
             StateMachine = stateMachine;
             
-            if (Enemy != null) CollisionInfo = Enemy.EnemyCollisionInfo;
+            if (Enemy != null) EnemyCollisionInfo = Enemy.EnemyCollisionInfo;
 
             //Health.SubscribeOnHitEvent(CallHitState);
         }
@@ -34,16 +34,16 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
         
         protected float DistanceToHero()
         {
-            Hr = Enemy.Hr;
-            if (Hr == null) return float.MaxValue;
+            _hr = Enemy.Hr;
+            if (_hr == null) return float.MaxValue;
 
-            return Mathf.Abs(Hr.transform.position.x - Enemy.transform.position.x);
+            return Mathf.Abs(_hr.transform.position.x - Enemy.transform.position.x);
         }
 
         protected int DirectionToHero()
         {
-            if (Hr == null) return 0;
-            else return Hr.transform.position.x > Enemy.transform.position.x ? 1 : -1;
+            if (_hr == null) return 0;
+            else return _hr.transform.position.x > Enemy.transform.position.x ? 1 : -1;
         }
     }
 }

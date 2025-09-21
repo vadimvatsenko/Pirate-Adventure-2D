@@ -27,7 +27,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
                 StateMachine.ChangeState(Enemy.IdleState);
             } 
             
-            else if (CollisionInfo.HeroDetection())
+            else if (EnemyCollisionInfo.HeroDetection())
             {
                 //StateMachine.ChangeState(Sharky.BattleState);
                 StateMachine.ChangeState(Enemy.AggroState);

@@ -1,7 +1,6 @@
 ﻿using Creatures.AnimationControllers;
 using Creatures.CreaturesCollisions;
 using Creatures.CreaturesStateMachine.CreatureBasic;
-using Creatures.Settings;
 using GameManagerInfo;
 using UnityEngine;
 
@@ -11,7 +10,6 @@ namespace Creatures.CreaturesStateMachine.Player
     {
         public GameSession GameSess { get; private set;}
         public NewInputSet NewInputSet { get; private set; }
-        public GameManager GameMg { get; private set; }
         
         public HeroCollisionInfo HeroCollision { get; private set; }
         
@@ -26,27 +24,13 @@ namespace Creatures.CreaturesStateMachine.Player
         private float _coyoteJumpActivated = -1; 
         public float CoyoteJumpWindow => coyoteJumpWindow;
         public float CoyoteJumpActivated => _coyoteJumpActivated;
-        
-        [Header("DoubleJump Info")] 
-        [SerializeField] private float doubleJumpForce;
-        public float DoubleJumpForce => doubleJumpForce;
-        public bool CanDoubleJump { get; private set; }
-        public bool IsAirBorn { get; private set; }
 
-        [Header("Attack Info")] 
-        [SerializeField] private int attackForce = 1;
-        public int AttackForce => attackForce;
-        
-        [Header("Climb Info")]
-        [SerializeField] private BoxCollider2D[] climbingBoxes;
-        public BoxCollider2D ClimbingBox => climbingBoxes[0];
         
         protected override void Awake()
         {
             base.Awake();
             NewInputSet = new NewInputSet();
             GameSess = FindObjectOfType<GameSession>();
-            GameMg = FindObjectOfType<GameManager>();
             HeroCollision = GetComponent<HeroCollisionInfo>();
         }
         
@@ -61,6 +45,7 @@ namespace Creatures.CreaturesStateMachine.Player
             DeathState = new HeroDeathState(this, StateMachine, AnimatorHashes.Death);
             HitState = new HeroHitState(this, StateMachine, AnimatorHashes.Hit);
             ClimbState = new HeroClimbState(this, StateMachine, AnimatorHashes.Climb);
+            ThrowState = new HeroThrowState(this, StateMachine, AnimatorHashes.Throw); // ++
                 
             StateMachine.Initialize(IdleState);
         }
@@ -81,46 +66,12 @@ namespace Creatures.CreaturesStateMachine.Player
         protected override void Update()
         {
             base.Update();
-            //UpdateAirBornStatus();
-            
             HandleFlip();
         }
 
         private void FixedUpdate()
         {
-            HeroCollision.CheckHeroGrab();
-            //Debug.Log(HeroCollision.IsGrabb);
+            //HeroCollision.CheckHeroGrab();
         }
-        
-        
-        /*public void HandleJump(bool isPressedSpace)
-        {
-            _isPressedJumpButton = isPressedSpace;
-            if (_isPressedJumpButton)
-            {
-                if (CollisionInfo.IsGrounded)
-                {
-                    CallOnJumpEvent(); // событие
-                    StateMachine.ChangeState(HeroJumpFallState);
-                }
-
-                if (IsAirBorn && CanDoubleJump)
-                {
-                    CallOnJumpEvent();
-                    HandleDoubleJump();
-                }
-            }
-
-            else if (Rb2D.velocity.y > 0) // уменьшаем прыжок, если кнопка не нажата.
-            {
-                Rb2D.velocity = new Vector2(Rb2D.velocity.x, Rb2D.velocity.y * 0.5f);
-            }
-        }
-
-        private void HandleDoubleJump()
-        {
-            CanDoubleJump = false;
-        }*/
-        
     }
 }

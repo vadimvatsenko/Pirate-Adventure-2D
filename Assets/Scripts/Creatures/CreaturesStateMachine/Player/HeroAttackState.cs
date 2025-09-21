@@ -10,42 +10,20 @@ namespace Creatures.CreaturesStateMachine.Player
             : base(hero, stateMachine, animBoolName)
         {
         }
-
-        public override void Enter()
-        {
-            base.Enter();
-        }
-
+        
         public override void Update()
         {
             base.Update();
+
+            if (CollisionInfo.IsGrounded)
+            {
+                Rb2D.velocity = Vector2.zero;
+            }
             
-            Rb2D.velocity = Vector2.zero;
             if(StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Attack)) && StateInfo.normalizedTime > 1.0f)
             {
-                Attack();
                 StateMachine.ChangeState(Hr.IdleState);
             }
-        }
-        
-        public void Attack()
-        {
-            /*if (!Hr.GameSess.PlayerData.isArmed || !CollisionInfo.IsGrounded) return;
-            
-            Hr.CallOnAttackEvent();
-            
-            var gos = CollisionInfo.GetObjectsInRange();
-            
-            foreach (var go in gos)
-            {
-                var hp = go.GetComponent<HealthComponent>();
-                
-                if (hp != null)
-                {
-                    if(hp.Health <= 0) return;
-                    hp.ApplyDamage(Hr.AttackForce);
-                }
-            }*/
         }
     }
 }
