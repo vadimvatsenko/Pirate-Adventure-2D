@@ -23,7 +23,7 @@ namespace Creatures.CreaturesCollisions
         {
             base.OnDrawGizmos();
             Gizmos.color = Color.magenta;
-            Gizmos.DrawRay(grabbingCheckTransform.position, grabbingCheckTransform.right * grabbingChecDistance);
+            //Gizmos.DrawRay(grabbingCheckTransform.position, grabbingCheckTransform.right * grabbingChecDistance);
         }
     }
 }
