@@ -59,7 +59,7 @@ public class @NewInputSet : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Thow"",
+                    ""name"": ""Throw"",
                     ""type"": ""Button"",
                     ""id"": ""ca804f67-3f4f-4998-be1a-225a76e008f7"",
                     ""expectedControlType"": ""Button"",
@@ -262,7 +262,7 @@ public class @NewInputSet : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Xbox"",
-                    ""action"": ""Thow"",
+                    ""action"": ""Throw"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -273,7 +273,7 @@ public class @NewInputSet : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Thow"",
+                    ""action"": ""Throw"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -317,7 +317,7 @@ public class @NewInputSet : IInputActionCollection, IDisposable
         m_Hero_Attack = m_Hero.FindAction("Attack", throwIfNotFound: true);
         m_Hero_Interact = m_Hero.FindAction("Interact", throwIfNotFound: true);
         m_Hero_Down = m_Hero.FindAction("Down", throwIfNotFound: true);
-        m_Hero_Thow = m_Hero.FindAction("Thow", throwIfNotFound: true);
+        m_Hero_Throw = m_Hero.FindAction("Throw", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -372,7 +372,7 @@ public class @NewInputSet : IInputActionCollection, IDisposable
     private readonly InputAction m_Hero_Attack;
     private readonly InputAction m_Hero_Interact;
     private readonly InputAction m_Hero_Down;
-    private readonly InputAction m_Hero_Thow;
+    private readonly InputAction m_Hero_Throw;
     public struct HeroActions
     {
         private @NewInputSet m_Wrapper;
@@ -382,7 +382,7 @@ public class @NewInputSet : IInputActionCollection, IDisposable
         public InputAction @Attack => m_Wrapper.m_Hero_Attack;
         public InputAction @Interact => m_Wrapper.m_Hero_Interact;
         public InputAction @Down => m_Wrapper.m_Hero_Down;
-        public InputAction @Thow => m_Wrapper.m_Hero_Thow;
+        public InputAction @Throw => m_Wrapper.m_Hero_Throw;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -407,9 +407,9 @@ public class @NewInputSet : IInputActionCollection, IDisposable
                 @Down.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnDown;
                 @Down.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnDown;
                 @Down.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnDown;
-                @Thow.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnThow;
-                @Thow.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnThow;
-                @Thow.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnThow;
+                @Throw.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnThrow;
+                @Throw.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnThrow;
+                @Throw.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnThrow;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -429,9 +429,9 @@ public class @NewInputSet : IInputActionCollection, IDisposable
                 @Down.started += instance.OnDown;
                 @Down.performed += instance.OnDown;
                 @Down.canceled += instance.OnDown;
-                @Thow.started += instance.OnThow;
-                @Thow.performed += instance.OnThow;
-                @Thow.canceled += instance.OnThow;
+                @Throw.started += instance.OnThrow;
+                @Throw.performed += instance.OnThrow;
+                @Throw.canceled += instance.OnThrow;
             }
         }
     }
@@ -461,6 +461,6 @@ public class @NewInputSet : IInputActionCollection, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnDown(InputAction.CallbackContext context);
-        void OnThow(InputAction.CallbackContext context);
+        void OnThrow(InputAction.CallbackContext context);
     }
 }

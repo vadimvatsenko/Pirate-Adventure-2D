@@ -5,13 +5,11 @@ using UnityEngine;
 // состояние броска
 namespace Creatures.CreaturesStateMachine.Player
 {
-    public class HeroThrowState : HeroState
+    public class HeroThrowState : HeroTrowStateController
     {
-        private int _count;
         public HeroThrowState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {
-            _count = 3;
         }
         
         public override void Update()

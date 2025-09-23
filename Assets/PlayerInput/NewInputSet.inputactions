@@ -46,7 +46,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Thow",
+                    "name": "Throw",
                     "type": "Button",
                     "id": "ca804f67-3f4f-4998-be1a-225a76e008f7",
                     "expectedControlType": "Button",
@@ -249,7 +249,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Xbox",
-                    "action": "Thow",
+                    "action": "Throw",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -260,7 +260,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Thow",
+                    "action": "Throw",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

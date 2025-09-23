@@ -11,11 +11,15 @@ namespace Creatures.CreaturesStateMachine.Player
         protected readonly Hero Hr;
         private readonly PlayerHealthComponent _healthComponent;
         private bool _isSubscribed;
+        
+        //temp
+        private int _throwSimpleIndex = 1;
+        private int _throwComplexIndex = 3;
+        
         public HeroState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {
             Hr = hr;
-            
         }
         
         public override void Enter()
@@ -24,11 +28,10 @@ namespace Creatures.CreaturesStateMachine.Player
             
             if (!_isSubscribed)
             {
-                Hr.NewInputSet.Hero.Thow.started += OnThrowStarted;
+                Hr.NewInputSet.Hero.Throw.started += OnThrowStarted;
                 Hr.NewInputSet.Hero.Attack.started += OnAttackStarted;
                 _isSubscribed = true;
             }
-            
         }
 
         public override void Update()
@@ -42,7 +45,7 @@ namespace Creatures.CreaturesStateMachine.Player
             
             if (_isSubscribed)
             {
-                Hr.NewInputSet.Hero.Thow.started -= OnThrowStarted;
+                Hr.NewInputSet.Hero.Throw.started -= OnThrowStarted;
                 Hr.NewInputSet.Hero.Attack.started -= OnAttackStarted;
                 _isSubscribed = false;
             }
@@ -53,7 +56,10 @@ namespace Creatures.CreaturesStateMachine.Player
             if(Hr.GameSess.PlayerData.swords <= 1) return;
 
             StateMachine.ChangeState(Hr.ThrowState);
+
             Hr.GameSess.PlayerData.swords -= 1;
+            
+            Debug.Log(ctx.duration);
         }
 
         private void OnAttackStarted(InputAction.CallbackContext ctx)
