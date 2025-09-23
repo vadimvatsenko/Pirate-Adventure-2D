@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using Components.Teleport;
-using Creatures.CreaturesStateMachine;
 using Creatures.CreaturesStateMachine.CreatureBasic;
 using UnityEngine;
 

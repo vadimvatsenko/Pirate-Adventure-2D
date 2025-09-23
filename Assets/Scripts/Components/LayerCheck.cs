@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine;
 
 // далее в Hero получаем скрипт, и на основе IsTouchingLayer можем прыгать или нет
 // старый, не используется сейчас, компонент Ground отключен в Hero на сцене в иерархии

@@ -10,7 +10,7 @@ namespace Components.Spawn
         // Префаб партикла
         [SerializeField] protected GameObject prefab;
         
-        protected GameObject SpawnParent; 
+        protected GameObject SpawnParent; // ++
 
         protected void Awake()
         {
@@ -23,7 +23,7 @@ namespace Components.Spawn
             Vector3 spawnPos = transform.position;
             
             GameObject spawnObj = Instantiate(prefab, spawnPos, target.rotation);
-            spawnObj.transform.parent = SpawnParent.transform;
+            spawnObj.transform.parent = SpawnParent.transform; // ++
             
             spawnObj.transform.localScale = target.lossyScale;
             
