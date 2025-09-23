@@ -13,13 +13,15 @@ namespace Creatures.CreaturesCollisions
         
         public void PerformAttack()
         {
-            
             Collider2D[] colls = GetDetectedColliders();
             
             foreach (var col in colls)
             {
                 CreatureHealth health = col.gameObject.GetComponent<CreatureHealth>();
-                health?.TakeDamage(damage, this.transform);
+                if (health != null)
+                {
+                    health?.TakeDamage(damage, this.transform);
+                }
             }
         }
         protected virtual Collider2D[] GetDetectedColliders()

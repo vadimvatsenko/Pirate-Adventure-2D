@@ -9,8 +9,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
         private bool _damageDealt;
         private bool _attackEnded;
         
-        public EnemyAttackState(Enemy enemy, CreatureStateMachine stateMachine, int animBoolName) 
-            : base(enemy, stateMachine, animBoolName)
+        public EnemyAttackState(Enemy en, CreatureStateMachine stateMachine, int animBoolName) 
+            : base(en, stateMachine, animBoolName)
         {
         }
 
@@ -40,7 +40,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
                 if(!_attackEnded && StateInfo.normalizedTime > 1.0f)
                 {
                     _attackEnded = true;
-                    StateMachine.ChangeState(Enemy.BattleState);
+                    StateMachine.ChangeState(En.BattleState);
                 }
             }
         }

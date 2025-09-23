@@ -11,9 +11,9 @@ namespace Creatures.CreaturesHealth
 
         [SerializeField] protected float maxHealth = 100f;
         [SerializeField] protected bool isDead;
+        [SerializeField] protected float currentHealth;
 
         private float _previousHealth;
-        private float _currentHealth;
         private CreatureVFX _creaturesVFX;
         private Creature _creature;
         
@@ -23,10 +23,10 @@ namespace Creatures.CreaturesHealth
         {
             _creaturesVFX = GetComponent<CreatureVFX>();
             _creature = GetComponentInParent<Creature>();
-            _currentHealth = maxHealth;
-            _previousHealth = _currentHealth;
+            currentHealth = maxHealth;
+            _previousHealth = currentHealth;
             
-            OnHealthChange?.Invoke(_previousHealth, _currentHealth);
+            OnHealthChange?.Invoke(_previousHealth, currentHealth);
         }
         
         public virtual void TakeDamage(float damage, Transform attacker)
@@ -51,12 +51,12 @@ namespace Creatures.CreaturesHealth
         {
             if(isDead) return;
             
-            _previousHealth = _currentHealth;
-            _currentHealth -= damage;
+            _previousHealth = currentHealth;
+            currentHealth -= damage;
             
-            OnHealthChange?.Invoke(_previousHealth, _currentHealth);
+            OnHealthChange?.Invoke(_previousHealth, currentHealth);
 
-            if (_currentHealth <= 0f)
+            if (currentHealth <= 0f)
             {
                 Die();
             }
@@ -83,8 +83,7 @@ namespace Creatures.CreaturesHealth
                     _creature.Flip();
                 }
             }
-
-
+            
             //Vector2 hitPower = _creature.HitPower;
 
             Vector2 hitPower = IsHeavyDamage(damage) ? _creature.HeavyHitPower : _creature.HitPower;
@@ -99,5 +98,4 @@ namespace Creatures.CreaturesHealth
         private bool IsHeavyDamage(float damage) => 
             damage / maxHealth > _creature.HeavyDamageThreshold;
     }
-
 }

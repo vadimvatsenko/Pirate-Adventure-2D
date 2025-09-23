@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Utils;
 
 namespace Components.Spawn
 {
@@ -9,12 +10,20 @@ namespace Components.Spawn
         // Префаб партикла
         [SerializeField] protected GameObject prefab;
         
-        [ContextMenu("Spawn")]
+        protected GameObject SpawnParent; 
+
+        protected void Awake()
+        {
+            SpawnParent = FindObjectOfType<VfxHolder>().gameObject;
+        }
+        
+        //[ContextMenu("Spawn")]
         public virtual void Spawn()
         {
             Vector3 spawnPos = transform.position;
             
             GameObject spawnObj = Instantiate(prefab, spawnPos, target.rotation);
+            spawnObj.transform.parent = SpawnParent.transform;
             
             spawnObj.transform.localScale = target.lossyScale;
             

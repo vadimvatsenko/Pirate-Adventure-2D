@@ -17,8 +17,7 @@ namespace Components.Spawn
         {
             owner.UnsubscribeOnThrowEvent(Spawn);
         }
-
-        //[ContextMenu("Spawn2")]
+        
         public override void Spawn()
         {
             Vector3 spawnPos = target.position;
@@ -31,10 +30,10 @@ namespace Components.Spawn
             {
                 projectTile.SetDirection(owner.FacingDirection);
             }
+            
             spawnObj.transform.localScale = target.lossyScale;
-            
+            spawnObj.transform.parent = SpawnParent.transform;
             spawnObj.SetActive(true);
-            
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Creatures.Weapons
             _rigidbody = GetComponent<Rigidbody2D>();
         }
 
+        
         public void SetDirection(int direction)
         {
             FacingDirection = direction;

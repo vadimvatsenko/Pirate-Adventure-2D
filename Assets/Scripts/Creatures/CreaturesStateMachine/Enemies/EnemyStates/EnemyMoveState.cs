@@ -4,8 +4,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 {
     public class EnemyMoveState : EnemyGroundedState
     {
-        public EnemyMoveState(Enemy enemy, CreatureStateMachine stateMachine, int animBoolName) 
-            : base(enemy, stateMachine, animBoolName)
+        public EnemyMoveState(Enemy en, CreatureStateMachine stateMachine, int animBoolName) 
+            : base(en, stateMachine, animBoolName)
         {
         }
         
@@ -17,7 +17,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
         public override void Update()
         {
             base.Update();
-            Enemy.HandleMovement();
+            En.HandleMovement();
         }
 
         public override void Exit()

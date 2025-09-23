@@ -6,8 +6,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 {
     public class EnemyAggroState : EnemyState
     {
-        public EnemyAggroState(Enemy enemy, CreatureStateMachine stateMachine, int animBoolName)
-            : base(enemy, stateMachine, animBoolName)
+        public EnemyAggroState(Enemy en, CreatureStateMachine stateMachine, int animBoolName)
+            : base(en, stateMachine, animBoolName)
         {
         }
 
@@ -23,8 +23,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 
             if (StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Aggro)) && StateInfo.normalizedTime > 1.0f)
             {
-                Enemy.CallOnAgroEvent(); // VFX Agro
-                StateMachine.ChangeState(Enemy.BattleState);
+                En.CallOnAgroEvent(); // VFX Agro
+                StateMachine.ChangeState(En.BattleState);
             }
         }
     }

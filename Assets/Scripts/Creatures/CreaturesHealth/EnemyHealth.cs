@@ -6,14 +6,9 @@ namespace Creatures.CreaturesHealth
 {
     public class EnemyHealth : CreatureHealth
     {
-        private Transform _hero;
         private Enemy _enemy;
 
-        private void Start()
-        {
-            _hero = FindObjectOfType<Hero>().transform;
-            _enemy = GetComponent<Enemy>();
-        }
+        private void Start() =>  _enemy = GetComponent<Enemy>();
 
         public override void TakeDamage(float damage, Transform attacker)
         {

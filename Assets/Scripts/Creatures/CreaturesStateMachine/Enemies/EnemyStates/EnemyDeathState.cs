@@ -1,4 +1,6 @@
-﻿using Creatures.CreaturesStateMachine.CreatureBasic;
+﻿using Components.HealthComponentFolder;
+using Creatures.CreaturesHealth;
+using Creatures.CreaturesStateMachine.CreatureBasic;
 using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
@@ -13,8 +15,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
         private float _startTime;
         private readonly float _duration;
         
-        public EnemyDeathState(Enemy enemy, CreatureStateMachine stateMachine, int animBoolName) 
-            : base(enemy, stateMachine, animBoolName)
+        public EnemyDeathState(Enemy en, CreatureStateMachine stateMachine, int animBoolName) 
+            : base(en, stateMachine, animBoolName)
         {
             _deathCollider = C2D as CapsuleCollider2D;
             _startColSize = C2D.bounds.size;
@@ -29,6 +31,9 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
         {
             base.Enter();
             StateMachine.SwitchOffStateMachine();
+            
+            En.GetComponent<CreatureHealth>().enabled = false;
+                
         }
 
         public override void Update()

@@ -5,8 +5,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 {
     public class EnemyRespawnState : EnemyState
     {
-        public EnemyRespawnState(Enemy enemy, CreatureStateMachine stateMachine, int animBoolName) 
-            : base(enemy, stateMachine, animBoolName)
+        public EnemyRespawnState(Enemy en, CreatureStateMachine stateMachine, int animBoolName) 
+            : base(en, stateMachine, animBoolName)
         {
         }
 
@@ -22,7 +22,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
             {
                 if (Health.Health <= 0 && StateInfo.normalizedTime > 0.1f)
                 {
-                    StateMachine.ChangeState(Enemy.IdleState);
+                    StateMachine.ChangeState(En.IdleState);
                 }
             }
         }

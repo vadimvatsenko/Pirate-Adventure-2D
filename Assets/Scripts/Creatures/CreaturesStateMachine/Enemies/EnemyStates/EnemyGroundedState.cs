@@ -5,8 +5,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 {
     public class EnemyGroundedState : EnemyState
     {
-        public EnemyGroundedState(Enemy enemy, CreatureStateMachine stateMachine, int animBoolName) 
-            : base(enemy, stateMachine, animBoolName)
+        public EnemyGroundedState(Enemy en, CreatureStateMachine stateMachine, int animBoolName) 
+            : base(en, stateMachine, animBoolName)
         {
         }
         
@@ -19,18 +19,18 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
                 Sharky.StateMachine.ChangeState(Sharky.JumpState);
             }*/
 
-            if (Enemy.EnemyCollisionInfo.IsWallDetected 
-                || Enemy.EnemyCollisionInfo.IsAbyssDetected)
+            if (En.EnemyCollisionInfo.IsWallDetected 
+                || En.EnemyCollisionInfo.IsAbyssDetected)
             {
                 Rb2D.velocity = Vector2.zero;
-                Enemy.HandleFlip();
-                StateMachine.ChangeState(Enemy.IdleState);
+                En.HandleFlip();
+                StateMachine.ChangeState(En.IdleState);
             } 
             
             else if (EnemyCollisionInfo.HeroDetection())
             {
                 //StateMachine.ChangeState(Sharky.BattleState);
-                StateMachine.ChangeState(Enemy.AggroState);
+                StateMachine.ChangeState(En.AggroState);
             }
         }
     }
