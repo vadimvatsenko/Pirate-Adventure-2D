@@ -38,8 +38,6 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         public float HeavyHitDuration => heavyHitDuration;
         public float HeavyDamageThreshold => heavyDamageThreshold;
         
-        //
-
         // Components
         public Animator AnimController { get; protected set; }
         public CreatureCollisionInfo CollisionInfo { get; private set; }
@@ -79,10 +77,8 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
             C2D = GetComponent<Collider2D>();
             
             AnimController = GetComponentInChildren<Animator>();
-            
             CollisionInfo = GetComponent<CreatureCollisionInfo>();
             StateMachine = new CreatureStateMachine();
-            
             HandleStateChange = new CreatureHandleStateChange(this, StateMachine);
         }
         

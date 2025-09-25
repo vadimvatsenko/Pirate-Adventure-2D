@@ -274,7 +274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 51
   targetCheck: {fileID: 1376338671}
-  detectionRadius: 0.5
+  detectionRadius: 0.25
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 65536

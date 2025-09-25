@@ -1,12 +1,14 @@
-﻿using Creatures.AnimationControllers;
+﻿using System;
+using Creatures.AnimationControllers;
 using Creatures.CreaturesStateMachine.CreatureBasic;
 using UnityEngine;
 
 // состояние броска
 namespace Creatures.CreaturesStateMachine.Player
 {
-    public class HeroThrowState : HeroTrowStateController
+    public class HeroThrowState : HeroState
     {
+        
         public HeroThrowState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {
@@ -23,6 +25,11 @@ namespace Creatures.CreaturesStateMachine.Player
             {
                 StateMachine.ChangeState(Hr.IdleState);
             }
+        }
+
+        public override void Exit()
+        {
+            base.Exit();
         }
     }
 }
