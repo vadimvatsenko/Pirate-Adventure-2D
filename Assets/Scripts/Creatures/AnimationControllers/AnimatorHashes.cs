@@ -23,6 +23,7 @@ namespace Creatures.AnimationControllers
         public static readonly int Respawn = Animator.StringToHash("respawn");
         public static readonly int Climb = Animator.StringToHash("climb");
         public static readonly int Throw = Animator.StringToHash("throw"); // ++
+        public static readonly int ThrowTrigger = Animator.StringToHash("throwTrigger");
 
         private static readonly Dictionary<int, string> HashToName = new Dictionary<int, string>()
         {
@@ -42,6 +43,7 @@ namespace Creatures.AnimationControllers
             { Respawn, "respawn" },
             { Climb, "climb" },
             { Throw, "throw" }, // ++
+            { ThrowTrigger, "throwTrigger" },
             
         };
 

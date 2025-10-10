@@ -8,28 +8,40 @@ namespace Creatures.CreaturesStateMachine.Player
 {
     public class HeroThrowState : HeroState
     {
-        
+        private float _currentGravity;
         public HeroThrowState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {
         }
-        
+
+        public override void Enter()
+        {
+            base.Enter();
+            _currentGravity = Rb2D.gravityScale;
+            Rb2D.velocity = Vector2.zero;
+            Rb2D.gravityScale = 0f;
+        }
+
         public override void Update()
         {
             base.Update();
-            Rb2D.velocity = Vector2.zero;
             
-            if(StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Throw)) 
-               
-               && StateInfo.normalizedTime >= 1.0f)
+            if (Mathf.Approximately(AnimContr.GetFloat(AnimatorHashes.ThrowTrigger), 1))
             {
-                StateMachine.ChangeState(Hr.IdleState);
+                if(StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Throw)) 
+               
+                   && StateInfo.normalizedTime >= 1f)
+                {
+                    StateMachine.ChangeState(Hr.IdleState);
+                    Debug.Log("Idle State");
+                }
             }
         }
 
         public override void Exit()
         {
             base.Exit();
+            Rb2D.gravityScale = _currentGravity;
         }
     }
 }

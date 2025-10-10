@@ -52,8 +52,8 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
 
         public virtual void Exit()
         {
-            AnimContr.SetBool(AnimBoolName, false); // выход
             OnExitEvent?.Invoke();
+            AnimContr.SetBool(AnimBoolName, false); // выход
         }
     }
 }

@@ -10,6 +10,7 @@ namespace Creatures.CreaturesStateMachine.Player
     {
         public GameSession GameSess { get; private set;} //
         public NewInputSet NewInputSet { get; private set; }
+        public Animator HeroAnimator { get; private set; }
         
         public HeroCollisionInfo HeroCollision { get; private set; }
         private HeroStatesController _heroStatesController;
@@ -33,6 +34,7 @@ namespace Creatures.CreaturesStateMachine.Player
             NewInputSet = new NewInputSet();
             GameSess = FindObjectOfType<GameSession>();
             HeroCollision = GetComponent<HeroCollisionInfo>();
+            HeroAnimator = GetComponentInChildren<Animator>();
             
         }
         
@@ -51,7 +53,8 @@ namespace Creatures.CreaturesStateMachine.Player
                 
             StateMachine.Initialize(IdleState);
             
-            _heroStatesController = new HeroStatesController(this, StateMachine, NewInputSet, GameSess);
+            _heroStatesController 
+                = new HeroStatesController(this, StateMachine, NewInputSet, GameSess, HeroAnimator);
         }
 
         private void OnEnable()

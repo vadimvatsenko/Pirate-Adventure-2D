@@ -8,36 +8,31 @@ namespace Components.Spawn
     public class SpawnProjectTiles : SpawnComponent
     {
         [SerializeField] private Creature owner;
-        
-        private void OnEnable()
-        {
-            owner.SubscribeOnThrowEvent(Spawn);
-        }
 
-        private void OnDisable()
-        {
-            owner.UnsubscribeOnThrowEvent(Spawn);
-        }
+        private void OnEnable() => owner.SubscribeOnThrowEvent(Spawn);
         
+        private void OnDisable() => owner.UnsubscribeOnThrowEvent(Spawn);
+        
+        [ContextMenu("Spawn ProjectTiles")]
         public override void Spawn()
         {
-            for (int i = 0; i < 2; i++)
+
+            Debug.Log("Spawn");
+            Vector3 spawnPos = target.position;
+
+            GameObject spawnObj = Instantiate(prefab, spawnPos, Quaternion.identity);
+
+            ProjectTile projectTile = spawnObj.GetComponent<ProjectTile>();
+
+            if (projectTile != null)
             {
-                Vector3 spawnPos = target.position;
-                
-                GameObject spawnObj = Instantiate(prefab, spawnPos, Quaternion.identity);
-            
-                ProjectTile projectTile = spawnObj.GetComponent<ProjectTile>();
-            
-                if (projectTile != null)
-                {
-                    projectTile.SetDirection(owner.FacingDirection);
-                }
-            
-                spawnObj.transform.localScale = target.lossyScale;
-                spawnObj.transform.parent = SpawnParent.transform;
-                spawnObj.SetActive(true);
+                projectTile.SetDirection(owner.FacingDirection);
             }
+
+            spawnObj.transform.localScale = target.lossyScale;
+            spawnObj.transform.parent = SpawnParent.transform;
+            spawnObj.SetActive(true);
+
         }
     }
 }

@@ -1,6 +1,6 @@
-﻿using Creatures.CreaturesStateMachine.CreatureBasic;
+﻿using Creatures.AnimationControllers;
+using Creatures.CreaturesStateMachine.CreatureBasic;
 using GameManagerInfo;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,6 +12,7 @@ namespace Creatures.CreaturesStateMachine.Player
         private readonly CreatureStateMachine _stateMachine;
         private readonly NewInputSet _newInputSet;
         private readonly GameSession _gameSession;
+        private readonly Animator _animator;
 
         private float _throwPressedTime;
         private bool _isSubscribed;
@@ -22,19 +23,21 @@ namespace Creatures.CreaturesStateMachine.Player
         public HeroStatesController(Creature creature, 
             CreatureStateMachine stateMachine, 
             NewInputSet newInputSet,
-            GameSession gameSession)
+            GameSession gameSession,
+            Animator animator)
         {
             _creature = creature;
             _stateMachine = stateMachine;
             _newInputSet  = newInputSet;
             _gameSession = gameSession;
+            _animator = animator;
             
             if (!_isSubscribed && (newInputSet != null))
             {
                 _newInputSet.Hero.Attack.started += OnAttackStarted;
                 
-                _newInputSet.Hero.Throw.started += OnThrowStarted;
-                _newInputSet.Hero.Throw.canceled += OnthrowCanceled;
+                _newInputSet.Hero.Throw.started += OnThrowBtnStarted;
+                _newInputSet.Hero.Throw.canceled += OnthrowBtnCanceled;
                 
                 _creature.ThrowState.OnExitEvent += TryStartNextThrow;
                 
@@ -46,8 +49,8 @@ namespace Creatures.CreaturesStateMachine.Player
         {
             if (_isSubscribed)
             {
-                _newInputSet.Hero.Throw.started -= OnThrowStarted;
-                _newInputSet.Hero.Throw.canceled -= OnthrowCanceled;
+                _newInputSet.Hero.Throw.started -= OnThrowBtnStarted;
+                _newInputSet.Hero.Throw.canceled -= OnthrowBtnCanceled;
                 
                 _newInputSet.Hero.Attack.started -= OnAttackStarted;
                 
@@ -56,14 +59,20 @@ namespace Creatures.CreaturesStateMachine.Player
                 _isSubscribed = false;
             }
         }
-        
-        private void OnThrowStarted(InputAction.CallbackContext ctx) 
-            => _throwPressedTime = (float)ctx.time;
-        private void OnthrowCanceled(InputAction.CallbackContext ctx)
+
+        private void OnThrowBtnStarted(InputAction.CallbackContext ctx)
         {
-            if (_gameSession.PlayerData.swords <= 0 || _isThrowing) return;
+            if(_gameSession.PlayerData.swords <= 1) return;
             
+            _throwPressedTime = (float)ctx.time;
+            _animator.SetFloat(AnimatorHashes.ThrowTrigger, 0f);
+            _stateMachine.ChangeState(_creature.ThrowState);
+            
+        }
+        private void OnthrowBtnCanceled(InputAction.CallbackContext ctx)
+        {
             float holdTime = (float)ctx.time - _throwPressedTime;
+            
             // 1..3 броска по длительности удержания
             int wanted = Mathf.Clamp(Mathf.RoundToInt(holdTime), 1, 3);
             
@@ -74,27 +83,20 @@ namespace Creatures.CreaturesStateMachine.Player
             
             _pendingThrows = can;
             
-            TryStartNextThrow();
+            _animator.SetFloat(AnimatorHashes.ThrowTrigger, 1f);
         }
-        
-        
+
+
         private void TryStartNextThrow()
         {
-            _isThrowing = true;
-            
             if (_pendingThrows > 0)
             {
-                _isThrowing = false;
                 _pendingThrows--;
+                _gameSession.PlayerData.swords--;
                 _stateMachine.ChangeState(_creature.ThrowState);
             }
-            else
-            {
-                _stateMachine.ChangeState(_creature.IdleState);
-            }
-            
         }
-        
+
         private void OnAttackStarted(InputAction.CallbackContext ctx)
         {
             if (_gameSession.PlayerData.isArmed)
