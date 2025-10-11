@@ -6,14 +6,6 @@ namespace Items.Traps.Totems
 {
     public class TotemTrap : BasicCreature
     {
-
-        public Action TestEvent;
-        
-        public void STE(Action action) => TestEvent += action;
-        public void UnSTE(Action action) => TestEvent -= action;
-        
-        public void CallTestEvent() => TestEvent?.Invoke();
-        
         protected override void Awake()
         {
             base.Awake();

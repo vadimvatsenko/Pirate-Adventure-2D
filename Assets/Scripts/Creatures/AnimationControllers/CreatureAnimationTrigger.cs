@@ -26,7 +26,6 @@ namespace Creatures.AnimationControllers
         // триггер броска оружия, вызывается в аниматоре
         private void ThrowTrigger()
         {
-            Debug.Log("Shoot");
             _creature.CallOnThrowEvent();
         }
     }
