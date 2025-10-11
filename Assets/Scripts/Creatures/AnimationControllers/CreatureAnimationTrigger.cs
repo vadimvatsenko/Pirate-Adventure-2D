@@ -13,7 +13,7 @@ namespace Creatures.AnimationControllers
 
         private void Awake()
         {
-            _creature = GetComponentInParent<Creature>();
+            _creature = GetComponentInParent<BasicCreature>();
             _combatCollisions = GetComponentInParent<CombatCollisions>();
         }
 
