@@ -7,7 +7,7 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
 {
     public class CreatureState : ICreatureState
     {
-        protected Creature Creature;
+        protected BasicCreature Creature;
         
         protected CreatureStateMachine StateMachine;
         protected readonly Rigidbody2D Rb2D;
@@ -22,7 +22,7 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         public event Action OnEnterEvent; // вход в анимацию
         public event Action OnExitEvent; // выход с анимации
 
-        public CreatureState(Creature creature, CreatureStateMachine stateMachine, int animBoolName)
+        public CreatureState(BasicCreature creature, CreatureStateMachine stateMachine, int animBoolName)
         {
             this.Creature = creature;
             this.StateMachine = stateMachine;
@@ -33,7 +33,7 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
                 this.Rb2D = creature.Rb2D;
                 this.C2D = creature.C2D;
                 AnimContr = creature.GetComponentInChildren<Animator>();
-                this.CollisionInfo = creature.CollisionInfo;
+                this.CollisionInfo = creature.GetComponent<CreatureCollisionInfo>();
                 Health = Creature.GetComponent<HealthComponent>();
             }
         }

@@ -2,6 +2,7 @@
 using Creatures.CreaturesStateMachine.CreatureBasic;
 using Creatures.CreaturesVFX;
 using Creatures.Interfaces;
+using UnityEditorInternal;
 using UnityEngine;
 
 namespace Creatures.CreaturesHealth
@@ -15,14 +16,14 @@ namespace Creatures.CreaturesHealth
 
         private float _previousHealth;
         private CreatureVFX _creaturesVFX;
-        private Creature _creature;
+        private BasicCreature _creature;
         
         public event Action<float, float> OnHealthChange;
         
         protected virtual void Awake()
         {
             _creaturesVFX = GetComponent<CreatureVFX>();
-            _creature = GetComponentInParent<Creature>();
+            _creature = GetComponentInParent<BasicCreature>();
             currentHealth = maxHealth;
             _previousHealth = currentHealth;
             
@@ -77,7 +78,7 @@ namespace Creatures.CreaturesHealth
             if (facingCreature != null)
             {
                 int enemyFacingDirectionDirection = attacker.GetComponent<IFacingDirection>().FacingDirection;
-
+                
                 if (enemyFacingDirectionDirection == _creature.FacingDirection)
                 {
                     _creature.Flip();

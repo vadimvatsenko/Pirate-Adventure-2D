@@ -33,7 +33,6 @@ namespace Creatures.CreaturesStateMachine.Player
                    && StateInfo.normalizedTime >= 1f)
                 {
                     StateMachine.ChangeState(Hr.IdleState);
-                    Debug.Log("Idle State");
                 }
             }
         }

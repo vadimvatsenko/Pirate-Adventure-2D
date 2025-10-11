@@ -7,17 +7,19 @@ namespace Components.Spawn
 {
     public class SpawnProjectTiles : SpawnComponent
     {
-        [SerializeField] private Creature owner;
+        [SerializeField] private BasicCreature owner;
 
-        private void OnEnable() => owner.SubscribeOnThrowEvent(Spawn);
+        private void OnEnable()
+        {
+            owner.SubscribeOnThrowEvent(Spawn);
+            Debug.Log("Subscribed");
+        }
         
         private void OnDisable() => owner.UnsubscribeOnThrowEvent(Spawn);
         
         [ContextMenu("Spawn ProjectTiles")]
         public override void Spawn()
         {
-
-            Debug.Log("Spawn");
             Vector3 spawnPos = target.position;
 
             GameObject spawnObj = Instantiate(prefab, spawnPos, Quaternion.identity);
@@ -32,7 +34,6 @@ namespace Components.Spawn
             spawnObj.transform.localScale = target.lossyScale;
             spawnObj.transform.parent = SpawnParent.transform;
             spawnObj.SetActive(true);
-
         }
     }
 }

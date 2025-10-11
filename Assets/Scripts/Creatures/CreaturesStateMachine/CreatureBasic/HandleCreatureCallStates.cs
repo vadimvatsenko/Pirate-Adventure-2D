@@ -3,7 +3,7 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
 {
     public class HandleCreatureCallStates
     {
-        private readonly Creature _creature;
+        private readonly BasicCreature _creature;
         private readonly CreatureStateMachine _stateMachine;
 
         private HandleCreatureCallStates(Creature creature, CreatureStateMachine stateMachine)

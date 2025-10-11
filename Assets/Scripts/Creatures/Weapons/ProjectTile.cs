@@ -32,7 +32,7 @@ namespace Creatures.Weapons
             _rigidbody.MovePosition(position);
         }
         
-        private void Flip()
+        public void Flip()
         {
             //FacingDirection *= -1;
             transform.Rotate(0f, 180f, 0f);

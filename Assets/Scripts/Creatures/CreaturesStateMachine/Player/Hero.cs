@@ -73,6 +73,7 @@ namespace Creatures.CreaturesStateMachine.Player
         protected override void Update()
         {
             base.Update();
+            
             HandleFlip();
         }
     }
