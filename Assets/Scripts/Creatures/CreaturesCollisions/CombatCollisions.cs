@@ -6,20 +6,23 @@ namespace Creatures.CreaturesCollisions
     public class CombatCollisions : MonoBehaviour
     {
         [Header("Target Detection")] 
-        [SerializeField] private float damage = 10f;
-        [SerializeField] private Transform targetCheck;
-        [SerializeField] private float detectionRadius;
-        [SerializeField] private LayerMask whatIsTarget;
+        [SerializeField] protected float damage = 10f;
+        [SerializeField] protected Transform targetCheck;
+        [SerializeField] protected float detectionRadius;
+        [SerializeField] protected LayerMask whatIsTarget;
         
-        public void PerformAttack()
+        
+        public virtual void PerformAttack()
         {
-            
             Collider2D[] colls = GetDetectedColliders();
             
             foreach (var col in colls)
             {
-                CreatureHealth health = col.gameObject.GetComponent<CreatureHealth>();
-                health?.TakeDamage(damage, this.transform);
+                BasicHealth health = col.gameObject.GetComponent<BasicHealth>();
+                if (health != null)
+                {
+                    health?.TakeDamage(damage, this.transform);
+                }
             }
         }
         protected virtual Collider2D[] GetDetectedColliders()

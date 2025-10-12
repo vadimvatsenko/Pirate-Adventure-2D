@@ -8,8 +8,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
         private Transform _heroPos;
         private float _lastTimeInBattle;
 
-        public EnemyBattleState(Enemy enemy, CreatureStateMachine stateMachine, int animBoolName)
-            : base(enemy, stateMachine, animBoolName)
+        public EnemyBattleState(Enemy en, BasicStateMachine stateMachine, int animBoolName)
+            : base(en, stateMachine, animBoolName)
         {
         }
 
@@ -22,7 +22,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
             
             if (ShouldRetreat())
             {
-                Rb2D.velocity = new Vector2(Enemy.RetreatVelocity.x * -Enemy.FacingDirection, Rb2D.velocity.y);
+                Rb2D.velocity = new Vector2(En.RetreatVelocity.x * -En.FacingDirection, Rb2D.velocity.y);
             }
         }
 
@@ -34,40 +34,40 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
             
             if (BattleTimeIsOver())
             {
-                Enemy.CallOnWTFEvent();
-                StateMachine.ChangeState(Enemy.IdleState);
+                En.CallOnWTFEvent();
+                StateMachine.ChangeState(En.IdleState);
             }
             
-            if (DirectionToHero() != Enemy.FacingDirection)
+            if (DirectionToHero() != En.FacingDirection)
             {
                 if (_heroPos != null)
                 {
-                    if(_heroPos.position.y > Enemy.transform.position.y) return;
-                    Enemy.HandleFlip();
+                    if(_heroPos.position.y > En.transform.position.y) return;
+                    En.HandleFlip();
                 }
             }
             
             if (WithinAttackRange() && EnemyCollisionInfo.HeroDetection())
             {
-                StateMachine.ChangeState(Enemy.AttackState);
+                StateMachine.ChangeState(En.AttackState);
             }
             else
             {
-                Rb2D.velocity = new Vector2(Enemy.BattleSpeed * Enemy.FacingDirection, Rb2D.velocity.y);
+                Rb2D.velocity = new Vector2(En.BattleSpeed * En.FacingDirection, Rb2D.velocity.y);
             }
             
             if (EnemyCollisionInfo.IsAbyssDetected)
             {
-                Enemy.CallOnWTFEvent();
-                StateMachine.ChangeState(Enemy.IdleState);
+                En.CallOnWTFEvent();
+                StateMachine.ChangeState(En.IdleState);
             }
         }
         
         private bool WithinAttackRange() => DistanceToHero() < EnemyCollisionInfo.AttackDistance;
-        private bool ShouldRetreat() => DistanceToHero() < Enemy.MinRetreatDistance;
+        private bool ShouldRetreat() => DistanceToHero() < En.MinRetreatDistance;
 
         // в Update постоянно записываем внутриигровое время
         private void UpdateBattleTimer() => _lastTimeInBattle = Time.time;
-        private bool BattleTimeIsOver() => Time.time > _lastTimeInBattle + Enemy.BattleTimeDuration;
+        private bool BattleTimeIsOver() => Time.time > _lastTimeInBattle + En.BattleTimeDuration;
     }
 }

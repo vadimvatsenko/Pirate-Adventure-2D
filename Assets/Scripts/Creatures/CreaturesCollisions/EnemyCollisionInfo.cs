@@ -1,11 +1,12 @@
-﻿using Creatures.CreaturesStateMachine.Enemies.EnemyStates;
+﻿using Creatures.CreaturesStateMachine.CreatureBasic;
+using Creatures.CreaturesStateMachine.Enemies.EnemyStates;
 using UnityEngine;
 
 namespace Creatures.CreaturesCollisions
 {
-    public class EnemyCollisionInfo : CreatureCollisionInfo
+    public class EnemyCollisionInfo : BasicCollisionInfo
     {
-        private Enemy _sharky;
+        private Enemy _enemy;
         
         [Header("Hero Detection Collision Info")]
         [SerializeField] private LayerMask whatIsHero;
@@ -31,7 +32,7 @@ namespace Creatures.CreaturesCollisions
         protected override void Awake()
         {
             base.Awake();
-            _sharky = GetComponent<Enemy>();
+            _enemy = GetComponent<Enemy>();
         }
 
         public RaycastHit2D HeroDetection()
@@ -82,7 +83,7 @@ namespace Creatures.CreaturesCollisions
                 
                 Gizmos.color = Color.green;
                 Gizmos.DrawLine(Creature.transform.position,
-                    new Vector2(Creature.transform.position.x + (Creature.FacingDirection * _sharky.MinRetreatDistance), 
+                    new Vector2(Creature.transform.position.x + (Creature.FacingDirection * _enemy.MinRetreatDistance), 
                         Creature.transform.position.y));
                 
                 Gizmos.color = Color.blue;

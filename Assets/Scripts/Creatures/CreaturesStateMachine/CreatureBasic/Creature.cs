@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.CreatureBasic
 {
-    public class Creature : MonoBehaviour, IFacingDirection
+    public class Creature : BasicCreature, IHitable
     {
         // Settings
         [Header("Movement info")] 
@@ -14,104 +14,33 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         
         [Header("Jump Info")]
         [SerializeField] protected float jumpForce;
-
-        [Header("Hit Info")] 
-        [SerializeField] private Vector2 hitPower = new Vector2(1.5f, 3f);
-        [SerializeField] private float hitDuration = 0.5f;
-        [Space] // пример для более тяжелого получения урона
-        [SerializeField] private Vector2 heavyHitPower = new Vector2(7f, 7f);
-        [SerializeField] private float heavyHitDuration = 1f;
-        [SerializeField] private float heavyDamageThreshold = 0.3f; // Процент тяжелой атаки
-        
-        private Vector2 _finalHit; // финальное направление при получении удара
-        private float _finalHitDuration;
         
         // Properties
         public float MovementSpeed => movementSpeed;
         public float JumpForce => jumpForce;
-        public Vector2 HitPower => hitPower;
-        public float HitDuration => hitDuration;
-        public Vector2 FinalHit => _finalHit;
-        public float FinalHitDuration => _finalHitDuration;
-        //
-        public Vector2 HeavyHitPower => heavyHitPower;
-        public float HeavyHitDuration => heavyHitDuration;
-        public float HeavyDamageThreshold => heavyDamageThreshold;
         
-        //
-
         // Components
-        public Animator AnimController { get; protected set; }
-        public CreatureCollisionInfo CollisionInfo { get; private set; }
-        public CreatureStateMachine StateMachine { get; protected set; }
-        public Rigidbody2D Rb2D { get; private set; }
-        public Collider2D C2D { get; protected set; }
-        
+        public BasicCollisionInfo CollisionInfo { get; private set; }
         public CreatureHandleStateChange HandleStateChange { get; protected set; }
         
-        // Directions
-        public bool IsFacingRight { get; protected set; } = true;
-        public int FacingDirection { get; protected set; } = 1;
         public float XInput { get; protected set; }
-        
-        // States
-        public CreatureState IdleState { get; protected set; }
-        public CreatureState MoveState { get; protected set; }
-        public CreatureState JumpState { get; protected set; }
-        public CreatureState DoubleJumpState { get; protected set; }
-        
-        public CreatureState AttackState { get; protected set; }
-        public CreatureState FallState { get; protected set; }
-        public CreatureState HitState { get; protected set; }
-        public CreatureState DeathState { get; protected set; }
-        public CreatureState ClimbState { get; protected set; }
-        public CreatureState ThrowState { get; protected set; }
-        
-        // Events
-        public event Action OnJumpEvent;
-        public event Action OnAttackEvent;
-        public event Action OnDeathEvent;
-        public event Action OnThrowEvent; 
         
         protected virtual void Awake()
         {
-            Rb2D = GetComponent<Rigidbody2D>();
-            C2D = GetComponent<Collider2D>();
-            
-            AnimController = GetComponentInChildren<Animator>();
-            
-            CollisionInfo = GetComponent<CreatureCollisionInfo>();
-            StateMachine = new CreatureStateMachine();
-            
+            base.Awake();
+            CollisionInfo = GetComponent<BasicCollisionInfo>();
             HandleStateChange = new CreatureHandleStateChange(this, StateMachine);
         }
         
-        protected virtual void Update()
+        protected override void Update()
         {
+            base.Update();
+            
             CollisionInfo.HandleGroundCheck();
             CollisionInfo.HandleWallCheck();
             
             UpdateAnimationVelocity();
-            StateMachine.CurrentState.Update();
         }
-        
-        // CallEvents
-        // JumpEvent
-        public void CallOnJumpEvent() => OnJumpEvent?.Invoke();
-        public void SubscribeOnJumpEvent(Action action) => OnJumpEvent += action;
-        public void UnsubscribeOnJumpEvent(Action action) => OnJumpEvent -= action;
-        // Attack Event
-        public void CallOnAttackEvent() => OnAttackEvent?.Invoke();
-        public void SubscribeOnAttackEvent(Action action) => OnAttackEvent += action;
-        public void UnsubscribeOnAttackEvent(Action action) => OnAttackEvent -= action;
-        // Death Event
-        public void CallOnDeathEvent() => OnDeathEvent?.Invoke();
-        public void SubscribeOnDeathEvent(Action action) => OnDeathEvent += action;
-        public void UnsubscribeOnDeathEvent(Action action) => OnDeathEvent -= action;
-        // Throw Event - бросок
-        public void CallOnThrowEvent() => OnThrowEvent?.Invoke(); // ++
-        public void SubscribeOnThrowEvent(Action action) => OnThrowEvent += action; // ++
-        public void UnsubscribeOnThrowEvent(Action action) => OnThrowEvent -= action; // ++
         
         public void SetDirection(float dir) => XInput = dir;
         
@@ -133,16 +62,5 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
                 Flip();
             }
         }
-        
-        public void Flip()
-        {
-            IsFacingRight = !IsFacingRight;
-            FacingDirection *= -1;
-            transform.Rotate(0f, 180f, 0f);
-        }
-
-        public void SetFinalHit(Vector2 finalHit) => _finalHit = finalHit;
-        public void SetFinalHitDuration(float duration) => _finalHitDuration = duration;
-        
     }
 }

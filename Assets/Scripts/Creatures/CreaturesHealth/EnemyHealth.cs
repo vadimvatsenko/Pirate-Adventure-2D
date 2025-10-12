@@ -4,16 +4,11 @@ using UnityEngine;
 
 namespace Creatures.CreaturesHealth
 {
-    public class EnemyHealth : CreatureHealth
+    public class EnemyHealth : BasicHealth
     {
-        private Transform _hero;
         private Enemy _enemy;
 
-        private void Start()
-        {
-            _hero = FindObjectOfType<Hero>().transform;
-            _enemy = GetComponent<Enemy>();
-        }
+        private void Start() =>  _enemy = GetComponent<Enemy>();
 
         public override void TakeDamage(float damage, Transform attacker)
         {
@@ -28,6 +23,8 @@ namespace Creatures.CreaturesHealth
                 
                 _enemy.StateMachine.ChangeState(_enemy.BattleState);
             }
+            
+            CreatureVFX.PlayOnDamageVFX();
         }
     }
 }

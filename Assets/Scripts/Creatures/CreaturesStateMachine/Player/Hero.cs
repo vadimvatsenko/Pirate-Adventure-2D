@@ -10,8 +10,10 @@ namespace Creatures.CreaturesStateMachine.Player
     {
         public GameSession GameSess { get; private set;} //
         public NewInputSet NewInputSet { get; private set; }
+        public Animator HeroAnimator { get; private set; }
         
         public HeroCollisionInfo HeroCollision { get; private set; }
+        private HeroStatesController _heroStatesController;
         
         [Header("Buffer Jump")] 
         [SerializeField] private float bufferJumpWindow = 0.25f;
@@ -32,6 +34,8 @@ namespace Creatures.CreaturesStateMachine.Player
             NewInputSet = new NewInputSet();
             GameSess = FindObjectOfType<GameSession>();
             HeroCollision = GetComponent<HeroCollisionInfo>();
+            HeroAnimator = GetComponentInChildren<Animator>();
+            
         }
         
         private void Start()
@@ -48,6 +52,9 @@ namespace Creatures.CreaturesStateMachine.Player
             ThrowState = new HeroThrowState(this, StateMachine, AnimatorHashes.Throw); // ++
                 
             StateMachine.Initialize(IdleState);
+            
+            _heroStatesController 
+                = new HeroStatesController(this, StateMachine, NewInputSet, GameSess, HeroAnimator);
         }
 
         private void OnEnable()
@@ -67,11 +74,6 @@ namespace Creatures.CreaturesStateMachine.Player
         {
             base.Update();
             HandleFlip();
-        }
-
-        private void FixedUpdate()
-        {
-            //HeroCollision.CheckHeroGrab();
         }
     }
 }

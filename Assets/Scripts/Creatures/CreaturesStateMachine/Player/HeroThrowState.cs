@@ -1,4 +1,5 @@
-﻿using Creatures.AnimationControllers;
+﻿using System;
+using Creatures.AnimationControllers;
 using Creatures.CreaturesStateMachine.CreatureBasic;
 using UnityEngine;
 
@@ -7,24 +8,39 @@ namespace Creatures.CreaturesStateMachine.Player
 {
     public class HeroThrowState : HeroState
     {
-        private int _count;
-        public HeroThrowState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
+        private float _currentGravity;
+        public HeroThrowState(Hero hr, BasicStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {
-            _count = 3;
         }
-        
+
+        public override void Enter()
+        {
+            base.Enter();
+            _currentGravity = Rb2D.gravityScale;
+            Rb2D.velocity = Vector2.zero;
+            Rb2D.gravityScale = 0f;
+        }
+
         public override void Update()
         {
             base.Update();
-            Rb2D.velocity = Vector2.zero;
             
-            if(StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Throw)) 
-               
-               && StateInfo.normalizedTime >= 1.0f)
+            if (Mathf.Approximately(AnimContr.GetFloat(AnimatorHashes.ThrowTrigger), 1))
             {
-                StateMachine.ChangeState(Hr.IdleState);
+                if(StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Throw)) 
+               
+                   && StateInfo.normalizedTime >= 1f)
+                {
+                    StateMachine.ChangeState(Hr.IdleState);
+                }
             }
+        }
+
+        public override void Exit()
+        {
+            base.Exit();
+            Rb2D.gravityScale = _currentGravity;
         }
     }
 }

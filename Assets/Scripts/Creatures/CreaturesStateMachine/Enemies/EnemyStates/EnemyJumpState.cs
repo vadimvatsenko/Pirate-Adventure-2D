@@ -5,8 +5,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 {
     public class EnemyJumpState : EnemyAiredState
     {
-        public EnemyJumpState(Enemy enemy, CreatureStateMachine stateMachine, int animBoolName) 
-            : base(enemy, stateMachine, animBoolName)
+        public EnemyJumpState(Enemy en, BasicStateMachine stateMachine, int animBoolName) 
+            : base(en, stateMachine, animBoolName)
         {
         }
 
@@ -16,7 +16,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
             Debug.Log(Rb2D.velocity);
             Rb2D.velocity = new Vector2(2.5f, 3f);
             Debug.Log(Rb2D.velocity);
-            Enemy.CallOnJumpEvent();
+            En.CallOnJumpEvent();
         }
 
         public override void Update()

@@ -1,5 +1,4 @@
 ﻿using System;
-using Creatures.CreaturesStateMachine.CreatureBasic;
 using Creatures.CreaturesStateMachine.Player;
 using GameManagerInfo;
 using UnityEngine;

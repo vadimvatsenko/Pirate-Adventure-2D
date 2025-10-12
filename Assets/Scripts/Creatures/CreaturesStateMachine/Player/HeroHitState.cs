@@ -9,7 +9,7 @@ namespace Creatures.CreaturesStateMachine.Player
         private bool _isHited;
         private Coroutine _hitCoroutine;
         
-        public HeroHitState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
+        public HeroHitState(Hero hr, BasicStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {
         }

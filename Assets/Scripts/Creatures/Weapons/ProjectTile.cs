@@ -14,6 +14,7 @@ namespace Creatures.Weapons
             _rigidbody = GetComponent<Rigidbody2D>();
         }
 
+        
         public void SetDirection(int direction)
         {
             FacingDirection = direction;
@@ -31,7 +32,7 @@ namespace Creatures.Weapons
             _rigidbody.MovePosition(position);
         }
         
-        private void Flip()
+        public void Flip()
         {
             //FacingDirection *= -1;
             transform.Rotate(0f, 180f, 0f);

@@ -17,8 +17,6 @@ namespace Components.Parallax
             _cameraTransform = Camera.main.transform;
             _previousCameraPosition = _cameraTransform.position;
             
-            
-            
             _hero = FindObjectOfType<Hero>();
             
             _cameraTransform = _hero.transform;

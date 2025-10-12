@@ -1,13 +1,11 @@
-﻿namespace Utils
-{
-    using System.Collections.Generic;
-    using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
+namespace Utils
+{
     public static class LayerUtils
     {
-        /// <summary>
         /// Получить все индексы слоёв из LayerMask.
-        /// </summary>
         public static List<int> GetLayerIndices(LayerMask mask)
         {
             List<int> indices = new List<int>();
@@ -22,10 +20,8 @@
 
             return indices;
         }
-
-        /// <summary>
+        
         /// Получить имена слоёв из LayerMask.
-        /// </summary>
         public static List<string> GetLayerNames(LayerMask mask)
         {
             List<string> names = new List<string>();

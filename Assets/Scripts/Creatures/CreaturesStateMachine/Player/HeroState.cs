@@ -6,66 +6,13 @@ using UnityEngine.InputSystem;
 
 namespace Creatures.CreaturesStateMachine.Player
 {
-    public class HeroState : CreatureState
+    public class HeroState : BasicState
     {
         protected readonly Hero Hr;
-        private readonly PlayerHealthComponent _healthComponent;
-        private bool _isSubscribed;
-        public HeroState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
+        public HeroState(Hero hr, BasicStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {
             Hr = hr;
-            
         }
-        
-        public override void Enter()
-        {
-            base.Enter();
-            
-            if (!_isSubscribed)
-            {
-                Hr.NewInputSet.Hero.Thow.started += OnThrowStarted;
-                Hr.NewInputSet.Hero.Attack.started += OnAttackStarted;
-                _isSubscribed = true;
-            }
-            
-        }
-
-        public override void Update()
-        {
-            base.Update();
-        }
-
-        public override void Exit()
-        {
-            base.Exit();
-            
-            if (_isSubscribed)
-            {
-                Hr.NewInputSet.Hero.Thow.started -= OnThrowStarted;
-                Hr.NewInputSet.Hero.Attack.started -= OnAttackStarted;
-                _isSubscribed = false;
-            }
-        }
-
-        private void OnThrowStarted(InputAction.CallbackContext ctx)
-        {
-            if(Hr.GameSess.PlayerData.swords <= 1) return;
-
-            StateMachine.ChangeState(Hr.ThrowState);
-            Hr.GameSess.PlayerData.swords -= 1;
-        }
-
-        private void OnAttackStarted(InputAction.CallbackContext ctx)
-        {
-            if (Hr.GameSess.PlayerData.isArmed)
-            {
-                StateMachine.ChangeState(Hr.AttackState);
-            } 
-        }
-
-        private void DeathHero() => Hr.StateMachine.ChangeState(Hr.DeathState);
-        private void HitHero() => Hr.StateMachine.ChangeState(Hr.HitState);
-        
     }
 }

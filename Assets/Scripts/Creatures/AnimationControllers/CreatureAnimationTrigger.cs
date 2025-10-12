@@ -8,12 +8,12 @@ namespace Creatures.AnimationControllers
 {
     public class CreatureAnimationTrigger : MonoBehaviour
     {
-        private Creature _creature;
+        private BasicCreature _creature;
         private CombatCollisions _combatCollisions;
 
         private void Awake()
         {
-            _creature = GetComponentInParent<Creature>();
+            _creature = GetComponentInParent<BasicCreature>();
             _combatCollisions = GetComponentInParent<CombatCollisions>();
         }
 
@@ -24,7 +24,9 @@ namespace Creatures.AnimationControllers
         }
 
         // триггер броска оружия, вызывается в аниматоре
-        private void ThrowTrigger() => _creature.CallOnThrowEvent();
-        
+        private void ThrowTrigger()
+        {
+            _creature.CallOnThrowEvent();
+        }
     }
 }

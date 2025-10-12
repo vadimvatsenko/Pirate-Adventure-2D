@@ -5,19 +5,19 @@ using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 {
-    public class EnemyState : CreatureState
+    public class EnemyState : BasicState
     {
-        protected readonly Enemy Enemy;
+        protected Enemy En;
         private Hero _hr;
         protected readonly EnemyCollisionInfo EnemyCollisionInfo;
         
-        public EnemyState(Enemy enemy, CreatureStateMachine stateMachine, int animBoolName) 
-            : base(enemy, stateMachine, animBoolName)
+        public EnemyState(Enemy en, BasicStateMachine stateMachine, int animBoolName) 
+            : base(en, stateMachine, animBoolName)
         {
-            Enemy = enemy;
+            En = en;
             StateMachine = stateMachine;
             
-            if (Enemy != null) EnemyCollisionInfo = Enemy.EnemyCollisionInfo;
+            if (En != null) EnemyCollisionInfo = En.EnemyCollisionInfo;
 
             //Health.SubscribeOnHitEvent(CallHitState);
         }
@@ -30,20 +30,20 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 
         ~EnemyState() => Health.UnsubscribeOnHitEvent(CallHitState);
         
-        private void CallHitState() => StateMachine.ChangeState(Enemy.HitState);
+        private void CallHitState() => StateMachine.ChangeState(En.HitState);
         
         protected float DistanceToHero()
         {
-            _hr = Enemy.Hr;
+            _hr = En.Hr;
             if (_hr == null) return float.MaxValue;
 
-            return Mathf.Abs(_hr.transform.position.x - Enemy.transform.position.x);
+            return Mathf.Abs(_hr.transform.position.x - En.transform.position.x);
         }
 
         protected int DirectionToHero()
         {
             if (_hr == null) return 0;
-            else return _hr.transform.position.x > Enemy.transform.position.x ? 1 : -1;
+            else return _hr.transform.position.x > En.transform.position.x ? 1 : -1;
         }
     }
 }

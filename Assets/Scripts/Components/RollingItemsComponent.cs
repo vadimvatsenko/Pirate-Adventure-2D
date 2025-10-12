@@ -25,7 +25,7 @@ namespace Components
 
             if (creature != null)
             {
-                CreatureCollisionInfo collisionInfo = creature.GetComponent<CreatureCollisionInfo>();
+                BasicCollisionInfo collisionInfo = creature.GetComponent<BasicCollisionInfo>();
                 if (collisionInfo != null)
                 {
                     if (collisionInfo.IsWallDetected && creature.XInput != 0)

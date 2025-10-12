@@ -15,7 +15,7 @@ namespace Components.Dropper
         [Range(0.1f, 10f)]
         [SerializeField] private float spreadRadius = 1.5f;
         
-        [Range(0.1f, 1f)] 
+        [Range(0.1f, 9.8f)] 
         [SerializeField] private float gravity = 0.25f;
         
         [SerializeField] private DropperDirection dropperDirection = DropperDirection.Top;
@@ -40,26 +40,24 @@ namespace Components.Dropper
             _gameSession = FindObjectOfType<GameSession>();
         }
 
+        [ContextMenu("Drop Objects")]
         public void DropObject()
         {
-            if (_gameSession.PlayerData.coins != 0)
+            for (int i = 0; i < _objectsToSpawn.Count; i++)
             {
-                for (int i = 0; i < _objectsToSpawn.Count; i++)
-                {
-                    GameObject go = Instantiate(_objectsToSpawn[i], transform.position, Quaternion.identity);
-                    Collider2D collider = go.GetComponent<Collider2D>();
-                    Rigidbody2D rb = go.GetComponent<Rigidbody2D>();
+                GameObject go = Instantiate(_objectsToSpawn[i], transform.position, Quaternion.identity);
+                Collider2D collider = go.GetComponent<Collider2D>();
+                Rigidbody2D rb = go.GetComponent<Rigidbody2D>();
 
-                    if (collider != null  && rb != null)
-                    {
-                        rb.gravityScale = gravity;
-                        Vector2 direction = (_currentDirection + Random.insideUnitCircle * spreadRadius).normalized;
-                        rb.AddForce(direction * spreadForce, ForceMode2D.Impulse);
-                    }
+                if (collider != null && rb != null)
+                {
+                    rb.gravityScale = gravity;
+                    Vector2 direction = (_currentDirection + Random.insideUnitCircle * spreadRadius).normalized;
+                    rb.AddForce(direction * spreadForce, ForceMode2D.Impulse);
                 }
             }
         }
-        
+
         private Vector3 GetDirection(DropperDirection dir)
         {
             switch (dir)
