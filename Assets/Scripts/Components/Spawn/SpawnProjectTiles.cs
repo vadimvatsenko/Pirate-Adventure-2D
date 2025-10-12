@@ -37,7 +37,6 @@ namespace Components.Spawn
 
         private IEnumerator Spawn(int amount)
         {
-            Debug.Log("Spawning " + amount + " tiles");
             for (int i = 0; i < amount; i++)
             {
                 Spawn();

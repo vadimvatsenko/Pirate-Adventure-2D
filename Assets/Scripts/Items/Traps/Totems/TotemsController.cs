@@ -25,10 +25,7 @@ namespace Items.Traps.Totems
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.CompareTag("Player"))
-            {
-                TotemsFlip();
-            }
+            Debug.Log(collision.gameObject.name);
         }
 
         private void OnTriggerExit2D(Collider2D collision)

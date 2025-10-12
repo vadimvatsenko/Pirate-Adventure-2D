@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace Creatures.CreaturesCollisions
 {
-    public class CreatureCollisionInfo : MonoBehaviour
+    public class BasicCollisionInfo : MonoBehaviour
     {
-        protected Creature Creature;
+        protected BasicCreature Creature;
         
         [Header("Ground Collision Info")]
         [SerializeField] protected LayerMask whatIsGround;
@@ -28,7 +28,7 @@ namespace Creatures.CreaturesCollisions
         
         protected virtual void Awake()
         {
-            Creature = GetComponent<Creature>();
+            Creature = GetComponent<BasicCreature>();
         }
         
         public void HandleWallCheck()

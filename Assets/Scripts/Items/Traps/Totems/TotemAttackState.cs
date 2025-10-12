@@ -11,13 +11,7 @@ namespace Items.Traps.Totems
             : base(creature, stateMachine, animBoolName)
         {
         }
-
-        public override void Enter()
-        {
-            base.Enter();
-            Debug.Log("Enter Attack");
-        }
-
+        
         public override void Update()
         {
             base.Update();
@@ -26,12 +20,6 @@ namespace Items.Traps.Totems
             {
                 StateMachine.ChangeState(Creature.PauseState);
             }
-        }
-
-        public override void Exit()
-        {
-            base.Exit();
-            Debug.Log("Exit Attack");
         }
     }
 }

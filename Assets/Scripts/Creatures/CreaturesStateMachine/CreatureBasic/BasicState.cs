@@ -13,7 +13,7 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         protected readonly Rigidbody2D Rb2D;
         protected Collider2D C2D;
         
-        protected readonly CreatureCollisionInfo CollisionInfo;
+        protected readonly BasicCollisionInfo CollisionInfo;
         protected readonly Animator AnimContr;
         protected readonly HealthComponent Health;
         public AnimatorStateInfo StateInfo { get; protected set; }
@@ -33,7 +33,7 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
                 this.Rb2D = creature.Rb2D;
                 this.C2D = creature.C2D;
                 AnimContr = creature.GetComponentInChildren<Animator>();
-                this.CollisionInfo = creature.GetComponent<CreatureCollisionInfo>();
+                this.CollisionInfo = creature.GetComponent<BasicCollisionInfo>();
                 Health = Creature.GetComponent<HealthComponent>();
             }
         }

@@ -222,7 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 33
   targetCheck: {fileID: 2273554459140084415}
-  detectionRadius: 0.15
+  detectionRadius: 0.1
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 4096
@@ -318,6 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 007e3171b9d94eddac2c6fc1d51d5422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyTime: 0
 --- !u!1 &7758078544433591846
 GameObject:
   m_ObjectHideFlags: 0

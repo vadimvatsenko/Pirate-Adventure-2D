@@ -2,7 +2,7 @@
 
 namespace Creatures.CreaturesCollisions
 {
-    public class HeroCollisionInfo : CreatureCollisionInfo
+    public class HeroCollisionInfo : BasicCollisionInfo
     {
         [Header("Grabb Collision Info")]
         [SerializeField] private LayerMask wallLayer;

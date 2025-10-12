@@ -8,6 +8,7 @@ namespace Items.Traps.Totems
 {
     public class TotemTrap : BasicCreature
     {
+        private TotemCollisionInfo _totemCollisionInfo;
         protected override void Awake()
         {
             base.Awake();
@@ -21,7 +22,20 @@ namespace Items.Traps.Totems
         public void Start()
         {
             StateMachine.Initialize(IdleState);
+            _totemCollisionInfo = GetComponent<TotemCollisionInfo>();
         }
+
+        protected override void Update()
+        {
+            base.Update();
+
+            if (_totemCollisionInfo != null)
+            {
+                _totemCollisionInfo.HeroDetection();
+            }
+            
+        }
+
 
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -32,10 +46,10 @@ namespace Items.Traps.Totems
                 Flip();
             }
 
-            if (hero.transform.position.x > this.transform.position.x)
+            /*if (hero.transform.position.x > this.transform.position.x)
             {
                 Debug.Log(hero.transform.position.x);
-            }
+            }*/
         }
     }
 }

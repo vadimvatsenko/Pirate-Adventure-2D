@@ -13,7 +13,7 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         private Dictionary<ParticleType, SpawnComponent> _particleMap;
         
         private Creature _creature;
-        private CreatureCollisionInfo _collisionInfo;
+        private BasicCollisionInfo _collisionInfo;
         
         // Партикал приземления
         private const float MinJumpHeight = 11.1f;
@@ -27,7 +27,7 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
             
             if (_creature != null)
             {
-                _collisionInfo = _creature.GetComponent<CreatureCollisionInfo>();
+                _collisionInfo = _creature.GetComponent<BasicCollisionInfo>();
             }
             _particleMap = new Dictionary<ParticleType, SpawnComponent>();
 

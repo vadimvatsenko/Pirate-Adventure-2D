@@ -20,7 +20,7 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         public float JumpForce => jumpForce;
         
         // Components
-        public CreatureCollisionInfo CollisionInfo { get; private set; }
+        public BasicCollisionInfo CollisionInfo { get; private set; }
         public CreatureHandleStateChange HandleStateChange { get; protected set; }
         
         public float XInput { get; protected set; }
@@ -28,7 +28,7 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         protected virtual void Awake()
         {
             base.Awake();
-            CollisionInfo = GetComponent<CreatureCollisionInfo>();
+            CollisionInfo = GetComponent<BasicCollisionInfo>();
             HandleStateChange = new CreatureHandleStateChange(this, StateMachine);
         }
         

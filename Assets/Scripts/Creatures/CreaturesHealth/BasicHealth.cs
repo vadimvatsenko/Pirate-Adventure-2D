@@ -17,14 +17,14 @@ namespace Creatures.CreaturesHealth
         [SerializeField] protected UnityEvent onDeath;
 
         private float _previousHealth;
-        private CreatureVFX _creaturesVFX;
+        protected CreatureVFX CreatureVFX;
         private BasicCreature _creature;
         
         public event Action<float, float> OnHealthChange;
         
         protected virtual void Awake()
         {
-            _creaturesVFX = GetComponent<CreatureVFX>();
+            CreatureVFX = GetComponent<CreatureVFX>();
             _creature = GetComponentInParent<BasicCreature>();
             currentHealth = maxHealth;
             _previousHealth = currentHealth;
@@ -47,7 +47,6 @@ namespace Creatures.CreaturesHealth
             _creature.StateMachine.ChangeState(_creature.HitState);
 
             ReduceHealth(damage); // важен порядок
-            _creaturesVFX.PlayOnDamageVFX();
         }
 
         private void ReduceHealth(float damage)
