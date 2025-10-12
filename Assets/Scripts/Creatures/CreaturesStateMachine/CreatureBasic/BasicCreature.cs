@@ -43,7 +43,7 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         public event Action OnJumpEvent;
         public event Action OnAttackEvent;
         public event Action OnDeathEvent;
-        public event Action OnThrowEvent; 
+        public event Action<int> OnThrowEvent; 
         
         // States
         public BasicState IdleState { get; protected set; }
@@ -71,9 +71,9 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         public void SubscribeOnDeathEvent(Action action) => OnDeathEvent += action;
         public void UnsubscribeOnDeathEvent(Action action) => OnDeathEvent -= action;
         // Throw Event - бросок
-        public void CallOnThrowEvent() => OnThrowEvent?.Invoke();
-        public void SubscribeOnThrowEvent(Action action) => OnThrowEvent += action;
-        public void UnsubscribeOnThrowEvent(Action action) => OnThrowEvent -= action;
+        public void CallOnThrowEvent(int amount = 1) => OnThrowEvent?.Invoke(amount);
+        public void SubscribeOnThrowEvent(Action<int> action) => OnThrowEvent += action;
+        public void UnsubscribeOnThrowEvent(Action<int> action) => OnThrowEvent -= action;
 
         protected virtual void Awake()
         {

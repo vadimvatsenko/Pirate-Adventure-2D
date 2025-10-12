@@ -1050,6 +1050,7 @@ MonoBehaviour:
   target: {fileID: 233508912}
   prefab: {fileID: 5969556686077706000, guid: 6bad0fa8bc129ab46ac692b0d3eba312, type: 3}
   owner: {fileID: 1381278541}
+  spawnDelay: 0.5
 --- !u!1 &263359758
 GameObject:
   m_ObjectHideFlags: 0
@@ -36830,12 +36831,12 @@ PrefabInstance:
     - target: {fileID: 1013203842059538652, guid: fd7296759a730214bbec322309d1c026,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.45
+      value: 12.05
       objectReference: {fileID: 0}
     - target: {fileID: 1013203842059538652, guid: fd7296759a730214bbec322309d1c026,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.42
+      value: 14.42
       objectReference: {fileID: 0}
     - target: {fileID: 1013203842059538652, guid: fd7296759a730214bbec322309d1c026,
         type: 3}

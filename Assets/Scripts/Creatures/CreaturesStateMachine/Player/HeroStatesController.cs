@@ -8,7 +8,7 @@ namespace Creatures.CreaturesStateMachine.Player
 {
     public class HeroStatesController
     {
-        private readonly Creature _creature;
+        private readonly BasicCreature _creature;
         private readonly BasicStateMachine _stateMachine;
         private readonly NewInputSet _newInputSet;
         private readonly GameSession _gameSession;
@@ -39,8 +39,6 @@ namespace Creatures.CreaturesStateMachine.Player
                 _newInputSet.Hero.Throw.started += OnThrowBtnStarted;
                 _newInputSet.Hero.Throw.canceled += OnthrowBtnCanceled;
                 
-                _creature.ThrowState.OnExitEvent += TryStartNextThrow;
-                
                 _isSubscribed = true;
             }
         }
@@ -53,8 +51,6 @@ namespace Creatures.CreaturesStateMachine.Player
                 _newInputSet.Hero.Throw.canceled -= OnthrowBtnCanceled;
                 
                 _newInputSet.Hero.Attack.started -= OnAttackStarted;
-                
-                _creature.ThrowState.OnExitEvent -= TryStartNextThrow;
                 
                 _isSubscribed = false;
             }
@@ -84,19 +80,12 @@ namespace Creatures.CreaturesStateMachine.Player
             _pendingThrows = can;
             
             _animator.SetFloat(AnimatorHashes.ThrowTrigger, 1f);
+            
+            _creature.CallOnThrowEvent(_pendingThrows);
+            _stateMachine.ChangeState(_creature.ThrowState);
+            _gameSession.PlayerData.swords -= _pendingThrows;
         }
-
-
-        private void TryStartNextThrow()
-        {
-            if (_pendingThrows > 0)
-            {
-                _pendingThrows--;
-                _gameSession.PlayerData.swords--;
-                _stateMachine.ChangeState(_creature.ThrowState);
-            }
-        }
-
+        
         private void OnAttackStarted(InputAction.CallbackContext ctx)
         {
             if (_gameSession.PlayerData.isArmed)
