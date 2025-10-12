@@ -2,11 +2,12 @@
 
 namespace Items.Traps.Totems
 {
-    public class TrapBattleState : BasicState
+    public class TotemDeathState : BasicState
     {
-        public TrapBattleState(BasicCreature creature, BasicStateMachine stateMachine, int animBoolName) 
+        public TotemDeathState(BasicCreature creature, BasicStateMachine stateMachine, int animBoolName) 
             : base(creature, stateMachine, animBoolName)
         {
+            
         }
 
         public override void Enter()

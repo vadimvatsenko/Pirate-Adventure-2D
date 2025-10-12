@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Creatures.CreaturesHealth;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace Items.Traps.Totems
     {
         private TotemTrap _totemTrap;
 
+        private Coroutine _coroutine;
         
         private void Start()
         {
@@ -25,6 +27,15 @@ namespace Items.Traps.Totems
             {
                 if(_totemTrap.StateMachine.CurrentState == _totemTrap.AttackState) return;
 
+                _coroutine = StartCoroutine(AttackStateDelay());
+
+            }
+        }
+
+        private IEnumerator AttackStateDelay()
+        {
+            yield return new WaitForSeconds(1f);
+            {
                 _totemTrap.StateMachine.ChangeState(_totemTrap.AttackState);
             }
         }

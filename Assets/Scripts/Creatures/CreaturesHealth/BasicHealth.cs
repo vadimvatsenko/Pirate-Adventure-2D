@@ -4,6 +4,7 @@ using Creatures.CreaturesVFX;
 using Creatures.Interfaces;
 using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Creatures.CreaturesHealth
 {
@@ -13,6 +14,7 @@ namespace Creatures.CreaturesHealth
         [SerializeField] protected float maxHealth = 100f;
         [SerializeField] protected bool isDead;
         [SerializeField] protected float currentHealth;
+        [SerializeField] protected UnityEvent onDeath;
 
         private float _previousHealth;
         private CreatureVFX _creaturesVFX;
@@ -66,6 +68,7 @@ namespace Creatures.CreaturesHealth
         private void Die()
         {
             isDead = true;
+            onDeath?.Invoke();
             _creature.StateMachine.ChangeState(_creature.DeathState);
         }
 

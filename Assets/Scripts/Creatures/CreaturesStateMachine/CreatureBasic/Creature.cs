@@ -32,13 +32,14 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
             HandleStateChange = new CreatureHandleStateChange(this, StateMachine);
         }
         
-        protected virtual void Update()
+        protected override void Update()
         {
+            base.Update();
+            
             CollisionInfo.HandleGroundCheck();
             CollisionInfo.HandleWallCheck();
             
             UpdateAnimationVelocity();
-            StateMachine.CurrentState.Update();
         }
         
         public void SetDirection(float dir) => XInput = dir;

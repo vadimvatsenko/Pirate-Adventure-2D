@@ -57,6 +57,7 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         public BasicState DeathState { get; protected set; }
         public BasicState ClimbState { get; protected set; }
         public BasicState ThrowState { get; protected set; }
+        public BasicState PauseState { get; protected set; }
         
         public void CallOnJumpEvent() => OnJumpEvent?.Invoke();
         public void SubscribeOnJumpEvent(Action action) => OnJumpEvent += action;
@@ -81,6 +82,11 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
             C2D = GetComponent<Collider2D>();
             AnimController = GetComponentInChildren<Animator>();
             StateMachine = new BasicStateMachine();
+        }
+
+        protected virtual void Update()
+        {
+            StateMachine.CurrentState.Update();
         }
         
         public void SetFinalHit(Vector2 finalHit) => _finalHit = finalHit;
