@@ -9,7 +9,7 @@ namespace Creatures.CreaturesStateMachine.Player
     {
         private bool _isSubscribed;
         private float _saveGravity;
-        public HeroClimbState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
+        public HeroClimbState(Hero hr, BasicStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {
         }

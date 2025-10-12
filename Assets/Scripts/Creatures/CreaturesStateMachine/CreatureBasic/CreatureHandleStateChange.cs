@@ -5,9 +5,9 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
     public class CreatureHandleStateChange
     {
         private Creature _creature;
-        private CreatureStateMachine _stateMachine;
+        private BasicStateMachine _stateMachine;
 
-        public CreatureHandleStateChange(Creature creature, CreatureStateMachine stateMachine)
+        public CreatureHandleStateChange(Creature creature, BasicStateMachine stateMachine)
         {
             _creature = creature;
             _stateMachine = stateMachine;

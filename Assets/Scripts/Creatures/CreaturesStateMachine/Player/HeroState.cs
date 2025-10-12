@@ -6,10 +6,10 @@ using UnityEngine.InputSystem;
 
 namespace Creatures.CreaturesStateMachine.Player
 {
-    public class HeroState : CreatureState
+    public class HeroState : BasicState
     {
         protected readonly Hero Hr;
-        public HeroState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
+        public HeroState(Hero hr, BasicStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {
             Hr = hr;

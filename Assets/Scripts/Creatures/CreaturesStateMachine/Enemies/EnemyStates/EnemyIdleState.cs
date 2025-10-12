@@ -8,7 +8,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
         private float _idleTime;
         private float _idleDuration;
         
-        public EnemyIdleState(Enemy en, CreatureStateMachine stateMachine, int animBoolName) 
+        public EnemyIdleState(Enemy en, BasicStateMachine stateMachine, int animBoolName) 
             : base(en, stateMachine, animBoolName)
         {
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Creatures.CreaturesHealth
 {
-    public class EnemyHealth : CreatureHealth
+    public class EnemyHealth : BasicHealth
     {
         private Enemy _enemy;
 

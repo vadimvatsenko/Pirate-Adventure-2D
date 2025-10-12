@@ -5,7 +5,7 @@ namespace Creatures.CreaturesStateMachine.Player
 {
     public class HeroDoubleJumpState : HeroAiredState
     {
-        public HeroDoubleJumpState(Player.Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
+        public HeroDoubleJumpState(Player.Hero hr, BasicStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {
         }

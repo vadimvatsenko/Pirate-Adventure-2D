@@ -8,7 +8,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
         private Transform _heroPos;
         private float _lastTimeInBattle;
 
-        public EnemyBattleState(Enemy en, CreatureStateMachine stateMachine, int animBoolName)
+        public EnemyBattleState(Enemy en, BasicStateMachine stateMachine, int animBoolName)
             : base(en, stateMachine, animBoolName)
         {
         }

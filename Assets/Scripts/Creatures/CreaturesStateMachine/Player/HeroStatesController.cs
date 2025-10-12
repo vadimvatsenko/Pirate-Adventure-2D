@@ -9,7 +9,7 @@ namespace Creatures.CreaturesStateMachine.Player
     public class HeroStatesController
     {
         private readonly Creature _creature;
-        private readonly CreatureStateMachine _stateMachine;
+        private readonly BasicStateMachine _stateMachine;
         private readonly NewInputSet _newInputSet;
         private readonly GameSession _gameSession;
         private readonly Animator _animator;
@@ -21,7 +21,7 @@ namespace Creatures.CreaturesStateMachine.Player
         private int _pendingThrows;
         
         public HeroStatesController(Creature creature, 
-            CreatureStateMachine stateMachine, 
+            BasicStateMachine stateMachine, 
             NewInputSet newInputSet,
             GameSession gameSession,
             Animator animator)

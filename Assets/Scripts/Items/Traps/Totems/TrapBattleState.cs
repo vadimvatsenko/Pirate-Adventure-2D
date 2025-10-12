@@ -2,9 +2,9 @@
 
 namespace Items.Traps.Totems
 {
-    public class TotemAttackState : BasicState
+    public class TrapBattleState : BasicState
     {
-        public TotemAttackState(BasicCreature creature, BasicStateMachine stateMachine, int animBoolName) 
+        public TrapBattleState(BasicCreature creature, BasicStateMachine stateMachine, int animBoolName) 
             : base(creature, stateMachine, animBoolName)
         {
         }
@@ -12,7 +12,6 @@ namespace Items.Traps.Totems
         public override void Enter()
         {
             base.Enter();
-            
         }
 
         public override void Update()

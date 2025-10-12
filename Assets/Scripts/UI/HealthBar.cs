@@ -8,7 +8,7 @@ namespace UI
     public class HealthBar : MonoBehaviour
     {
         private Image _healthBarImage;
-        [SerializeField] private CreatureHealth health;
+        [SerializeField] private BasicHealth health;
 
         private void Awake() => _healthBarImage = GetComponent<Image>();
         

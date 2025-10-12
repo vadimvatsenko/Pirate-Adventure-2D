@@ -9,7 +9,7 @@ namespace Creatures.CreaturesStateMachine.Player
     public class HeroThrowState : HeroState
     {
         private float _currentGravity;
-        public HeroThrowState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
+        public HeroThrowState(Hero hr, BasicStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {
         }

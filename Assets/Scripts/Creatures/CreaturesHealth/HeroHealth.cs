@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Creatures.CreaturesHealth
 {
-    public class HeroHealth : CreatureHealth
+    public class HeroHealth : BasicHealth
     {
         private Hero _hero;
         protected override void Awake()

@@ -5,11 +5,11 @@ using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.CreatureBasic
 {
-    public class CreatureState : ICreatureState
+    public class BasicState : ICreatureState
     {
         protected BasicCreature Creature;
         
-        protected CreatureStateMachine StateMachine;
+        protected BasicStateMachine StateMachine;
         protected readonly Rigidbody2D Rb2D;
         protected Collider2D C2D;
         
@@ -22,7 +22,7 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         public event Action OnEnterEvent; // вход в анимацию
         public event Action OnExitEvent; // выход с анимации
 
-        public CreatureState(BasicCreature creature, CreatureStateMachine stateMachine, int animBoolName)
+        public BasicState(BasicCreature creature, BasicStateMachine stateMachine, int animBoolName)
         {
             this.Creature = creature;
             this.StateMachine = stateMachine;

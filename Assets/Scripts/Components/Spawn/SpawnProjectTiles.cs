@@ -8,12 +8,7 @@ namespace Components.Spawn
     public class SpawnProjectTiles : SpawnComponent
     {
         [SerializeField] private BasicCreature owner;
-
-        private void OnEnable()
-        {
-            owner.SubscribeOnThrowEvent(Spawn);
-            Debug.Log("Subscribed");
-        }
+        private void OnEnable() => owner.SubscribeOnThrowEvent(Spawn);
         
         private void OnDisable() => owner.UnsubscribeOnThrowEvent(Spawn);
         

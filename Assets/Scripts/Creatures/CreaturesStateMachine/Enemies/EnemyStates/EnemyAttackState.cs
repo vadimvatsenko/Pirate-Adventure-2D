@@ -9,7 +9,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
         private bool _damageDealt;
         private bool _attackEnded;
         
-        public EnemyAttackState(Enemy en, CreatureStateMachine stateMachine, int animBoolName) 
+        public EnemyAttackState(Enemy en, BasicStateMachine stateMachine, int animBoolName) 
             : base(en, stateMachine, animBoolName)
         {
         }

@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Creatures.CreaturesHealth
 {
-    public class CreatureHealth : MonoBehaviour
+    public class BasicHealth : MonoBehaviour
     {
 
         [SerializeField] protected float maxHealth = 100f;

@@ -4,7 +4,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 {
     public class EnemyFallState : EnemyAiredState
     {
-        public EnemyFallState(Enemy en, CreatureStateMachine stateMachine, int animBoolName) 
+        public EnemyFallState(Enemy en, BasicStateMachine stateMachine, int animBoolName) 
             : base(en, stateMachine, animBoolName)
         {
         }

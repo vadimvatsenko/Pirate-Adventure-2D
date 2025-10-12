@@ -1,20 +1,20 @@
 ﻿namespace Creatures.CreaturesStateMachine.CreatureBasic
 {
-    public class CreatureStateMachine
+    public class BasicStateMachine
     {
-        public CreatureState CurrentState { get; private set; }
-        public CreatureState PreviousState { get; private set; }
+        public BasicState CurrentState { get; private set; }
+        public BasicState PreviousState { get; private set; }
 
         private bool _canChangeState;
 
-        public void Initialize(CreatureState initialState)
+        public void Initialize(BasicState initialState)
         {
             _canChangeState = true;
             CurrentState = initialState;
             CurrentState.Enter();
         }
 
-        public void ChangeState(CreatureState newState)
+        public void ChangeState(BasicState newState)
         {
             if(!_canChangeState) return;
             

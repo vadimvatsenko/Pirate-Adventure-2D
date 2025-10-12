@@ -15,7 +15,7 @@ namespace Creatures.CreaturesStateMachine.Player
         private int _jumpCount;
         private float _startFallY;
         
-        public HeroFallState(Hero hr, CreatureStateMachine stateMachine, int animBoolName) 
+        public HeroFallState(Hero hr, BasicStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {
             _bufferJumpWindow = hr.BufferJumpWindow;

@@ -2,9 +2,9 @@
 
 namespace Items.Traps.Totems
 {
-    public class TotemHitState : CreatureState
+    public class TotemHitState : BasicState
     {
-        public TotemHitState(BasicCreature creature, CreatureStateMachine stateMachine, int animBoolName) 
+        public TotemHitState(BasicCreature creature, BasicStateMachine stateMachine, int animBoolName) 
             : base(creature, stateMachine, animBoolName)
         {
         }

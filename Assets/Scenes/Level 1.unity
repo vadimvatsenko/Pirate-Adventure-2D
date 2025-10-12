@@ -541,7 +541,7 @@ GameObject:
   - component: {fileID: 147694957}
   - component: {fileID: 147694956}
   - component: {fileID: 147694955}
-  m_Layer: 13
+  m_Layer: 8
   m_Name: StartDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -668,7 +668,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 151814146}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: OneDoor_Lever-Trigger_Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -707,7 +707,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 182477451}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BottomPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -813,7 +813,7 @@ GameObject:
   m_Component:
   - component: {fileID: 200324906}
   - component: {fileID: 200324907}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -894,7 +894,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 215387363}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TopPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -1257,7 +1257,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 307593059}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlatformPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1289,7 +1289,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 308840419}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: OneDoor_Lever-Trigger (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1324,7 +1324,7 @@ GameObject:
   - component: {fileID: 330227333}
   - component: {fileID: 330227335}
   - component: {fileID: 330227334}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chain (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1411,6 +1411,95 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &353873253
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6041009698050444937, guid: c877958eaeedf2a47affc2093c2a4b77,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 6041009698050444937, guid: c877958eaeedf2a47affc2093c2a4b77,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6041009698050444937, guid: c877958eaeedf2a47affc2093c2a4b77,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6041009698050444937, guid: c877958eaeedf2a47affc2093c2a4b77,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6041009698050444937, guid: c877958eaeedf2a47affc2093c2a4b77,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6041009698050444937, guid: c877958eaeedf2a47affc2093c2a4b77,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6041009698050444937, guid: c877958eaeedf2a47affc2093c2a4b77,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6041009698050444937, guid: c877958eaeedf2a47affc2093c2a4b77,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6041009698050444937, guid: c877958eaeedf2a47affc2093c2a4b77,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6041009698050444937, guid: c877958eaeedf2a47affc2093c2a4b77,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6041009698050444937, guid: c877958eaeedf2a47affc2093c2a4b77,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6041009698050444938, guid: c877958eaeedf2a47affc2093c2a4b77,
+        type: 3}
+      propertyPath: hero
+      value: 
+      objectReference: {fileID: 685183821295876011}
+    - target: {fileID: 6041009698050444939, guid: c877958eaeedf2a47affc2093c2a4b77,
+        type: 3}
+      propertyPath: onAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 538820072}
+    - target: {fileID: 6041009698050444939, guid: c877958eaeedf2a47affc2093c2a4b77,
+        type: 3}
+      propertyPath: onAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ArmPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 6041009698050444949, guid: c877958eaeedf2a47affc2093c2a4b77,
+        type: 3}
+      propertyPath: m_Name
+      value: Sword (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6041009698050444950, guid: c877958eaeedf2a47affc2093c2a4b77,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c877958eaeedf2a47affc2093c2a4b77, type: 3}
 --- !u!4 &382671320 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9166799973188151891, guid: 648fb7030dcf5314d88067b40ae5df9f,
@@ -1586,7 +1675,7 @@ GameObject:
   - component: {fileID: 444175863}
   - component: {fileID: 444175867}
   - component: {fileID: 444175864}
-  m_Layer: 13
+  m_Layer: 8
   m_Name: Lever
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2308,6 +2397,18 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &538820072 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6041009698050444938, guid: c877958eaeedf2a47affc2093c2a4b77,
+    type: 3}
+  m_PrefabInstance: {fileID: 353873253}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f43721c7a31481ea76eb161185d3747, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &545381424
 GameObject:
   m_ObjectHideFlags: 0
@@ -2317,7 +2418,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 545381425}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: OneDoor_Lever-Trigger (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2589,7 +2690,7 @@ GameObject:
   - component: {fileID: 574879294}
   - component: {fileID: 574879293}
   - component: {fileID: 574879298}
-  m_Layer: 13
+  m_Layer: 8
   m_Name: NextLevelDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2781,7 +2882,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 577440071}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
@@ -3111,7 +3212,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 617336118}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BottomPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -4826,7 +4927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &755792220
 Transform:
   m_ObjectHideFlags: 0
@@ -5050,6 +5151,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 801956514}
+  - component: {fileID: 801956516}
   m_Layer: 16
   m_Name: Totem_3El
   m_TagString: Untagged
@@ -5071,9 +5173,22 @@ Transform:
   - {fileID: 1657573406}
   - {fileID: 2022949427}
   - {fileID: 1381278537}
+  - {fileID: 1823151656}
   m_Father: {fileID: 0}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &801956516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801956513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0209cb137ea44440a2211d3a7a925087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &851771556
 GameObject:
   m_ObjectHideFlags: 0
@@ -5085,7 +5200,7 @@ GameObject:
   - component: {fileID: 851771557}
   - component: {fileID: 851771559}
   - component: {fileID: 851771558}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CloseTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5732,7 +5847,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 963146991}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: OneDoor_Lever-Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6329,7 +6444,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1085822903
 MonoBehaviour:
@@ -6387,7 +6502,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1126063374}
   - component: {fileID: 1126063375}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9414,7 +9529,7 @@ GameObject:
   - component: {fileID: 1215689029}
   - component: {fileID: 1215689028}
   - component: {fileID: 1215689027}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9515,7 +9630,7 @@ GameObject:
   - component: {fileID: 1224476200}
   - component: {fileID: 1224476204}
   - component: {fileID: 1224476201}
-  m_Layer: 13
+  m_Layer: 8
   m_Name: Lever
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9746,7 +9861,7 @@ GameObject:
   - component: {fileID: 1275844215}
   - component: {fileID: 1275844214}
   - component: {fileID: 1275844213}
-  m_Layer: 13
+  m_Layer: 8
   m_Name: Lever
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10607,7 +10722,7 @@ GameObject:
   - component: {fileID: 1321526327}
   - component: {fileID: 1321526329}
   - component: {fileID: 1321526328}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CloseTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10928,9 +11043,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startFacingDirection: -1
-  hitPower: {x: 1.5, y: 3}
+  hitPower: {x: 0, y: 0}
   hitDuration: 0.5
-  heavyHitPower: {x: 7, y: 7}
+  heavyHitPower: {x: 0, y: 0}
   heavyHitDuration: 1
   heavyDamageThreshold: 0.3
 --- !u!114 &1381278542
@@ -11063,7 +11178,7 @@ GameObject:
   - component: {fileID: 1431762209}
   - component: {fileID: 1431762213}
   - component: {fileID: 1431762210}
-  m_Layer: 13
+  m_Layer: 8
   m_Name: Lever
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13030,7 +13145,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1482607898}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: OneDoor_Lever-Trigger (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13064,13 +13179,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1487739936}
   - component: {fileID: 1487739937}
+  - component: {fileID: 1487739938}
   m_Layer: 0
   m_Name: Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1487739936
 Transform:
   m_ObjectHideFlags: 0
@@ -13079,7 +13195,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1487739935}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.19, y: -2.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1657573406}
@@ -13135,6 +13251,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1487739938
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487739935}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: b72643f03aab4c842b1c35b07a853968, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1493330375
 GameObject:
   m_ObjectHideFlags: 0
@@ -15096,7 +15231,7 @@ GameObject:
   - component: {fileID: 1513345110}
   - component: {fileID: 1513345111}
   - component: {fileID: 1513345112}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: El_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15280,7 +15415,7 @@ GameObject:
   - component: {fileID: 1555019061}
   - component: {fileID: 1555019063}
   - component: {fileID: 1555019062}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CloseTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15610,7 +15745,7 @@ GameObject:
   - component: {fileID: 1613137036}
   - component: {fileID: 1613137040}
   - component: {fileID: 1613137037}
-  m_Layer: 13
+  m_Layer: 8
   m_Name: Lever
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15900,7 +16035,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1626242044}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TopPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -33863,7 +33998,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1657573406
 Transform:
   m_ObjectHideFlags: 0
@@ -33872,7 +34007,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1657573405}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.7, z: 0}
+  m_LocalPosition: {x: 0.944, y: 1.946, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1487739936}
@@ -33893,7 +34028,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.1, y: -0.14}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -33936,12 +34071,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1657573405}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 013423114819447d810c579fe3a891fc, type: 3}
+  m_Script: {fileID: 11500000, guid: 49cc5533df6849adb0d8eb67ddda77db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  isDead: 0
-  currentHealth: 0
+  startFacingDirection: -1
+  hitPower: {x: 1.5, y: 3}
+  hitDuration: 0.5
+  heavyHitPower: {x: 7, y: 7}
+  heavyHitDuration: 1
+  heavyDamageThreshold: 0.3
 --- !u!1 &1657981319
 GameObject:
   m_ObjectHideFlags: 0
@@ -33986,7 +34124,7 @@ GameObject:
   - component: {fileID: 1666859199}
   - component: {fileID: 1666859200}
   - component: {fileID: 1666859202}
-  m_Layer: 13
+  m_Layer: 8
   m_Name: Lever
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34357,7 +34495,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1781491442}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
@@ -34391,7 +34529,7 @@ GameObject:
   - component: {fileID: 1789054497}
   - component: {fileID: 1789054495}
   - component: {fileID: 1789054494}
-  m_Layer: 13
+  m_Layer: 8
   m_Name: ExitDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34569,7 +34707,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1792937259}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Elevator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34745,6 +34883,94 @@ Transform:
   m_Father: {fileID: 124858954}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1823151655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1823151656}
+  - component: {fileID: 1823151658}
+  - component: {fileID: 1823151657}
+  m_Layer: 16
+  m_Name: Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1823151656
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823151655}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.06, y: -0.56, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 801956514}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1823151657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823151655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b13f88d7d4a14941a424b9404a2419b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectTag: Player
+  onAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 801956516}
+        m_MethodName: TotemsFlip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onEnter:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!61 &1823151658
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823151655}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1824782762
 GameObject:
   m_ObjectHideFlags: 0
@@ -34948,10 +35174,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2045532488}
     m_Modifications:
+    - target: {fileID: 3473849409946381974, guid: 1509593c7666aad4885fd0a52ff3aade,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5784059539883661390, guid: 1509593c7666aad4885fd0a52ff3aade,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5784059539987756152, guid: 1509593c7666aad4885fd0a52ff3aade,
         type: 3}
       propertyPath: m_Name
       value: Candle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5784059539987756152, guid: 1509593c7666aad4885fd0a52ff3aade,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5784059539987756159, guid: 1509593c7666aad4885fd0a52ff3aade,
         type: 3}
@@ -35168,7 +35409,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2001682133}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BottomPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -35207,7 +35448,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2022949427
 Transform:
   m_ObjectHideFlags: 0
@@ -35279,12 +35520,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2022949426}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 013423114819447d810c579fe3a891fc, type: 3}
+  m_Script: {fileID: 11500000, guid: 49cc5533df6849adb0d8eb67ddda77db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  isDead: 0
-  currentHealth: 0
+  startFacingDirection: -1
+  hitPower: {x: 1.5, y: 3}
+  hitDuration: 0.5
+  heavyHitPower: {x: 7, y: 7}
+  heavyHitDuration: 1
+  heavyDamageThreshold: 0.3
 --- !u!1 &2023845991
 GameObject:
   m_ObjectHideFlags: 0
@@ -35294,7 +35538,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2023845992}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chains
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35656,7 +35900,7 @@ GameObject:
   - component: {fileID: 2068337531}
   - component: {fileID: 2068337533}
   - component: {fileID: 2068337532}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CloseTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36359,7 +36603,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2112174008}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gates
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36397,7 +36641,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2113700079}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TopPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -36493,12 +36737,12 @@ PrefabInstance:
     - target: {fileID: 1013203842059538652, guid: fd7296759a730214bbec322309d1c026,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.55
+      value: -1.45
       objectReference: {fileID: 0}
     - target: {fileID: 1013203842059538652, guid: fd7296759a730214bbec322309d1c026,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.42
+      value: 6.42
       objectReference: {fileID: 0}
     - target: {fileID: 1013203842059538652, guid: fd7296759a730214bbec322309d1c026,
         type: 3}
@@ -36881,7 +37125,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3517135971742064027}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TopPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -36978,7 +37222,7 @@ GameObject:
   - component: {fileID: 3517135972097711509}
   - component: {fileID: 3517135972097711508}
   - component: {fileID: 3517135972097711511}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: El_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37087,7 +37331,7 @@ GameObject:
   - component: {fileID: 3517135972270121834}
   - component: {fileID: 3517135972270121833}
   - component: {fileID: 3517135972270121836}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: El_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37143,82 +37387,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3517135972929323234}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BottomPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1001 &5131585024966614490
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5969556686077706000, guid: 6bad0fa8bc129ab46ac692b0d3eba312,
-        type: 3}
-      propertyPath: m_Name
-      value: TotemProjectTile
-      objectReference: {fileID: 0}
-    - target: {fileID: 7154296287909595937, guid: 6bad0fa8bc129ab46ac692b0d3eba312,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 27
-      objectReference: {fileID: 0}
-    - target: {fileID: 7154296287909595937, guid: 6bad0fa8bc129ab46ac692b0d3eba312,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7154296287909595937, guid: 6bad0fa8bc129ab46ac692b0d3eba312,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 7154296287909595937, guid: 6bad0fa8bc129ab46ac692b0d3eba312,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7154296287909595937, guid: 6bad0fa8bc129ab46ac692b0d3eba312,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7154296287909595937, guid: 6bad0fa8bc129ab46ac692b0d3eba312,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7154296287909595937, guid: 6bad0fa8bc129ab46ac692b0d3eba312,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7154296287909595937, guid: 6bad0fa8bc129ab46ac692b0d3eba312,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7154296287909595937, guid: 6bad0fa8bc129ab46ac692b0d3eba312,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7154296287909595937, guid: 6bad0fa8bc129ab46ac692b0d3eba312,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7154296287909595937, guid: 6bad0fa8bc129ab46ac692b0d3eba312,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6bad0fa8bc129ab46ac692b0d3eba312, type: 3}
 --- !u!1001 &6041009697097307065
 PrefabInstance:
   m_ObjectHideFlags: 0

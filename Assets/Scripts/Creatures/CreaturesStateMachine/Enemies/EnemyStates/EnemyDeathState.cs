@@ -16,7 +16,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
         private float _startTime;
         private readonly float _duration;
         
-        public EnemyDeathState(Enemy en, CreatureStateMachine stateMachine, int animBoolName) 
+        public EnemyDeathState(Enemy en, BasicStateMachine stateMachine, int animBoolName) 
             : base(en, stateMachine, animBoolName)
         {
             _deathCollider = C2D as CapsuleCollider2D;
@@ -33,7 +33,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
             base.Enter();
             StateMachine.SwitchOffStateMachine();
             
-            En.GetComponent<CreatureHealth>().enabled = false; // ++
+            En.GetComponent<BasicHealth>().enabled = false; // ++
             En.gameObject.layer = LayerMask.NameToLayer("NotInteractive"); // ++
         }
 

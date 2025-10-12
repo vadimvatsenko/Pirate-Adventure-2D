@@ -20,7 +20,7 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         public Collider2D C2D { get; protected set; }
         public Animator AnimController { get; protected set; }
         
-        public CreatureStateMachine StateMachine { get; protected set; }
+        public BasicStateMachine StateMachine { get; protected set; }
 
         // direction
         public int FacingDirection { get; protected set; }
@@ -46,17 +46,17 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         public event Action OnThrowEvent; 
         
         // States
-        public CreatureState IdleState { get; protected set; }
-        public CreatureState MoveState { get; protected set; }
-        public CreatureState JumpState { get; protected set; }
-        public CreatureState DoubleJumpState { get; protected set; }
+        public BasicState IdleState { get; protected set; }
+        public BasicState MoveState { get; protected set; }
+        public BasicState JumpState { get; protected set; }
+        public BasicState DoubleJumpState { get; protected set; }
         
-        public CreatureState AttackState { get; protected set; }
-        public CreatureState FallState { get; protected set; }
-        public CreatureState HitState { get; protected set; }
-        public CreatureState DeathState { get; protected set; }
-        public CreatureState ClimbState { get; protected set; }
-        public CreatureState ThrowState { get; protected set; }
+        public BasicState AttackState { get; protected set; }
+        public BasicState FallState { get; protected set; }
+        public BasicState HitState { get; protected set; }
+        public BasicState DeathState { get; protected set; }
+        public BasicState ClimbState { get; protected set; }
+        public BasicState ThrowState { get; protected set; }
         
         public void CallOnJumpEvent() => OnJumpEvent?.Invoke();
         public void SubscribeOnJumpEvent(Action action) => OnJumpEvent += action;
@@ -80,7 +80,7 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
             Rb2D = GetComponent<Rigidbody2D>();
             C2D = GetComponent<Collider2D>();
             AnimController = GetComponentInChildren<Animator>();
-            StateMachine = new CreatureStateMachine();
+            StateMachine = new BasicStateMachine();
         }
         
         public void SetFinalHit(Vector2 finalHit) => _finalHit = finalHit;

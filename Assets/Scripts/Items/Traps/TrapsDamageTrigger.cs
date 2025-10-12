@@ -10,7 +10,7 @@ namespace Items.Traps
     {
         [SerializeField] private int damage;
         private Creature _creature;
-        private CreatureHealth _healthComponent;
+        private BasicHealth _healthComponent;
         private SpikesController _spikesController;
 
         private void Awake()
@@ -19,7 +19,7 @@ namespace Items.Traps
         }
         private void OnTriggerEnter2D(Collider2D other)
         {
-            _healthComponent = other.GetComponent<CreatureHealth>();
+            _healthComponent = other.GetComponent<BasicHealth>();
             
             if (_healthComponent != null)
             {

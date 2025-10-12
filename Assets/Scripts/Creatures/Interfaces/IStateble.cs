@@ -4,9 +4,9 @@ namespace Creatures.Interfaces
 {
     public interface IStateble
     {
-        CreatureState IdleState {get; set;}
-        CreatureState AttackState { get; set; }
-        CreatureState HitState { get; set; }
-        CreatureState DeathState { get; set; }
+        BasicState IdleState {get; set;}
+        BasicState AttackState { get; set; }
+        BasicState HitState { get; set; }
+        BasicState DeathState { get; set; }
     }
 }

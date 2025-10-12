@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Items.Traps.Totems
 {
-    public class TotemHealth : CreatureHealth
+    public class TotemHealth : BasicHealth
     {
         private TotemTrap _totemTrap;
 

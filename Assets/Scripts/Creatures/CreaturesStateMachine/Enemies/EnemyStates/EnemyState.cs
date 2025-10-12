@@ -5,13 +5,13 @@ using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 {
-    public class EnemyState : CreatureState
+    public class EnemyState : BasicState
     {
         protected Enemy En;
         private Hero _hr;
         protected readonly EnemyCollisionInfo EnemyCollisionInfo;
         
-        public EnemyState(Enemy en, CreatureStateMachine stateMachine, int animBoolName) 
+        public EnemyState(Enemy en, BasicStateMachine stateMachine, int animBoolName) 
             : base(en, stateMachine, animBoolName)
         {
             En = en;
