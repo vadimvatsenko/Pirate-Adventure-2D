@@ -1,14 +1,13 @@
-﻿using Creatures.AnimationControllers;
-using Creatures.CreaturesStateMachine.CreatureBasic;
+﻿using Creatures.CreaturesStateMachine.CreatureBasic;
 using UnityEngine;
 
 namespace Items.Traps.Totems
 {
-    public class TotemPauseState : BasicState
+    public class TotemPauseState : TotemBasicState
     {
         private float _time;
         private float _duration = 2f;
-        public TotemPauseState(BasicCreature creature, BasicStateMachine stateMachine, int animBoolName) 
+        public TotemPauseState(TotemTrap creature, BasicStateMachine stateMachine, int animBoolName) 
             : base(creature, stateMachine, animBoolName)
         {
         }
@@ -16,6 +15,12 @@ namespace Items.Traps.Totems
         public override void Update()
         {
             base.Update();
+
+            if (!TotemCollisionInfo.HeroDetect)
+            {
+                StateMachine.ChangeState(Creature.IdleState);
+                return;
+            }
 
             _time += Time.deltaTime;
 

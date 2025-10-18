@@ -5,9 +5,9 @@ using UnityEngine;
 
 namespace Items.Traps.Totems
 {
-    public class TotemAttackState : BasicState
+    public class TotemAttackState : TotemBasicState
     {
-        public TotemAttackState(BasicCreature creature, BasicStateMachine stateMachine, int animBoolName) 
+        public TotemAttackState(TotemTrap creature, BasicStateMachine stateMachine, int animBoolName) 
             : base(creature, stateMachine, animBoolName)
         {
         }
@@ -15,10 +15,18 @@ namespace Items.Traps.Totems
         public override void Update()
         {
             base.Update();
+
+            if (!TotemCollisionInfo.HeroDetect)
+            {
+                StateMachine.ChangeState(Creature.IdleState);
+            }
             
             if(StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Attack)) && StateInfo.normalizedTime >= 1.0f)
             {
-                StateMachine.ChangeState(Creature.PauseState);
+                if (TotemCollisionInfo.HeroDetect)
+                {
+                    StateMachine.ChangeState(Creature.PauseState);
+                }
             }
         }
     }

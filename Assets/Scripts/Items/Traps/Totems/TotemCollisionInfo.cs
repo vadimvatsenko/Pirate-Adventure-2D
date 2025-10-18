@@ -5,41 +5,46 @@ namespace Items.Traps.Totems
 {
     public class TotemCollisionInfo : MonoBehaviour
     {
-        private BasicCreature _totem;
+        private TotemTrap[] _totemsTrapsEl;
         [Header("Hero Detection Collision Info")]
         [SerializeField] private LayerMask whatIsHero;
-        [SerializeField] private float distanceToHero;
-        [SerializeField] private float attackDistance;
-        [SerializeField] private Transform hero;
+        [SerializeField] private Vector2 checkBoxSize = new Vector2(5f, 0.1f);
 
+        private Transform _heroTransform;
+        public Transform HeroTransform => _heroTransform;
+        public bool HeroDetect { get; private set; }
+        
         private void Awake()
         {
-            _totem = GetComponent<BasicCreature>();
+            _totemsTrapsEl = GetComponents<TotemTrap>();
         }
         
-        public RaycastHit2D HeroDetection()
+        public void HeroDetection()
         {
             RaycastHit2D hit = 
-                Physics2D.Raycast(_totem.transform.position, 
-                    Vector2.right * _totem.FacingDirection, 
-                    distanceToHero, 
+                Physics2D.BoxCast(
+                    transform.position, 
+                    checkBoxSize, 
+                    0, 
+                    Vector2.one, 
+                    0, 
                     whatIsHero);
-
-            if (hit.collider == null || hit.collider.gameObject.layer != LayerMask.NameToLayer("Player"))
-                return default;
             
-            return hit;
+            if (hit.collider != null)
+            {
+                HeroDetect = true;
+                _heroTransform = hit.collider.transform;
+            }
+            else
+            {
+                HeroDetect =  false;
+            }
         }
 
         private void OnDrawGizmos()
         {
-            if (_totem != null)
-            {
-                Gizmos.color = Color.blue;
-                Gizmos.DrawLine(_totem.transform.position,
-                    new Vector2(_totem.transform.position.x + (_totem.FacingDirection * attackDistance), 
-                        _totem.transform.position.y));
-            }
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireCube(transform.position, checkBoxSize);
         }
     }
 }
