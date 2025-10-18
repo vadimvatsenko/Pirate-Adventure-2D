@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
-using Creatures.Interfaces;
 using UnityEngine;
 
 namespace Items.Traps.Totems
@@ -10,7 +10,9 @@ namespace Items.Traps.Totems
     {
         private TotemTrap[] _totemsElements;
         public TotemCollisionInfo TotemCollInfo {get; private set;}
-        private readonly WaitForSeconds _wait2s = new WaitForSeconds(2f);
+        private readonly WaitForSeconds _wait2s = new WaitForSeconds(1f);
+        
+        private List<TotemTrap> _totemsAtacker;
         
 
         private void Awake()
@@ -33,10 +35,11 @@ namespace Items.Traps.Totems
 
             if (TotemCollInfo.HeroDetect)
             {
-                Flip();
+                CheckTotemForFlip();
             }
-            
         }
+        
+        public void CheckTotemForFlip() => StartCoroutine(TotemsFlipRoutine());
 
         private IEnumerator TotemsFlipRoutine()
         {
@@ -44,19 +47,17 @@ namespace Items.Traps.Totems
             var hero = TotemCollInfo != null ? TotemCollInfo.HeroTransform : null;
             if (hero == null) yield break;
 
-            // Снимок, чтобы безопасно итерироваться
+            // Работаем с дублем тотемов, если какой то удалится не словим ошибку
             var snapshot = _totemsElements.Where(t => t != null).ToArray();
 
             foreach (var to in snapshot)
             {
-                // Пауза между тотемами
                 yield return _wait2s;
-
                 // Повторные проверки после задержки:
                 if (hero == null) yield break; // герой пропал — прекращаем рутину
-                if (to == null) continue;      // тотем уничтожен — пропускаем
+                if (to == null) continue; // тотем уничтожен — пропускаем
 
-                float heroX  = hero.position.x;
+                float heroX = hero.position.x;
                 float totemX = to.transform.position.x;
 
                 int needFlip = (totemX < heroX) ? 1 : -1;
@@ -65,27 +66,13 @@ namespace Items.Traps.Totems
                 // лучше тоже обернуть проверкой:
                 if (to != null && needFlip != to.FacingDirection)
                 {
-                    to.Flip();
+                    to.Flip(); // Пауза между тотемам
                 }
-
-                // Если нужен автопереход в атаку:
-
-                if (to == snapshot[snapshot.Length - 1])
+                else
                 {
-                    foreach (var tot in snapshot)
-                    {
-                        Debug.Log(tot.gameObject.name);
-                        if (to != null) to.StateMachine.ChangeState(to.AttackState);
-                    }
+                    break;
                 }
-                
-                //if (to != null) to.StateMachine.ChangeState(to.AttackState);
             }
-
-            // (Опционально) почистить основной список от уничтоженных:
-            //_totemsElements.RemoveAll(t => t == null);
         }
-        
-        public void Flip() => StartCoroutine(TotemsFlipRoutine());
     }
 }

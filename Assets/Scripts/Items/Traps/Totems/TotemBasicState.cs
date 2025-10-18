@@ -1,5 +1,6 @@
 ﻿using System;
 using Components.HealthComponentFolder;
+using Creatures.AnimationControllers;
 using Creatures.CreaturesCollisions;
 using Creatures.CreaturesStateMachine.CreatureBasic;
 using UnityEngine;
@@ -14,6 +15,11 @@ namespace Items.Traps.Totems
         {
             TotemCollisionInfo = Creature.GetComponentInParent<TotemCollisionInfo>();
         }
-        
+
+        public override void Enter()
+        {
+            base.Enter();
+            //Debug.Log($"{Creature.name} in {AnimatorHashes.GetName(AnimBoolName)}");
+        }
     }
 }

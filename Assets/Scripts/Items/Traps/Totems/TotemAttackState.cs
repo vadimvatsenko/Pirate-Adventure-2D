@@ -16,6 +16,9 @@ namespace Items.Traps.Totems
         {
             base.Update();
 
+            
+            Debug.Log(TotemCollisionInfo.HeroDetect);
+            
             if (!TotemCollisionInfo.HeroDetect)
             {
                 StateMachine.ChangeState(Creature.IdleState);
