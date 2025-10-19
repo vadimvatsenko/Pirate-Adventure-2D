@@ -6047,7 +6047,8 @@ MonoBehaviour:
   whatIsHero:
     serializedVersion: 2
     m_Bits: 4096
-  checkBoxSize: {x: 5, y: 2.25}
+  checkVisionBoxSize: {x: 7, y: 2.25}
+  checkAttackBoxSize: {x: 5, y: 2.25}
 --- !u!114 &801956516
 MonoBehaviour:
   m_ObjectHideFlags: 0

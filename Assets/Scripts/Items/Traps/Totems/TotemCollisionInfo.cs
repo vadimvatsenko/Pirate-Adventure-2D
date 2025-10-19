@@ -1,5 +1,6 @@
 ﻿using Creatures.CreaturesStateMachine.CreatureBasic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Items.Traps.Totems
 {
@@ -8,11 +9,16 @@ namespace Items.Traps.Totems
         private TotemTrap[] _totemsTrapsEl;
         [Header("Hero Detection Collision Info")]
         [SerializeField] private LayerMask whatIsHero;
-        [SerializeField] private Vector2 checkBoxSize = new Vector2(5f, 0.1f);
+        [SerializeField] private Vector2 checkVisionBoxSize = new Vector2(5f, 0.1f);
+        
+        [FormerlySerializedAs("checkBoxSize")]
+        [Header("Totem Attack Collision Info")]
+        [SerializeField] private Vector2 checkAttackBoxSize = new Vector2(5f, 0.1f);
 
         private Transform _heroTransform;
         public Transform HeroTransform => _heroTransform;
         public bool HeroDetect { get; private set; }
+        public bool HeroAttack {get; private set;}
         
         private void Awake()
         {
@@ -24,7 +30,7 @@ namespace Items.Traps.Totems
             RaycastHit2D hit = 
                 Physics2D.BoxCast(
                     transform.position, 
-                    checkBoxSize, 
+                    checkVisionBoxSize, 
                     0, 
                     Vector2.one, 
                     0, 
@@ -40,11 +46,34 @@ namespace Items.Traps.Totems
                 HeroDetect =  false;
             }
         }
+        
+        public void HeroAttackDetection()
+        {
+            RaycastHit2D hit = 
+                Physics2D.BoxCast(
+                    transform.position, 
+                    checkAttackBoxSize, 
+                    0, 
+                    Vector2.one, 
+                    0, 
+                    whatIsHero);
+            
+            if (hit.collider != null)
+            {
+                HeroAttack = true;
+            }
+            else
+            {
+                HeroAttack =  false;
+            }
+        }
 
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.blue;
-            Gizmos.DrawWireCube(transform.position, checkBoxSize);
+            Gizmos.DrawWireCube(transform.position, checkVisionBoxSize);
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireCube(transform.position, checkAttackBoxSize);
         }
     }
 }

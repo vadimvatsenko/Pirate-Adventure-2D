@@ -13,33 +13,75 @@ namespace Items.Traps.Totems
         private readonly WaitForSeconds _wait2s = new WaitForSeconds(1f);
         
         private List<TotemTrap> _totemsAtacker;
-        
+
+        private bool _isAttack;
 
         private void Awake()
         {
             _totemsElements = GetComponentsInChildren<TotemTrap>();
             TotemCollInfo = GetComponent<TotemCollisionInfo>();
             
-            Debug.Log(_totemsElements.Length);
-            Debug.Log(TotemCollInfo);
-            
-            if (TotemCollInfo != null)
-            {
-                TotemCollInfo.HeroDetection();
-            }
         }
 
         private void Update()
         {
             TotemCollInfo.HeroDetection();
+            TotemCollInfo.HeroAttackDetection();
 
             if (TotemCollInfo.HeroDetect)
-            {
                 CheckTotemForFlip();
+
+            if (TotemCollInfo.HeroAttack && !_isAttack)
+            {
+                StartAttack();
+            }
+            else
+            {
+                TotemsToIdleState();
+            }
+            
+            
+        }
+
+        private void TotemsToIdleState()
+        {
+            var snapshot = _totemsElements.Where(t => t != null).ToArray();
+            foreach (var t in snapshot)
+            {
+                if (t.StateMachine.CurrentState != t.HitState)
+                {
+                    t.StateMachine.ChangeState(t.IdleState);
+                }
             }
         }
-        
+
         public void CheckTotemForFlip() => StartCoroutine(TotemsFlipRoutine());
+        public void StartAttack() => StartCoroutine(TotemsStartAttackRoutine());
+
+        private IEnumerator TotemsStartAttackRoutine()
+        {
+            _isAttack = true;
+            
+            var snapshot = _totemsElements.Where(t => t != null).ToArray();
+            
+            var hero = TotemCollInfo != null ? TotemCollInfo.HeroTransform : null;
+            
+            if (hero == null) yield break;
+
+            foreach (var t in snapshot)
+            {
+                yield return _wait2s;
+                if (hero == null) yield break; // герой пропал — прекращаем рутину
+                if (t == null) continue;
+
+                var curState = t.StateMachine.CurrentState;
+
+                if (curState == t.AttackState || curState == t.PauseState || curState == t.HitState) yield break;
+                t.StateMachine.ChangeState(t.AttackState);
+            }
+
+            //_isAttack = false;
+        }
 
         private IEnumerator TotemsFlipRoutine()
         {
@@ -49,6 +91,8 @@ namespace Items.Traps.Totems
 
             // Работаем с дублем тотемов, если какой то удалится не словим ошибку
             var snapshot = _totemsElements.Where(t => t != null).ToArray();
+            
+            if(snapshot.All(t => t.transform.position.x > hero.transform.position.x))
 
             foreach (var to in snapshot)
             {

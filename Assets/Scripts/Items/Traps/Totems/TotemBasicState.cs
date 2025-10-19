@@ -15,11 +15,5 @@ namespace Items.Traps.Totems
         {
             TotemCollisionInfo = Creature.GetComponentInParent<TotemCollisionInfo>();
         }
-
-        public override void Enter()
-        {
-            base.Enter();
-            //Debug.Log($"{Creature.name} in {AnimatorHashes.GetName(AnimBoolName)}");
-        }
     }
 }

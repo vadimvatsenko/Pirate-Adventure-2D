@@ -15,22 +15,14 @@ namespace Items.Traps.Totems
         public override void Update()
         {
             base.Update();
-
             
-            Debug.Log(TotemCollisionInfo.HeroDetect);
-            
-            if (!TotemCollisionInfo.HeroDetect)
+            /*if(StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Attack)) && StateInfo.normalizedTime >= 1.0f)
             {
-                StateMachine.ChangeState(Creature.IdleState);
-            }
-            
-            if(StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Attack)) && StateInfo.normalizedTime >= 1.0f)
-            {
-                if (TotemCollisionInfo.HeroDetect)
+                if (TotemCollisionInfo.HeroAttack)
                 {
                     StateMachine.ChangeState(Creature.PauseState);
                 }
-            }
+            }*/
         }
     }
 }

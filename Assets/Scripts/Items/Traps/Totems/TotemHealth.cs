@@ -27,7 +27,7 @@ namespace Items.Traps.Totems
             {
                 if(_totemTrap.StateMachine.CurrentState == _totemTrap.AttackState) return;
 
-                _coroutine = StartCoroutine(AttackStateDelay());
+                //_coroutine = StartCoroutine(AttackStateDelay());
             }
         }
 

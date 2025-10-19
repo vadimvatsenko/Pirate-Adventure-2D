@@ -9,17 +9,5 @@ namespace Items.Traps.Totems
             : base(creature, stateMachine, animBoolName)
         {
         }
-        
-        public override void Update()
-        {
-            base.Update();
-            
-            if(!TotemCollisionInfo.HeroDetect) return;
-            
-            /*if (TotemCollisionInfo.HeroDetect)
-            {
-                StateMachine.ChangeState(Creature.AttackState);
-            }*/
-        }
     }
 }
