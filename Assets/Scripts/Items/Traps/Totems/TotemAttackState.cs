@@ -16,13 +16,13 @@ namespace Items.Traps.Totems
         {
             base.Update();
             
-            /*if(StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Attack)) && StateInfo.normalizedTime >= 1.0f)
+            if(StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Attack)) && StateInfo.normalizedTime >= 1.0f)
             {
                 if (TotemCollisionInfo.HeroAttack)
                 {
                     StateMachine.ChangeState(Creature.PauseState);
                 }
-            }*/
+            }
         }
     }
 }

@@ -20,7 +20,6 @@ namespace Items.Traps.Totems
         {
             _totemsElements = GetComponentsInChildren<TotemTrap>();
             TotemCollInfo = GetComponent<TotemCollisionInfo>();
-            
         }
 
         private void Update()
@@ -39,8 +38,6 @@ namespace Items.Traps.Totems
             {
                 TotemsToIdleState();
             }
-            
-            
         }
 
         private void TotemsToIdleState()

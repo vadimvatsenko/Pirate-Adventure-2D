@@ -24,7 +24,6 @@ namespace Items.Elevator
         {
             if (_time < targetDuration)
             {
-                
                 _time += Time.deltaTime;
                 float percentage = _time / targetDuration;
                 _spriteRenderer.size = Vector2.Lerp(_starSize, new Vector2(_starSize.x, targetHeight), percentage);
