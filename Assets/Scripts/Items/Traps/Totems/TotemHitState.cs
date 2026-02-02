@@ -13,7 +13,6 @@ namespace Items.Traps.Totems
         
         public override void Update()
         {
-            Debug.Log(StateInfo.normalizedTime);
             if(StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Hit)) && StateInfo.normalizedTime >= 1.0f)
             {
                 StateMachine.ChangeState(Creature.IdleState);
