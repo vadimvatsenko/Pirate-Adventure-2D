@@ -13,7 +13,6 @@ namespace Items.Traps.Totems
         
         private void Start()
         {
-            
             _totemTrap = gameObject.GetComponent<TotemTrap>();
         }
 
@@ -26,8 +25,7 @@ namespace Items.Traps.Totems
             if (attacker != null)
             {
                 if(_totemTrap.StateMachine.CurrentState == _totemTrap.AttackState) return;
-
-                //_coroutine = StartCoroutine(AttackStateDelay());
+                _coroutine = StartCoroutine(AttackStateDelay());
             }
         }
 

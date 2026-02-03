@@ -58,6 +58,7 @@ namespace Items.Traps.Totems
                     0, 
                     whatIsHero);
             
+            
             if (hit.collider != null)
             {
                 HeroAttack = true;
