@@ -1,11 +1,6 @@
-﻿using System;
-using Components.HealthComponentFolder;
-using Creatures.AnimationControllers;
-using Creatures.CreaturesCollisions;
-using Creatures.CreaturesStateMachine.CreatureBasic;
-using UnityEngine;
+﻿using Creatures.CreaturesStateMachine.CreatureBasic;
 
-namespace Items.Traps.Totems
+namespace Creatures.CreaturesStateMachine.Enemies.Totems
 {
     public class TotemBasicState : BasicState
     {

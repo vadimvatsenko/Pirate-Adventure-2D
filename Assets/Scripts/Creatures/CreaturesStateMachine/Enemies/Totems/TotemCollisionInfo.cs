@@ -1,8 +1,7 @@
-﻿using Creatures.CreaturesStateMachine.CreatureBasic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Items.Traps.Totems
+namespace Creatures.CreaturesStateMachine.Enemies.Totems
 {
     public class TotemCollisionInfo : MonoBehaviour
     {
@@ -11,7 +10,6 @@ namespace Items.Traps.Totems
         [SerializeField] private LayerMask whatIsHero;
         [SerializeField] private Vector2 checkVisionBoxSize = new Vector2(5f, 0.1f);
         
-        [FormerlySerializedAs("checkBoxSize")]
         [Header("Totem Attack Collision Info")]
         [SerializeField] private Vector2 checkAttackBoxSize = new Vector2(5f, 0.1f);
 

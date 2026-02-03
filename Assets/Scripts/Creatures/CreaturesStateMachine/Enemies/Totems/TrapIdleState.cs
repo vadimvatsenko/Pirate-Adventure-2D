@@ -1,7 +1,6 @@
 ﻿using Creatures.CreaturesStateMachine.CreatureBasic;
-using UnityEngine;
 
-namespace Items.Traps.Totems
+namespace Creatures.CreaturesStateMachine.Enemies.Totems
 {
     public class TrapIdleState : TotemBasicState
     {

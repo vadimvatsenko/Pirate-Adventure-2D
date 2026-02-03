@@ -1,7 +1,8 @@
 ﻿using Creatures.AnimationControllers;
 using Creatures.CreaturesStateMachine.CreatureBasic;
+using UnityEngine;
 
-namespace Items.Traps.Totems
+namespace Creatures.CreaturesStateMachine.Enemies.Totems
 {
     public class TotemAttackState : TotemBasicState
     {
@@ -16,9 +17,9 @@ namespace Items.Traps.Totems
             
             if(StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Attack)) && StateInfo.normalizedTime >= 1.0f)
             {
-                
                 if (TotemCollisionInfo.HeroAttack)
                 {
+                    Debug.Log("Pause");
                     StateMachine.ChangeState(Creature.PauseState);
                 }
             }

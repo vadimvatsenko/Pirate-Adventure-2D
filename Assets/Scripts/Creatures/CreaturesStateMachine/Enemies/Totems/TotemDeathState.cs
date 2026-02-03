@@ -1,6 +1,6 @@
 ﻿using Creatures.CreaturesStateMachine.CreatureBasic;
 
-namespace Items.Traps.Totems
+namespace Creatures.CreaturesStateMachine.Enemies.Totems
 {
     public class TotemDeathState : TotemBasicState
     {

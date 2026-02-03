@@ -1,14 +1,10 @@
-﻿using System;
-using Creatures.AnimationControllers;
+﻿using Creatures.AnimationControllers;
 using Creatures.CreaturesStateMachine.CreatureBasic;
-using Creatures.CreaturesStateMachine.Player;
-using UnityEngine;
 
-namespace Items.Traps.Totems
+namespace Creatures.CreaturesStateMachine.Enemies.Totems
 {
     public class TotemTrap : BasicCreature
     {
-        
         protected override void Awake()
         {
             base.Awake();
