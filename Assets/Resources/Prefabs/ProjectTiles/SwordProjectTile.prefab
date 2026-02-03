@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 3831402450767001651}
   - component: {fileID: 983362699276919907}
   - component: {fileID: 3563354510178221896}
+  - component: {fileID: -3603587192392711721}
   m_Layer: 0
   m_Name: SwordProjectTile
   m_TagString: Untagged
@@ -254,13 +255,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5360728648923829525}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76e56d39317c449c93d632bdc7f4ae14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  invertX: 0
+  isFacingRight: 0
 --- !u!114 &7050396431477347827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,3 +373,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 0
+--- !u!114 &-3603587192392711721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5360728648923829525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: accd16be4a7c438088dd86941adbca7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.1
+  isFacingRight: 0
+  frequency: 5
+  amplitude: 5
