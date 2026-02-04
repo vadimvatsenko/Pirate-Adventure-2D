@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Components.Livitation
+namespace Components.Levitation
 {
     public class CircularLevitationComponent : BaseLevitationComponent
     {

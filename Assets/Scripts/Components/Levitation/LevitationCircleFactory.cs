@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Components.Livitation
+namespace Components.Levitation
 {
-    public class CoinsCircleFactory : MonoBehaviour, IDisposable
+    public class LevitationCircleFactory : MonoBehaviour, IDisposable
     {
         [SerializeField] private Transform coinPrefab;
         [SerializeField] private int count = 8;
@@ -45,19 +45,12 @@ namespace Components.Livitation
 
         private void UpdatePositions()
         {
-            for (int i = 0; i < _coins.Count; i++)
-            {
-                if (_coins[i] == null)
-                {
-                    _coins.RemoveAt(i);
-                    return;
-                }
-            }
             
             float step = 360f / count;
 
             for (int i = 0; i < _coins.Count; i++)
             {
+                if(!_coins[i]) continue;
                 float a = (_angle + step * i) * Mathf.Deg2Rad;
 
                 Vector3 offset = new Vector3(Mathf.Cos(a), Mathf.Sin(a), 0f) * radius;
