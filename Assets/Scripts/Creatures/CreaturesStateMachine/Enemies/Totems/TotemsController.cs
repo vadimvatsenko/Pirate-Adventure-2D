@@ -7,14 +7,13 @@ namespace Creatures.CreaturesStateMachine.Enemies.Totems
 {
     public class TotemsController : MonoBehaviour
     {
-
         [SerializeField] private int delayForOneTotem = 2;
         private WaitForSeconds _waitDelay;
         private TotemTrap[] _totemsElements;
         private TotemCollisionInfo _totemCollInfo;
         
         private List<TotemTrap> _totemsAttacker;
-        private bool _isAttack = false;
+        private bool _isAttackingNow = false;
 
         private void Awake()
         {
@@ -31,7 +30,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.Totems
             if (_totemCollInfo.HeroDetect)
                 CheckTotemForFlip();
 
-            if (_totemCollInfo.HeroAttack)
+            if (_totemCollInfo.HeroAttack && !_isAttackingNow)
             {
                 StartAttack();
             }
@@ -41,20 +40,6 @@ namespace Creatures.CreaturesStateMachine.Enemies.Totems
             }
         }
         
-        /*private async Task AsyncTest()
-        {
-            await Task.Delay(2000);
-            var snapshot = _totemsElements.Where(t => t != null).ToArray();
-            
-            foreach (var t in snapshot)
-            {
-                //t.StateMachine.ChangeState(t.IdleState);
-                //yield return _waitDelay;
-                t.StateMachine.ChangeState(t.AttackState);
-            }
-            //StartAttack();
-        }*/
-
         private void TotemsToIdleState()
         {
             var snapshot = _totemsElements.Where(t => t != null).ToArray();
@@ -72,6 +57,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.Totems
 
         private IEnumerator TotemsStartAttackRoutine()
         {
+            _isAttackingNow = true;
             var snapshot = _totemsElements.Where(t => t != null).ToArray();
             
             foreach (var t in snapshot)
@@ -79,6 +65,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.Totems
                 t.StateMachine.ChangeState(t.AttackState);
                 yield return _waitDelay;
             }
+            _isAttackingNow = false;
         }
 
         private IEnumerator TotemsFlipRoutine()
