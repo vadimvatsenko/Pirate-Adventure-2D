@@ -22,12 +22,11 @@ namespace Components.Spawn
             Vector3 spawnPos = target.position;
 
             GameObject spawnObj = Instantiate(prefab, spawnPos, Quaternion.identity);
-
-            ProjectTile projectTile = spawnObj.GetComponent<ProjectTile>();
+            BaseProjectTile projectTile = spawnObj.GetComponent<BaseProjectTile>();
 
             if (projectTile != null)
             {
-                projectTile.SetDirection(owner.FacingDirection);
+                projectTile.ChangeDirection(owner.FacingDirection);
             }
 
             spawnObj.transform.localScale = target.lossyScale;

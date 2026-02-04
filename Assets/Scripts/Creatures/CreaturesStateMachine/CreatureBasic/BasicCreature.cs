@@ -19,7 +19,6 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         public Rigidbody2D Rb2D { get; protected set; }
         public Collider2D C2D { get; protected set; }
         public Animator AnimController { get; protected set; }
-        
         public BasicStateMachine StateMachine { get; protected set; }
 
         // direction

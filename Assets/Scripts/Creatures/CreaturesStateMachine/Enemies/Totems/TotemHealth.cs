@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using Creatures.CreaturesHealth;
 using UnityEngine;
 
-namespace Items.Traps.Totems
+namespace Creatures.CreaturesStateMachine.Enemies.Totems
 {
     public class TotemHealth : BasicHealth
     {
@@ -13,7 +12,6 @@ namespace Items.Traps.Totems
         
         private void Start()
         {
-            
             _totemTrap = gameObject.GetComponent<TotemTrap>();
         }
 
@@ -26,9 +24,7 @@ namespace Items.Traps.Totems
             if (attacker != null)
             {
                 if(_totemTrap.StateMachine.CurrentState == _totemTrap.AttackState) return;
-
                 _coroutine = StartCoroutine(AttackStateDelay());
-
             }
         }
 

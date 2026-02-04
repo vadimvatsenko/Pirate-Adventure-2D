@@ -7,7 +7,7 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
 {
     public class BasicState : ICreatureState
     {
-        protected BasicCreature Creature;
+        protected readonly BasicCreature Creature;
         
         protected BasicStateMachine StateMachine;
         protected readonly Rigidbody2D Rb2D;

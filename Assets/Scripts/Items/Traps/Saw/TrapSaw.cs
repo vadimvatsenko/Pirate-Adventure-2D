@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Items.Traps
+namespace Items.Traps.Saw
 {
     public class TrapSaw : MonoBehaviour
     {

@@ -1,13 +1,12 @@
-﻿using System;
-using Creatures.AnimationControllers;
+﻿using Creatures.AnimationControllers;
 using Creatures.CreaturesStateMachine.CreatureBasic;
 using UnityEngine;
 
-namespace Items.Traps.Totems
+namespace Creatures.CreaturesStateMachine.Enemies.Totems
 {
-    public class TotemAttackState : BasicState
+    public class TotemAttackState : TotemBasicState
     {
-        public TotemAttackState(BasicCreature creature, BasicStateMachine stateMachine, int animBoolName) 
+        public TotemAttackState(TotemTrap creature, BasicStateMachine stateMachine, int animBoolName) 
             : base(creature, stateMachine, animBoolName)
         {
         }
@@ -18,7 +17,10 @@ namespace Items.Traps.Totems
             
             if(StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Attack)) && StateInfo.normalizedTime >= 1.0f)
             {
-                StateMachine.ChangeState(Creature.PauseState);
+                /*if (TotemCollisionInfo.HeroAttack)
+                {
+                    StateMachine.ChangeState(Creature.PauseState);
+                }*/
             }
         }
     }

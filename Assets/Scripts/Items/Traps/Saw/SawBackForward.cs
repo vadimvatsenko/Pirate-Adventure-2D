@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Items.Traps
+namespace Items.Traps.Saw
 {
     public class SawBackForward : TrapSaw
     {
@@ -24,10 +24,5 @@ namespace Items.Traps
                 WaypointIndex = 0;
             }
         }
-
-        /*protected override void Rotation()
-        {
-            transform.Rotate(0f,0f, (RotationAngle * MovementDirection) * Time.deltaTime);
-        }*/
     }
 }

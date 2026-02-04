@@ -12,7 +12,6 @@ namespace GameManagerInfo
         //Temp
         private LevelController _levelController;
         public LevelController LevelController => _levelController;
-        //
         
         private void Awake()
         {
