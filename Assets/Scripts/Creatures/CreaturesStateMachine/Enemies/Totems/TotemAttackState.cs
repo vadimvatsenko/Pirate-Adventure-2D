@@ -17,11 +17,10 @@ namespace Creatures.CreaturesStateMachine.Enemies.Totems
             
             if(StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Attack)) && StateInfo.normalizedTime >= 1.0f)
             {
-                if (TotemCollisionInfo.HeroAttack)
+                /*if (TotemCollisionInfo.HeroAttack)
                 {
-                    Debug.Log("Pause");
                     StateMachine.ChangeState(Creature.PauseState);
-                }
+                }*/
             }
         }
     }

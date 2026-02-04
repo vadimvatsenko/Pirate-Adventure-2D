@@ -7,9 +7,11 @@ namespace Creatures.CreaturesStateMachine.Enemies.Totems
 {
     public class TotemsController : MonoBehaviour
     {
+
+        [SerializeField] private int delayForOneTotem = 2;
+        private WaitForSeconds _waitDelay;
         private TotemTrap[] _totemsElements;
-        public TotemCollisionInfo TotemCollInfo {get; private set;}
-        private readonly WaitForSeconds wait2S = new WaitForSeconds(2f);
+        private TotemCollisionInfo _totemCollInfo;
         
         private List<TotemTrap> _totemsAttacker;
         private bool _isAttack = false;
@@ -17,18 +19,19 @@ namespace Creatures.CreaturesStateMachine.Enemies.Totems
         private void Awake()
         {
             _totemsElements = GetComponentsInChildren<TotemTrap>();
-            TotemCollInfo = GetComponent<TotemCollisionInfo>();
+            _totemCollInfo = GetComponent<TotemCollisionInfo>();
+            _waitDelay = new WaitForSeconds(delayForOneTotem);
         }
 
         private void Update()
         {
-            TotemCollInfo.HeroDetection();
-            TotemCollInfo.HeroAttackDetection();
+            _totemCollInfo.HeroDetection();
+            _totemCollInfo.HeroAttackDetection();
 
-            if (TotemCollInfo.HeroDetect)
+            if (_totemCollInfo.HeroDetect)
                 CheckTotemForFlip();
 
-            if (TotemCollInfo.HeroAttack)
+            if (_totemCollInfo.HeroAttack)
             {
                 StartAttack();
             }
@@ -37,6 +40,20 @@ namespace Creatures.CreaturesStateMachine.Enemies.Totems
                 TotemsToIdleState();
             }
         }
+        
+        /*private async Task AsyncTest()
+        {
+            await Task.Delay(2000);
+            var snapshot = _totemsElements.Where(t => t != null).ToArray();
+            
+            foreach (var t in snapshot)
+            {
+                //t.StateMachine.ChangeState(t.IdleState);
+                //yield return _waitDelay;
+                t.StateMachine.ChangeState(t.AttackState);
+            }
+            //StartAttack();
+        }*/
 
         private void TotemsToIdleState()
         {
@@ -56,31 +73,18 @@ namespace Creatures.CreaturesStateMachine.Enemies.Totems
         private IEnumerator TotemsStartAttackRoutine()
         {
             var snapshot = _totemsElements.Where(t => t != null).ToArray();
-            var hero = TotemCollInfo != null ? TotemCollInfo.HeroTransform : null;
             
-            if (hero == null) yield break;
-
             foreach (var t in snapshot)
             {
-                yield return wait2S;
-                if (hero == null)
-                {
-                    t.StateMachine.ChangeState(t.IdleState);
-                    yield break; // герой пропал — прекращаем рутину
-                }
-                if (t == null) continue;
-
-                var curState = t.StateMachine.CurrentState;
-
                 t.StateMachine.ChangeState(t.AttackState);
-                if (curState == t.AttackState || curState == t.PauseState || curState == t.HitState) yield break;
+                yield return _waitDelay;
             }
         }
 
         private IEnumerator TotemsFlipRoutine()
         {
             // Если героя нет — выходим
-            var hero = TotemCollInfo != null ? TotemCollInfo.HeroTransform : null;
+            var hero = _totemCollInfo != null ? _totemCollInfo.HeroTransform : null;
             if (!hero) yield break;
 
             // Работаем с дублем тотемов, если какой то удалится не словим ошибку
@@ -90,7 +94,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.Totems
 
             foreach (var to in snapshot)
             {
-                yield return wait2S;
+                yield return _waitDelay;
                 // Повторные проверки после задержки:
                 if (hero == null) yield break; // герой пропал — прекращаем рутину
                 if (to == null) continue; // тотем уничтожен — пропускаем

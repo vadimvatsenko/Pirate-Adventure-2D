@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
+// старый компонент, сейчас не использую
 namespace Components.HealthComponentFolder
 {
     public class HealthModifier :MonoBehaviour

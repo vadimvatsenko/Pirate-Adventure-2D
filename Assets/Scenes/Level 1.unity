@@ -4817,6 +4817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0209cb137ea44440a2211d3a7a925087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delayForOneTotem: 2
 --- !u!1 &813372721
 GameObject:
   m_ObjectHideFlags: 0
@@ -39135,6 +39136,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2101981481, guid: fd7296759a730214bbec322309d1c026, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 544333609737698713, guid: fd7296759a730214bbec322309d1c026,
         type: 3}
       propertyPath: m_LocalPosition.x

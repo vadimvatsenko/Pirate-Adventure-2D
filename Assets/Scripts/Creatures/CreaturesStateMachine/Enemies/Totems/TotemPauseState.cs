@@ -6,7 +6,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.Totems
     public class TotemPauseState : TotemBasicState
     {
         private float _time;
-        private float _duration = 2f;
+        private float _duration = 6f;
         public TotemPauseState(TotemTrap creature, BasicStateMachine stateMachine, int animBoolName) 
             : base(creature, stateMachine, animBoolName)
         {

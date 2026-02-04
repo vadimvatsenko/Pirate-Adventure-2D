@@ -63,6 +63,7 @@ GameObject:
   - component: {fileID: 3285061858446430774}
   - component: {fileID: 1520133419284057702}
   - component: {fileID: 3012510593229788493}
+  - component: {fileID: 6387208789455716536}
   m_Layer: 0
   m_Name: TotemProjectTile
   m_TagString: Untagged
@@ -320,6 +321,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 0
+--- !u!114 &6387208789455716536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5969556686077706000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87dfcd411dbc4455a9cbdf20f7855f20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
 --- !u!1 &7758078544433591846
 GameObject:
   m_ObjectHideFlags: 0
