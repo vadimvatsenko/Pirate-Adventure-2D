@@ -62,6 +62,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.Totems
             
             foreach (var t in snapshot)
             {
+                if(!t) continue; 
                 t.StateMachine.ChangeState(t.AttackState);
                 yield return _waitDelay;
             }
