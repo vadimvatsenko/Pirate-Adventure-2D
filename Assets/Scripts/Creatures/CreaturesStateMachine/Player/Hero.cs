@@ -1,6 +1,7 @@
 ﻿using Creatures.AnimationControllers;
 using Creatures.CreaturesCollisions;
 using Creatures.CreaturesStateMachine.CreatureBasic;
+using Creatures.CreaturesStateMachine.Player.PlayerStates;
 using GameManagerInfo;
 using UnityEngine;
 

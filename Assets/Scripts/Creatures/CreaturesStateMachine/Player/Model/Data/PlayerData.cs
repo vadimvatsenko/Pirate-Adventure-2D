@@ -1,11 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-namespace GameManagerInfo
+namespace Creatures.CreaturesStateMachine.Player.Model.Data
 {
     [Serializable]
     public class PlayerData
     {
+        [SerializeField] private InventoryData inventoryData;
+        
         [Header("Coins")]
         public int coins;
         [Header("IsArmed")]
@@ -17,5 +19,11 @@ namespace GameManagerInfo
         public int health;
         public int maxHealth;
         public int maxTotalHearts;
+
+        public PlayerData Clone()
+        {
+            string json = JsonUtility.ToJson(this);
+            return JsonUtility.FromJson<PlayerData>(json);
+        }
     }
 }

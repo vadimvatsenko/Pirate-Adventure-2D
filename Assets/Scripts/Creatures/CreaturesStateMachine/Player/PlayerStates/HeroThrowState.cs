@@ -1,10 +1,9 @@
-﻿using System;
-using Creatures.AnimationControllers;
+﻿using Creatures.AnimationControllers;
 using Creatures.CreaturesStateMachine.CreatureBasic;
 using UnityEngine;
 
 // состояние броска
-namespace Creatures.CreaturesStateMachine.Player
+namespace Creatures.CreaturesStateMachine.Player.PlayerStates
 {
     public class HeroThrowState : HeroState
     {

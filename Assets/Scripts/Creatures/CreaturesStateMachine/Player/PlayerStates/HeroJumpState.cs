@@ -1,11 +1,12 @@
 ﻿using Creatures.CreaturesStateMachine.CreatureBasic;
+using Creatures.CreaturesStateMachine.Player.PlayerStates;
 using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Player
 {
-    public class HeroDoubleJumpState : HeroAiredState
+    public class HeroJumpState : HeroAiredState
     {
-        public HeroDoubleJumpState(Player.Hero hr, BasicStateMachine stateMachine, int animBoolName) 
+        public HeroJumpState(Hero hr, BasicStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {
         }
@@ -13,23 +14,19 @@ namespace Creatures.CreaturesStateMachine.Player
         public override void Enter()
         {
             base.Enter();
+            Rb2D.velocity = new Vector2(Hr.Rb2D.velocity.x, Hr.JumpForce);
             
-            //Rb2D.velocity = new Vector2(Rb2D.velocity.x, Hr.DoubleJumpForce);
+            Hr.CallOnJumpEvent();
         }
 
         public override void Update()
         {
             base.Update();
             
-            if (Rb2D.velocity.y < 0)
+            if (Hr.Rb2D.velocity.y < 0)
             {
                 StateMachine.ChangeState(Hr.FallState);
             }
-        }
-
-        public override void Exit()
-        {
-            base.Exit();
         }
     }
 }
