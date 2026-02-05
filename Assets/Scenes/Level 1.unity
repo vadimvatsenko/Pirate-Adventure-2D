@@ -471,15 +471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 10
-  _clips:
-  - name: 
-    sprites: []
-    loop: 0
-    allowNextClip: 0
-    onComplete:
-      m_PersistentCalls:
-        m_Calls: []
+  clips: []
 --- !u!61 &147694956
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1600,40 +1592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 10
-  _clips:
-  - name: idle
-    sprites:
-    - {fileID: 938943928154464263, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    loop: 0
-    allowNextClip: 0
-    onComplete:
-      m_PersistentCalls:
-        m_Calls: []
-  - name: open
-    sprites:
-    - {fileID: 938943928154464263, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 7119298293192081297, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 2876514749873264436, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: -5002421924174355977, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 4098959990202999974, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    loop: 0
-    allowNextClip: 0
-    onComplete:
-      m_PersistentCalls:
-        m_Calls: []
-  - name: close
-    sprites:
-    - {fileID: 4098959990202999974, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: -5002421924174355977, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 2876514749873264436, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 7119298293192081297, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 938943928154464263, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    loop: 0
-    allowNextClip: 0
-    onComplete:
-      m_PersistentCalls:
-        m_Calls: []
+  clips: []
 --- !u!114 &444175864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2329,29 +2288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 10
-  _clips:
-  - name: 
-    sprites: []
-    loop: 0
-    allowNextClip: 0
-    onComplete:
-      m_PersistentCalls:
-        m_Calls: []
-  - name: 
-    sprites: []
-    loop: 0
-    allowNextClip: 0
-    onComplete:
-      m_PersistentCalls:
-        m_Calls: []
-  - name: 
-    sprites: []
-    loop: 0
-    allowNextClip: 0
-    onComplete:
-      m_PersistentCalls:
-        m_Calls: []
+  clips: []
 --- !u!212 &574879295
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9655,40 +9592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 10
-  _clips:
-  - name: idle
-    sprites:
-    - {fileID: 938943928154464263, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    loop: 0
-    allowNextClip: 0
-    onComplete:
-      m_PersistentCalls:
-        m_Calls: []
-  - name: open
-    sprites:
-    - {fileID: 938943928154464263, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 7119298293192081297, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 2876514749873264436, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: -5002421924174355977, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 4098959990202999974, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    loop: 0
-    allowNextClip: 0
-    onComplete:
-      m_PersistentCalls:
-        m_Calls: []
-  - name: close
-    sprites:
-    - {fileID: 4098959990202999974, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: -5002421924174355977, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 2876514749873264436, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 7119298293192081297, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 938943928154464263, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    loop: 0
-    allowNextClip: 0
-    onComplete:
-      m_PersistentCalls:
-        m_Calls: []
+  clips: []
 --- !u!114 &1224476201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9829,18 +9733,6 @@ Transform:
   m_Father: {fileID: 308840419}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1256376676 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6041009698050444938, guid: c877958eaeedf2a47affc2093c2a4b77,
-    type: 3}
-  m_PrefabInstance: {fileID: 6041009697097307065}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f43721c7a31481ea76eb161185d3747, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1275844211
 GameObject:
   m_ObjectHideFlags: 0
@@ -9938,40 +9830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 10
-  _clips:
-  - name: idle
-    sprites:
-    - {fileID: 938943928154464263, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    loop: 0
-    allowNextClip: 0
-    onComplete:
-      m_PersistentCalls:
-        m_Calls: []
-  - name: open
-    sprites:
-    - {fileID: 938943928154464263, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 7119298293192081297, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 2876514749873264436, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: -5002421924174355977, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 4098959990202999974, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    loop: 0
-    allowNextClip: 0
-    onComplete:
-      m_PersistentCalls:
-        m_Calls: []
-  - name: close
-    sprites:
-    - {fileID: 4098959990202999974, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: -5002421924174355977, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 2876514749873264436, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 7119298293192081297, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 938943928154464263, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    loop: 0
-    allowNextClip: 0
-    onComplete:
-      m_PersistentCalls:
-        m_Calls: []
+  clips: []
 --- !u!61 &1275844216
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11465,40 +11324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 10
-  _clips:
-  - name: idle
-    sprites:
-    - {fileID: 938943928154464263, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    loop: 0
-    allowNextClip: 0
-    onComplete:
-      m_PersistentCalls:
-        m_Calls: []
-  - name: open
-    sprites:
-    - {fileID: 938943928154464263, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 7119298293192081297, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 2876514749873264436, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: -5002421924174355977, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 4098959990202999974, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    loop: 0
-    allowNextClip: 0
-    onComplete:
-      m_PersistentCalls:
-        m_Calls: []
-  - name: close
-    sprites:
-    - {fileID: 4098959990202999974, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: -5002421924174355977, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 2876514749873264436, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 7119298293192081297, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 938943928154464263, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    loop: 0
-    allowNextClip: 0
-    onComplete:
-      m_PersistentCalls:
-        m_Calls: []
+  clips: []
 --- !u!114 &1431762210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16275,40 +16101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 10
-  _clips:
-  - name: idle
-    sprites:
-    - {fileID: 938943928154464263, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    loop: 0
-    allowNextClip: 0
-    onComplete:
-      m_PersistentCalls:
-        m_Calls: []
-  - name: open
-    sprites:
-    - {fileID: 938943928154464263, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 7119298293192081297, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 2876514749873264436, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: -5002421924174355977, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 4098959990202999974, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    loop: 0
-    allowNextClip: 0
-    onComplete:
-      m_PersistentCalls:
-        m_Calls: []
-  - name: close
-    sprites:
-    - {fileID: 4098959990202999974, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: -5002421924174355977, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 2876514749873264436, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 7119298293192081297, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 938943928154464263, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    loop: 0
-    allowNextClip: 0
-    onComplete:
-      m_PersistentCalls:
-        m_Calls: []
+  clips: []
 --- !u!114 &1613137037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36480,40 +36273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 10
-  _clips:
-  - name: idle
-    sprites:
-    - {fileID: 938943928154464263, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    loop: 0
-    allowNextClip: 0
-    onComplete:
-      m_PersistentCalls:
-        m_Calls: []
-  - name: open
-    sprites:
-    - {fileID: 938943928154464263, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 7119298293192081297, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 2876514749873264436, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: -5002421924174355977, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 4098959990202999974, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    loop: 0
-    allowNextClip: 0
-    onComplete:
-      m_PersistentCalls:
-        m_Calls: []
-  - name: close
-    sprites:
-    - {fileID: 4098959990202999974, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: -5002421924174355977, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 2876514749873264436, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 7119298293192081297, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    - {fileID: 938943928154464263, guid: 8be1e48595df6f74b8de564166ac6ec2, type: 3}
-    loop: 0
-    allowNextClip: 0
-    onComplete:
-      m_PersistentCalls:
-        m_Calls: []
+  clips: []
 --- !u!114 &1666859200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36885,39 +36645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 10
-  _clips:
-  - name: idle
-    sprites:
-    - {fileID: 21300000, guid: c75848afd4bb536469d2300e54f1007d, type: 3}
-    loop: 0
-    allowNextClip: 0
-    onComplete:
-      m_PersistentCalls:
-        m_Calls: []
-  - name: open
-    sprites:
-    - {fileID: 5766932301440263773, guid: ecfaa54b555d2e74f8f214eafed59a6a, type: 3}
-    - {fileID: 7574254900258906491, guid: ecfaa54b555d2e74f8f214eafed59a6a, type: 3}
-    - {fileID: -288794636156215083, guid: ecfaa54b555d2e74f8f214eafed59a6a, type: 3}
-    - {fileID: -7974944233769877187, guid: ecfaa54b555d2e74f8f214eafed59a6a, type: 3}
-    - {fileID: 7254458428943586074, guid: ecfaa54b555d2e74f8f214eafed59a6a, type: 3}
-    loop: 0
-    allowNextClip: 0
-    onComplete:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_MethodName: ReloadLevel
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+  clips: []
 --- !u!114 &1789054495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37325,6 +37053,46 @@ RectTransform:
   m_AnchoredPosition: {x: 112, y: -30}
   m_SizeDelta: {x: 164, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1869610258 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6041009698050444949, guid: c877958eaeedf2a47affc2093c2a4b77,
+    type: 3}
+  m_PrefabInstance: {fileID: 6041009697097307065}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1869610266
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869610258}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1869610267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869610258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 140ae924354043f992c2dc7a4913b04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedX: 360
 --- !u!1 &1899151397
 GameObject:
   m_ObjectHideFlags: 0
@@ -39109,6 +38877,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData:
+    inventoryDataSerializable:
+      invertoryItemsData: []
     coins: 0
     isArmed: 0
     swords: 0
@@ -39907,31 +39677,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6041009698050444938, guid: c877958eaeedf2a47affc2093c2a4b77,
-        type: 3}
-      propertyPath: hero
-      value: 
-      objectReference: {fileID: 685183821295876011}
-    - target: {fileID: 6041009698050444939, guid: c877958eaeedf2a47affc2093c2a4b77,
-        type: 3}
-      propertyPath: onAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1256376676}
-    - target: {fileID: 6041009698050444939, guid: c877958eaeedf2a47affc2093c2a4b77,
-        type: 3}
-      propertyPath: onAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ArmPlayer
-      objectReference: {fileID: 0}
     - target: {fileID: 6041009698050444949, guid: c877958eaeedf2a47affc2093c2a4b77,
         type: 3}
       propertyPath: m_Name
       value: Sword
       objectReference: {fileID: 0}
-    - target: {fileID: 6041009698050444950, guid: c877958eaeedf2a47affc2093c2a4b77,
+    - target: {fileID: 6515304208168962599, guid: c877958eaeedf2a47affc2093c2a4b77,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+      propertyPath: amplitude
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515304208168962599, guid: c877958eaeedf2a47affc2093c2a4b77,
+        type: 3}
+      propertyPath: frequency
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c877958eaeedf2a47affc2093c2a4b77, type: 3}
 --- !u!1001 &6392076208849752689
@@ -40508,15 +40268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 10
-  _clips:
-  - name: 
-    sprites: []
-    loop: 0
-    allowNextClip: 0
-    onComplete:
-      m_PersistentCalls:
-        m_Calls: []
+  clips: []
 --- !u!1 &8614285763762326432
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,11 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 6041009698050444937}
   - component: {fileID: 6041009698050444950}
+  - component: {fileID: 7505013155123535691}
   - component: {fileID: 6041009698050444951}
   - component: {fileID: 6041009698050444948}
   - component: {fileID: 6041009698050444938}
   - component: {fileID: 6041009698050444939}
   - component: {fileID: 6041009698050444936}
+  - component: {fileID: 6515304208168962599}
   m_Layer: 10
   m_Name: Sword
   m_TagString: Untagged
@@ -54,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,6 +88,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &7505013155123535691
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6041009698050444949}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &6041009698050444951
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -124,23 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 10
-  _clips:
-  - _name: Idle
-    _sprites:
-    - {fileID: 21300000, guid: bc3b7e562cbbd4e4f88e0156f3bc0798, type: 3}
-    - {fileID: 21300000, guid: adcae0a723477c547bd7b26c7297e8e3, type: 3}
-    - {fileID: 21300000, guid: 50e4a75621339a3469d53f633a7e12cc, type: 3}
-    - {fileID: 21300000, guid: cf470ff2f5e901b47aeb5e54943342c4, type: 3}
-    - {fileID: 21300000, guid: dcd6afdf4bd82854292a81512f6fefda, type: 3}
-    - {fileID: 21300000, guid: 720d3e65dd0978a40b45ea68d317411e, type: 3}
-    - {fileID: 21300000, guid: 12d3f630848c36e4e891897d47ff0223, type: 3}
-    - {fileID: 21300000, guid: ca839b00135cf8743a0bb1f9f90282e6, type: 3}
-    _loop: 1
-    _allowNextClip: 0
-    _onComplete:
-      m_PersistentCalls:
-        m_Calls: []
+  clips: []
 --- !u!114 &6041009698050444938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,7 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f43721c7a31481ea76eb161185d3747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hero: {fileID: 0}
 --- !u!114 &6041009698050444939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,8 +176,8 @@ MonoBehaviour:
   onAction:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: ChangeArmedState
+      - m_Target: {fileID: 6041009698050444938}
+        m_MethodName: ArmPlayer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -192,6 +198,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onEnter:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6041009698050444936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,3 +213,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 007e3171b9d94eddac2c6fc1d51d5422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyTime: 0
+--- !u!114 &6515304208168962599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6041009698050444949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a247dad16aa4dbbb3a679213e3f5e7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frequency: 0.04
+  amplitude: 4.21
+  randomize: 1

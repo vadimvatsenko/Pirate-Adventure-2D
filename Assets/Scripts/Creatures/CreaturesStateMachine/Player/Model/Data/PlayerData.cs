@@ -6,7 +6,7 @@ namespace Creatures.CreaturesStateMachine.Player.Model.Data
     [Serializable]
     public class PlayerData
     {
-        [SerializeField] private InventoryData inventoryData;
+        [SerializeField] private InventoryDataSerializable inventoryDataSerializable;
         
         [Header("Coins")]
         public int coins;

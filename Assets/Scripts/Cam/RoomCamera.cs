@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 
 namespace Cam
@@ -8,9 +9,10 @@ namespace Cam
     public class RoomCamera : MonoBehaviour
     {
         [SerializeField] private Transform player;
-        private CinemachineVirtualCamera _virtualCam;
-        [SerializeField] private Tilemap _tilemap;
+        [SerializeField] private Tilemap tilemap;
         
+        
+        private CinemachineVirtualCamera _virtualCam;
         private HashSet<Vector3Int> _tilePositions;
 
         private Transform _followingTarget;
@@ -24,14 +26,14 @@ namespace Cam
         void Start()
         {
             
-            BoundsInt bounds = _tilemap.cellBounds;
+            BoundsInt bounds = tilemap.cellBounds;
 
             for (int x = bounds.xMin; x < bounds.xMax; x++)
             {
                 for (int y= bounds.yMin; y < bounds.yMax; y++)
                 {
                     Vector3Int position = new Vector3Int(x, y, 0);
-                    if (_tilemap.HasTile((Vector3Int)position))
+                    if (tilemap.HasTile((Vector3Int)position))
                     {
                         _tilePositions.Add(position);
                     }
@@ -44,7 +46,7 @@ namespace Cam
 
         private void Update()
         {
-            Vector3Int playerCell = _tilemap.WorldToCell(player.position);
+            Vector3Int playerCell = tilemap.WorldToCell(player.position);
 
             if (playerCell == _lastPlayerCell) return; // игрок не переместился в новую клетку
 
@@ -52,7 +54,7 @@ namespace Cam
 
             if (_tilePositions.Contains(playerCell))
             {
-                Vector3 worldPos = _tilemap.GetCellCenterWorld(playerCell);
+                Vector3 worldPos = tilemap.GetCellCenterWorld(playerCell);
                 _followingTarget.position = worldPos;
             }
         }

@@ -36,7 +36,6 @@ namespace Creatures.CreaturesStateMachine.Player
             GameSess = FindObjectOfType<GameSession>();
             HeroCollision = GetComponent<HeroCollisionInfo>();
             HeroAnimator = GetComponentInChildren<Animator>();
-            
         }
         
         private void Start()

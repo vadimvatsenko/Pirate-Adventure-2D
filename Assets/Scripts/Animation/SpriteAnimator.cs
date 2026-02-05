@@ -1,16 +1,17 @@
 using UnityEngine;
 using UnityEngine.Events;
-using AnimationClip = SpriteAnimator.NewSpriteAnimator.AnimationClip;
+
+
 
 // Анимационная система с уроков
-namespace SpriteAnimators.NewSpriteAnimator
+namespace Animation
 {
     [RequireComponent(typeof(SpriteRenderer))]
     public class SpriteAnimator : MonoBehaviour
     {
-        [SerializeField] [Range(1, 30)] private int _frameRate = 10;
-        [SerializeField] private UnityEvent<string> _onComplete;
-        [SerializeField] private AnimationClip[] _clips;
+        [Range(1, 30)] private readonly int frameRate = 10;
+        [SerializeField] private UnityEvent<string> onComplete;
+        [SerializeField] private AnimationClip[] clips;
 
         private SpriteRenderer _renderer;
 
@@ -24,7 +25,7 @@ namespace SpriteAnimators.NewSpriteAnimator
         private void Start()
         {
             _renderer = GetComponent<SpriteRenderer>();
-            _secPerFrame = 1f / _frameRate;
+            _secPerFrame = 1f / frameRate;
 
             StartAnimation();
         }
@@ -41,9 +42,9 @@ namespace SpriteAnimators.NewSpriteAnimator
 
         public void SetClip(string clipName)
         {
-            for (var i = 0; i < _clips.Length; i++)
+            for (var i = 0; i < clips.Length; i++)
             {
-                if (_clips[i].Name == clipName)
+                if (clips[i].Name == clipName)
                 {
                     _currentClip = i;
                     StartAnimation();
@@ -70,7 +71,7 @@ namespace SpriteAnimators.NewSpriteAnimator
         {
             if (_nextFrameTime > Time.time) return;
 
-            var clip = _clips[_currentClip];
+            var clip = clips[_currentClip];
             if (_currentFrame >= clip.Sprites.Length)
             {
                 if (clip.Loop)
@@ -81,11 +82,11 @@ namespace SpriteAnimators.NewSpriteAnimator
                 {
                     enabled = _isPlaying = clip.AllowNextClip;
                     clip.OnComplete?.Invoke();
-                    _onComplete?.Invoke(clip.Name);
+                    onComplete?.Invoke(clip.Name);
                     if (clip.AllowNextClip)
                     {
                         _currentFrame = 0;
-                        _currentClip = (int)Mathf.Repeat(_currentClip + 1, _clips.Length);
+                        _currentClip = (int)Mathf.Repeat(_currentClip + 1, clips.Length);
                     }
                 }
 
