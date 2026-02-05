@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-
-
 // Анимационная система с уроков
 namespace Animation
 {

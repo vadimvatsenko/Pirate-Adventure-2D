@@ -94,40 +94,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 10
-  _clips:
-  - name: blood
-    sprites:
-    - {fileID: 21300000, guid: d9c632ac996a6224bb86ad3aa2b049ba, type: 3}
-    - {fileID: 21300000, guid: e27479be64bafab42ba987cca20f39dc, type: 3}
-    - {fileID: 21300000, guid: c07574fa949d59546afcaf874586c862, type: 3}
-    - {fileID: 21300000, guid: 7e1eb175cee75d34695224b0c6095534, type: 3}
-    - {fileID: 21300000, guid: 270eaa1db65aebc41bee133fedca6aa7, type: 3}
-    - {fileID: 21300000, guid: c170d42c36d2ea545a8e047d5af51ca3, type: 3}
-    - {fileID: 21300000, guid: 178a77c5350999e4b829dbbd63415175, type: 3}
-    - {fileID: 21300000, guid: 51cb748c23b88d74e89330e6519ed73c, type: 3}
-    - {fileID: 21300000, guid: 1a9041c860748a24d91d5e7e6c737eb8, type: 3}
-    - {fileID: 21300000, guid: 0b17531968c90544c88d9c8eae9da515, type: 3}
-    - {fileID: 21300000, guid: ef25a74ee8b6d354ebf02aa2662eb381, type: 3}
-    - {fileID: 21300000, guid: ed2a775f1a5432d46997e30e73a45af9, type: 3}
-    - {fileID: 21300000, guid: 3c358cf7e786a7f45acc3f42b04be084, type: 3}
-    - {fileID: 21300000, guid: 9ced831cfa5dfa747b56cb5466277133, type: 3}
-    - {fileID: 21300000, guid: 2155564e12591074d9d55b5d8c03565e, type: 3}
-    - {fileID: 21300000, guid: 7b49d44df2851ea4b981b78bccf7bc8c, type: 3}
-    - {fileID: 21300000, guid: dbf2f054faa832548a2a00f71ba31c30, type: 3}
-    - {fileID: 21300000, guid: f594b82e41ffc0e4c8c6e97aaa650d2d, type: 3}
-    - {fileID: 21300000, guid: 2c1fecbee0b023f43907fafa4129a39c, type: 3}
-    - {fileID: 21300000, guid: ae528c30012630241adc2cb6a383e63e, type: 3}
-    - {fileID: 21300000, guid: 029c0365d7c35864cb3f5150c9fe42cd, type: 3}
-    - {fileID: 21300000, guid: c02546f06d60e3641b79d5b09619cdc3, type: 3}
-    - {fileID: 21300000, guid: 4ac0b859d020a564fba6e590fe3abe93, type: 3}
-    - {fileID: 21300000, guid: 24afccaebe6af0b4a989481d21d4649f, type: 3}
-    - {fileID: 21300000, guid: 6ec9a1dc0de947b4bb1fc2284ef6b76d, type: 3}
-    - {fileID: 21300000, guid: 0bf696094e1251f498cd402fd6255945, type: 3}
-    - {fileID: 21300000, guid: 5c821509a4f22a9498709c86ebbdf16d, type: 3}
-    - {fileID: 21300000, guid: 04e2af6c459d445419a64f536598d0ef, type: 3}
-    - {fileID: 21300000, guid: 51f987839da88664ab35683b694d5081, type: 3}
-    - {fileID: 21300000, guid: f36b9f9fb30a51540b8ca21523af131b, type: 3}
+  clips:
+  - name: idle
+    sprites: []
     loop: 0
     allowNextClip: 0
     onComplete:
