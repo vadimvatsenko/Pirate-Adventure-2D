@@ -136,34 +136,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 10
-  _clips:
-  - name: stacked
+  clips:
+  - name: idle
     sprites:
+    - {fileID: 21300000, guid: d39924031cf269d469f2e64b6b08eac2, type: 3}
     - {fileID: 21300000, guid: d39924031cf269d469f2e64b6b08eac2, type: 3}
     - {fileID: 21300000, guid: f84fa6574c887c141bf27f3085ffdccf, type: 3}
     - {fileID: 21300000, guid: 6b8270226ac25564fb068083907108ad, type: 3}
     - {fileID: 21300000, guid: 9243fa121964daf4a99992fbc2f4dbe7, type: 3}
     loop: 0
-    allowNextClip: 0
-    onComplete:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 742060877951887246}
-          m_MethodName: SetClip
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: Idle
-            m_BoolArgument: 0
-          m_CallState: 2
-  - name: Idle
-    sprites:
-    - {fileID: 21300000, guid: 9243fa121964daf4a99992fbc2f4dbe7, type: 3}
-    loop: 1
     allowNextClip: 0
     onComplete:
       m_PersistentCalls:
@@ -233,3 +214,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 007e3171b9d94eddac2c6fc1d51d5422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyTime: 0

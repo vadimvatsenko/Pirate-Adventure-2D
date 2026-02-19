@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: -1041941339
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: aa2f219e85848c043a775c1c122573c9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7e51f1aeb4bc71549b3e8eb37b236b7c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,9 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 10
-  _clips:
-  - name: jump
+  destroyAfterAnimation: 1
+  clips:
+  - name: idle
     sprites:
     - {fileID: 21300000, guid: 7e51f1aeb4bc71549b3e8eb37b236b7c, type: 3}
     - {fileID: 21300000, guid: a8a7d67e1c9424c46b074be0ab664eaa, type: 3}
@@ -109,18 +109,7 @@ MonoBehaviour:
     allowNextClip: 0
     onComplete:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 550240020942265001}
-          m_MethodName: DestroyGameObject
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
 --- !u!114 &550240020942265001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,3 +122,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 007e3171b9d94eddac2c6fc1d51d5422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyTime: 0

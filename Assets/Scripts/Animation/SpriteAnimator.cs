@@ -9,6 +9,7 @@ namespace Animation
     {
         [Range(1, 30)] private readonly int frameRate = 10;
         [SerializeField] private UnityEvent<string> onComplete;
+        [SerializeField] private bool destroyAfterAnimation;
         [SerializeField] private AnimationClip[] clips;
 
         private SpriteRenderer _renderer;
@@ -81,6 +82,12 @@ namespace Animation
                     enabled = _isPlaying = clip.AllowNextClip;
                     clip.OnComplete?.Invoke();
                     onComplete?.Invoke(clip.Name);
+
+                    if (destroyAfterAnimation)
+                    {
+                        Destroy(gameObject);
+                    }
+                    
                     if (clip.AllowNextClip)
                     {
                         _currentFrame = 0;

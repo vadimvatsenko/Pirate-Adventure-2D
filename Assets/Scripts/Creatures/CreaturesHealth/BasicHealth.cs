@@ -2,7 +2,6 @@
 using Creatures.CreaturesStateMachine.CreatureBasic;
 using Creatures.CreaturesVFX;
 using Creatures.Interfaces;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Events;
 

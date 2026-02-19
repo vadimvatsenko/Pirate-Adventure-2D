@@ -318,7 +318,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: ff2ac63b31d69de4ebf4e12378824574, type: 3}
     - {fileID: 21300000, guid: b12cd88702194e54d882ac5cb350efb2, type: 3}
     - {fileID: 21300000, guid: e294f2554c018844f8301035438deed9, type: 3}
-    loop: 0
+    loop: 1
     allowNextClip: 0
     onComplete:
       m_PersistentCalls:

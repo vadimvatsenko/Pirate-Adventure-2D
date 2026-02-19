@@ -96,9 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 10
-  _clips:
-  - name: say
+  destroyAfterAnimation: 0
+  clips:
+  - name: Idle
     sprites:
     - {fileID: -65909145707610360, guid: d402ec3ee18af4445be44115d10945f1, type: 3}
     - {fileID: -2514847765810138361, guid: d402ec3ee18af4445be44115d10945f1, type: 3}
@@ -131,3 +131,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 007e3171b9d94eddac2c6fc1d51d5422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyTime: 0
