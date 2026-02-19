@@ -6,9 +6,9 @@ namespace Creatures.CreaturesStateMachine.Player.Model.Data
     [Serializable]
     public class PlayerData
     {
-        [SerializeField] private InventoryDataSerializable inventoryDataSerializable;
-        
-        [Header("Coins")]
+        [SerializeField] private InventoryData inventoryData;
+        public InventoryData InventoryData => inventoryData;
+        /*[Header("Coins")]
         public int coins;
         [Header("IsArmed")]
         public bool isArmed;
@@ -18,7 +18,7 @@ namespace Creatures.CreaturesStateMachine.Player.Model.Data
         [Header("Health")]
         public int health;
         public int maxHealth;
-        public int maxTotalHearts;
+        public int maxTotalHearts;*/
 
         public PlayerData Clone()
         {

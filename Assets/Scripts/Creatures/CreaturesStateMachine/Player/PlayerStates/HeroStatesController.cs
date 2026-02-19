@@ -4,7 +4,7 @@ using GameManagerInfo;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Creatures.CreaturesStateMachine.Player
+namespace Creatures.CreaturesStateMachine.Player.PlayerStates
 {
     public class HeroStatesController
     {
