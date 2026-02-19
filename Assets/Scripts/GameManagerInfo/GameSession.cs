@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Creatures.CreaturesStateMachine.Player.Model.Data;
 using UnityEngine;
 
 namespace GameManagerInfo

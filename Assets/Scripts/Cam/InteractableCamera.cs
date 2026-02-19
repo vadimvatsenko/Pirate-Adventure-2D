@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Cam
 {
     public class InteractableCamera : MonoBehaviour
     {
-        //[SerializeField] private UnityEngine.Camera _camera;
-        [SerializeField] private Transform _player;
+        
+        [SerializeField] private Transform player;
 
         private void OnTriggerEnter2D(Collider2D other)
         {

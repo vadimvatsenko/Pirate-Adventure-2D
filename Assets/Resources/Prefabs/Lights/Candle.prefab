@@ -202,15 +202,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 10
-  _clips:
+  clips:
   - name: idle
     sprites:
     - {fileID: 21300000, guid: d960d733580f31840adc2a9cc7ee1a33, type: 3}
     - {fileID: 21300000, guid: a3d849e87ba241e4bba248eaeed5370d, type: 3}
     - {fileID: 21300000, guid: b774303dd1fdf734d9a9d38f36f464f4, type: 3}
     - {fileID: 21300000, guid: baa93697daaaf0447b8509266a6e24c2, type: 3}
-    loop: 1
+    loop: 0
     allowNextClip: 0
     onComplete:
       m_PersistentCalls:
@@ -310,8 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 10
-  _clips:
+  clips:
   - name: idle
     sprites:
     - {fileID: 21300000, guid: 7e1ef0bff3ac07f4cb4c6df432ec6695, type: 3}

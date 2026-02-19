@@ -16,7 +16,7 @@ namespace Creatures.AnimationControllers
         public event Action OnIsArmed;
         public event Action OnAppearanceHero;
         
-        // Colors
+        // Colors//
         private readonly Color _startColor = new Color(1f, 1f, 1f, 0f);
         private readonly Color _endColor = new Color(1f, 1f, 1f, 1f);
 

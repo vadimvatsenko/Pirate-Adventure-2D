@@ -95,9 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 10
-  _clips:
-  - name: fall
+  destroyAfterAnimation: 1
+  clips:
+  - name: Idle
     sprites:
     - {fileID: 21300000, guid: 8e346858f66c217428bf320b35bd2347, type: 3}
     - {fileID: 21300000, guid: 4b189f7e22f70fe4092b72507a62b3b9, type: 3}
@@ -108,18 +108,7 @@ MonoBehaviour:
     allowNextClip: 0
     onComplete:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3953502041118120817}
-          m_MethodName: DestroyGameObject
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
 --- !u!114 &3953502041118120817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,3 +121,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 007e3171b9d94eddac2c6fc1d51d5422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyTime: 0

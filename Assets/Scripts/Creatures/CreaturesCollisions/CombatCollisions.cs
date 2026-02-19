@@ -1,6 +1,7 @@
 ﻿using Creatures.CreaturesHealth;
 using UnityEngine;
 
+// проверка колизии сражения, при атаке, если кто-то попалает с 
 namespace Creatures.CreaturesCollisions
 {
     public class CombatCollisions : MonoBehaviour
@@ -10,7 +11,6 @@ namespace Creatures.CreaturesCollisions
         [SerializeField] protected Transform targetCheck;
         [SerializeField] protected float detectionRadius;
         [SerializeField] protected LayerMask whatIsTarget;
-        
         
         public virtual void PerformAttack()
         {

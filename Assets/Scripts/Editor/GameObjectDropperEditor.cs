@@ -1,33 +1,36 @@
 ﻿using Components.Dropper;
 using UnityEditor;
 
-public class GameObjectDropperEditor : Editor
+namespace Editor
 {
-    public override void OnInspectorGUI()
+    public class GameObjectDropperEditor : UnityEditor.Editor
     {
-        // Получаем ссылку на объект
-        GameObjectDropper dropper = (GameObjectDropper)target;
-
-        // Рисуем поле prefabs
-        SerializedProperty prefabsProp = serializedObject.FindProperty("prefabs");
-        EditorGUILayout.PropertyField(prefabsProp, true);
-
-        // Если в массиве только один префаб — показываем gameObjectCountToDrop
-        if (prefabsProp.arraySize == 1)
+        public override void OnInspectorGUI()
         {
-            SerializedProperty countProp = serializedObject.FindProperty("gameObjectCountToDrop");
-            EditorGUILayout.PropertyField(countProp);
-        }
-        else
-        {
-            EditorGUILayout.HelpBox("gameObjectCountToDrop скрыт — используется только при одном префабе",
-                MessageType.Info);
-        }
+            // Получаем ссылку на объект
+            GameObjectDropper dropper = (GameObjectDropper)target;
 
-        // Остальные поля
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("spreadForce"));
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("destroyOnFinish"));
+            // Рисуем поле prefabs
+            SerializedProperty prefabsProp = serializedObject.FindProperty("prefabs");
+            EditorGUILayout.PropertyField(prefabsProp, true);
 
-        serializedObject.ApplyModifiedProperties();
+            // Если в массиве только один префаб — показываем gameObjectCountToDrop
+            if (prefabsProp.arraySize == 1)
+            {
+                SerializedProperty countProp = serializedObject.FindProperty("gameObjectCountToDrop");
+                EditorGUILayout.PropertyField(countProp);
+            }
+            else
+            {
+                EditorGUILayout.HelpBox("gameObjectCountToDrop скрыт — используется только при одном префабе",
+                    MessageType.Info);
+            }
+
+            // Остальные поля
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("spreadForce"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("destroyOnFinish"));
+
+            serializedObject.ApplyModifiedProperties();
+        }
     }
 }

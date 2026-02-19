@@ -215,28 +215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 10
-  _clips:
+  clips:
   - name: idle
-    sprites:
-    - {fileID: 21300000, guid: d42a67714954ae74eb1d1967de000d7f, type: 3}
-    loop: 0
-    allowNextClip: 0
-    onComplete:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 5039554490662703744}
-          m_MethodName: SetClip
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: spin
-            m_BoolArgument: 0
-          m_CallState: 2
-  - name: spin
     sprites:
     - {fileID: 21300000, guid: d42a67714954ae74eb1d1967de000d7f, type: 3}
     - {fileID: 21300000, guid: b8d5ea38fec438547ab7bfc3db2ddb71, type: 3}

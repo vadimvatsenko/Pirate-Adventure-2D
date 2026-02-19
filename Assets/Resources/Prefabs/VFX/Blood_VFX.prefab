@@ -94,9 +94,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 10
-  _clips:
-  - name: blood
+  destroyAfterAnimation: 1
+  clips:
+  - name: idle
     sprites:
     - {fileID: 21300000, guid: d9c632ac996a6224bb86ad3aa2b049ba, type: 3}
     - {fileID: 21300000, guid: e27479be64bafab42ba987cca20f39dc, type: 3}

@@ -1,6 +1,4 @@
-﻿using UnityEditorInternal;
-
-namespace Creatures.CreaturesStateMachine.CreatureBasic
+﻿namespace Creatures.CreaturesStateMachine.CreatureBasic
 {
     public class CreatureHandleStateChange
     {

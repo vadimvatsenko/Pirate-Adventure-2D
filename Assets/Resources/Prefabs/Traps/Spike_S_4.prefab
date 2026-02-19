@@ -183,38 +183,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2784684415373431428}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 10
-  _clips:
-  - _name: idle
-    _sprites:
-    - {fileID: -3804453786874968470, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
-      m_PersistentCalls:
-        m_Calls: []
-  - _name: attack
-    _sprites:
-    - {fileID: -3804453786874968470, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: -2321815495975119944, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: -4624664337665552153, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: -6421112769842419428, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: 4619393306346499539, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: -2816721238308693310, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: -7612819912504764799, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: 7815735737233319869, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: -5027281793407891940, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: 243604861109933673, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
-      m_PersistentCalls:
-        m_Calls: []
+  clips: []
 --- !u!1 &2784684415954637164
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,38 +279,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2784684415954637164}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 10
-  _clips:
-  - _name: idle
-    _sprites:
-    - {fileID: -3804453786874968470, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
-      m_PersistentCalls:
-        m_Calls: []
-  - _name: attack
-    _sprites:
-    - {fileID: -3804453786874968470, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: -2321815495975119944, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: -4624664337665552153, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: -6421112769842419428, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: 4619393306346499539, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: -2816721238308693310, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: -7612819912504764799, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: 7815735737233319869, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: -5027281793407891940, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: 243604861109933673, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
-      m_PersistentCalls:
-        m_Calls: []
+  clips: []
 --- !u!1 &2784684415976236615
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,38 +375,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2784684415976236615}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 10
-  _clips:
-  - _name: idle
-    _sprites:
-    - {fileID: -3804453786874968470, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
-      m_PersistentCalls:
-        m_Calls: []
-  - _name: attack
-    _sprites:
-    - {fileID: -3804453786874968470, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: -2321815495975119944, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: -4624664337665552153, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: -6421112769842419428, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: 4619393306346499539, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: -2816721238308693310, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: -7612819912504764799, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: 7815735737233319869, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: -5027281793407891940, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: 243604861109933673, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
-      m_PersistentCalls:
-        m_Calls: []
+  clips: []
 --- !u!1 &2784684416059432865
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,35 +502,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2784684416144644467}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _frameRate: 10
-  _clips:
-  - _name: idle
-    _sprites:
-    - {fileID: -3804453786874968470, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
-      m_PersistentCalls:
-        m_Calls: []
-  - _name: attack
-    _sprites:
-    - {fileID: -3804453786874968470, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: -2321815495975119944, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: -4624664337665552153, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: -6421112769842419428, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: 4619393306346499539, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: -2816721238308693310, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: -7612819912504764799, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: 7815735737233319869, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: -5027281793407891940, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    - {fileID: 243604861109933673, guid: c2c714fd886f26847a65a5faa0985b77, type: 3}
-    _loop: 0
-    _allowNextClip: 0
-    _onComplete:
-      m_PersistentCalls:
-        m_Calls: []
+  clips: []
