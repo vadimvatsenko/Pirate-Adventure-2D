@@ -1,14 +1,16 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Components.HealthComponentFolder
 {
     public class HealthComponent : MonoBehaviour, IHealthComponent
     {
         [SerializeField] private int health;
-        /*[SerializeField] private UnityEvent onDeath;
-        [SerializeField] private UnityEvent onHit;*/
+        [SerializeField] private UnityEvent nDeath;
+        [SerializeField] private UnityEvent onHit;
         
+
         public int Health => health; 
         
         private event Action OnDeath;
@@ -17,13 +19,15 @@ namespace Components.HealthComponentFolder
         public void UnsubscribeOnHitEvent(Action action) => OnHit -= action;
         public void SubscribeOnDeathEvent(Action action) => OnDeath += action;
         public void UnsubscribeOnDeathEvent(Action action) => OnDeath -= action;
+
         
-        public void ApplyHeal(int heal)
+
+        public void TakeHeal(int heal)
         {
             throw new System.NotImplementedException();
         }
 
-        public void ApplyDamage(int damage)
+        public void TakeDamage(int damage)
         {
             OnHit?.Invoke();
             
@@ -33,6 +37,11 @@ namespace Components.HealthComponentFolder
                 health = 0;
                 OnDeath?.Invoke();
             }
+        }
+
+        public void TakeDamage(int damage, Transform damager)
+        {
+            throw new NotImplementedException();
         }
 
         public void AddHeart()

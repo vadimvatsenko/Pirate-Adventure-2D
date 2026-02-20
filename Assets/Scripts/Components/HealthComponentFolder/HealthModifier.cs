@@ -22,20 +22,20 @@ namespace Components.HealthComponentFolder
                 switch (whatIsHealth)
                 {
                     case HealthModifierType.Health:
-                        healthComponent.ApplyHeal(healthModifier);
+                        healthComponent.TakeHeal(healthModifier);
                         break;
                     case HealthModifierType.Damage:
                         if (isModifierDedly)
                         {
-                            healthComponent.ApplyDamage(100);
+                            healthComponent.TakeDamage(100);
                         }
                         else
                         {
-                            healthComponent.ApplyDamage(healthModifier);
+                            healthComponent.TakeDamage(healthModifier);
                         }
                         break;
                     case HealthModifierType.AddHeart:
-                        healthComponent.AddHeart();
+                        //healthComponent.AddHeart();
                         break;
                 }
             }

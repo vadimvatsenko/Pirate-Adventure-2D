@@ -11,17 +11,20 @@ namespace Creatures.CreaturesStateMachine.Player.Model.Data
         // список элементов в инвентаре
         [SerializeField] private List<InventoryItemData>  inventoryItems 
             = new List<InventoryItemData>();
+        
+        // объявление делегата
+        // подписываемся в Hero
+        public delegate void OnInventoryChanged(string id, int value);
+        public OnInventoryChanged OnChanged;
 
         public void Add(string id, int value)
         {
             if(value <= 0) return;
 
             // провереям если такой предмет в синглтоне
-            /*var itemDef = DefFacade.Instance.Items.Get(id);
+            var itemDef = DefFacade.Instance.Items.Get(id);
             
-            Debug.Log(itemDef.Id);
-            
-            if(itemDef.IsVoid) return;*/
+            if(itemDef.IsVoid) return;
             
             var item = GetItem(id);
             
@@ -36,6 +39,8 @@ namespace Creatures.CreaturesStateMachine.Player.Model.Data
                 item = new InventoryItemData(id, value);
                 inventoryItems.Add(item);
             }
+            
+            OnChanged?.Invoke(id, value);
             
         }
 
@@ -55,10 +60,10 @@ namespace Creatures.CreaturesStateMachine.Player.Model.Data
         public void Remove(string id, int value)
         {
             // провереям если такой предмет в синглтоне
-            /*var itemDef = DefFacade.Instance.Items.Get(id);
+            var itemDef = DefFacade.Instance.Items.Get(id);
             
             
-            if(itemDef.IsVoid) return;*/
+            if(itemDef.IsVoid) return;
             
             var item = GetItem(id);
             if(item == null) return;
@@ -69,6 +74,8 @@ namespace Creatures.CreaturesStateMachine.Player.Model.Data
             {
                 inventoryItems.Remove(item);
             }
+            
+            OnChanged?.Invoke(id, value);
         }
 
         // метод который вернёт количество определённого предмета
@@ -88,7 +95,7 @@ namespace Creatures.CreaturesStateMachine.Player.Model.Data
     [Serializable]
     public class InventoryItemData
     {
-        public string Id;
+        [InventoryId] public string Id;
         public int Value;
 
         public InventoryItemData(string id, int value)

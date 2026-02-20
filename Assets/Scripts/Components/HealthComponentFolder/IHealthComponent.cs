@@ -6,8 +6,10 @@ namespace Components.HealthComponentFolder
 {
     public interface IHealthComponent
     {
-        void ApplyHeal(int heal);
-        void ApplyDamage(int damage);
-        void AddHeart();
+        UnityEvent OnDeath { get; }
+        void TakeHeal(int heal);
+        void TakeDamage(int damage);
+        void TakeDamage(int damage, Transform damager);
+        
     }
 }

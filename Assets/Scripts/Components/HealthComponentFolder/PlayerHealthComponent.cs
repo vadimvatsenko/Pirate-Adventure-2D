@@ -24,7 +24,7 @@ namespace Components.HealthComponentFolder
             _gameSession = FindObjectOfType<GameSession>();
         }
         
-        public void ApplyDamage(int damage)
+        public void TakeDamage(int damage)
         {
             _gameSession.PlayerData.health -= damage;
             
@@ -36,7 +36,12 @@ namespace Components.HealthComponentFolder
             }
         }
 
-        public void ApplyHeal(int heal)
+        public void TakeDamage(int damage, Transform damager)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TakeHeal(int heal)
         {
             _gameSession.PlayerData.health += heal;
            

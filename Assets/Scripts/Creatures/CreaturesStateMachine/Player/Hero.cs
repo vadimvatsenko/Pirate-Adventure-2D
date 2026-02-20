@@ -1,4 +1,5 @@
-﻿using Creatures.AnimationControllers;
+﻿using System;
+using Creatures.AnimationControllers;
 using Creatures.CreaturesCollisions;
 using Creatures.CreaturesStateMachine.CreatureBasic;
 using Creatures.CreaturesStateMachine.Player.PlayerStates;
@@ -7,7 +8,7 @@ using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Player
 {
-    public class Hero : Creature
+    public class Hero : Creature, IDisposable
     {
         public GameSession GameSess { get; private set;} //
         public NewInputSet NewInputSet { get; private set; }
@@ -36,7 +37,11 @@ namespace Creatures.CreaturesStateMachine.Player
             GameSess = FindObjectOfType<GameSession>();
             HeroCollision = GetComponent<HeroCollisionInfo>();
             HeroAnimator = GetComponentInChildren<Animator>();
+            
+            // подписка на извинения в инвентаре
+            GameSess.PlayerData.InventoryData.OnChanged += OnInventoryChanged;
         }
+
         
         private void Start()
         {
@@ -79,6 +84,19 @@ namespace Creatures.CreaturesStateMachine.Player
         public void AddInInventory(string id, int count)
         {
             GameSess.PlayerData.InventoryData.Add(id, count);
+        }
+        
+        private void OnInventoryChanged(string id, int value)
+        {
+            // пока пустой
+            //Debug.Log($"id: {id}, value: {value}");
+        }
+
+        public void Dispose()
+        {
+            NewInputSet.Disable();
+            NewInputSet?.Dispose();
+            GameSess.PlayerData.InventoryData.OnChanged += OnInventoryChanged;
         }
     }
 }

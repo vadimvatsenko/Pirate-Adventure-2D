@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 //Tile Palette/Items
-namespace Components.TileMaps
+namespace Utils
 {
     public class TileMapCleaner : MonoBehaviour
     {

@@ -20,8 +20,7 @@ namespace Creatures.CreaturesStateMachine.Player.Model.Definision
         {
             // загрузится ScriptableObject из ассетов
             // предварительно нужно его создать в иерархии
-            return _instance = Resources.Load<DefFacade>("DefsFacade");
+            return _instance = Resources.Load<DefFacade>("DefsFacade/DefsFacade");
         }
-        
     }
 }

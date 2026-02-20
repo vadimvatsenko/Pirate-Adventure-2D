@@ -18,7 +18,7 @@ namespace Components.HealthComponentFolder
         public int Health => health;
         public int MaxHealth => maxHealth;
 
-        public void ApplyDamage(int damage)
+        public void TakeDamage(int damage)
         {
             health -= damage;
 
@@ -31,7 +31,12 @@ namespace Components.HealthComponentFolder
             }
         }
 
-        public void ApplyHeal(int heal)
+        public void TakeDamage(int damage, Transform damager)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void TakeHeal(int heal)
         {
             health += heal;
             if (health > maxHealth)

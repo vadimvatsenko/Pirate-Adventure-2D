@@ -1,16 +1,16 @@
-﻿using Creatures.CreaturesStateMachine.Enemies.EnemyStates;
-using Creatures.CreaturesStateMachine.Player;
+﻿using Components.HealthComponentFolder;
+using Creatures.CreaturesStateMachine.Enemies.EnemyStates;
 using UnityEngine;
 
 namespace Creatures.CreaturesHealth
 {
-    public class EnemyHealth : BasicHealth
+    public class EnemyHealth : BasicHealth, IHealthComponent
     {
         private Enemy _enemy;
 
         private void Start() =>  _enemy = GetComponent<Enemy>();
 
-        public override void TakeDamage(float damage, Transform attacker)
+        public void TakeDamage(int damage, Transform attacker)
         {
             base.TakeDamage(damage, attacker);
             
@@ -26,5 +26,17 @@ namespace Creatures.CreaturesHealth
             
             CreatureVFX.PlayOnDamageVFX();
         }
+
+        public void TakeHeal(int heal)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void TakeDamage(int damage)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        
     }
 }

@@ -21,7 +21,12 @@ namespace Creatures.CreaturesStateMachine.Player.Model.Definision
             // структура не может быть null, потому default
             return default;
         }
+#if UNITY_EDITOR
+        public ItemDef[] ItemsForEditor => items;
+#endif
     }
+    
+
 
     // структура
     [Serializable]
