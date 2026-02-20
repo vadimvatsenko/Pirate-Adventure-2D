@@ -8,17 +8,14 @@ namespace Creatures.CreaturesStateMachine.Player.Model.Data
     {
         [SerializeField] private InventoryData inventoryData;
         public InventoryData InventoryData => inventoryData;
-        /*[Header("Coins")]
-        public int coins;
+        
         [Header("IsArmed")]
         public bool isArmed;
-
-        [Header("Swords")] 
-        public int swords;
+        
         [Header("Health")]
         public int health;
         public int maxHealth;
-        public int maxTotalHearts;*/
+        public int maxTotalHearts;
 
         public PlayerData Clone()
         {

@@ -58,7 +58,7 @@ namespace Creatures.CreaturesStateMachine.Player.PlayerStates
 
         private void OnThrowBtnStarted(InputAction.CallbackContext ctx)
         {
-            if(_gameSession.PlayerData.swords <= 1) return;
+            if(_gameSession.PlayerData.InventoryData.Count("Sword") <= 1) return;
             
             _throwPressedTime = (float)ctx.time;
             _animator.SetFloat(AnimatorHashes.ThrowTrigger, 0f);
@@ -73,7 +73,7 @@ namespace Creatures.CreaturesStateMachine.Player.PlayerStates
             int wanted = Mathf.Clamp(Mathf.RoundToInt(holdTime), 1, 3);
             
             // сколько могу выбросить учитывая остаток
-            int can = Mathf.Min(wanted, _gameSession.PlayerData.swords -1);
+            int can = Mathf.Min(wanted, _gameSession.PlayerData.InventoryData.Count("Sword") -1);
             
             if (can <= 0) return;
             
@@ -83,12 +83,12 @@ namespace Creatures.CreaturesStateMachine.Player.PlayerStates
             
             _creature.CallOnThrowEvent(_pendingThrows);
             _stateMachine.ChangeState(_creature.ThrowState);
-            _gameSession.PlayerData.swords -= _pendingThrows;
+            _gameSession.PlayerData.InventoryData.Remove("Sword", _pendingThrows);
         }
         
         private void OnAttackStarted(InputAction.CallbackContext ctx)
         {
-            if (_gameSession.PlayerData.isArmed)
+            if (_gameSession.PlayerData.InventoryData.Count("Sword") >= 1)
             {
                 _stateMachine.ChangeState(_creature.AttackState);
             } 

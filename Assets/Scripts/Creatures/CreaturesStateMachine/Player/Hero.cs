@@ -75,5 +75,10 @@ namespace Creatures.CreaturesStateMachine.Player
             base.Update();
             HandleFlip();
         }
+
+        public void AddInInventory(string id, int count)
+        {
+            GameSess.PlayerData.InventoryData.Add(id, count);
+        }
     }
 }

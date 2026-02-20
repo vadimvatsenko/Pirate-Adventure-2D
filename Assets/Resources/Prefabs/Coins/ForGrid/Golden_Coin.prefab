@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 5246316371057831149}
   - component: {fileID: -6404380921322217088}
   - component: {fileID: 5246316371057831146}
-  - component: {fileID: 984563383}
   - component: {fileID: -6083335367831258024}
-  - component: {fileID: 5223631522347630219}
-  - component: {fileID: 1957107401}
+  - component: {fileID: 8006981952120614815}
   - component: {fileID: 7172658447868321624}
+  - component: {fileID: -4020242007000295375}
+  - component: {fileID: 1957107401}
   m_Layer: 15
   m_Name: Golden_Coin
   m_TagString: Coin
@@ -125,35 +125,6 @@ CircleCollider2D:
   m_Offset: {x: 0.013459891, y: -0.015907168}
   serializedVersion: 2
   m_Radius: 0.17168787
---- !u!114 &984563383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5246316371057831152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6587c9d1f3e73f74fa73834fe0eefbfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinType: 1
-  coinCost: 10
-  onAddCoin:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: AddCoins
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 10
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    score: 0
 --- !u!114 &-6083335367831258024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyAfterAnimation: 0
   clips:
   - name: Idle
     sprites:
@@ -178,7 +150,7 @@ MonoBehaviour:
     onComplete:
       m_PersistentCalls:
         m_Calls: []
---- !u!114 &5223631522347630219
+--- !u!114 &8006981952120614815
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,11 +159,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 5246316371057831152}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b13f88d7d4a14941a424b9404a2419b3, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b98bf37e3ea4d80b147693b40c75dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectTag: Player
   onAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -4020242007000295375}
+        m_MethodName: Add
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onEnter:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1957107401}
@@ -216,22 +202,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onEnter:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1957107401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5246316371057831152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 007e3171b9d94eddac2c6fc1d51d5422, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroyTime: 0
 --- !u!114 &7172658447868321624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,3 +216,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 5246316371057831148}
   prefab: {fileID: 8988252005245749755, guid: 058c9f735ad4b2941ad7c7d1a79f77f6, type: 3}
+--- !u!114 &-4020242007000295375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5246316371057831152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81168f7ec5dc4f36bb01df795e8a42cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: Coin
+  count: 10
+--- !u!114 &1957107401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5246316371057831152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 007e3171b9d94eddac2c6fc1d51d5422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTime: 0

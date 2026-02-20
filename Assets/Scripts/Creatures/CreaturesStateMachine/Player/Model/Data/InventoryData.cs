@@ -17,8 +17,11 @@ namespace Creatures.CreaturesStateMachine.Player.Model.Data
             if(value <= 0) return;
 
             // провереям если такой предмет в синглтоне
-            var itemDef = DefFacade.Instance.Items.Get(id);
-            if(itemDef.IsVoid) return;
+            /*var itemDef = DefFacade.Instance.Items.Get(id);
+            
+            Debug.Log(itemDef.Id);
+            
+            if(itemDef.IsVoid) return;*/
             
             var item = GetItem(id);
             
@@ -52,8 +55,10 @@ namespace Creatures.CreaturesStateMachine.Player.Model.Data
         public void Remove(string id, int value)
         {
             // провереям если такой предмет в синглтоне
-            var itemDef = DefFacade.Instance.Items.Get(id);
-            if(itemDef.IsVoid) return;
+            /*var itemDef = DefFacade.Instance.Items.Get(id);
+            
+            
+            if(itemDef.IsVoid) return;*/
             
             var item = GetItem(id);
             if(item == null) return;
