@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyAfterAnimation: 0
   clips:
   - name: idle
     sprites:
@@ -218,6 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyAfterAnimation: 0
   clips:
   - name: idle
     sprites:
@@ -341,6 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyAfterAnimation: 0
   clips:
   - name: idle
     sprites:
@@ -464,6 +467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyAfterAnimation: 0
   clips:
   - name: idle
     sprites:
@@ -503,7 +507,7 @@ GameObject:
   - component: {fileID: 6515540604287000056}
   - component: {fileID: 6515540604287000063}
   - component: {fileID: 6515540604287000062}
-  - component: {fileID: 6515540604287000057}
+  - component: {fileID: 7360845624191100513}
   m_Layer: 0
   m_Name: SpikesController
   m_TagString: Untagged
@@ -572,14 +576,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spikes:
   - {fileID: 6515540603921282884}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &6515540604287000057
+  - {fileID: 8589582358297478752}
+  - {fileID: 7090496936845015082}
+  - {fileID: 4466403772687712230}
+  - {fileID: 1653798725911611354}
+  - {fileID: 748359270301737184}
+  - {fileID: 3557692057540219692}
+--- !u!114 &7360845624191100513
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -588,10 +591,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 6515540604287000059}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9220c3e26c54cd7bce088f28bc22879, type: 3}
+  m_Script: {fileID: 11500000, guid: 10d9d90a62db4ecdac019bda5b844e9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
+  targetCheck: {fileID: 6515540604287000056}
+  detectionRadius: 0
+  whatIsTarget:
+    serializedVersion: 2
+    m_Bits: 69632
+  sizeVision: {x: 1.57, y: 1.41}
 --- !u!1 &6515540605715280033
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,6 +727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyAfterAnimation: 0
   clips:
   - name: idle
     sprites:
@@ -841,6 +851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyAfterAnimation: 0
   clips:
   - name: idle
     sprites:
@@ -964,6 +975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyAfterAnimation: 0
   clips:
   - name: idle
     sprites:

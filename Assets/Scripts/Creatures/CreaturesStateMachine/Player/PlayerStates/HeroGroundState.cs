@@ -1,8 +1,6 @@
 ﻿using Creatures.CreaturesStateMachine.CreatureBasic;
-using GameManagerInfo;
-using UnityEngine;
 
-namespace Creatures.CreaturesStateMachine.Player
+namespace Creatures.CreaturesStateMachine.Player.PlayerStates
 {
     public class HeroGroundState : HeroState
     {

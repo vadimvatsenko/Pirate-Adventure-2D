@@ -2,7 +2,7 @@
 using Creatures.CreaturesStateMachine.CreatureBasic;
 using UnityEngine;
 
-namespace Creatures.CreaturesStateMachine.Player
+namespace Creatures.CreaturesStateMachine.Player.PlayerStates
 {
     public class HeroHitState : HeroState
     {
@@ -46,7 +46,6 @@ namespace Creatures.CreaturesStateMachine.Player
             Hr.NewInputSet.Disable();
             Rb2D.velocity = new Vector2(hirDirection.x, hirDirection.y);
             yield return new WaitForSeconds(duration);
-            //Rb2D.velocity = Vector2.zero;
             _isHited = false;
             Hr.NewInputSet.Enable();
         }

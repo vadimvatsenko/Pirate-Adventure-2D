@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 4532186792782496559}
   - component: {fileID: 5932837329783468823}
   - component: {fileID: 407504932837964559}
-  - component: {fileID: 4104860579418383025}
   - component: {fileID: 4874132119197366311}
+  - component: {fileID: 5419596022032515227}
   - component: {fileID: 1690380591346926452}
-  - component: {fileID: 757513124561814067}
+  - component: {fileID: 6165939951557520735}
   - component: {fileID: 8325475208728714335}
   m_Layer: 15
   m_Name: SilverCoinForParticle
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1740054481
-  m_SortingLayer: 5
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0c6f34c54b7719544be46d326c3883e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -105,7 +105,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: da4adfdc1bbdee04cb1c6587304d456f, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -125,7 +125,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.15
+  m_Radius: 0.12
 --- !u!58 &407504932837964559
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -142,35 +142,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.16
---- !u!114 &4104860579418383025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 407504932837964547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6587c9d1f3e73f74fa73834fe0eefbfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinType: 0
-  coinCost: 1
-  onAddCoin:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: SetScore
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    score: 0
 --- !u!114 &4874132119197366311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyAfterAnimation: 0
   clips:
   - name: idle
     sprites:
@@ -195,6 +167,58 @@ MonoBehaviour:
     onComplete:
       m_PersistentCalls:
         m_Calls: []
+--- !u!114 &5419596022032515227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407504932837964547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b98bf37e3ea4d80b147693b40c75dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectTag: Player
+  onAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6165939951557520735}
+        m_MethodName: Add
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1690380591346926452}
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8325475208728714335}
+        m_MethodName: DestroyGameObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1690380591346926452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,7 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 407504932837964553}
   prefab: {fileID: 8988252005245749755, guid: 058c9f735ad4b2941ad7c7d1a79f77f6, type: 3}
---- !u!114 &757513124561814067
+--- !u!114 &6165939951557520735
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -218,27 +242,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 407504932837964547}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b13f88d7d4a14941a424b9404a2419b3, type: 3}
+  m_Script: {fileID: 11500000, guid: 81168f7ec5dc4f36bb01df795e8a42cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObjectTag: Player
-  onAction:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8325475208728714335}
-        m_MethodName: DestroyGameObject
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onEnter:
-    m_PersistentCalls:
-      m_Calls: []
+  id: Coin
+  count: 1
 --- !u!114 &8325475208728714335
 MonoBehaviour:
   m_ObjectHideFlags: 0

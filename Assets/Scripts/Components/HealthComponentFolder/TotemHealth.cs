@@ -1,13 +1,12 @@
 ﻿using System.Collections;
-using Creatures.CreaturesHealth;
+using Creatures.CreaturesStateMachine.Enemies.Totems;
 using UnityEngine;
 
-namespace Creatures.CreaturesStateMachine.Enemies.Totems
+namespace Components.HealthComponentFolder
 {
-    public class TotemHealth : BasicHealth
+    public class TotemHealth : BaseHealthComponent
     {
         private TotemTrap _totemTrap;
-
         private Coroutine _coroutine;
         
         private void Start()
@@ -15,11 +14,9 @@ namespace Creatures.CreaturesStateMachine.Enemies.Totems
             _totemTrap = gameObject.GetComponent<TotemTrap>();
         }
 
-        public override void TakeDamage(float damage, Transform attacker)
+        public override void TakeDamage(int damage, Transform attacker)
         {
             base.TakeDamage(damage, attacker);
-            
-            if(isDead) return;
             
             if (attacker != null)
             {

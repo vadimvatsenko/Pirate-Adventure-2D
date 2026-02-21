@@ -18,17 +18,13 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
             StateMachine = stateMachine;
             
             if (En != null) EnemyCollisionInfo = En.EnemyCollisionInfo;
-
-            //Health.SubscribeOnHitEvent(CallHitState);
         }
 
         public override void Enter()
         {
             base.Enter();
-            //Debug.Log($"Entered in {AnimatorHashes.GetName(_animBoolName)}");
         }
-
-        ~EnemyState() => Health.UnsubscribeOnHitEvent(CallHitState);
+        
         
         private void CallHitState() => StateMachine.ChangeState(En.HitState);
         

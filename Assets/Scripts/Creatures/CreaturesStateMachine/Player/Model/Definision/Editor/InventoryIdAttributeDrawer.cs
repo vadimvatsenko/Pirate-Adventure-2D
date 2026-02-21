@@ -18,7 +18,6 @@ namespace Creatures.CreaturesStateMachine.Player.Model.Definision.Editor
             foreach (var def in defs)
             {
                 ids.Add(def.Id);
-                Debug.Log(def.Id);
             }
             
             var index = Mathf.Max(ids.IndexOf(property.stringValue), 0);

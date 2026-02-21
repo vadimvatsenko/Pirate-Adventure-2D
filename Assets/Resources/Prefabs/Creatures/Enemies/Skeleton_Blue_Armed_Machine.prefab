@@ -599,7 +599,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1144281321
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 5541034096098927273, guid: 1480ff2b718e88f4d9cdadf757117f84,
     type: 3}
@@ -737,13 +737,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae156a789864612a38b9aaa3ba035e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 1.5
-  jumpForce: 0.5
+  startFacingDirection: 1
   hitPower: {x: 1.5, y: 1.5}
   hitDuration: 0.5
   heavyHitPower: {x: 7, y: 7}
   heavyHitDuration: 0.75
   heavyDamageThreshold: 0.3
+  movementSpeed: 1.5
+  jumpForce: 0.5
   idleDuration: 2
   aggroDuration: 0.75
   battleSpeed: 2.25
@@ -814,9 +815,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 013423114819447d810c579fe3a891fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  isDead: 0
-  currentHealth: 0
+  health: 100
+  onDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2279830649293672624}
+        m_MethodName: HandleDeathState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onTakeDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2279830649293672616}
+        m_MethodName: PlayOnDamageVFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2279830649293672624}
+        m_MethodName: HandleHitState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2279830649293672616
 MonoBehaviour:
   m_ObjectHideFlags: 0

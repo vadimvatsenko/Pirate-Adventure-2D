@@ -20,7 +20,7 @@ namespace Components.Spawn
         //[ContextMenu("Spawn")]
         public virtual void Spawn()
         {
-            Vector3 spawnPos = transform.position;
+            Vector3 spawnPos = this.transform.position;
             
             GameObject spawnObj = Instantiate(prefab, spawnPos, target.rotation);
             spawnObj.transform.parent = SpawnParent.transform; // ++

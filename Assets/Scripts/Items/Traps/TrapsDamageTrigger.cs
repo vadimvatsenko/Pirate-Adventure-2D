@@ -1,4 +1,4 @@
-﻿using Creatures.CreaturesHealth;
+﻿using Components.HealthComponentFolder;
 using Creatures.CreaturesStateMachine.CreatureBasic;
 using Items.Traps.Spikes;
 using UnityEngine;
@@ -10,7 +10,7 @@ namespace Items.Traps
     {
         [SerializeField] private int damage;
         private Creature _creature;
-        private BasicHealth _healthComponent;
+        private BaseHealthComponent _healthComponent;
         private SpikesController _spikesController;
 
         private void Awake()
@@ -19,7 +19,7 @@ namespace Items.Traps
         }
         private void OnTriggerEnter2D(Collider2D other)
         {
-            _healthComponent = other.GetComponent<BasicHealth>();
+            _healthComponent = other.GetComponent<BaseHealthComponent>();
             
             if (_healthComponent != null)
             {

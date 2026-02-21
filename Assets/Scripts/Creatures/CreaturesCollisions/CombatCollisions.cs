@@ -1,8 +1,7 @@
 ﻿using Components.HealthComponentFolder;
-using Creatures.CreaturesHealth;
 using UnityEngine;
 
-// проверка колизии сражения, при атаке, если кто-то попалает с 
+// проверка колизии сражения, при атаке, если кто-то попадает с 
 namespace Creatures.CreaturesCollisions
 {
     public class CombatCollisions : MonoBehaviour
@@ -19,7 +18,7 @@ namespace Creatures.CreaturesCollisions
             
             foreach (var col in colls)
             {
-                IHealthComponent health = col.gameObject.GetComponent<IHealthComponent>();
+                BaseHealthComponent health = col.gameObject.GetComponent<BaseHealthComponent>();
                 if (health != null)
                 {
                     health?.TakeDamage(damage, this.transform);

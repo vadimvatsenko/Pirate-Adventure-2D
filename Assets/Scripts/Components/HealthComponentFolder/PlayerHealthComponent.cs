@@ -1,74 +1,87 @@
-﻿using System;
+﻿using Creatures.CreaturesStateMachine.CreatureBasic;
 using Creatures.CreaturesStateMachine.Player;
-using GameManagerInfo;
+using Creatures.Interfaces;
 using UnityEngine;
-using UnityEngine.Events;
+
 
 namespace Components.HealthComponentFolder
 {
-    public class PlayerHealthComponent : MonoBehaviour, IHealthComponent
+    public class PlayerHealthComponent : BaseHealthComponent
     {
-        [SerializeField] private UnityEvent onAddHealth;
-        [SerializeField] private UnityEvent onDamage;
-        
         private Hero _hero;
-        public UnityAction OnHealthChange;
-        private GameSession _gameSession;
+        private int _previousHealth;
+        private int _maxHealth;
         
-        public event Action OnDeath;
-        public event Action OnDamage;
-
         private void Awake()
         {
             _hero = GetComponent<Hero>();
-            _gameSession = FindObjectOfType<GameSession>();
+        }
+        private void Start()
+        {
+            Health = _hero.GameSess.PlayerData.health;
         }
         
-        public void TakeDamage(int damage)
+        public override void TakeDamage(int damage, Transform damager)
         {
-            _gameSession.PlayerData.health -= damage;
+            base.TakeDamage(damage, damager);
             
-            OnDamage?.Invoke();
-            if (_gameSession.PlayerData.health <= 0)
+            _hero.GameSess.PlayerData.health -= damage;
+            Vector2 hitDir = CaclulateHitDirection(damage, damager);
+            
+            _hero.GameSess.PlayerData.health -= damage;
+            
+            float duration = CalculateDuration(damage);
+
+            // Тут нужно визвать состояние hit
+            
+            _hero.SetFinalHitDuration(duration);
+            _hero.SetFinalHit(hitDir);
+            
+            _hero.HandleHitState();
+
+            ReduceHealth(damage); // важен порядок
+        }
+        
+        private void ReduceHealth(int damage)
+        {
+            if(IsDead) return;
+            
+            _previousHealth = Health;
+            Health -= damage;
+            
+            if (Health <= 0f)
             {
-                _gameSession.PlayerData.health = 0;
-                OnDeath?.Invoke();
+                _hero.HandleDeathState();
             }
         }
-
-        public void TakeDamage(int damage, Transform damager)
+        
+        private Vector2 CaclulateHitDirection(float damage, Transform attacker)
         {
-            throw new NotImplementedException();
-        }
+            int direction = transform.position.x > attacker.position.x ? 1 : -1;
 
-        public void TakeHeal(int heal)
-        {
-            _gameSession.PlayerData.health += heal;
-           
-            if (_gameSession.PlayerData.health > _gameSession.PlayerData.maxHealth)
+            IFacingDirection facingCreature = attacker.GetComponent<IFacingDirection>();
+
+            if (facingCreature != null)
             {
-                _gameSession.PlayerData.health = _gameSession.PlayerData.maxHealth;
+                int enemyFacingDirectionDirection = attacker.GetComponent<IFacingDirection>().FacingDirection;
+                
+                if (enemyFacingDirectionDirection == _hero.FacingDirection)
+                {
+                    _hero.Flip();
+                }
             }
             
-            OnHealthChange?.Invoke();
-            onAddHealth?.Invoke();
+            Vector2 hitPower = IsHeavyDamage(damage) ? _hero.HeavyHitPower : _hero.HitPower;
+
+            hitPower.x *= direction;
+            return hitPower;
         }
 
-        public void AddHeart()
-        {
-            _gameSession.PlayerData.health++;
-            _gameSession.PlayerData.maxHealth++;
-            if (_gameSession.PlayerData.health >= _gameSession.PlayerData.maxTotalHearts)
-            {
-                _gameSession.PlayerData.health = _gameSession.PlayerData.maxTotalHearts;
-                _gameSession.PlayerData.maxHealth = _gameSession.PlayerData.maxTotalHearts;
-            }
-            
-            OnHealthChange?.Invoke();
-        }
-        private void SetHealthIfHeroDeath()
-        {
-            _gameSession.PlayerData.health = _gameSession.PlayerData.maxHealth;
-        }
+        private float CalculateDuration(float damage) =>
+            IsHeavyDamage(damage) ? _hero.HeavyHitDuration : _hero.HitDuration;
+
+        private bool IsHeavyDamage(float damage) => 
+            damage / _maxHealth > _hero.HeavyDamageThreshold;
+        
     }
 }

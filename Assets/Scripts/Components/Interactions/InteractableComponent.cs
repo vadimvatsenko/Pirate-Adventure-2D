@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace Components
+namespace Components.Interactions
 {
     public class InteractableComponent : MonoBehaviour
     {
@@ -12,6 +12,7 @@ namespace Components
         private bool _isActive = true;
         public void Interact()
         {
+            Debug.Log("Interacting..." +  this.name);
             if (_used && !_isActive) return;
             
             action?.Invoke();
