@@ -1,6 +1,7 @@
 ﻿using Creatures.CreaturesStateMachine.CreatureBasic;
 using Creatures.CreaturesStateMachine.Player;
 using Creatures.Interfaces;
+using GameManagerInfo;
 using UnityEngine;
 
 
@@ -20,7 +21,14 @@ namespace Components.HealthComponentFolder
         {
             Health = _hero.GameSess.PlayerData.health;
         }
-        
+
+        public override void TakeHeal(int heal)
+        {
+            base.TakeHeal(heal);
+            _hero.GameSess.PlayerData.ChangeHealth(health);
+            _previousHealth = health;
+        }
+
         public override void TakeDamage(int damage, Transform damager)
         {
             base.TakeDamage(damage, damager);

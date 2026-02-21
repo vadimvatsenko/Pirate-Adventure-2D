@@ -14,7 +14,7 @@ namespace Components.HealthComponentFolder
         
         public virtual void TakeHeal(int heal)
         {
-            throw new System.NotImplementedException();
+            health += heal;
         }
         
         public virtual void TakeDamage(int damage, Transform damager)

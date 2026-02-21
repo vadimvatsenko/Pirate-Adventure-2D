@@ -22,5 +22,10 @@ namespace Creatures.CreaturesStateMachine.Player.Model.Data
             string json = JsonUtility.ToJson(this);
             return JsonUtility.FromJson<PlayerData>(json);
         }
+
+        public void ChangeHealth(int health)
+        {
+            health = this.health;
+        }
     }
 }

@@ -1,10 +1,12 @@
 ﻿using System;
+using Components.HealthComponentFolder;
 using Creatures.AnimationControllers;
 using Creatures.CreaturesCollisions;
 using Creatures.CreaturesStateMachine.CreatureBasic;
 using Creatures.CreaturesStateMachine.Player.PlayerStates;
 using GameManagerInfo;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Creatures.CreaturesStateMachine.Player
 {
@@ -13,6 +15,7 @@ namespace Creatures.CreaturesStateMachine.Player
         public GameSession GameSess { get; private set;} //
         public NewInputSet NewInputSet { get; private set; }
         public Animator HeroAnimator { get; private set; }
+        public BaseHealthComponent HealthComponent { get; private set; }
         
         public HeroCollisionInfo HeroCollision { get; private set; }
         private HeroStatesController _heroStatesController;
@@ -37,6 +40,7 @@ namespace Creatures.CreaturesStateMachine.Player
             GameSess = FindObjectOfType<GameSession>();
             HeroCollision = GetComponent<HeroCollisionInfo>();
             HeroAnimator = GetComponentInChildren<Animator>();
+            HealthComponent =  GetComponent<PlayerHealthComponent>();
             
             // подписка на извинения в инвентаре
             GameSess.PlayerData.InventoryData.OnChanged += OnInventoryChanged;
@@ -68,10 +72,12 @@ namespace Creatures.CreaturesStateMachine.Player
             
             NewInputSet.Hero.Movement.performed += context => XInput = context.ReadValue<Vector2>().x;
             NewInputSet.Hero.Movement.canceled += context => XInput = 0;
+            NewInputSet.Hero.UseHealthPoison.performed += context => UsePoison(context);
         }
 
         private void OnDisable()
         {
+            NewInputSet.Hero.UseHealthPoison.performed -= context => UsePoison(context);
             NewInputSet.Disable(); // выключение системы управления
         }
 
@@ -90,6 +96,16 @@ namespace Creatures.CreaturesStateMachine.Player
         {
             // пока пустой
             //Debug.Log($"id: {id}, value: {value}");
+        }
+
+        private void UsePoison(InputAction.CallbackContext context)
+        {
+            var poisonCount = GameSess.PlayerData.InventoryData.Count("HealthPoison");
+            if (poisonCount > 0)
+            {
+                HealthComponent.TakeHeal(15);
+                GameSess.PlayerData.InventoryData.Remove("HealthPoison", 1);
+            }
         }
 
         public void Dispose()

@@ -80,6 +80,15 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UsePoison"",
+                    ""type"": ""Button"",
+                    ""id"": ""4b48f807-6096-4406-a00b-45abd6da4fa7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -280,6 +289,17 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
                     ""action"": ""Down"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""820adb7c-342d-4e24-9798-54795c58e15e"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UsePoison"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -438,6 +458,7 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
         m_Hero_Interact = m_Hero.FindAction("Interact", throwIfNotFound: true);
         m_Hero_Attack = m_Hero.FindAction("Attack", throwIfNotFound: true);
         m_Hero_Down = m_Hero.FindAction("Down", throwIfNotFound: true);
+        m_Hero_UsePoison = m_Hero.FindAction("UsePoison", throwIfNotFound: true);
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
@@ -506,6 +527,7 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
     private readonly InputAction m_Hero_Interact;
     private readonly InputAction m_Hero_Attack;
     private readonly InputAction m_Hero_Down;
+    private readonly InputAction m_Hero_UsePoison;
     public struct HeroActions
     {
         private @HeroInputAction m_Wrapper;
@@ -516,6 +538,7 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Hero_Interact;
         public InputAction @Attack => m_Wrapper.m_Hero_Attack;
         public InputAction @Down => m_Wrapper.m_Hero_Down;
+        public InputAction @UsePoison => m_Wrapper.m_Hero_UsePoison;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -543,6 +566,9 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
                 @Down.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnDown;
                 @Down.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnDown;
                 @Down.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnDown;
+                @UsePoison.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePoison;
+                @UsePoison.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePoison;
+                @UsePoison.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnUsePoison;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -565,6 +591,9 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
                 @Down.started += instance.OnDown;
                 @Down.performed += instance.OnDown;
                 @Down.canceled += instance.OnDown;
+                @UsePoison.started += instance.OnUsePoison;
+                @UsePoison.performed += instance.OnUsePoison;
+                @UsePoison.canceled += instance.OnUsePoison;
             }
         }
     }
@@ -619,6 +648,7 @@ public partial class @HeroInputAction : IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnDown(InputAction.CallbackContext context);
+        void OnUsePoison(InputAction.CallbackContext context);
     }
     public interface IPlayerActions
     {
