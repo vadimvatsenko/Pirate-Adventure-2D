@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Creatures.CreaturesStateMachine.CreatureBasic;
+using Creatures.CreaturesStateMachine.Player.PlayerStates;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

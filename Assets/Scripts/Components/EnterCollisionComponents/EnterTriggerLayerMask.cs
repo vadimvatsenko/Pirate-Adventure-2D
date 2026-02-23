@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using Utils;
@@ -21,10 +20,12 @@ namespace Components.EnterCollisionComponents
         
         private void OnTriggerEnter2D(Collider2D other)
         {
+            Console.WriteLine("Enter trigger layer mask");
             int otherLayer = other.gameObject.layer;
 
             if (_layerMasksIndex.Count != 0 && _layerMasksIndex.Contains(otherLayer))
             {
+                
                 onEnter?.Invoke();
             }
         }

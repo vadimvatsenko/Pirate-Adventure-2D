@@ -1,10 +1,6 @@
-﻿using Components.HealthComponentFolder;
-using Creatures.AnimationControllers;
-using Creatures.CreaturesStateMachine.CreatureBasic;
-using UnityEngine;
-using UnityEngine.InputSystem;
+﻿using Creatures.CreaturesStateMachine.CreatureBasic;
 
-namespace Creatures.CreaturesStateMachine.Player
+namespace Creatures.CreaturesStateMachine.Player.PlayerStates
 {
     public class HeroState : BasicState
     {

@@ -12,6 +12,7 @@ namespace Creatures.CreaturesCollisions
         [SerializeField] protected float detectionRadius;
         [SerializeField] protected LayerMask whatIsTarget;
         
+        // вчасности это событие, при столкновении или а аниматоре
         public virtual void PerformAttack()
         {
             Collider2D[] colls = GetDetectedColliders();

@@ -21,7 +21,6 @@ namespace Creatures.CreaturesStateMachine.Player
         {
             _bufferJumpWindow = hr.BufferJumpWindow;
             _coyoteJumpWindow = hr.CoyoteJumpWindow;
-            
         }
 
         public override void Enter()
@@ -29,7 +28,6 @@ namespace Creatures.CreaturesStateMachine.Player
             base.Enter();
             // фиксируем позицию по Y во время падения
             _startFallY = Hr.transform.position.y;
-            
             ActivateCoyoteJump();
         }
 

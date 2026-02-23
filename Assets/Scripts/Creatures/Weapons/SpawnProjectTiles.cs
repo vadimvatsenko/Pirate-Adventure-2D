@@ -1,9 +1,9 @@
 ﻿using System.Collections;
+using Components.Spawn;
 using Creatures.CreaturesStateMachine.CreatureBasic;
-using Creatures.Weapons;
 using UnityEngine;
 
-namespace Components.Spawn
+namespace Creatures.Weapons
 {
     public class SpawnProjectTiles : SpawnComponent
     {
