@@ -25,7 +25,7 @@ namespace Creatures.CreaturesStateMachine.Player.Model.Data
 
         public void ChangeHealth(int health)
         {
-            health = this.health;
+            this.health = health;
         }
     }
 }

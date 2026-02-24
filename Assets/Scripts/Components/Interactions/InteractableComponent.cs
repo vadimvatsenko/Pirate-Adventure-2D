@@ -12,7 +12,6 @@ namespace Components.Interactions
         private bool _isActive = true;
         public void Interact()
         {
-            Debug.Log("Interacting..." +  this.name);
             if (_used && !_isActive) return;
             
             action?.Invoke();

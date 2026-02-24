@@ -153,7 +153,7 @@ MonoBehaviour:
     onComplete:
       m_PersistentCalls:
         m_Calls: []
-  - name: collect
+  - name: idle
     sprites:
     - {fileID: 21300000, guid: 88b7097b30e905e478c4aa89d7c344ef, type: 3}
     - {fileID: 21300000, guid: 37b749d7b391768478c941272e5ebbe3, type: 3}

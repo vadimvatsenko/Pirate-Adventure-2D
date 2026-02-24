@@ -1,4 +1,5 @@
 ﻿using System;
+using Animation.EditorHelpers;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,7 +8,8 @@ namespace Animation
     [Serializable]
     public class AnimationClip
     {
-        [SerializeField] private string name;
+        // Engine [AnimationName]
+        [AnimationName] [SerializeField] private string name;
         [SerializeField] private Sprite[] sprites;
         [SerializeField] private bool loop;
         [SerializeField] private bool allowNextClip;

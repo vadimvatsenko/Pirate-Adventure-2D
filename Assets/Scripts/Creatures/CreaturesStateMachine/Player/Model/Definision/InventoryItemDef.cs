@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Player.Model.Definision
@@ -26,14 +25,16 @@ namespace Creatures.CreaturesStateMachine.Player.Model.Definision
 #endif
     }
     
-
-
     // структура
     [Serializable]
     public struct ItemDef
     {
         [SerializeField] private string id;
         public string Id => id;
+        
+        // стаскаемый объект
+        [SerializeField] private bool isStackable;
+        public bool IsStackable => isStackable;
         
         // проверка на пустоту структуры
         public bool IsVoid => string.IsNullOrEmpty(id);

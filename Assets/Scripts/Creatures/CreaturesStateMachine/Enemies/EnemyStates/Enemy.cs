@@ -1,4 +1,5 @@
 ﻿using System;
+using Animation;
 using Creatures.AnimationControllers;
 using Creatures.CreaturesCollisions;
 using Creatures.CreaturesStateMachine.CreatureBasic;

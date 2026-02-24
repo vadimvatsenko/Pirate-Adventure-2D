@@ -1,3 +1,4 @@
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,7 +9,6 @@ namespace Animation
     public class SpriteAnimator : MonoBehaviour
     {
         [Range(1, 30)] private readonly int frameRate = 10;
-        [SerializeField] private UnityEvent<string> onComplete;
         [SerializeField] private bool destroyAfterAnimation;
         [SerializeField] private AnimationClip[] clips;
 
@@ -53,7 +53,7 @@ namespace Animation
 
             enabled = _isPlaying = false;
         }
-
+        
         private void StartAnimation()
         {
             _nextFrameTime = Time.time;
@@ -81,7 +81,6 @@ namespace Animation
                 {
                     enabled = _isPlaying = clip.AllowNextClip;
                     clip.OnComplete?.Invoke();
-                    onComplete?.Invoke(clip.Name);
 
                     if (destroyAfterAnimation)
                     {

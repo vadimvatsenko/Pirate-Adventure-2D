@@ -1,4 +1,5 @@
-﻿using Creatures.AnimationControllers;
+﻿using Animation;
+using Creatures.AnimationControllers;
 using Creatures.CreaturesStateMachine.CreatureBasic;
 using GameManagerInfo;
 using UnityEngine;

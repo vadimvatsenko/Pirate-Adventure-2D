@@ -1,4 +1,5 @@
 ﻿using System;
+using Animation;
 using Components.HealthComponentFolder;
 using Creatures.AnimationControllers;
 using Creatures.CreaturesCollisions;
@@ -16,9 +17,9 @@ namespace Creatures.CreaturesStateMachine.Player
         public NewInputSet NewInputSet { get; private set; }
         public Animator HeroAnimator { get; private set; }
         public BaseHealthComponent HealthComponent { get; private set; }
-        
         public HeroCollisionInfo HeroCollision { get; private set; }
-        private HeroStatesController _heroStatesController;
+        
+        public HeroStatesController HeroStatesController { get; private set; }
         
         [Header("Buffer Jump")] 
         [SerializeField] private float bufferJumpWindow = 0.25f;
@@ -44,6 +45,8 @@ namespace Creatures.CreaturesStateMachine.Player
             
             // подписка на извинения в инвентаре
             GameSess.PlayerData.InventoryData.OnChanged += OnInventoryChanged;
+            
+            
         }
 
         
@@ -59,11 +62,10 @@ namespace Creatures.CreaturesStateMachine.Player
             HitState = new HeroHitState(this, StateMachine, AnimatorHashes.Hit);
             ClimbState = new HeroClimbState(this, StateMachine, AnimatorHashes.Climb);
             ThrowState = new HeroThrowState(this, StateMachine, AnimatorHashes.Throw); // ++
+            
+            HeroStatesController = new HeroStatesController(this, StateMachine, NewInputSet, GameSess, HeroAnimator);
                 
             StateMachine.Initialize(IdleState);
-            
-            _heroStatesController 
-                = new HeroStatesController(this, StateMachine, NewInputSet, GameSess, HeroAnimator);
         }
 
         private void OnEnable()
@@ -74,13 +76,7 @@ namespace Creatures.CreaturesStateMachine.Player
             NewInputSet.Hero.Movement.canceled += context => XInput = 0;
             NewInputSet.Hero.UseHealthPoison.performed += context => UsePoison(context);
         }
-
-        private void OnDisable()
-        {
-            NewInputSet.Hero.UseHealthPoison.performed -= context => UsePoison(context);
-            NewInputSet.Disable(); // выключение системы управления
-        }
-
+        
         protected override void Update()
         {
             base.Update();
@@ -101,9 +97,13 @@ namespace Creatures.CreaturesStateMachine.Player
         private void UsePoison(InputAction.CallbackContext context)
         {
             var poisonCount = GameSess.PlayerData.InventoryData.Count("HealthPoison");
+            
             if (poisonCount > 0)
             {
+                if(HealthComponent.Health >= GameSess.PlayerData.maxHealth) return;
+                Debug.Log(HealthComponent.Health);
                 HealthComponent.TakeHeal(15);
+                Debug.Log("Heal");
                 GameSess.PlayerData.InventoryData.Remove("HealthPoison", 1);
             }
         }
@@ -112,7 +112,11 @@ namespace Creatures.CreaturesStateMachine.Player
         {
             NewInputSet.Disable();
             NewInputSet?.Dispose();
-            GameSess.PlayerData.InventoryData.OnChanged += OnInventoryChanged;
+            NewInputSet.Hero.UseHealthPoison.performed -= context => UsePoison(context);
+            NewInputSet.Hero.Movement.performed -= context => XInput = context.ReadValue<Vector2>().x;
+            NewInputSet.Hero.Movement.canceled -= context => XInput = 0;
+            
+            GameSess.PlayerData.InventoryData.OnChanged -= OnInventoryChanged;
         }
     }
 }

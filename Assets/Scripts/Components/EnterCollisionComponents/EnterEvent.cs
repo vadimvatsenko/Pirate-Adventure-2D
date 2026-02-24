@@ -1,4 +1,5 @@
 ﻿using System;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,4 +14,6 @@ namespace Components.EnterCollisionComponents
     {
         
     }
+
+    
 }

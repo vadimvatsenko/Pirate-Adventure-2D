@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Creatures.AnimationControllers
+namespace Animation
 {
     public abstract class AnimatorHashes
     {
@@ -24,19 +24,22 @@ namespace Creatures.AnimationControllers
         public static readonly int Climb = Animator.StringToHash("climb");
         public static readonly int Throw = Animator.StringToHash("throw"); // ++
         public static readonly int ThrowTrigger = Animator.StringToHash("throwTrigger");
+        public static readonly int ItemVfx = Animator.StringToHash("itemVfx");
+        public static readonly int Open = Animator.StringToHash("open");
+        public static readonly int Close = Animator.StringToHash("close");
 
-        private static readonly Dictionary<int, string> HashToName = new Dictionary<int, string>()
+        public static readonly Dictionary<int, string> HashToName = new Dictionary<int, string>()
         {
             { Idle, "idle" },
             { Move, "move" },
             { IdleMove, "idleMove" },
-            { JumpFall, "jumpFall"},
+            { JumpFall, "jumpFall" },
             { XVelocity, "xVelocity" },
             { YVelocity, "yVelocity" },
             { Jump, "jump" },
             { Attack, "attack" },
             { Hit, "hit" },
-            { Death, "death"},
+            { Death, "death" },
             { Aggro, "aggro" },
             { Battle, "battle" },
             { BattleAnimSpeed, "battleAnimSpeed" },
@@ -44,8 +47,12 @@ namespace Creatures.AnimationControllers
             { Climb, "climb" },
             { Throw, "throw" }, // ++
             { ThrowTrigger, "throwTrigger" },
-            
+            { ItemVfx, "itemVfx" },
+            { Open, "open" },
+            { Close, "close" },
         };
+
+        public static Dictionary<int, string> NameToHash => HashToName;
 
         public static string GetName(int hash)
         {

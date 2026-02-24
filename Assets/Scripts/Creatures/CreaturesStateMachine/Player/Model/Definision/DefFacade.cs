@@ -8,7 +8,9 @@ namespace Creatures.CreaturesStateMachine.Player.Model.Definision
     public class DefFacade : ScriptableObject
     {
         [SerializeField] private InventoryItemDef items;
+        [SerializeField] private PlayerDef playerDef;
         public InventoryItemDef Items => items;
+        public PlayerDef PlayerDef => playerDef;
         
         private static DefFacade _instance;
         

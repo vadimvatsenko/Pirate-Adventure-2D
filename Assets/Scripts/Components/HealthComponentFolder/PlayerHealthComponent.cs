@@ -24,7 +24,6 @@ namespace Components.HealthComponentFolder
 
         public override void TakeHeal(int heal)
         {
-            base.TakeHeal(heal);
             _hero.GameSess.PlayerData.ChangeHealth(health);
             _previousHealth = health;
         }
