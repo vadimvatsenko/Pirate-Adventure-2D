@@ -11,7 +11,7 @@ using UnityEngine.InputSystem;
 
 namespace Creatures.CreaturesStateMachine.Player
 {
-    public class Hero : Creature, IDisposable
+    public class Hero : Creature
     {
         public GameSession GameSess { get; private set;} //
         public NewInputSet NewInputSet { get; private set; }
@@ -45,10 +45,7 @@ namespace Creatures.CreaturesStateMachine.Player
             
             // подписка на извинения в инвентаре
             GameSess.PlayerData.InventoryData.OnChanged += OnInventoryChanged;
-            
-            
         }
-
         
         private void Start()
         {
@@ -71,10 +68,20 @@ namespace Creatures.CreaturesStateMachine.Player
         private void OnEnable()
         {
             NewInputSet.Enable(); // включение системы управления
-            
             NewInputSet.Hero.Movement.performed += context => XInput = context.ReadValue<Vector2>().x;
             NewInputSet.Hero.Movement.canceled += context => XInput = 0;
             NewInputSet.Hero.UseHealthPoison.performed += context => UsePoison(context);
+        }
+        
+        private void OnDisable()
+        {
+            NewInputSet.Disable();
+            NewInputSet?.Dispose();
+            NewInputSet.Hero.UseHealthPoison.performed -= context => UsePoison(context);
+            NewInputSet.Hero.Movement.performed -= context => XInput = context.ReadValue<Vector2>().x;
+            NewInputSet.Hero.Movement.canceled -= context => XInput = 0;
+            
+            GameSess.PlayerData.InventoryData.OnChanged -= OnInventoryChanged;
         }
         
         protected override void Update()
@@ -96,10 +103,13 @@ namespace Creatures.CreaturesStateMachine.Player
 
         private void UsePoison(InputAction.CallbackContext context)
         {
+            
             var poisonCount = GameSess.PlayerData.InventoryData.Count("HealthPoison");
+            Debug.Log($" poisonCount {poisonCount}");
             
             if (poisonCount > 0)
             {
+                Debug.Log("Use Poison");
                 if(HealthComponent.Health >= GameSess.PlayerData.maxHealth) return;
                 Debug.Log(HealthComponent.Health);
                 HealthComponent.TakeHeal(15);
@@ -108,15 +118,6 @@ namespace Creatures.CreaturesStateMachine.Player
             }
         }
 
-        public void Dispose()
-        {
-            NewInputSet.Disable();
-            NewInputSet?.Dispose();
-            NewInputSet.Hero.UseHealthPoison.performed -= context => UsePoison(context);
-            NewInputSet.Hero.Movement.performed -= context => XInput = context.ReadValue<Vector2>().x;
-            NewInputSet.Hero.Movement.canceled -= context => XInput = 0;
-            
-            GameSess.PlayerData.InventoryData.OnChanged -= OnInventoryChanged;
-        }
+        
     }
 }
