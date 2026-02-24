@@ -9,19 +9,27 @@ namespace Components.EnterTriggerComponents
         private bool _inventoryIsFull;
         protected override void OnTriggerEnter2D(Collider2D other)
         {
-            Hero hero = other.gameObject.GetComponent<Hero>();
+            if (gameObjectTag.Equals(other.gameObject.tag))
+            {
+                var gamesess = other.gameObject.GetComponent<Hero>().GameSess;
+               
+                if (gamesess == null) return;
                 
-            _inventoryIsFull = hero.GameSess.PlayerData.InventoryData.InventoryItem.Count >= DefFacade.Instance.PlayerDef.InventorySize;
+                Debug.Log(gamesess.PlayerData.InventoryData.InventoryItem.Count);
+                Debug.Log(DefFacade.Instance.PlayerDef.InventorySize);
+                
+                _inventoryIsFull = gamesess.PlayerData.InventoryData.InventoryItem.Count >= DefFacade.Instance.PlayerDef.InventorySize;
 
-            if (_inventoryIsFull)
-            {
-                Debug.Log("Inventory Full");
+                if (_inventoryIsFull)
+                {
+                    Debug.Log("Inventory Full");
+                    return;
+                }
+                else
+                {
+                    base.OnTriggerEnter2D(other);
+                }
             }
-            else
-            {
-                base.OnTriggerEnter2D(other);
-            }
-            
         }
     }
 }

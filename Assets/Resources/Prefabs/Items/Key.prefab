@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2311698041236941879}
   - component: {fileID: 2311698041236941876}
   - component: {fileID: 2311698041236941877}
-  - component: {fileID: 2311698041236941874}
+  - component: {fileID: 5680844814778809538}
   - component: {fileID: 2311698041236941875}
   - component: {fileID: 2311698041236941880}
   m_Layer: 0
@@ -153,7 +153,7 @@ MonoBehaviour:
     onComplete:
       m_PersistentCalls:
         m_Calls: []
-  - name: idle
+  - name: collect
     sprites:
     - {fileID: 21300000, guid: 88b7097b30e905e478c4aa89d7c344ef, type: 3}
     - {fileID: 21300000, guid: 37b749d7b391768478c941272e5ebbe3, type: 3}
@@ -175,7 +175,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &2311698041236941874
+--- !u!114 &5680844814778809538
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2311698041236941872}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b98bf37e3ea4d80b147693b40c75dbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 3910ce3b4a9f46e5816a0a33e69e07b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameObjectTag: Player
@@ -204,16 +204,20 @@ MonoBehaviour:
         m_CallState: 2
   onEnter:
     m_PersistentCalls:
+      m_Calls: []
+  nextAnimationName: collect
+  onEnterAnimation:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2311698041236941877}
         m_MethodName: SetClip
-        m_Mode: 5
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: collect
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2311698041236941875

@@ -6,13 +6,17 @@ namespace Components.EnterTriggerComponents
 {
     public class AnimationTriggerComponent : BaseEnterTriggerComponent
     {
-        [AnimationName] [SerializeField] private string nextAnimationName;
-        [SerializeField] private EnterAnimationEvent onEnterAnimation;
+        [AnimationName] [SerializeField] protected string nextAnimationName;
+        [SerializeField] protected EnterAnimationEvent onEnterAnimation;
 
-        protected virtual void OnTriggerEnter2D(Collider2D other)
+        protected override void OnTriggerEnter2D(Collider2D other)
         {
-            base.OnTriggerEnter2D(other);
-            onEnterAnimation?.Invoke(nextAnimationName);
+            if (gameObjectTag.Equals(other.gameObject.tag))
+            {
+                onAction?.Invoke(other.gameObject);
+                onEnter?.Invoke();
+                onEnterAnimation?.Invoke(nextAnimationName);
+            }
         }
     }
 }

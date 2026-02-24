@@ -1,7 +1,4 @@
-﻿using Animation.EditorHelpers;
-using Components.EnterCollisionComponents;
-using Creatures.CreaturesStateMachine.Player;
-using Creatures.CreaturesStateMachine.Player.Model.Definision;
+﻿using Components.EnterCollisionComponents;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,9 +6,9 @@ namespace Components.EnterTriggerComponents
 {
     public class BaseEnterTriggerComponent : MonoBehaviour
     {
-        [SerializeField] private string gameObjectTag; // тег с которым будем взаимодействиять
-        [SerializeField] private EnterEvent onAction; // класс который мы создали в серилизации
-        [SerializeField] private UnityEvent onEnter;
+        [SerializeField] protected string gameObjectTag; // тег с которым будем взаимодействиять
+        [SerializeField] protected EnterEvent onAction; // класс который мы создали в серилизации
+        [SerializeField] protected UnityEvent onEnter;
         
         protected virtual void OnTriggerEnter2D(Collider2D other)
         {
