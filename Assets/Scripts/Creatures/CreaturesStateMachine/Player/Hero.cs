@@ -67,7 +67,8 @@ namespace Creatures.CreaturesStateMachine.Player
 
         private void OnEnable()
         {
-            NewInputSet.Enable(); // включение системы управления
+            NewInputSet.Enable();
+            // включение системы управления
             NewInputSet.Hero.Movement.performed += context => XInput = context.ReadValue<Vector2>().x;
             NewInputSet.Hero.Movement.canceled += context => XInput = 0;
             NewInputSet.Hero.UseHealthPoison.performed += context => UsePoison(context);
@@ -77,6 +78,7 @@ namespace Creatures.CreaturesStateMachine.Player
         {
             NewInputSet.Disable();
             NewInputSet?.Dispose();
+            
             NewInputSet.Hero.UseHealthPoison.performed -= context => UsePoison(context);
             NewInputSet.Hero.Movement.performed -= context => XInput = context.ReadValue<Vector2>().x;
             NewInputSet.Hero.Movement.canceled -= context => XInput = 0;
@@ -103,21 +105,19 @@ namespace Creatures.CreaturesStateMachine.Player
 
         private void UsePoison(InputAction.CallbackContext context)
         {
+            bool isHealth = GameSess.PlayerData.health < GameSess.PlayerData.maxHealth;
+            Debug.Log(isHealth);
             
-            var poisonCount = GameSess.PlayerData.InventoryData.Count("HealthPoison");
-            Debug.Log($" poisonCount {poisonCount}");
-            
-            if (poisonCount > 0)
+            if (isHealth)
             {
-                Debug.Log("Use Poison");
-                if(HealthComponent.Health >= GameSess.PlayerData.maxHealth) return;
-                Debug.Log(HealthComponent.Health);
-                HealthComponent.TakeHeal(15);
-                Debug.Log("Heal");
-                GameSess.PlayerData.InventoryData.Remove("HealthPoison", 1);
+                var poisonCount = GameSess.PlayerData.InventoryData.Count("HealthPoison");
+                
+                if (poisonCount > 0)
+                {
+                    HealthComponent.TakeHeal(15);
+                    GameSess.PlayerData.InventoryData.Remove("HealthPoison", 1);
+                }
             }
         }
-
-        
     }
 }

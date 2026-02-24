@@ -14,20 +14,24 @@ namespace Components.HealthComponentFolder
         
         public virtual void TakeHeal(int heal)
         {
-            health += heal;
+            Health += heal;
+            
         }
         
         public virtual void TakeDamage(int damage, Transform damager)
         {
             if(IsDead) return;
+            
             onTakeDamage?.Invoke();
+            
             health -= damage;
             if (health <= 0)
             {
                 health = 0;
                 onDeath?.Invoke();
                 IsDead = true;
-                Collider2D collider2D = GetComponent<Collider2D>();
+                
+                Collider2D collider2D =  GetComponent<Collider2D>();
                 collider2D.enabled = false;
             }
         }

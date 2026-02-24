@@ -10,30 +10,42 @@ namespace Components.HealthComponentFolder
     public class PlayerHealthComponent : BaseHealthComponent
     {
         private Hero _hero;
-        private int _previousHealth;
-        private int _maxHealth;
         
         private void Awake()
         {
             _hero = GetComponent<Hero>();
         }
+
         private void Start()
         {
-            Health = _hero.GameSess.PlayerData.health;
+            Health = _hero.GameSess.PlayerData.maxHealth;
+            _hero.GameSess.PlayerData.health = _hero.GameSess.PlayerData.maxHealth;
         }
-
+        
         public override void TakeHeal(int heal)
         {
-            _hero.GameSess.PlayerData.ChangeHealth(health);
-            _previousHealth = health;
+            Health += heal;
+            
+            if (health > _hero.GameSess.PlayerData.maxHealth)
+            {
+                health = _hero.GameSess.PlayerData.maxHealth;
+            }
+            
+            _hero.GameSess.PlayerData.ChangeHealth(Health);
         }
 
         public override void TakeDamage(int damage, Transform damager)
         {
-            base.TakeDamage(damage, damager);
+            //base.TakeDamage(damage, damager);
+            
+            int tepmDamage = damage;
             
             _hero.GameSess.PlayerData.health -= damage;
-            Vector2 hitDir = CaclulateHitDirection(damage, damager);
+
+            if (_hero.GameSess.PlayerData.health < damage)
+                tepmDamage = 100;
+            
+            Vector2 hitDir = CaclulateHitDirection(tepmDamage, damager);
             
             _hero.GameSess.PlayerData.health -= damage;
             
@@ -53,13 +65,13 @@ namespace Components.HealthComponentFolder
         {
             if(IsDead) return;
             
-            _previousHealth = Health;
             Health -= damage;
             
             if (Health <= 0f)
             {
                 _hero.HandleDeathState();
             }
+            _hero.GameSess.PlayerData.ChangeHealth(Health);
         }
         
         private Vector2 CaclulateHitDirection(float damage, Transform attacker)
@@ -88,7 +100,7 @@ namespace Components.HealthComponentFolder
             IsHeavyDamage(damage) ? _hero.HeavyHitDuration : _hero.HitDuration;
 
         private bool IsHeavyDamage(float damage) => 
-            damage / _maxHealth > _hero.HeavyDamageThreshold;
+            damage / _hero.GameSess.PlayerData.maxHealth > _hero.HeavyDamageThreshold;
         
     }
 }

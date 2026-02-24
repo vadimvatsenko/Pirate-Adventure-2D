@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06caa44274cd4a0097c5e1e6c6e408d9, type: 3}
   m_Name: PlayerDef
   m_EditorClassIdentifier: 
-  inventorySize: 5
+  inventorySize: 10
