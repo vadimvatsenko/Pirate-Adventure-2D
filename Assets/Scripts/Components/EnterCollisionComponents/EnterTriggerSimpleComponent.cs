@@ -8,6 +8,8 @@ namespace Components.EnterCollisionComponents
         [SerializeField] private string gameObjectTag; // тег с которым будем взаимодействиях
         [SerializeField] private UnityEvent onAction; // класс который мы создали в серилизации
         
+        
+        
         [SerializeField] private EnterVector2Event onEnter;
         private void OnTriggerEnter2D(Collider2D other)
         {

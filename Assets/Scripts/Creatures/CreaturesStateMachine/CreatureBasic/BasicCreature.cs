@@ -16,14 +16,14 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         [SerializeField] private float heavyHitDuration = 1f;
         [SerializeField] private float heavyDamageThreshold = 0.3f;
         
-        public Rigidbody2D Rb2D { get; protected set; }
-        public Collider2D C2D { get; protected set; }
-        public Animator AnimController { get; protected set; }
-        public BasicStateMachine StateMachine { get; protected set; }
+        public Rigidbody2D Rb2D { get; private set; }
+        public Collider2D C2D { get; private set; }
+        public Animator AnimController { get; private set; }
+        public BasicStateMachine StateMachine { get; private set; }
 
         // direction
-        public int FacingDirection { get; protected set; }
-        public bool IsFacingRight { get; protected set; } = true;
+        public int FacingDirection { get; private set; }
+        public bool IsFacingRight { get; private set; } = true;
         //
         
         private Vector2 _finalHit; // финальное направление при получении удара
@@ -97,5 +97,18 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
             FacingDirection *= -1;
             transform.Rotate(0f, 180f, 0f);
         }
+
+        public void HandleIdleState() => StateMachine.ChangeState(IdleState);
+        public void HandleMoveState() => StateMachine.ChangeState(MoveState);
+        public void HandleJumpState() => StateMachine.ChangeState(JumpState);
+        public void HandleDoubleJumpState() => StateMachine.ChangeState(DoubleJumpState);
+        public void HandleAttackState() => StateMachine.ChangeState(AttackState);
+        public void HandleFallState() => StateMachine.ChangeState(FallState);
+        public void HandleHitState() => StateMachine.ChangeState(HitState);
+        public void HandleDeathState() => StateMachine.ChangeState(DeathState);
+        public void HandleClimbState() => StateMachine.ChangeState(ClimbState);
+        public void HandleThrowState() => StateMachine.ChangeState(ThrowState);
+        public void HandlePauseState() => StateMachine.ChangeState(PauseState);
+        
     }
 }

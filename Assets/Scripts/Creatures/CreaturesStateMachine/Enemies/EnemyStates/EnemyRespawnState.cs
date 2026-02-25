@@ -1,4 +1,5 @@
-﻿using Creatures.AnimationControllers;
+﻿using Animation;
+using Creatures.AnimationControllers;
 using Creatures.CreaturesStateMachine.CreatureBasic;
 
 namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates

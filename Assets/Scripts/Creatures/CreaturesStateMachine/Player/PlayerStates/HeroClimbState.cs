@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using Creatures.CreaturesStateMachine.CreatureBasic;
+﻿using Creatures.CreaturesStateMachine.CreatureBasic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Creatures.CreaturesStateMachine.Player
+namespace Creatures.CreaturesStateMachine.Player.PlayerStates
 {
     public class HeroClimbState : HeroState
     {

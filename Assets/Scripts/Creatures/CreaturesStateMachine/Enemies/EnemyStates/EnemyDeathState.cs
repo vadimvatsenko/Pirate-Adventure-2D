@@ -1,8 +1,6 @@
 ﻿using Components.HealthComponentFolder;
-using Creatures.CreaturesHealth;
 using Creatures.CreaturesStateMachine.CreatureBasic;
 using UnityEngine;
-using Utils;
 
 namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 {
@@ -33,7 +31,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
             base.Enter();
             StateMachine.SwitchOffStateMachine();
             
-            En.GetComponent<BasicHealth>().enabled = false; // ++
+            En.GetComponent<BaseHealthComponent>().enabled = false; // ++
             En.gameObject.layer = LayerMask.NameToLayer("NotInteractive"); // ++
         }
 

@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Animation;
 using Creatures.AnimationControllers;
 using Creatures.CreaturesCollisions;
 using Creatures.Interfaces;
@@ -21,7 +21,6 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         
         // Components
         public BasicCollisionInfo CollisionInfo { get; private set; }
-        public CreatureHandleStateChange HandleStateChange { get; protected set; }
         
         public float XInput { get; protected set; }
         
@@ -29,7 +28,6 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         {
             base.Awake();
             CollisionInfo = GetComponent<BasicCollisionInfo>();
-            HandleStateChange = new CreatureHandleStateChange(this, StateMachine);
         }
         
         protected override void Update()

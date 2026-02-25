@@ -15,7 +15,7 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         
         protected readonly BasicCollisionInfo CollisionInfo;
         protected readonly Animator AnimContr;
-        protected readonly HealthComponent Health;
+        protected readonly BaseHealthComponent Health;
         public AnimatorStateInfo StateInfo { get; protected set; }
 
         public int AnimBoolName { get; private set; }
@@ -34,7 +34,7 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
                 this.C2D = creature.C2D;
                 AnimContr = creature.GetComponentInChildren<Animator>();
                 this.CollisionInfo = creature.GetComponent<BasicCollisionInfo>();
-                Health = Creature.GetComponent<HealthComponent>();
+                Health = Creature.GetComponent<BaseHealthComponent>();
             }
         }
         
@@ -47,7 +47,6 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         public virtual void Update()
         {
             StateInfo = AnimContr.GetCurrentAnimatorStateInfo(0);
-           //Debug.Log($"{Creature.name} in {AnimatorHashes.GetName(_animBoolName)}");
         }
 
         public virtual void Exit()

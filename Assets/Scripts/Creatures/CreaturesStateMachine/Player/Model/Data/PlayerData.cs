@@ -6,15 +6,12 @@ namespace Creatures.CreaturesStateMachine.Player.Model.Data
     [Serializable]
     public class PlayerData
     {
-        [SerializeField] private InventoryDataSerializable inventoryDataSerializable;
+        [SerializeField] private InventoryData inventoryData;
+        public InventoryData InventoryData => inventoryData;
         
-        [Header("Coins")]
-        public int coins;
         [Header("IsArmed")]
         public bool isArmed;
-
-        [Header("Swords")] 
-        public int swords;
+        
         [Header("Health")]
         public int health;
         public int maxHealth;
@@ -24,6 +21,11 @@ namespace Creatures.CreaturesStateMachine.Player.Model.Data
         {
             string json = JsonUtility.ToJson(this);
             return JsonUtility.FromJson<PlayerData>(json);
+        }
+
+        public void ChangeHealth(int health)
+        {
+            this.health = health;
         }
     }
 }

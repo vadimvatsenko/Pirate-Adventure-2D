@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.CreatureBasic
 {
-    public class CreatureParticleEvent :MonoBehaviour
+    public class CreatureParticleEvent : MonoBehaviour
     {
         [SerializeField] private ParticleEntry[] particles;
         

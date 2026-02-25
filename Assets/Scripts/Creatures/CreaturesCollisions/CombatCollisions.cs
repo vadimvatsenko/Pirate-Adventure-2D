@@ -1,24 +1,25 @@
-﻿using Creatures.CreaturesHealth;
+﻿using Components.HealthComponentFolder;
 using UnityEngine;
 
-// проверка колизии сражения, при атаке, если кто-то попалает с 
+// проверка колизии сражения, при атаке, если кто-то попадает с 
 namespace Creatures.CreaturesCollisions
 {
     public class CombatCollisions : MonoBehaviour
     {
         [Header("Target Detection")] 
-        [SerializeField] protected float damage = 10f;
+        [SerializeField] protected int damage = 10;
         [SerializeField] protected Transform targetCheck;
         [SerializeField] protected float detectionRadius;
         [SerializeField] protected LayerMask whatIsTarget;
         
+        // вчасности это событие, при столкновении или а аниматоре
         public virtual void PerformAttack()
         {
             Collider2D[] colls = GetDetectedColliders();
             
             foreach (var col in colls)
             {
-                BasicHealth health = col.gameObject.GetComponent<BasicHealth>();
+                BaseHealthComponent health = col.gameObject.GetComponent<BaseHealthComponent>();
                 if (health != null)
                 {
                     health?.TakeDamage(damage, this.transform);

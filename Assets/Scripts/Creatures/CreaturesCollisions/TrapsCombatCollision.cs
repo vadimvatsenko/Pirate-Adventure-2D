@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Components.HealthComponentFolder;
+using UnityEngine;
 
 namespace Creatures.CreaturesCollisions
 {
@@ -9,13 +10,20 @@ namespace Creatures.CreaturesCollisions
         private void Update()
         {
             Collider2D[] colliders = GetDetectedColliders();
-            
-            Debug.Log(colliders.Length);
         }
         
         public override void PerformAttack()
         {
-            base.PerformAttack();
+            Collider2D[] colls = GetDetectedColliders();
+            
+            foreach (var col in colls)
+            {
+                BaseHealthComponent health = col.gameObject.GetComponent<BaseHealthComponent>();
+                if (health != null)
+                {
+                    health?.TakeDamage(damage, this.transform);
+                }
+            }
         }
 
         protected override Collider2D[] GetDetectedColliders()

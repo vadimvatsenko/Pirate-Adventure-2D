@@ -80,6 +80,15 @@ public partial class @NewInputSet : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseHealthPoison"",
+                    ""type"": ""Button"",
+                    ""id"": ""1ef61c2b-72d2-45fd-8d3a-b03783ae65a2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -199,7 +208,7 @@ public partial class @NewInputSet : IInputActionCollection2, IDisposable
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -291,6 +300,17 @@ public partial class @NewInputSet : IInputActionCollection2, IDisposable
                     ""action"": ""Throw"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""59fb9578-c418-42c4-baaa-45ff7f983568"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseHealthPoison"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -333,6 +353,7 @@ public partial class @NewInputSet : IInputActionCollection2, IDisposable
         m_Hero_Interact = m_Hero.FindAction("Interact", throwIfNotFound: true);
         m_Hero_Down = m_Hero.FindAction("Down", throwIfNotFound: true);
         m_Hero_Throw = m_Hero.FindAction("Throw", throwIfNotFound: true);
+        m_Hero_UseHealthPoison = m_Hero.FindAction("UseHealthPoison", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -398,6 +419,7 @@ public partial class @NewInputSet : IInputActionCollection2, IDisposable
     private readonly InputAction m_Hero_Interact;
     private readonly InputAction m_Hero_Down;
     private readonly InputAction m_Hero_Throw;
+    private readonly InputAction m_Hero_UseHealthPoison;
     public struct HeroActions
     {
         private @NewInputSet m_Wrapper;
@@ -408,6 +430,7 @@ public partial class @NewInputSet : IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Hero_Interact;
         public InputAction @Down => m_Wrapper.m_Hero_Down;
         public InputAction @Throw => m_Wrapper.m_Hero_Throw;
+        public InputAction @UseHealthPoison => m_Wrapper.m_Hero_UseHealthPoison;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -435,6 +458,9 @@ public partial class @NewInputSet : IInputActionCollection2, IDisposable
                 @Throw.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnThrow;
                 @Throw.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnThrow;
                 @Throw.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnThrow;
+                @UseHealthPoison.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseHealthPoison;
+                @UseHealthPoison.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseHealthPoison;
+                @UseHealthPoison.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseHealthPoison;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -457,6 +483,9 @@ public partial class @NewInputSet : IInputActionCollection2, IDisposable
                 @Throw.started += instance.OnThrow;
                 @Throw.performed += instance.OnThrow;
                 @Throw.canceled += instance.OnThrow;
+                @UseHealthPoison.started += instance.OnUseHealthPoison;
+                @UseHealthPoison.performed += instance.OnUseHealthPoison;
+                @UseHealthPoison.canceled += instance.OnUseHealthPoison;
             }
         }
     }
@@ -487,5 +516,6 @@ public partial class @NewInputSet : IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnDown(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
+        void OnUseHealthPoison(InputAction.CallbackContext context);
     }
 }
