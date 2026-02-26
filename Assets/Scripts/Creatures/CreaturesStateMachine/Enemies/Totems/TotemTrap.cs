@@ -1,11 +1,13 @@
-﻿using Animation;
-using Creatures.AnimationControllers;
+﻿using System.Collections;
+using Animation;
 using Creatures.CreaturesStateMachine.CreatureBasic;
+using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Enemies.Totems
 {
     public class TotemTrap : BasicCreature
     {
+        
         protected override void Awake()
         {
             base.Awake();
@@ -20,5 +22,6 @@ namespace Creatures.CreaturesStateMachine.Enemies.Totems
         {
             StateMachine.Initialize(IdleState);
         }
+        
     }
 }

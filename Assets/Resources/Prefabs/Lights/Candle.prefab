@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 2718615129078846833}
   - component: {fileID: 8454583748366638643}
   - component: {fileID: 1966011783}
+  - component: {fileID: 1117659866}
+  - component: {fileID: 1117659865}
   m_Layer: 10
   m_Name: Light
   m_TagString: Untagged
@@ -51,7 +53,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1.5
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 0000000011d8a686
+  m_ApplyToSortingLayers: 11d8a686
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -88,7 +90,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetInnerRadius: 0.5
   targetOuterRadius: 1.5
-  duration: 2
+  duration: 0.5
 --- !u!114 &1966011783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,12 +103,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99cd70458e9484b8217734c4c021ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flickerSpeed: 1
+  flickerSpeed: 3
   flickerStrength: 0.2
   baseIntensity: 1.2
   baseInnerRadius: 0.3
   baseOuterRadius: 1
   radiusVariation: 0.1
+--- !u!50 &1117659866
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3473849409946381974}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1117659865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3473849409946381974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f175662dc1e41fb92cc323bf37d5746, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frequency: 1
+  amplitude: 1
+  randomize: 0
+  radiusX: 0.5
+  radiusY: 0.5
 --- !u!1 &5784059539883661390
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,6 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyAfterAnimation: 0
   clips:
   - name: idle
     sprites:
@@ -209,7 +250,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: a3d849e87ba241e4bba248eaeed5370d, type: 3}
     - {fileID: 21300000, guid: b774303dd1fdf734d9a9d38f36f464f4, type: 3}
     - {fileID: 21300000, guid: baa93697daaaf0447b8509266a6e24c2, type: 3}
-    loop: 0
+    loop: 1
     allowNextClip: 0
     onComplete:
       m_PersistentCalls:
@@ -309,6 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f894c2eef5db94b82daabaebc6188d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyAfterAnimation: 0
   clips:
   - name: idle
     sprites:
