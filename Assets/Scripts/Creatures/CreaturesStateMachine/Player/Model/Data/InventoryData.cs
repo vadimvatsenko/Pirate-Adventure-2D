@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Creatures.CreaturesStateMachine.Player.Model.Definision;
+using Creatures.CreaturesStateMachine.Player.Model.Definision.EditorHelper;
 using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Player.Model.Data

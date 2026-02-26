@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Animation;
+using Creatures.CreaturesStateMachine.Player.Model.Definision.EditorHelper;
 using UnityEditor;
 using UnityEngine;
 

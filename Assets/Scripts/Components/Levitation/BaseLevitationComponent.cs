@@ -16,7 +16,6 @@ namespace Components.Levitation
         {
             Rigidbody2D = GetComponent<Rigidbody2D>();
             OriginalY = Rigidbody2D.position.y;
-            
             if (randomize)
             {
                 Seed = Random.value * Mathf.PI * 2; // пи * 2 это круг в радианах

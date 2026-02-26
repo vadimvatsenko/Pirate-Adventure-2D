@@ -9,11 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2750376297878154782}
+  - component: {fileID: 9039373577438685410}
   - component: {fileID: 2718615129078846833}
   - component: {fileID: 8454583748366638643}
   - component: {fileID: 1966011783}
-  - component: {fileID: 1117659866}
-  - component: {fileID: 1117659865}
   m_Layer: 10
   m_Name: Light
   m_TagString: Untagged
@@ -35,6 +34,27 @@ Transform:
   m_Father: {fileID: 5784059539883661391}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &9039373577438685410
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3473849409946381974}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &2718615129078846833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49,11 +69,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.428
+  m_FalloffIntensity: 0.386
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1.5
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 11d8a686
+  m_ApplyToSortingLayers: 0000000011d8a68627b8a1a52fe04898e9583444a53ce5c191b67db2b521776b85f46c3405a714fa9fc97675bd8e5a09
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -103,50 +123,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99cd70458e9484b8217734c4c021ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flickerSpeed: 3
-  flickerStrength: 0.2
-  baseIntensity: 1.2
-  baseInnerRadius: 0.3
-  baseOuterRadius: 1
-  radiusVariation: 0.1
---- !u!50 &1117659866
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3473849409946381974}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1117659865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3473849409946381974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f175662dc1e41fb92cc323bf37d5746, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  frequency: 1
-  amplitude: 1
-  randomize: 0
-  radiusX: 0.5
-  radiusY: 0.5
+  flickerSpeed: 1.6
+  flickerStrength: 0.25
+  baseIntensity: 1.15
+  baseInnerRadius: 0.25
+  baseOuterRadius: 1.1
+  radiusVariation: 0.12
+  frequency: 1.1
+  radius: 0.04
+  randomizePhase: 1
 --- !u!1 &5784059539883661390
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +251,7 @@ GameObject:
   - component: {fileID: 5784059539987756159}
   - component: {fileID: 5784059539987756158}
   - component: {fileID: 5784059539987756153}
+  - component: {fileID: 2827010922378630986}
   m_Layer: 10
   m_Name: Candle
   m_TagString: Untagged
@@ -365,3 +351,24 @@ MonoBehaviour:
     onComplete:
       m_PersistentCalls:
         m_Calls: []
+--- !u!50 &2827010922378630986
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5784059539987756152}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
