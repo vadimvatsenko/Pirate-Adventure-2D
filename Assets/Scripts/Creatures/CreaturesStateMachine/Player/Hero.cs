@@ -18,9 +18,11 @@ namespace Creatures.CreaturesStateMachine.Player
         public Animator HeroAnimator { get; private set; }
         public BaseHealthComponent HealthComponent { get; private set; }
         public HeroCollisionInfo HeroCollision { get; private set; }
-        
         public HeroStatesController HeroStatesController { get; private set; }
-        
+
+        [Header("Double Jump")] [SerializeField]
+        private float _doubleJumpForce = 2f;
+        public float DoubleJumpForce => _doubleJumpForce;
         [Header("Buffer Jump")] 
         [SerializeField] private float bufferJumpWindow = 0.25f;
         private float _bufferJumpActivated = -1;

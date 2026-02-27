@@ -14,7 +14,6 @@ namespace Creatures.CreaturesStateMachine.Player.PlayerStates
         {
             base.Enter();
             Rb2D.velocity = new Vector2(Hr.Rb2D.velocity.x, Hr.JumpForce);
-            
             Hr.CallOnJumpEvent();
         }
 

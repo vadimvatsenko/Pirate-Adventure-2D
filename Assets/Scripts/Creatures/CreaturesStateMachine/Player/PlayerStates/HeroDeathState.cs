@@ -1,4 +1,5 @@
-﻿using Creatures.CreaturesStateMachine.CreatureBasic;
+﻿using Components.HealthComponentFolder;
+using Creatures.CreaturesStateMachine.CreatureBasic;
 
 namespace Creatures.CreaturesStateMachine.Player.PlayerStates
 {
@@ -15,7 +16,10 @@ namespace Creatures.CreaturesStateMachine.Player.PlayerStates
             base.Enter();
             Hr.NewInputSet.Disable();
             StateMachine.SwitchOffStateMachine();
-            Hr.CallOnDeathEvent();
+            
+            
+            Hr.GetComponent<PlayerHealthComponent>().enabled = false;
+            
             Hr.GameSess.ReloadLevel();
         }
     }

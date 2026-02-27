@@ -59,6 +59,12 @@ namespace Components.HealthComponentFolder
             _hero.HandleHitState();
 
             ReduceHealth(damage); // важен порядок
+            onTakeDamage?.Invoke();
+
+            if (Health <= 0)
+            {
+                onDeath?.Invoke();
+            }
         }
         
         private void ReduceHealth(int damage)

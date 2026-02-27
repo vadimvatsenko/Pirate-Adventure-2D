@@ -181,17 +181,6 @@ MonoBehaviour:
   onEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1957107401}
-        m_MethodName: DestroyGameObject
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 7172658447868321624}
         m_MethodName: Spawn
         m_Mode: 1
@@ -205,6 +194,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 98121638391874340}
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1957107401}
+        m_MethodName: DestroyGameObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 007e3171b9d94eddac2c6fc1d51d5422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyTime: 0
+  destroyTime: 20
 --- !u!82 &98121638391874340
 AudioSource:
   m_ObjectHideFlags: 0
@@ -265,7 +265,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ba1c07470181e754e9a82137c963f805, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f80745efdfb005e46903388a92d24396, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
