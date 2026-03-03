@@ -25,7 +25,7 @@ namespace Creatures.CreaturesStateMachine.Player.PlayerStates
             if (CanDoubleJump && Hr.NewInputSet.Hero.Jump.triggered)
             {
                 CanDoubleJump = false;
-                StateMachine.ChangeState(Hr.DoubleJumpState);
+                StateMachine.ChangeState(Hr.JumpState);
             }
         }
         

@@ -14,7 +14,6 @@ namespace Components.Audio
             {
                 if (data.Id == id)
                 {
-                    Debug.Log($"Playing {data.Id}");
                     audioSource.PlayOneShot(data.AudioClip);
                     break;
                 }

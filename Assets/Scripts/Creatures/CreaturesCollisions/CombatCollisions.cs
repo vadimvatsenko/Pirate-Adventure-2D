@@ -20,8 +20,10 @@ namespace Creatures.CreaturesCollisions
             foreach (var col in colls)
             {
                 BaseHealthComponent health = col.gameObject.GetComponent<BaseHealthComponent>();
+                
                 if (health != null)
                 {
+                    if(health.IsDead) return;
                     health?.TakeDamage(damage, this.transform);
                 }
             }

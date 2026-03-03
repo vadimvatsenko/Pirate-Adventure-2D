@@ -36,7 +36,7 @@ namespace Components.HealthComponentFolder
 
         public override void TakeDamage(int damage, Transform damager)
         {
-            //base.TakeDamage(damage, damager);
+            if(IsDead) return;
             
             int tepmDamage = damage;
             
@@ -63,6 +63,7 @@ namespace Components.HealthComponentFolder
 
             if (Health <= 0)
             {
+                IsDead = true;
                 onDeath?.Invoke();
             }
         }

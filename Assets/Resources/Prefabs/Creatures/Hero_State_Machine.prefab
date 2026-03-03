@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 1968471893}
   - component: {fileID: 1968471892}
   m_Layer: 12
-  m_Name: Sound
+  m_Name: MainSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,10 +126,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f9eca5f42cdca9648a392032024830e6, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0
+  m_PlayOnAwake: 1
+  m_Volume: 0.03
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -685,8 +685,8 @@ MonoBehaviour:
   heavyHitDuration: 0.75
   heavyDamageThreshold: 0.3
   movementSpeed: 3
-  jumpForce: 7.5
-  _doubleJumpForce: 7.5
+  jumpForce: 7
+  _doubleJumpForce: 4
   bufferJumpWindow: 0.25
   coyoteJumpWindow: 0.5
 --- !u!114 &1013203842059538627
@@ -774,6 +774,17 @@ MonoBehaviour:
           m_StringArgument: death
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 544333610356789931}
+        m_MethodName: Spawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onTakeDamage:
     m_PersistentCalls:
       m_Calls:
@@ -833,7 +844,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.75
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1170,7 +1181,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7248077838928000709
 Transform:
   m_ObjectHideFlags: 0

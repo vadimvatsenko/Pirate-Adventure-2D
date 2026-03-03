@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 5246316371057831146}
   - component: {fileID: -6083335367831258024}
   - component: {fileID: 8006981952120614815}
-  - component: {fileID: 7172658447868321624}
   - component: {fileID: -4020242007000295375}
   - component: {fileID: 1957107401}
+  - component: {fileID: 344910146258597436}
   - component: {fileID: 98121638391874340}
   m_Layer: 15
   m_Name: Golden_Coin
@@ -151,6 +151,27 @@ MonoBehaviour:
     onComplete:
       m_PersistentCalls:
         m_Calls: []
+  - name: collect
+    sprites:
+    - {fileID: 21300000, guid: 2b261c0254df43d4f988bcfd621fbc78, type: 3}
+    - {fileID: 21300000, guid: 9fefe63cfa26a0f4bb3e32e0cf431ffa, type: 3}
+    - {fileID: 21300000, guid: 16c5c8d1af995574ba7be22d5aa39a30, type: 3}
+    loop: 0
+    allowNextClip: 0
+    onComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1957107401}
+          m_MethodName: DestroyGameObject
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &8006981952120614815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,53 +202,28 @@ MonoBehaviour:
   onEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7172658447868321624}
-        m_MethodName: Spawn
-        m_Mode: 1
+      - m_Target: {fileID: -6083335367831258024}
+        m_MethodName: SetClip
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: collect
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 98121638391874340}
+      - m_Target: {fileID: 344910146258597436}
         m_MethodName: Play
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: collect
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1957107401}
-        m_MethodName: DestroyGameObject
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &7172658447868321624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5246316371057831152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f11c1936a26d47c9b5a428508b5d1a2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 5246316371057831148}
-  prefab: {fileID: 8988252005245749755, guid: 058c9f735ad4b2941ad7c7d1a79f77f6, type: 3}
 --- !u!114 &-4020242007000295375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,6 +251,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 20
+--- !u!114 &344910146258597436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5246316371057831152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3324571a7404319a1623d4b4cfc20fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 98121638391874340}
+  audioData:
+  - id: collect
+    audioClip: {fileID: 8300000, guid: f136d0ced6271cf40851e87c724c452b, type: 3}
 --- !u!82 &98121638391874340
 AudioSource:
   m_ObjectHideFlags: 0
@@ -265,9 +277,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f80745efdfb005e46903388a92d24396, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f136d0ced6271cf40851e87c724c452b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -13,8 +13,6 @@ namespace Creatures.AnimationControllers
         [SerializeField] private SpriteRenderer playerSpriteRenderer;
         
         private GameSession _gameSession;
-        public event Action OnIsArmed;
-        public event Action OnAppearanceHero;
         
         // Colors//
         private readonly Color _startColor = new Color(1f, 1f, 1f, 0f);
@@ -41,7 +39,6 @@ namespace Creatures.AnimationControllers
         {
             _gameSession.PlayerData.isArmed = !_gameSession.PlayerData.isArmed;
             UpdateArmedState();
-            OnIsArmed?.Invoke();
             Cre.StateMachine.Initialize(Cre.MoveState);
         }
         
@@ -66,8 +63,6 @@ namespace Creatures.AnimationControllers
                     Color.Lerp(col1, col2, elapsed / duration);
                 yield return null;
             }
-            
-            OnAppearanceHero?.Invoke();
         }
     }
 }

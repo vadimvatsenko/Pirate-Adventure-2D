@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1.5
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 0000000011d8a68627b8a1a52fe04898e9583444a53ce5c191b67db2b521776b85f46c3405a714fa9fc97675bd8e5a09
+  m_ApplyToSortingLayers: 0000000011d8a68627b8a1a52fe04898e9583444a53ce5c191b67db2b521776b85f46c3405a714fabd8e5a09
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 794d2675a3d74a7299701849dc329619, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetInnerRadius: 0.5
+  targetInnerRadius: 1.1
   targetOuterRadius: 1.5
   duration: 0.5
 --- !u!114 &1966011783
@@ -126,11 +126,11 @@ MonoBehaviour:
   flickerSpeed: 1.6
   flickerStrength: 0.25
   baseIntensity: 1.15
-  baseInnerRadius: 0.25
+  baseInnerRadius: 1.1
   baseOuterRadius: 1.1
-  radiusVariation: 0.12
-  frequency: 1.1
-  radius: 0.04
+  radiusVariation: 0.5
+  frequency: 3
+  radius: 0.1
   randomizePhase: 1
 --- !u!1 &5784059539883661390
 GameObject:

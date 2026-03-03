@@ -20,8 +20,12 @@ namespace Creatures.CreaturesStateMachine.Player
         public HeroCollisionInfo HeroCollision { get; private set; }
         public HeroStatesController HeroStatesController { get; private set; }
 
-        [Header("Double Jump")] [SerializeField]
-        private float _doubleJumpForce = 2f;
+        [Header("Jump Counter")]
+        [SerializeField] private int maxJumpCounter = 2;
+        public int JumpCounter { get; set;}
+        
+        [Header("Double Jump")] 
+        [SerializeField] private float _doubleJumpForce = 2f;
         public float DoubleJumpForce => _doubleJumpForce;
         [Header("Buffer Jump")] 
         [SerializeField] private float bufferJumpWindow = 0.25f;
@@ -45,7 +49,7 @@ namespace Creatures.CreaturesStateMachine.Player
             HeroAnimator = GetComponentInChildren<Animator>();
             HealthComponent =  GetComponent<PlayerHealthComponent>();
             
-            // подписка на извинения в инвентаре
+            // подписка на изменения в инвентаре
             GameSess.PlayerData.InventoryData.OnChanged += OnInventoryChanged;
         }
         
@@ -54,15 +58,14 @@ namespace Creatures.CreaturesStateMachine.Player
             IdleState = new HeroIdleState(this, StateMachine, AnimatorHashes.Idle);
             MoveState = new HeroMoveState(this, StateMachine, AnimatorHashes.Move);
             JumpState = new HeroJumpState(this, StateMachine, AnimatorHashes.JumpFall);
-            DoubleJumpState = new HeroDoubleJumpState(this, StateMachine, AnimatorHashes.JumpFall);
             AttackState = new HeroAttackState(this, StateMachine, AnimatorHashes.Attack);
             FallState = new HeroFallState(this, StateMachine, AnimatorHashes.JumpFall);
             DeathState = new HeroDeathState(this, StateMachine, AnimatorHashes.Death);
             HitState = new HeroHitState(this, StateMachine, AnimatorHashes.Hit);
-            ClimbState = new HeroClimbState(this, StateMachine, AnimatorHashes.Climb);
-            ThrowState = new HeroThrowState(this, StateMachine, AnimatorHashes.Throw); // ++
+            ThrowState = new HeroThrowState(this, StateMachine, AnimatorHashes.Throw);
             
-            HeroStatesController = new HeroStatesController(this, StateMachine, NewInputSet, GameSess, HeroAnimator);
+            HeroStatesController = 
+                new HeroStatesController(this, StateMachine, NewInputSet, GameSess, HeroAnimator);
                 
             StateMachine.Initialize(IdleState);
         }
@@ -82,6 +85,7 @@ namespace Creatures.CreaturesStateMachine.Player
             NewInputSet?.Dispose();
             
             NewInputSet.Hero.UseHealthPoison.performed -= context => UsePoison(context);
+            
             NewInputSet.Hero.Movement.performed -= context => XInput = context.ReadValue<Vector2>().x;
             NewInputSet.Hero.Movement.canceled -= context => XInput = 0;
             
@@ -91,6 +95,7 @@ namespace Creatures.CreaturesStateMachine.Player
         protected override void Update()
         {
             base.Update();
+            Debug.Log(JumpCounter);
             HandleFlip();
         }
 
