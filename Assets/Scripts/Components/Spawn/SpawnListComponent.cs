@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Animation.EditorHelpers;
 using UnityEngine;
 
 namespace Components.Spawn
@@ -7,7 +8,7 @@ namespace Components.Spawn
     [Serializable]
     public class SpawnData
     {
-        public string Id;
+        [AnimationName] public string Id;
         public SpawnComponent Component;
     }
     public class SpawnListComponent : MonoBehaviour

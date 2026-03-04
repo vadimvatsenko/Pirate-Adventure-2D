@@ -53,6 +53,11 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
         protected override void Awake()
         {
             base.Awake();
+
+            if (FacingDirection == 1)
+            {
+                HandleFlip();
+            }
             
             EnemyCollisionInfo = GetComponent<EnemyCollisionInfo>();
             

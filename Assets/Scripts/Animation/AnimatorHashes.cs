@@ -38,6 +38,7 @@ namespace Animation
             { XVelocity, "xVelocity" },
             { YVelocity, "yVelocity" },
             { Jump, "jump" },
+            { Fall, "fall" },
             { Attack, "attack" },
             { Hit, "hit" },
             { Death, "death" },

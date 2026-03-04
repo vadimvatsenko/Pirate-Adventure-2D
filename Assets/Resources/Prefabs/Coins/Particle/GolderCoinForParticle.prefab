@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: -3980911595933888462}
   - component: {fileID: 7878007299322521985}
   - component: {fileID: -148028539669262770}
-  - component: {fileID: 2687960183580134017}
   - component: {fileID: 5100303836085633808}
   - component: {fileID: 8216784557421382254}
+  - component: {fileID: -3463496465451957009}
+  - component: {fileID: -2394384031080861321}
   m_Layer: 15
   m_Name: GolderCoinForParticle
   m_TagString: Coin
@@ -106,9 +107,9 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: da4adfdc1bbdee04cb1c6587304d456f, type: 2}
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!58 &8733426063870888651
 CircleCollider2D:
@@ -125,7 +126,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.12
+  m_Radius: 0.1
 --- !u!58 &-3980911595933888462
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -167,6 +168,27 @@ MonoBehaviour:
     onComplete:
       m_PersistentCalls:
         m_Calls: []
+  - name: collect
+    sprites:
+    - {fileID: 21300000, guid: 2b261c0254df43d4f988bcfd621fbc78, type: 3}
+    - {fileID: 21300000, guid: 9fefe63cfa26a0f4bb3e32e0cf431ffa, type: 3}
+    - {fileID: 21300000, guid: 16c5c8d1af995574ba7be22d5aa39a30, type: 3}
+    loop: 0
+    allowNextClip: 0
+    onComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5100303836085633808}
+          m_MethodName: DestroyGameObject
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &-148028539669262770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,42 +219,28 @@ MonoBehaviour:
   onEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2687960183580134017}
-        m_MethodName: Spawn
-        m_Mode: 1
+      - m_Target: {fileID: 7878007299322521985}
+        m_MethodName: SetClip
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: collect
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5100303836085633808}
-        m_MethodName: DestroyGameObject
-        m_Mode: 1
+      - m_Target: {fileID: -3463496465451957009}
+        m_MethodName: Play
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: collect
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2687960183580134017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1011413954198681897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f11c1936a26d47c9b5a428508b5d1a2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 1011413954198681909}
-  prefab: {fileID: 8988252005245749755, guid: 058c9f735ad4b2941ad7c7d1a79f77f6, type: 3}
 --- !u!114 &5100303836085633808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,3 +268,115 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: Coin
   count: 10
+--- !u!114 &-3463496465451957009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011413954198681897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3324571a7404319a1623d4b4cfc20fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: -2394384031080861321}
+  audioData:
+  - id: collect
+    audioClip: {fileID: 8300000, guid: f136d0ced6271cf40851e87c724c452b, type: 3}
+--- !u!82 &-2394384031080861321
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011413954198681897}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

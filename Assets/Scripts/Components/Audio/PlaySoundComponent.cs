@@ -1,4 +1,5 @@
 ﻿using System;
+using Animation.EditorHelpers;
 using UnityEngine;
 
 namespace Components.Audio
@@ -24,7 +25,7 @@ namespace Components.Audio
     [Serializable]
     public class AudioData
     {
-        [SerializeField] private string id;
+        [AnimationName] [SerializeField] private string id;
         [SerializeField] private AudioClip audioClip;
         
         public string Id => id;

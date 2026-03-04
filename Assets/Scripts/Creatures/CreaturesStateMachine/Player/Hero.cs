@@ -44,6 +44,7 @@ namespace Creatures.CreaturesStateMachine.Player
         {
             base.Awake();
             NewInputSet = new NewInputSet();
+            
             GameSess = FindObjectOfType<GameSession>();
             HeroCollision = GetComponent<HeroCollisionInfo>();
             HeroAnimator = GetComponentInChildren<Animator>();
@@ -51,10 +52,7 @@ namespace Creatures.CreaturesStateMachine.Player
             
             // подписка на изменения в инвентаре
             GameSess.PlayerData.InventoryData.OnChanged += OnInventoryChanged;
-        }
-        
-        private void Start()
-        {
+            
             IdleState = new HeroIdleState(this, StateMachine, AnimatorHashes.Idle);
             MoveState = new HeroMoveState(this, StateMachine, AnimatorHashes.Move);
             JumpState = new HeroJumpState(this, StateMachine, AnimatorHashes.JumpFall);
@@ -68,6 +66,11 @@ namespace Creatures.CreaturesStateMachine.Player
                 new HeroStatesController(this, StateMachine, NewInputSet, GameSess, HeroAnimator);
                 
             StateMachine.Initialize(IdleState);
+        }
+        
+        private void Start()
+        {
+            
         }
 
         private void OnEnable()
@@ -95,7 +98,6 @@ namespace Creatures.CreaturesStateMachine.Player
         protected override void Update()
         {
             base.Update();
-            Debug.Log(JumpCounter);
             HandleFlip();
         }
 

@@ -49,7 +49,6 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         public BasicState MoveState { get; protected set; }
         public BasicState JumpState { get; protected set; }
         public BasicState DoubleJumpState { get; protected set; }
-        
         public BasicState AttackState { get; protected set; }
         public BasicState FallState { get; protected set; }
         public BasicState HitState { get; protected set; }
