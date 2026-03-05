@@ -24,7 +24,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
 
             if (StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Aggro)) && StateInfo.normalizedTime > 1.0f)
             {
-                En.CallOnAgroEvent(); // VFX Agro
+                // VFX Agro
                 StateMachine.ChangeState(En.BattleState);
             }
         }

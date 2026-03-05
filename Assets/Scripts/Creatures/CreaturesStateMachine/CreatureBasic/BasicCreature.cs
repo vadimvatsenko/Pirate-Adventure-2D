@@ -38,8 +38,7 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         public Vector2 FinalHit => _finalHit;
         public float FinalHitDuration => _finalHitDuration;
         
-        // Events
-        public event Action OnJumpEvent;
+        
         public event Action OnAttackEvent;
         public event Action OnDeathEvent;
         public event Action<int> OnThrowEvent; 
@@ -57,9 +56,7 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         public BasicState ThrowState { get; protected set; }
         public BasicState PauseState { get; protected set; }
         
-        public void CallOnJumpEvent() => OnJumpEvent?.Invoke();
-        public void SubscribeOnJumpEvent(Action action) => OnJumpEvent += action;
-        public void UnsubscribeOnJumpEvent(Action action) => OnJumpEvent -= action;
+        
         // Attack Event
         public void CallOnAttackEvent() => OnAttackEvent?.Invoke();
         public void SubscribeOnAttackEvent(Action action) => OnAttackEvent += action;

@@ -34,7 +34,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
             
             if (BattleTimeIsOver())
             {
-                En.CallOnWTFEvent();
+                // WTF Event
                 StateMachine.ChangeState(En.IdleState);
             }
             
@@ -58,7 +58,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
             
             if (EnemyCollisionInfo.IsAbyssDetected)
             {
-                En.CallOnWTFEvent();
+                // WTF Event
                 StateMachine.ChangeState(En.IdleState);
             }
         }

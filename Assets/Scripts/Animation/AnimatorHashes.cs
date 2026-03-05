@@ -28,6 +28,8 @@ namespace Animation
         public static readonly int Open = Animator.StringToHash("open");
         public static readonly int Close = Animator.StringToHash("close");
         public static readonly int Collect = Animator.StringToHash("collect");
+        public static readonly int Appear = Animator.StringToHash("appear");
+        public static readonly int Disappear = Animator.StringToHash("disappear");
 
         public static readonly Dictionary<int, string> HashToName = new Dictionary<int, string>()
         {
@@ -53,6 +55,8 @@ namespace Animation
             { Open, "open" },
             { Close, "close" },
             { Collect, "collect" },
+            { Appear, "appear" },
+            { Disappear, "disappear" },
         };
 
         public static Dictionary<int, string> NameToHash => HashToName;

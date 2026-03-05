@@ -68,11 +68,6 @@ namespace Creatures.CreaturesStateMachine.Player
             StateMachine.Initialize(IdleState);
         }
         
-        private void Start()
-        {
-            
-        }
-
         private void OnEnable()
         {
             NewInputSet.Enable();
@@ -98,6 +93,7 @@ namespace Creatures.CreaturesStateMachine.Player
         protected override void Update()
         {
             base.Update();
+            
             HandleFlip();
         }
 

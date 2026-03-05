@@ -14,11 +14,6 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
         {
             base.Update();
             
-            /*if (Sharky.SharkyCollisionInfo.IsGroundAfterAbyssDetected && Sharky.SharkyCollisionInfo.IsAbyssDetected)
-            {
-                Sharky.StateMachine.ChangeState(Sharky.JumpState);
-            }*/
-
             if (En.EnemyCollisionInfo.IsWallDetected 
                 || En.EnemyCollisionInfo.IsAbyssDetected)
             {
