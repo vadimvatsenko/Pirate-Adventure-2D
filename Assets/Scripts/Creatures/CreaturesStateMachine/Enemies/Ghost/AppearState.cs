@@ -11,7 +11,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.Ghost
         public override void Enter()
         {
             base.Enter();
-            Ghost.MakeVisible();
+            MakeVisible();
         }
     }
 }
