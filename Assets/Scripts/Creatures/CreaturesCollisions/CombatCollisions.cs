@@ -15,7 +15,7 @@ namespace Creatures.CreaturesCollisions
         // вчасности это событие, при столкновении или а аниматоре
         public virtual void PerformAttack()
         {
-            Debug.Log("Attack");
+            
             Collider2D[] colls = GetDetectedColliders();
             
             foreach (var col in colls)

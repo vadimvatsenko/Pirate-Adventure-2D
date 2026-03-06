@@ -14,8 +14,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.Ghost
 
         public override void Update()
         {
-            Debug.Log(Ghost.ActiveTimer);
-            Ghost.IdleTimer -= Time.deltaTime;
+            /*Ghost.IdleTimer -= Time.deltaTime;
 
             if (!Ghost.IsChaising && Ghost.IdleTimer < 0)
             {
@@ -24,7 +23,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.Ghost
             else if (Ghost.IsChaising && Ghost.IdleTimer < 0)
             {
                 EndChase();
-            }
+            }*/
         }
         
         protected void EndChase()
