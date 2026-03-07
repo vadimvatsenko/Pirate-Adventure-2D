@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
+// серилизованый компонент висит на GameSession
 namespace Creatures.CreaturesStateMachine.Player.Model.Data
 {
     [Serializable]

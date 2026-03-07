@@ -36,7 +36,7 @@ namespace Components.HealthComponentFolder
 
         public override void TakeDamage(int damage, Transform damager)
         {
-            //base.TakeDamage(damage, damager);
+            if(IsDead) return;
             
             int tepmDamage = damage;
             
@@ -59,6 +59,13 @@ namespace Components.HealthComponentFolder
             _hero.HandleHitState();
 
             ReduceHealth(damage); // важен порядок
+            onTakeDamage?.Invoke();
+
+            if (Health <= 0)
+            {
+                IsDead = true;
+                onDeath?.Invoke();
+            }
         }
         
         private void ReduceHealth(int damage)

@@ -1,10 +1,10 @@
-﻿using Creatures.CreaturesStateMachine.CreatureBasic;
+﻿using Components.HealthComponentFolder;
+using Creatures.CreaturesStateMachine.CreatureBasic;
 
 namespace Creatures.CreaturesStateMachine.Player.PlayerStates
 {
     public class HeroDeathState : HeroState
     {
-
         public HeroDeathState(Hero hr, BasicStateMachine stateMachine, int animBoolName) 
             : base(hr, stateMachine, animBoolName)
         {
@@ -15,7 +15,9 @@ namespace Creatures.CreaturesStateMachine.Player.PlayerStates
             base.Enter();
             Hr.NewInputSet.Disable();
             StateMachine.SwitchOffStateMachine();
-            Hr.CallOnDeathEvent();
+            
+            Hr.GetComponent<PlayerHealthComponent>().enabled = false;
+            
             Hr.GameSess.ReloadLevel();
         }
     }

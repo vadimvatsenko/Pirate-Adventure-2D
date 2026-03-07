@@ -8,6 +8,12 @@ namespace Creatures.CreaturesStateMachine.Player.PlayerStates
             : base(hr, stateMachine, animBoolName)
         {
         }
+
+        public override void Enter()
+        {
+            base.Enter();
+            Hr.JumpCounter = 0;
+        }
         
 
         public override void Update()

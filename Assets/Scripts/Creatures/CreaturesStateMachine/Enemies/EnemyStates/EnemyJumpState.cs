@@ -16,18 +16,6 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
             Debug.Log(Rb2D.velocity);
             Rb2D.velocity = new Vector2(2.5f, 3f);
             Debug.Log(Rb2D.velocity);
-            En.CallOnJumpEvent();
-        }
-
-        public override void Update()
-        {
-            base.Update();
-            
-        }
-
-        public override void Exit()
-        {
-            base.Exit();
         }
     }
 }

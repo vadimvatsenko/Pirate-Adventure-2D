@@ -13,6 +13,7 @@ namespace Components.Levitation
         {
             base.Awake();
             _center = Rigidbody2D.position;
+            ResetCenter();
         }
 
         private void FixedUpdate()

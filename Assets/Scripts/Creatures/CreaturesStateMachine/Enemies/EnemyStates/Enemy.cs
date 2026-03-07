@@ -37,22 +37,17 @@ namespace Creatures.CreaturesStateMachine.Enemies.EnemyStates
         public EnemyAttackState EnemyAttackState {get; private set;}
         public EnemyBattleState BattleState { get; private set; }
         
-        // Aggro Event
-        public event Action OnAgroEvent;
-        public void CallOnAgroEvent() => OnAgroEvent?.Invoke();
-        public void SubscribeOnAgroEvent(Action action) => OnAgroEvent += action;
-        public void UnsubscribeOnAgroEvent(Action action) => OnAgroEvent -= action;
-        // 
-        // WTF Event
-        public event Action OnWTFEvent;
-        public void CallOnWTFEvent() => OnWTFEvent?.Invoke();
-        public void SubscribeOnWTFEvent(Action action) => OnWTFEvent += action;
-        public void UnsubscribeOnWTFEvent(Action action) => OnWTFEvent -= action;
+        
         
         
         protected override void Awake()
         {
             base.Awake();
+
+            if (FacingDirection == 1)
+            {
+                HandleFlip();
+            }
             
             EnemyCollisionInfo = GetComponent<EnemyCollisionInfo>();
             

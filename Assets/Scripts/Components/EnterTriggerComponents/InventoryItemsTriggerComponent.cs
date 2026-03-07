@@ -15,14 +15,10 @@ namespace Components.EnterTriggerComponents
                
                 if (gamesess == null) return;
                 
-                Debug.Log(gamesess.PlayerData.InventoryData.InventoryItem.Count);
-                Debug.Log(DefFacade.Instance.PlayerDef.InventorySize);
-                
                 _inventoryIsFull = gamesess.PlayerData.InventoryData.InventoryItem.Count >= DefFacade.Instance.PlayerDef.InventorySize;
 
                 if (_inventoryIsFull)
                 {
-                    Debug.Log("Inventory Full");
                     return;
                 }
                 else

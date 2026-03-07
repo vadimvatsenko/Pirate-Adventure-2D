@@ -1,6 +1,4 @@
-using DefaultNamespace;
 using UnityEngine;
-using UnityEngine.Events;
 
 // Анимационная система с уроков
 namespace Animation
@@ -8,7 +6,7 @@ namespace Animation
     [RequireComponent(typeof(SpriteRenderer))]
     public class SpriteAnimator : MonoBehaviour
     {
-        [Range(1, 30)] private readonly int frameRate = 10;
+        [Range(1, 30)]  private readonly int frameRate = 10;
         [SerializeField] private bool destroyAfterAnimation;
         [SerializeField] private AnimationClip[] clips;
 

@@ -9,8 +9,11 @@ namespace Creatures.CreaturesStateMachine.Player.PlayerStates
         private readonly float _bufferJumpWindow;
         private float _bufferJumpActivated;
         // койот
-        private float _coyoteJumpWindow;
+        private readonly float _coyoteJumpWindow;
         private float _coyoteJumpActivated;
+        
+        // сметрельная высота
+        private const float DEADLY_HEIGHT = 5f;
         
         private int _jumpCount;
         private float _startFallY;
@@ -34,15 +37,18 @@ namespace Creatures.CreaturesStateMachine.Player.PlayerStates
         {
             base.Update();
 
-            if (Hr.NewInputSet.Hero.Jump.triggered)
+            bool jumpPressed = Hr.NewInputSet.Hero.Jump.triggered;
+            
+            if (jumpPressed)
             {
                 ActivateBufferJump();
+                
                 bool coyoteJumpAvalible
                     = Time.time < _coyoteJumpActivated + _coyoteJumpWindow;
                 
                 if (coyoteJumpAvalible && StateMachine.PreviousState != Hr.JumpState)
                 {
-                    StateMachine.ChangeState(Hr.JumpState);
+                    Hr.StateMachine.ChangeState(Hr.JumpState);
                     CancelCoyoteJump();
                 }
             }
@@ -54,12 +60,15 @@ namespace Creatures.CreaturesStateMachine.Player.PlayerStates
                 StateMachine.ChangeState(Hr.JumpState);  
             }    
             
+            // проверка высоты падения
             if (CollisionInfo.IsGrounded && Rb2D.velocity.y <= 0.1f)
             {
                 float landedY = Hr.transform.position.y;
                 float fallHeight = _startFallY - landedY;
                 
-                if (fallHeight > 5f)
+                Hr.JumpCounter = 0;
+                
+                if (fallHeight > DEADLY_HEIGHT)
                 {
                     StateMachine.ChangeState(Hr.DeathState);
                 }
