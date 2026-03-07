@@ -62,23 +62,17 @@ namespace Creatures.CreaturesStateMachine.Enemies.Ghost
         }
 
         private SpriteRenderer _spriteRenderer;
-        public SpriteRenderer SpriteRenderer => _spriteRenderer;
         
-        private Collider2D _collider;
-        public Collider2D Collider => _collider;
-        
-        private BasicStateMachine _stateMachine;
         private BasicState _disappearState;
         private BasicState _chaseState;
-        private BasicState _idleState;
         private BasicState _appearState;
-        private BasicState _hitState;
-        private BasicState _moveState;
         private BasicState _invisibleState;
         
-        public BasicState ChaseState => _chaseState;
-        public BasicState DisappearState => _disappearState;
+        // properties
+        public SpriteRenderer SpriteRenderer => _spriteRenderer;
         public BasicState AppearState => _appearState;
+        public BasicState InvisibleState => _invisibleState;
+        public BasicState ChaseState => _chaseState;
         
         private Transform _playerTransform;
 
@@ -86,25 +80,20 @@ namespace Creatures.CreaturesStateMachine.Enemies.Ghost
         {
             base.Awake();
             
-            _stateMachine = new BasicStateMachine();
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             
-            _idleState = new GhostIdleState(this, _stateMachine, AnimatorHashes.Idle);
-            _appearState = new GhostAppearState(this, _stateMachine, AnimatorHashes.Appear);
-            _disappearState = new DisappearState(this, _stateMachine, AnimatorHashes.Disappear);
-            _hitState = new GhostBaseState(this, _stateMachine, AnimatorHashes.Hit);
-            _moveState = new GhostMoveState(this, _stateMachine, AnimatorHashes.Hit);
-            _chaseState = new GhostMoveState(this, _stateMachine, AnimatorHashes.Idle);
+            IdleState = new GhostIdleState(this, StateMachine, AnimatorHashes.Idle);
             
-            _invisibleState = new GhostInvisibleState(this,  _stateMachine, AnimatorHashes.Idle);
+            _invisibleState = new GhostInvisibleState(this, StateMachine, AnimatorHashes.Idle);
+            _appearState = new GhostAppearState(this, StateMachine, AnimatorHashes.Appear);
+            _chaseState = new GhostChaseState(this, StateMachine, AnimatorHashes.Idle);
             
-            _collider = GetComponent<BoxCollider2D>();
             
-            _stateMachine.Initialize(_invisibleState);
+            StateMachine.Initialize(_invisibleState);
         }
         public void Update()
         {
-            _stateMachine.UpdateActiveState();
+            StateMachine.UpdateActiveState();
             
             _isHeroDetection = Physics2D.CircleCast(
                 transform.position, radius, Vector2.zero, 0, LayerMask.GetMask("Player"));
@@ -139,6 +128,9 @@ namespace Creatures.CreaturesStateMachine.Enemies.Ghost
             }
             
         }
+        
+        public void HandleInvisibleState() => StateMachine.ChangeState(_invisibleState);
+        
 
         private void OnDrawGizmos()
         {
