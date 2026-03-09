@@ -72,11 +72,12 @@ namespace Creatures.CreaturesStateMachine.Enemies.Ghost
         public SpriteRenderer SpriteRenderer => _spriteRenderer;
         public BasicState AppearState => _appearState;
         public BasicState InvisibleState => _invisibleState;
+        public BasicState DisappearState => _disappearState;
         public BasicState ChaseState => _chaseState;
         
         private Transform _playerTransform;
 
-        private void Awake()
+        protected override void Awake()
         {
             base.Awake();
             
@@ -86,14 +87,15 @@ namespace Creatures.CreaturesStateMachine.Enemies.Ghost
             
             _invisibleState = new GhostInvisibleState(this, StateMachine, AnimatorHashes.Idle);
             _appearState = new GhostAppearState(this, StateMachine, AnimatorHashes.Appear);
+            _disappearState = new GhostDisappearState(this, StateMachine, AnimatorHashes.Disappear);
             _chaseState = new GhostChaseState(this, StateMachine, AnimatorHashes.Idle);
-            
+            DeathState = new GhostDeathState(this, StateMachine, AnimatorHashes.Idle);
             
             StateMachine.Initialize(_invisibleState);
         }
-        public void Update()
+        protected override void Update()
         {
-            StateMachine.UpdateActiveState();
+            StateMachine.CurrentState.Update();
             
             _isHeroDetection = Physics2D.CircleCast(
                 transform.position, radius, Vector2.zero, 0, LayerMask.GetMask("Player"));
@@ -102,12 +104,10 @@ namespace Creatures.CreaturesStateMachine.Enemies.Ghost
             {
                 HandleMovement();
             }
-            
-            
         }
         public Hero GetHero() => FindObjectOfType<Hero>();
 
-        public void HandleMovement()
+        public override void HandleMovement()
         {
             Hero hero = GetHero();
 
@@ -119,19 +119,17 @@ namespace Creatures.CreaturesStateMachine.Enemies.Ghost
                 {
                     Flip();
                 }
-            
                 transform.position 
                     = Vector2.MoveTowards(
                         transform.position, 
-                        hero.transform.position, 
+                        new Vector2(hero.transform.position.x - 0.5f,  hero.transform.position.y - 0.5f), 
                         MovementSpeed * Time.deltaTime);
             }
-            
         }
         
+        public void HandleDisappearState() => StateMachine.ChangeState(_disappearState);
         public void HandleInvisibleState() => StateMachine.ChangeState(_invisibleState);
         
-
         private void OnDrawGizmos()
         {
             Gizmos.color = _isHeroDetection ? Color.green : Color.red;

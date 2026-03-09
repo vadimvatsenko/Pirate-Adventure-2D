@@ -22,9 +22,8 @@ namespace Components.HealthComponentFolder
         {
             if(IsDead) return;
             
-            onTakeDamage?.Invoke();
-            
             health -= damage;
+            
             if (health <= 0)
             {
                 health = 0;
@@ -34,6 +33,8 @@ namespace Components.HealthComponentFolder
                 Collider2D collider2D =  GetComponent<Collider2D>();
                 collider2D.enabled = false;
             }
+            
+            onTakeDamage?.Invoke();
         }
     }
 }

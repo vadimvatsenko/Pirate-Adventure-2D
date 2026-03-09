@@ -9,13 +9,13 @@ namespace Creatures.CreaturesCollisions
         [Header("Target Detection")] 
         [SerializeField] protected int damage = 10;
         [SerializeField] protected Transform targetCheck;
+        [SerializeField] protected Vector2 offset;
         [SerializeField] protected float detectionRadius;
         [SerializeField] protected LayerMask whatIsTarget;
         
         // вчасности это событие, при столкновении или а аниматоре
         public virtual void PerformAttack()
         {
-            
             Collider2D[] colls = GetDetectedColliders();
             
             foreach (var col in colls)
@@ -38,7 +38,7 @@ namespace Creatures.CreaturesCollisions
         }
         protected virtual void OnDrawGizmos()
         {
-            Gizmos.DrawWireSphere(targetCheck.position, detectionRadius);
+            Gizmos.DrawWireSphere(targetCheck.position + (Vector3)offset, detectionRadius);
         }
     }
 }

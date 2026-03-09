@@ -22,16 +22,11 @@ namespace Creatures.CreaturesStateMachine.Enemies.Ghost
             base.Update();
             
             Ghost.IdleTimer -= Time.deltaTime;
-
-            /*if (!Ghost.IsChaising && Ghost.IdleTimer < 0)
-            {
-                //Ghost.StateMachine.ChangeState(Ghost.ChaseState);
-            }*/
+            
             if (Ghost.IsChaising && Ghost.IdleTimer < 0)
             {
-                StateMachine.ChangeState(Ghost.InvisibleState);
+                StateMachine.ChangeState(Ghost.DisappearState);
             }
-            
         }
         
         

@@ -30,7 +30,6 @@ namespace Creatures.CreaturesStateMachine.Enemies.Ghost
             
             if(StateInfo.IsName(AnimatorHashes.GetName(AnimatorHashes.Appear)) && StateInfo.normalizedTime > 1.0f)
             {
-                Debug.Log("Ghost chase");
                 StateMachine.ChangeState(Ghost.ChaseState);
             }
         }

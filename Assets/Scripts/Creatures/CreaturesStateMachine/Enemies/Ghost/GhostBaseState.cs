@@ -11,10 +11,5 @@ namespace Creatures.CreaturesStateMachine.Enemies.Ghost
         {
             Ghost = creature;
         }
-
-        public override void Update()
-        {
-            base.Update();
-        }
     }
 }

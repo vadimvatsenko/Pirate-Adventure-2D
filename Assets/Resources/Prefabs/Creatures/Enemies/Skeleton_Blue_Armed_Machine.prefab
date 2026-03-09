@@ -219,7 +219,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2279830647831099415}
-  - component: {fileID: 2279830647831099414}
   m_Layer: 12
   m_Name: ParticleSystem
   m_TagString: Untagged
@@ -248,31 +247,6 @@ Transform:
   m_Father: {fileID: 2279830649293672629}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2279830647831099414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2279830647831099408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9140e95a8564f7fa75c9a54a15a1d35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particles:
-  - type: 0
-    component: {fileID: 2279830647692964217}
-  - type: 1
-    component: {fileID: 2279830648816696840}
-  - type: 2
-    component: {fileID: 2279830648999493306}
-  - type: 3
-    component: {fileID: 2279830648587523131}
-  - type: 4
-    component: {fileID: 2279830647630549226}
-  - type: 5
-    component: {fileID: 2279830648623434807}
 --- !u!1 &2279830648431386175
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,6 +773,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 30
   targetCheck: {fileID: 1164886812039143347}
+  offset: {x: 0, y: 0}
   detectionRadius: 0.25
   whatIsTarget:
     serializedVersion: 2
