@@ -17,6 +17,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.Ghost
         {
             base.Enter();
             
+            Ghost.Vision.enabled = false;
+            
             xOffSet = Random.Range(0, 100) < 50 ? -2 : 2;
             yPosition = Random.Range(Ghost.YMinDistance, Ghost.YMaxDistance);
             

@@ -23,6 +23,8 @@ namespace Creatures.CreaturesStateMachine.Enemies.Ghost
             
             Ghost.IdleTimer -= Time.deltaTime;
             
+            Ghost.HandleMovement();
+            
             if (Ghost.IsChaising && Ghost.IdleTimer < 0)
             {
                 StateMachine.ChangeState(Ghost.DisappearState);

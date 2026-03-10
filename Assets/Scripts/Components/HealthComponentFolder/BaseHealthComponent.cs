@@ -33,8 +33,10 @@ namespace Components.HealthComponentFolder
                 Collider2D collider2D =  GetComponent<Collider2D>();
                 collider2D.enabled = false;
             }
-            
-            onTakeDamage?.Invoke();
+            else
+            {
+                onTakeDamage?.Invoke();
+            }
         }
     }
 }

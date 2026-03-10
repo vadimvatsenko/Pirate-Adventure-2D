@@ -7,7 +7,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.Ghost
     public class GhostDeathState : GhostBaseState
     {
         private float _deathRotationDirection = 1;
-        private float _deathRotationSpeed = 2;
+        private float _deathRotationSpeed = 200;
         
         public GhostDeathState(Ghost creature, BasicStateMachine stateMachine, int animBoolName) : base(creature, stateMachine, animBoolName)
         {
@@ -23,20 +23,19 @@ namespace Creatures.CreaturesStateMachine.Enemies.Ghost
             {
                 _deathRotationDirection *= -1;
             }
-            
         }
 
         public override void Update()
         {
             base.Update();
             
-           
             HandleDeathRotation();
         }
         
         private void HandleDeathRotation()
         {
-            Ghost.transform.Rotate(0,0,(_deathRotationDirection * _deathRotationSpeed) * Time.fixedDeltaTime); // ++
+            Ghost.transform.position += Vector3.down * (5 * Time.deltaTime);
+            Ghost.transform.Rotate(0,0,(_deathRotationDirection * _deathRotationSpeed) * Time.deltaTime); // ++
         }
     }
 }

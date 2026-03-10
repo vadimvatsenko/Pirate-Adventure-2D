@@ -16,10 +16,11 @@ namespace Creatures.CreaturesStateMachine.Enemies.Ghost
         [SerializeField] private float xMinDistance;
         [SerializeField] private float yMinDistance;
         [SerializeField] private float yMaxDistance;
-        [Space]
-        [Header("Hero Detection")] 
-        [SerializeField] private float radius;
-
+        
+        private VisionComponent _vision;
+        public VisionComponent Vision => _vision;
+        
+        
         private bool _isHeroDetection;
         public bool IsHeroDetection => _isHeroDetection;
         
@@ -82,6 +83,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.Ghost
             base.Awake();
             
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            _vision = GetComponent<VisionComponent>();
             
             IdleState = new GhostIdleState(this, StateMachine, AnimatorHashes.Idle);
             
@@ -97,13 +99,6 @@ namespace Creatures.CreaturesStateMachine.Enemies.Ghost
         {
             StateMachine.CurrentState.Update();
             
-            _isHeroDetection = Physics2D.CircleCast(
-                transform.position, radius, Vector2.zero, 0, LayerMask.GetMask("Player"));
-
-            if (_isHeroDetection)
-            {
-                HandleMovement();
-            }
         }
         public Hero GetHero() => FindObjectOfType<Hero>();
 
@@ -127,13 +122,10 @@ namespace Creatures.CreaturesStateMachine.Enemies.Ghost
             }
         }
         
+        public void HandleAppearState() => StateMachine.ChangeState(AppearState);
         public void HandleDisappearState() => StateMachine.ChangeState(_disappearState);
         public void HandleInvisibleState() => StateMachine.ChangeState(_invisibleState);
         
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = _isHeroDetection ? Color.green : Color.red;
-            Gizmos.DrawWireSphere(transform.position, radius);
-        }
+        
     }
 }

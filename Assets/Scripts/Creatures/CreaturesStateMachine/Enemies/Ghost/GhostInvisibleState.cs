@@ -20,7 +20,7 @@ namespace Creatures.CreaturesStateMachine.Enemies.Ghost
         {
             base.Update();
             
-            if (Ghost.IsHeroDetection)
+            if (Ghost.Vision.IsDetected)
             {
                 Ghost.StateMachine.ChangeState(Ghost.AppearState);
             }

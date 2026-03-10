@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4071556949089280679}
   - component: {fileID: 4071556949089280674}
   - component: {fileID: 4071556949089280672}
+  - component: {fileID: 464826081}
   - component: {fileID: 4071556949089280678}
   - component: {fileID: 4071556949089280677}
   - component: {fileID: 4071556949089280676}
@@ -95,7 +96,36 @@ MonoBehaviour:
   xMinDistance: 8
   yMinDistance: -4
   yMaxDistance: 4
+--- !u!114 &464826081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4071556949089280687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb01a35ada74a59b52909995fc94be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 4096
   radius: 4
+  onDetectedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4071556949089280672}
+        m_MethodName: HandleAppearState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4071556949089280678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 007e3171b9d94eddac2c6fc1d51d5422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyTime: 0
+  destroyTime: 5
 --- !u!1 &4071556949256593459
 GameObject:
   m_ObjectHideFlags: 0
