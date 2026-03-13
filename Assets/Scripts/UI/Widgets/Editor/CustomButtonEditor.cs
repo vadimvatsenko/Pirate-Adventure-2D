@@ -11,6 +11,7 @@ namespace UI.Widgets.Editor
         {
             EditorGUILayout.PropertyField(serializedObject.FindProperty("normal"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("pressed"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("highlighted"));
             
             serializedObject.ApplyModifiedProperties();
             
