@@ -13,6 +13,8 @@ namespace UI.Widgets
         {
             base.DoStateTransition(state, instant); 
             
+            if(!normal || !pressed || !highlighted) return;
+            
             normal.SetActive(state != SelectionState.Pressed && state != SelectionState.Highlighted);
             highlighted.SetActive(state == SelectionState.Highlighted);
             pressed.SetActive(state == SelectionState.Pressed);

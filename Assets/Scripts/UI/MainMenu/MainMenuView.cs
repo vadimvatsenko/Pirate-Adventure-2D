@@ -1,6 +1,7 @@
 ﻿using System;
 using UI.Widgets;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
 namespace UI.MainMenu
@@ -11,11 +12,17 @@ namespace UI.MainMenu
         [SerializeField] private CustomButton playButton;
         [SerializeField] private CustomButton optionButton;
         [SerializeField] private CustomButton exitButton;
-        [SerializeField] private CustomButton mainMenuButton;
+        [SerializeField] private CustomButton backToMainMenuButton;
         
         [Header("Windows")]
         [SerializeField] private GameObject mainWindow;
         [SerializeField] private GameObject optionsWindow;
+        
+        private Animator _mainMenuAnimator;
+        private Animator _optionsWindowAnimator;
+        
+        public Animator MainMenuAnimator => _mainMenuAnimator;
+        public Animator OptionsWindowAnimator => _optionsWindowAnimator;
 
         public event Action OnOptionsClicked;
         public event Action OnPlayClicked;
@@ -27,12 +34,18 @@ namespace UI.MainMenu
         private void HandleQuitClicked() => OnQuitClicked?.Invoke();
         private void HandleMainMenuClicked() => OnMainMenuClicked?.Invoke();
 
+        private void Start()
+        {
+            _mainMenuAnimator = mainWindow.GetComponent<Animator>();
+            _optionsWindowAnimator = optionsWindow.GetComponent<Animator>();
+        }
+
         private void OnEnable()
         {
             playButton.onClick.AddListener(HandlePlayClicked);
             optionButton.onClick.AddListener(HandleOptionsClicked);
             exitButton.onClick.AddListener(HandleQuitClicked);
-            mainMenuButton.onClick.AddListener(HandleMainMenuClicked);
+            backToMainMenuButton.onClick.AddListener(HandleMainMenuClicked);
         }
 
         private void OnDisable()
@@ -40,7 +53,7 @@ namespace UI.MainMenu
             playButton.onClick.RemoveListener(HandlePlayClicked);
             optionButton.onClick.RemoveListener(HandleOptionsClicked);
             exitButton.onClick.RemoveListener(HandleQuitClicked);
-            mainMenuButton.onClick.RemoveListener(HandleMainMenuClicked);
+            backToMainMenuButton.onClick.RemoveListener(HandleMainMenuClicked);
         }
 
         public void ShowWindow(MenuWindowType windowType)
