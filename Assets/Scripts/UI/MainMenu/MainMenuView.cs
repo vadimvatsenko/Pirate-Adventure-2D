@@ -23,6 +23,12 @@ namespace UI.MainMenu
         
         public Animator MainMenuAnimator => _mainMenuAnimator;
         public Animator OptionsWindowAnimator => _optionsWindowAnimator;
+        
+        //Buttons
+        public CustomButton PlayButton => playButton;
+        public CustomButton OptionsButton => optionButton;
+        public CustomButton BackToMainMenuButton => backToMainMenuButton;
+        public CustomButton ExitButton => exitButton;
 
         public event Action OnOptionsClicked;
         public event Action OnPlayClicked;
@@ -34,14 +40,12 @@ namespace UI.MainMenu
         private void HandleQuitClicked() => OnQuitClicked?.Invoke();
         private void HandleMainMenuClicked() => OnMainMenuClicked?.Invoke();
 
-        private void Start()
+        
+        private void Awake()
         {
             _mainMenuAnimator = mainWindow.GetComponent<Animator>();
             _optionsWindowAnimator = optionsWindow.GetComponent<Animator>();
-        }
-
-        private void OnEnable()
-        {
+            
             playButton.onClick.AddListener(HandlePlayClicked);
             optionButton.onClick.AddListener(HandleOptionsClicked);
             exitButton.onClick.AddListener(HandleQuitClicked);

@@ -9,22 +9,28 @@ namespace UI.MainMenu
     {
         private static readonly int Hide = Animator.StringToHash("hide");
         private static readonly int Show = Animator.StringToHash("show");
-        
+        private static readonly int NextLevel = Animator.StringToHash("nextLevel");
+
         private readonly MonoBehaviour _coroutineRunner;
-        
         private readonly MainMenuModel _model;
         private readonly MainMenuView _view;
 
-        public MainMenuPresenter(MainMenuModel model, MainMenuView view, MonoBehaviour coroutineRunner)
+        private Cnob _cnob;
+
+        public MainMenuPresenter(MainMenuModel model, MainMenuView view, MonoBehaviour coroutineRunner, Cnob cnob)
         {
             _model = model;
             _view = view;
+            _cnob = cnob;
+            
             _coroutineRunner = coroutineRunner;
 
             _view.OnPlayClicked += PlayGame;
             _view.OnQuitClicked += QuitGame;
             _view.OnMainMenuClicked += OpenMainMenu;
             _view.OnOptionsClicked += OpenOptionsMenu;
+
+            _cnob.onFinish += StartLevel;
         }
         
         public void Dispose()
@@ -33,6 +39,8 @@ namespace UI.MainMenu
             _view.OnQuitClicked -= QuitGame;
             _view.OnMainMenuClicked -= OpenMainMenu;
             _view.OnOptionsClicked -= OpenOptionsMenu;
+            
+            _cnob.onFinish -= StartLevel;
         }
 
         public void Init() => OpenMainMenu();
@@ -41,7 +49,7 @@ namespace UI.MainMenu
         
         private IEnumerator OpenMainMenuRoutine()
         {
-            if (_view.OptionsWindowAnimator != null)
+            if (_view.OptionsWindowAnimator.isActiveAndEnabled)
             {
                 _view.OptionsWindowAnimator.SetTrigger(Hide);
                 
@@ -55,8 +63,12 @@ namespace UI.MainMenu
             }
             
             _model.SetWindow(MenuWindowType.Main);
-            _view.ShowWindow(_model.CurrentWindowType);
-            _view.MainMenuAnimator.SetTrigger(Show);
+
+            if (_view != null)
+            {
+                _view.ShowWindow(_model.CurrentWindowType);
+                _view.MainMenuAnimator.SetTrigger(Show);
+            }
         }
         
         private void OpenOptionsMenu() => _coroutineRunner.StartCoroutine(OpenOptionsMenuRoutine());
@@ -78,12 +90,36 @@ namespace UI.MainMenu
             _view.OptionsWindowAnimator.SetTrigger(Show);
         }
         
-        private void PlayGame()
-        {
-            Debug.Log("Playing Game");
-            SceneManager.LoadScene("Level 1");
-        }
+        
+        private void PlayGame() => _coroutineRunner.StartCoroutine(StartGameRoutine());
 
+        private IEnumerator StartGameRoutine()
+        {
+            _view.PlayButton.interactable = false;
+            _view.OptionsButton.interactable = false;
+            _view.ExitButton.interactable = false;
+            _view.BackToMainMenuButton.interactable = false;
+            
+            //_view.MainMenuAnimator.SetTrigger(NextLevel);
+            
+            _cnob.AnimateRound();
+            
+            /*// нужно дождаться окончания анимации
+            while (!_view.MainMenuAnimator.GetCurrentAnimatorStateInfo(0).IsName("nextLevel"))
+                yield return null;
+            
+            // ждём, пока анимация не доиграет
+            while (_view.MainMenuAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+                yield return null;
+
+            
+            SceneManager.LoadScene("Level 1");*/
+
+            yield return null;
+        }
+        
+        private void StartLevel() => SceneManager.LoadScene("Level 1");
+        
         private void QuitGame()
         {
             Debug.Log("Quitting Game");

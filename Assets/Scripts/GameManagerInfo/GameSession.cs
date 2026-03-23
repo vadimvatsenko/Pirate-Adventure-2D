@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Creatures.CreaturesStateMachine.Player.Model.Data;
+using UI.MainMenu;
 using UnityEngine;
 
 namespace GameManagerInfo
@@ -8,6 +9,7 @@ namespace GameManagerInfo
     public class GameSession : MonoBehaviour
     {
         [SerializeField] private PlayerData playerData;
+        [SerializeField] private Cnob cnob;
         public PlayerData PlayerData => playerData;
         
         //Temp
@@ -16,6 +18,7 @@ namespace GameManagerInfo
         
         private void Awake()
         {
+            cnob.AnimateRound();
             // Если уже существует другой объект GameSession, текущий уничтожается.
             if (IsSessionExit())
             {
