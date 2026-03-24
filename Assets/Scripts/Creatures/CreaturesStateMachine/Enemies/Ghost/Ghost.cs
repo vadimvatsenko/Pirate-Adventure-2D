@@ -1,8 +1,6 @@
-﻿using System;
-using Animation;
+﻿using Animation;
 using Creatures.CreaturesStateMachine.CreatureBasic;
 using Creatures.CreaturesStateMachine.Player;
-using UnityEditorInternal;
 using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Enemies.Ghost

@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -11,6 +12,7 @@ public class OptionsSlider
     [SerializeField] private GameObject filledBG1;
     [SerializeField] private GameObject filledBG2;
     [SerializeField] private GameObject volume;
+    [SerializeField] private AudioSource mainTheme;
     [SerializeField] private GameObject gear;
 
     private RectTransform _mainBgRectTransform;
@@ -18,6 +20,8 @@ public class OptionsSlider
     private bool isToggle = false;
     private float _percent;
     private float _clampedX;
+    
+    public Action<float> OnValueChanged;
     
     private void Start()
     {
@@ -74,6 +78,8 @@ public class OptionsSlider
             = Color.Lerp(HexToRgbUtils.HexToRGB(GradientsInfo.colorTextGradient1), 
                 HexToRgbUtils.HexToRGB(GradientsInfo.colorTextGradient2), _percent);
 
+        mainTheme.volume = _percent;
+        OnValueChanged?.Invoke(_percent);
         PlayerPrefs.SetFloat(GradientsInfo.Value, _percent);
     }
 

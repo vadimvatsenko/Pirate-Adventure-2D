@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using GameManagerInfo;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,12 +17,14 @@ namespace UI.MainMenu
         private readonly MainMenuView _view;
 
         private Cnob _cnob;
+        private AudioSource _mainTheme;
 
-        public MainMenuPresenter(MainMenuModel model, MainMenuView view, MonoBehaviour coroutineRunner, Cnob cnob)
+        public MainMenuPresenter(MainMenuModel model, MainMenuView view, MonoBehaviour coroutineRunner, Cnob cnob, AudioSource mainTheme)
         {
             _model = model;
             _view = view;
             _cnob = cnob;
+            _mainTheme = mainTheme;
             
             _coroutineRunner = coroutineRunner;
 
