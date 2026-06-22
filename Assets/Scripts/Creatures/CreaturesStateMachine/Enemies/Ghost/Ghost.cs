@@ -1,8 +1,6 @@
-﻿using System;
-using Animation;
+﻿using Animation;
 using Creatures.CreaturesStateMachine.CreatureBasic;
 using Creatures.CreaturesStateMachine.Player;
-using UnityEditorInternal;
 using UnityEngine;
 
 namespace Creatures.CreaturesStateMachine.Enemies.Ghost
@@ -16,10 +14,11 @@ namespace Creatures.CreaturesStateMachine.Enemies.Ghost
         [SerializeField] private float xMinDistance;
         [SerializeField] private float yMinDistance;
         [SerializeField] private float yMaxDistance;
-        [Space]
-        [Header("Hero Detection")] 
-        [SerializeField] private float radius;
-
+        
+        private VisionComponent _vision;
+        public VisionComponent Vision => _vision;
+        
+        
         private bool _isHeroDetection;
         public bool IsHeroDetection => _isHeroDetection;
         
@@ -62,63 +61,46 @@ namespace Creatures.CreaturesStateMachine.Enemies.Ghost
         }
 
         private SpriteRenderer _spriteRenderer;
-        public SpriteRenderer SpriteRenderer => _spriteRenderer;
         
-        private Collider2D _collider;
-        public Collider2D Collider => _collider;
-        
-        private BasicStateMachine _stateMachine;
         private BasicState _disappearState;
         private BasicState _chaseState;
-        private BasicState _idleState;
         private BasicState _appearState;
-        private BasicState _hitState;
-        private BasicState _moveState;
         private BasicState _invisibleState;
         
-        public BasicState ChaseState => _chaseState;
-        public BasicState DisappearState => _disappearState;
+        // properties
+        public SpriteRenderer SpriteRenderer => _spriteRenderer;
         public BasicState AppearState => _appearState;
+        public BasicState InvisibleState => _invisibleState;
+        public BasicState DisappearState => _disappearState;
+        public BasicState ChaseState => _chaseState;
         
         private Transform _playerTransform;
 
-        private void Awake()
+        protected override void Awake()
         {
             base.Awake();
             
-            _stateMachine = new BasicStateMachine();
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            _vision = GetComponent<VisionComponent>();
             
-            _idleState = new GhostIdleState(this, _stateMachine, AnimatorHashes.Idle);
-            _appearState = new GhostAppearState(this, _stateMachine, AnimatorHashes.Appear);
-            _disappearState = new DisappearState(this, _stateMachine, AnimatorHashes.Disappear);
-            _hitState = new GhostBaseState(this, _stateMachine, AnimatorHashes.Hit);
-            _moveState = new GhostMoveState(this, _stateMachine, AnimatorHashes.Hit);
-            _chaseState = new GhostMoveState(this, _stateMachine, AnimatorHashes.Idle);
+            IdleState = new GhostIdleState(this, StateMachine, AnimatorHashes.Idle);
             
-            _invisibleState = new GhostInvisibleState(this,  _stateMachine, AnimatorHashes.Idle);
+            _invisibleState = new GhostInvisibleState(this, StateMachine, AnimatorHashes.Idle);
+            _appearState = new GhostAppearState(this, StateMachine, AnimatorHashes.Appear);
+            _disappearState = new GhostDisappearState(this, StateMachine, AnimatorHashes.Disappear);
+            _chaseState = new GhostChaseState(this, StateMachine, AnimatorHashes.Idle);
+            DeathState = new GhostDeathState(this, StateMachine, AnimatorHashes.Idle);
             
-            _collider = GetComponent<BoxCollider2D>();
-            
-            _stateMachine.Initialize(_invisibleState);
+            StateMachine.Initialize(_invisibleState);
         }
-        public void Update()
+        protected override void Update()
         {
-            _stateMachine.UpdateActiveState();
-            
-            _isHeroDetection = Physics2D.CircleCast(
-                transform.position, radius, Vector2.zero, 0, LayerMask.GetMask("Player"));
-
-            if (_isHeroDetection)
-            {
-                HandleMovement();
-            }
-            
+            StateMachine.CurrentState.Update();
             
         }
         public Hero GetHero() => FindObjectOfType<Hero>();
 
-        public void HandleMovement()
+        public override void HandleMovement()
         {
             Hero hero = GetHero();
 
@@ -130,20 +112,18 @@ namespace Creatures.CreaturesStateMachine.Enemies.Ghost
                 {
                     Flip();
                 }
-            
                 transform.position 
                     = Vector2.MoveTowards(
                         transform.position, 
-                        hero.transform.position, 
+                        new Vector2(hero.transform.position.x - 0.5f,  hero.transform.position.y - 0.5f), 
                         MovementSpeed * Time.deltaTime);
             }
-            
         }
-
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = _isHeroDetection ? Color.green : Color.red;
-            Gizmos.DrawWireSphere(transform.position, radius);
-        }
+        
+        public void HandleAppearState() => StateMachine.ChangeState(AppearState);
+        public void HandleDisappearState() => StateMachine.ChangeState(_disappearState);
+        public void HandleInvisibleState() => StateMachine.ChangeState(_invisibleState);
+        
+        
     }
 }

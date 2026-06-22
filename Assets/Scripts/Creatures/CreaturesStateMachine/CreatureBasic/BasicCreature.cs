@@ -101,7 +101,7 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         public void HandleAttackState() => StateMachine.ChangeState(AttackState);
         public void HandleFallState() => StateMachine.ChangeState(FallState);
         public void HandleHitState() => StateMachine.ChangeState(HitState);
-        public void HandleDeathState() => StateMachine.ChangeState(DeathState);
+        public virtual void HandleDeathState() => StateMachine.ChangeState(DeathState);
         public void HandleClimbState() => StateMachine.ChangeState(ClimbState);
         public void HandleThrowState() => StateMachine.ChangeState(ThrowState);
         public void HandlePauseState() => StateMachine.ChangeState(PauseState);

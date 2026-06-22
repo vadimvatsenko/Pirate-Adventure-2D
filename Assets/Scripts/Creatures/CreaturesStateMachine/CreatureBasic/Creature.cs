@@ -24,7 +24,7 @@ namespace Creatures.CreaturesStateMachine.CreatureBasic
         
         public float XInput { get; protected set; }
         
-        protected virtual void Awake()
+        protected override void Awake()
         {
             base.Awake();
             CollisionInfo = GetComponent<BasicCollisionInfo>();

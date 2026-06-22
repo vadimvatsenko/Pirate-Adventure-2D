@@ -12,17 +12,24 @@ namespace Creatures.CreaturesStateMachine.Enemies.Ghost
 
         public override void Enter()
         {
-            Debug.Log("Entering... in InvisibleState");
-            //MakeInvisible();
+            base.Enter();
+            MakeInvisible();
         }
 
         public override void Update()
         {
-            if (Ghost.IsHeroDetection)
+            base.Update();
+            
+            if (Ghost.Vision.IsDetected)
             {
-                Debug.Log("Ghost detected");
                 Ghost.StateMachine.ChangeState(Ghost.AppearState);
             }
+        }
+        
+        private void MakeInvisible()
+        {
+            Ghost.SpriteRenderer.color = Color.clear;
+            Ghost.C2D.enabled = false;
         }
     }
 }

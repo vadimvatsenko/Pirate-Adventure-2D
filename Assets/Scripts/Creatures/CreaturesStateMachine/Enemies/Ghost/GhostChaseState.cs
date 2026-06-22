@@ -14,28 +14,29 @@ namespace Creatures.CreaturesStateMachine.Enemies.Ghost
         public override void Enter()
         {
             base.Enter();
-            StartChase();
+            Ghost.IsChaising = true;
+        }
+
+        public override void Update()
+        {
+            base.Update();
+            
+            Ghost.IdleTimer -= Time.deltaTime;
+            
+            Ghost.HandleMovement();
+            
+            if (Ghost.IsChaising && Ghost.IdleTimer < 0)
+            {
+                StateMachine.ChangeState(Ghost.DisappearState);
+            }
         }
         
-        private void StartChase()
+        
+        public override void Exit()
         {
-            Transform heroTransform = Ghost.GetHero().transform;
-            
-            if (heroTransform == null)
-            {
-                EndChase();
-                return;
-            }
-
-            float xOffset = Random.Range(0, 100) < 50 ? -1 : 1;
-            
-            float yPos = Random.Range(Ghost.YMinDistance, Ghost.YMaxDistance);
-            
-            Ghost.transform.position = heroTransform.position + new Vector3(Ghost.XMinDistance * xOffset, yPos, 0);
-            
-            Ghost.ActiveTimer = Ghost.ActiveDuration;
-            
-            Ghost.IsChaising = true;
+            base.Exit();
+            Ghost.IdleTimer = Ghost.ActiveDuration;
+            Ghost.IsChaising = false;
         }
     }
 }

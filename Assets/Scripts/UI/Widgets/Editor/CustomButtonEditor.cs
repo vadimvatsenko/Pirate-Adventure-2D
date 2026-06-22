@@ -1,0 +1,21 @@
+﻿using UnityEditor;
+using UnityEditor.UI;
+
+namespace UI.Widgets.Editor
+{
+    [CustomEditor(typeof(CustomButton), true)]
+    [CanEditMultipleObjects]
+    public class CustomButtonEditor : ButtonEditor
+    {
+        public override void OnInspectorGUI()
+        {
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("normal"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("pressed"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("highlighted"));
+            
+            serializedObject.ApplyModifiedProperties();
+            
+            base.OnInspectorGUI();
+        }
+    }
+}
