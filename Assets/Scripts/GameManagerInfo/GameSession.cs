@@ -18,7 +18,7 @@ namespace GameManagerInfo
         
         private void Awake()
         {
-            cnob.AnimateRound();
+            //cnob.AnimateRound();
             // Если уже существует другой объект GameSession, текущий уничтожается.
             if (IsSessionExit())
             {
